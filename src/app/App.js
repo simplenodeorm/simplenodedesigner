@@ -8,7 +8,7 @@ function App () {
     return <SplitPane split="vertical" 
         minSize={50} 
         defaultSize={100}>
-        <div/>
+        <DocumentTree/>
         <DesignTabs/>
     </SplitPane>;
 }
