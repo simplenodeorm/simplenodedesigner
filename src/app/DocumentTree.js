@@ -1,18 +1,16 @@
 import 'rc-tree/assets/index.css';
 import React from 'react';
+import './App.css';
 import Tree, { TreeNode } from 'rc-tree';
-import Tooltip from 'rc-tooltip';
 
 function DocumentTree () {
-    return  <div>
-        <h2>Documents</h2>
-        <Tree
+    return  <div className="splitPaneChild">
+        <div className="listHeaderLabel">Documents:</div>
+        <Tree 
           onRightClick={onRightClick}
           onSelect={onSelect}
-          multiple
-          defaultExpandAll
           showLine
-          showIcon={false}
+          showIcon={true}
         >
           <TreeNode title="parent 1" key="0-1">
             <TreeNode title="parent 1-0" key="0-1-1">
