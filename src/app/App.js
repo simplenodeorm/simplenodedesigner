@@ -6,12 +6,13 @@ import DesignTabs from './DesignTabs';
 import AppToolbar from './AppToolbar';
 
 function App () {
-    return <div><AppToolbar/><SplitPane split="vertical" 
+    return <SplitPane 
+        split="vertical" 
         minSize={10} 
         defaultSize={100}>
         <DocumentTree/>
         <DesignTabs/>
-        </SplitPane></div>;
+        </SplitPane>;
 }
 
 export default App;

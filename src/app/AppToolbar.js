@@ -1,6 +1,6 @@
 import React from 'react';
 import Toolbar from 'react-minimalist-toolbar';
-import 'react-minimalist-toolbar/lib/index.css';
+import './App.css';
 
 const menu = [
         {
@@ -52,4 +52,4 @@ function undo() {
 function redo() {
     
 }
-export default Toolbar;
+export default AppToolbar;
