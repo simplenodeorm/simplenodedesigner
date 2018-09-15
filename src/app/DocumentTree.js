@@ -10,7 +10,7 @@ var state = {
   };
 function DocumentTree () {
     return  <div className="splitPaneChild">
-        <div className="listHeaderLabel"><Button className="addButton" size="sm" onClick={addDocument}>+</Button>Documents:</div>
+        <div className="listHeaderLabel">Documents:</div>
         <Tree 
           onRightClick={onRightClick}
           onSelect={onSelect}

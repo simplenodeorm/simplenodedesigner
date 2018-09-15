@@ -20,7 +20,7 @@ const menu = [
     ];
 
 function AppToolbar() {
-    return <Toolbar menu={menu}></Toolbar>;
+    return <Toolbar menu={menu} logo="logo.png"></Toolbar>;
 }
 
 function preferences() {
