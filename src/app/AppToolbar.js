@@ -4,52 +4,31 @@ import './App.css';
 
 const menu = [
         {
-            text: "document",
+            text: "File",
             items: [
             {
-                text: "New Document",
-                callback: newDocument
+                text: "Setup",
+                callback: setup
             },
             {
-                text: "Open",
-                callback: openDocument
+                text: "Preferences",
+                callback: preferences
             }
             ]
         },
-        {
-            text: "edit",
-            items: [
-            {
-                text: "Undo",
-                callback: undo
-            },
-            {
-                text: "Redo",
-                callback: redo
-            }
-            ]
-        },
+        
     ];
 
 function AppToolbar() {
     return <Toolbar menu={menu}></Toolbar>;
 }
 
-function newDocument() {
+function preferences() {
     
 }
 
-function openDocument() {
+function setup() {
     
 }
 
-
-function undo() {
-    
-}
-
-
-function redo() {
-    
-}
 export default AppToolbar;
