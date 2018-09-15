@@ -1,0 +1,11 @@
+[
+{
+    "name" : "simple",
+    "url"  : "http://localhost:8888/design"
+},
+{
+    "name" : "kfs",
+    "url"  : "http://localhost:8888/design"
+}
+]
+
