@@ -3,12 +3,23 @@ import React from 'react';
 import './App.css';
 import { Button } from 'reactstrap';
 import Tree, { TreeNode } from 'rc-tree';
+import groups from '../config/document-groups.json';
 
 var cmContainer;
-var state = {
-    selectedKeys: ['0-1', '0-1-1']
-  };
+var state = { selectedKeys: ''};
+  
 function DocumentTree () {
+    const loop = (data) => {
+      return data.map((item) => {
+        if (item.groups) {
+          return <TreeNode title={item.name} key={item.key}>{loop(item.groups)}</TreeNode>;
+        }
+        return (<TreeNode title={item.name} key={item.key} isLeaf={false}/>);
+      });
+    };
+    
+    const treeNodes = loop(groups);   
+        
     return  <div className="splitPaneChild">
         <div className="listHeaderLabel">Documents:</div>
         <Tree 
@@ -16,21 +27,8 @@ function DocumentTree () {
           onSelect={onSelect}
           showLine
           showIcon={true}
-        >
-          <TreeNode title="parent 1" key="0-1">
-            <TreeNode title="parent 1-0" key="0-1-1">
-              <TreeNode title="leaf0" isLeaf name="xxx"/>
-              <TreeNode title="leaf1" isLeaf />
-              <TreeNode title="leaf2" isLeaf />
-            </TreeNode>
-            <TreeNode title="parent 1-1">
-              <TreeNode title="leaf" isLeaf />
-            </TreeNode>
-          </TreeNode>
-        </Tree>
-      </div>
-    
-};
+        >{treeNodes}</Tree></div>;
+}
 
 function addDocument() {
 }
