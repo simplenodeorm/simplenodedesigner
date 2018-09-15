@@ -19,7 +19,7 @@ function DocumentTree () {
         >
           <TreeNode title="parent 1" key="0-1">
             <TreeNode title="parent 1-0" key="0-1-1">
-              <TreeNode title="leaf0" isLeaf />
+              <TreeNode title="leaf0" isLeaf name="xxx"/>
               <TreeNode title="leaf1" isLeaf />
               <TreeNode title="leaf2" isLeaf />
             </TreeNode>
@@ -41,7 +41,11 @@ function onSelect (selectedKeys) {
   
 function onRightClick(info) {
     state = { selectedKeys: [info.node.props.eventKey] };
-    alert('---------------->' + info.node.props.eventKey);
+    if (info.node.props.isLeaf) {
+        alert('------------------>document=' + info.node.props.name);
+    } else {
+        alert('------------------>folder');
+    }
     renderCm(info);
 }
 
