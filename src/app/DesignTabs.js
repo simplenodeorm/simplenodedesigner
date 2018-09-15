@@ -7,8 +7,8 @@ import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 function DesignTabs () {
     return <div className="tabContainer"><Tabs>
         <TabList>
-          <Tab disabled>Select Model Data</Tab>
-          <Tab disabled>Format Selected Data</Tab>
+          <Tab disabled>Select Data</Tab>
+          <Tab disabled>Format Selections</Tab>
           <Tab disabled>Create Filter</Tab>
           <Tab disabled>Run Query</Tab>
         </TabList>
