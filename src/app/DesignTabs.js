@@ -5,11 +5,12 @@ import 'react-tabs/style/react-tabs.css';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 
 function DesignTabs () {
-    return <Tabs>
+    return <div className="tabContainer"><Tabs>
         <TabList>
-          <Tab>Tab1</Tab>
-          <Tab disabled>Tab2</Tab>
-          <Tab>Tab3</Tab>
+          <Tab disabled>Select Model Data</Tab>
+          <Tab disabled>Format Selected Data</Tab>
+          <Tab disabled>Create Filter</Tab>
+          <Tab disabled>Run Query</Tab>
         </TabList>
         <TabPanel>
           <p>
@@ -28,7 +29,13 @@ function DesignTabs () {
 
           </p>
         </TabPanel>
-      </Tabs>;
+        <TabPanel>
+          <p>
+            <b>Tab3 panel</b>
+
+          </p>
+        </TabPanel>
+        </Tabs></div>;
 };
 
 export default DesignTabs;

@@ -1,20 +1,12 @@
 import 'rc-tree/assets/index.css';
 import React from 'react';
 import './App.css';
-import Button from 'react-button-component';
+import { Button } from 'reactstrap';
 import Tree, { TreeNode } from 'rc-tree';
 
-const CustomizedButton = Button.extend`
-  color: #FFF;
-  border: none;
-  height: 10px;
-  border-radius: 5px;
-  background: linear-gradient(70deg, #FF5686, #FF7B9E);
-  border-bottom: 5px solid #C44267;
-  `
 function DocumentTree () {
     return  <div className="splitPaneChild">
-        <div className="listHeaderLabel"><CustomizedButton onClick={addDocument}>+</CustomizedButton>Documents:</div>
+        <div className="listHeaderLabel"><Button className="addButton" size="sm" onClick={addDocument}>+</Button>Documents:</div>
         <Tree 
           onRightClick={onRightClick}
           onSelect={onSelect}
@@ -37,7 +29,6 @@ function DocumentTree () {
 };
 
 function addDocument() {
-    
 }
 
 function onRightClick() {

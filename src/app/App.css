@@ -69,15 +69,20 @@ body {
 }
 
 .addButton {
+    margin-left: 2px;
+    margin-right: 2px;
     color: darkGreen;
-    height: 15px;
-    width: 15px;
     font-size: 120%;
     font-weight: bold;
+    text-align: center;
     border: none;
-    border-radius: 5px;
-    background: linear-gradient(100deg, lightCyan, cyan);
-    border-bottom: 2px solid darkBlue;
-
+    border-radius: 3px;
+    background: linear-gradient(20deg, lightGray, darkGray);
+    border-bottom: 1px solid black;
 }
+
+.tabContainer {
+    margin-left: 2px;
+}
+
 
