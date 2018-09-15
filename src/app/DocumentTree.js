@@ -4,6 +4,10 @@ import './App.css';
 import { Button } from 'reactstrap';
 import Tree, { TreeNode } from 'rc-tree';
 
+var cmContainer;
+var state = {
+    selectedKeys: ['0-1', '0-1-1']
+  };
 function DocumentTree () {
     return  <div className="splitPaneChild">
         <div className="listHeaderLabel"><Button className="addButton" size="sm" onClick={addDocument}>+</Button>Documents:</div>
@@ -31,12 +35,33 @@ function DocumentTree () {
 function addDocument() {
 }
 
-function onRightClick() {
-    
+function onSelect (selectedKeys) {
+    state = { selectedKeys };
+}
+  
+function onRightClick(info) {
+    state = { selectedKeys: [info.node.props.eventKey] };
+    alert('---------------->' + info.node.props.eventKey);
+    renderCm(info);
 }
 
-function onSelect() {
-    
-}
 
+function getContainer() {
+    if (!cmContainer) {
+      cmContainer = document.createElement('div');
+      document.body.appendChild(cmContainer);
+    }
+    return cmContainer;
+}
+  
+function renderCm(info) {
+    const container = getContainer();
+    Object.assign(cmContainer.style, {
+      position: 'absolute',
+      left: `${info.event.pageX}px`,
+      top: `${info.event.pageY}px`,
+    });
+
+  //  ReactDOM.render(this.toolTip, container);
+  }
 export default DocumentTree;
