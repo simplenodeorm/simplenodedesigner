@@ -1,20 +1,30 @@
 import 'rc-tree/assets/index.css';
 import React from 'react';
+import ReactDOM from 'react-dom';
 import './App.css';
 import { Button } from 'reactstrap';
 import Tree, { TreeNode } from 'rc-tree';
+import Tooltip from 'rc-tooltip';
+
 import groups from '../config/document-groups.json';
 
-var cmContainer;
-var state = { selectedKeys: ''};
-  
+var contextMenu = document.createElement('div');
+Object.assign(contextMenu.style, {
+      position: 'absolute',
+      visibility: 'hidden'});
+document.body.appendChild(contextMenu);
+
+var state;
+
 function DocumentTree () {
     const loop = (data) => {
       return data.map((item) => {
         if (item.groups) {
-          return <TreeNode title={item.name} key={item.key}>{loop(item.groups)}</TreeNode>;
+          return <TreeNode title={item.name} key={item.key}>
+          {loop(item.groups)}
+           </TreeNode>;
         }
-        return (<TreeNode title={item.name} key={item.key} isLeaf={false}/>);
+        return <TreeNode title={item.name} key={item.key} isLeaf={true}/>
       });
     };
     
@@ -39,31 +49,40 @@ function onSelect (selectedKeys) {
   
 function onRightClick(info) {
     state = { selectedKeys: [info.node.props.eventKey] };
+    contextMenu.className = 'popupMenu';
+    contextMenu.style.top = info.event.pageY + 'px';
+    contextMenu.style.left = info.event.pageX + 'px';
+    contextMenu.style.visibility = 'visible';
+
+    let html = '';
     if (info.node.props.isLeaf) {
-        alert('------------------>document=' + info.node.props.name);
     } else {
-        alert('------------------>folder');
+        ReactDOM.render(<ul><li><a href="#" onClick={addDocument}>Add Document</a></li></ul>, contextMenu);
     }
-    renderCm(info);
+
+    //contextMenu.innerHTML=html;
 }
 
-
-function getContainer() {
-    if (!cmContainer) {
-      cmContainer = document.createElement('div');
-      document.body.appendChild(cmContainer);
-    }
-    return cmContainer;
+function addDocument() {
+    alert('----->1');
+   clearContextMenu();
 }
-  
-function renderCm(info) {
-    const container = getContainer();
-    Object.assign(cmContainer.style, {
-      position: 'absolute',
-      left: `${info.event.pageX}px`,
-      top: `${info.event.pageY}px`,
-    });
 
-  //  ReactDOM.render(this.toolTip, container);
-  }
+function editDocument() {
+   clearContextMenu();
+}
+
+function runDocument() {
+   clearContextMenu();
+}
+
+function deleteDocument() {
+    clearContextMenu();
+}
+
+function clearContextMenu() {
+    contextMenu.style.top = '-100px';
+    contextMenu.style.left = '-100px';
+    contextMenu.style.visibility = 'hidden';
+}
 export default DocumentTree;

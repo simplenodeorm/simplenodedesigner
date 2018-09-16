@@ -85,4 +85,67 @@ body {
     margin-left: 2px;
 }
 
+.popupMenu {
+        position: relative;
+        background:gray; 
+        color:#fff; 
+        padding:1px; 
+        border:none; 
+        cursor:pointer;
+	font-family:'lucida sans unicode',sans-serif; font-size:1em;
+	border:solid 1px darkGray;
+	-webkit-transition: all .4s ease-in-out;
+	transition: all .4s ease-in-out;
+        white-space: nowrap;
+}
+.popupMenu:hover {
+	border:solid 1px #fff;
+	-moz-box-shadow:0 0 5px #999; 
+        -webkit-box-shadow:0 0 5px #999; 
+        box-shadow:0 0 5px #999
+}
 
+.popupMenu>ul { 
+    margin: 0;
+    padding: 0;
+    border: 1px solid #292929;
+    -webkit-box-shadow: 0 0 3px #3c3c40;
+    -moz-box-shadow: 0 0 3px #3c3c40;
+    box-shadow: 0 0 3px #3c3c40;          
+}
+ 
+.popupMenu>ul li { 
+    list-style-type: none;
+    background-image: -moz-linear-gradient(top, #535357, #3c3c3f);
+    background-image: -ms-linear-gradient(top, #535357, #3c3c3f);
+    background-image: -webkit-linear-gradient(top, #535357, #3c3c3f);
+    background-image: linear-gradient(top, #535357, #3c3c3f);
+}
+    
+    
+.popupMenu>ul li a {
+    border-bottom: 1px solid #292929;
+    display: block;
+    padding: 3px 3px;
+    color: #fff;
+    text-decoration: none;
+    text-shadow: 0 1px 0 #000;
+    -webkit-box-shadow: inset 0 1px 0px rgba(255, 255, 255, 0.2);
+    -moz-box-shadow: inset 0 1px 0px rgba(255, 255, 255, 0.2);
+    box-shadow: inset 0 1px 0px rgba(255, 255, 255, 0.2);
+}
+ 
+.popupMenu>ul li a {
+    text-shadow: 0 0 8px rgba(255, 255, 255, 0.2);
+    background-color: #59595c;
+    -webkit-box-shadow: inset 0 1px 0px rgba(255, 255, 255, 0.2), 0 1px 0px #292929;
+    -moz-box-shadow: inset 0 1px 0px rgba(255, 255, 255, 0.2), 0 1px 0px #292929;
+    box-shadow: inset 0 1px 0px rgba(255, 255, 255, 0.2), 0 1px 0px #292929;
+}
+ 
+.popupMenu>ul li a:hover {
+    background-color: #414142;
+    -webkit-box-shadow: inset 0 2px 3px rgba(0,0,0, 0.2);
+    -moz-box-shadow: inset 0 2px 3px rgba(0,0,0, 0.2);
+    box-shadow: inset 0 2px 3px rgba(0,0,0, 0.2);
+}

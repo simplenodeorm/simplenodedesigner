@@ -1,0 +1,22 @@
+[{
+    "name": "Document Root",
+    "key" : "root",
+    "groups": [
+        {
+            "name": "group1",
+            "key" : 1,
+            "groups": [
+                {
+                    "name": "group2",
+                    "key" : 2,
+                    "isLeaf": false
+                }
+            ]
+        },
+        {
+            "name": "group3",
+            "key" : 3,
+            "isLeaf": false
+        }
+    ]
+}]
