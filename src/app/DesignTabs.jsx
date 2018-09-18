@@ -4,8 +4,13 @@ import 'react-tabs/style/react-tabs.css';
 
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 
-function DesignTabs () {
-    return <div className="tabContainer"><Tabs>
+class DesignTabs extends React.Component {
+    constructor(props) {
+        super(props);
+    }
+
+    render() {
+        return (<div className="tabContainer"><Tabs>
         <TabList>
           <Tab disabled>Select Data</Tab>
           <Tab disabled>Format Selections</Tab>
@@ -35,7 +40,8 @@ function DesignTabs () {
 
           </p>
         </TabPanel>
-        </Tabs></div>;
+        </Tabs></div>);
+    }
 };
 
-export default DesignTabs;
+export {DesignTabs};
