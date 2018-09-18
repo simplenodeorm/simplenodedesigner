@@ -29,7 +29,6 @@ select {
     width: 240px;
 }
 
-
 .login div {
     text-align: right;
     padding-right: 20px;
@@ -69,6 +68,7 @@ input[type="password"], input[type="text"] {
     transition: box-shadow 0.3s;
     width: 240px;
 }
+
 input[type="password"]:focus, input[type="text"]:focus {
     box-shadow: 0 0 4px 1px rgba(55, 166, 155, 0.3);
     outline: 0;
@@ -77,18 +77,15 @@ input[type="password"]:focus, input[type="text"]:focus {
 input[type="submit"] {
     width:100px;
     height:25px;
-    display:block;
     font-family:Arial, "Helvetica", sans-serif;
     font-size:14px;
-    font-weight:bold;
+    font-weight:500;
     color:#fff;
     text-decoration:none;
     text-transform:uppercase;
-    text-align:center;
     text-shadow:1px 1px 0px #37a69b;
     padding-top:6px;
     margin: 10px 0 0 10px;
-    position:relative;
     cursor:pointer;
     border: none;  
     background-color: #37a69b;
@@ -97,7 +94,7 @@ input[type="submit"] {
     border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;
     border-bottom-left-radius:5px;
-    box-shadow: inset 0px 1px 0px #2ab7ec, 0px 5px 0px 0px #497a78, 0px 10px 5px #999;
+    box-shadow: inset 0px 1px 0px #2ab7ec, 0px 2px 0px 0px #497a78, 0px 10px 5px #999;
 }
 
 .shadow {

@@ -5,14 +5,14 @@ export const authUserService = {
     logout
 };
 
-function login(username, password, ormurl) {
+function login(username, password, orm) {
     const requestOptions = {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ username, password })
     };
 
-    return fetch(ormurl, `/autnticate`, requestOptions)
+    return fetch(orm, `/authenticate`, requestOptions)
         .then(handleResponse)
         .then(user => {
             // login successful if there's a user in the response
