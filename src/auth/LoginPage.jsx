@@ -3,6 +3,8 @@ import orms from '../config/orms.json';
 import config from '../config/appconfig.json';
 import { authUserService } from './authUserService';
 import './LoginPage.css';
+import './LoginPage.css';
+import '../app/App.css';
 
 class LoginPage extends React.Component {
     constructor(props) {
