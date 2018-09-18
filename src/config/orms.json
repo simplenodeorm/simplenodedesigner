@@ -1,11 +1,13 @@
 [
 {
     "name" : "simple",
-    "url"  : "http://localhost:8888/design"
+    "url"  : "http://localhost:8888/orm"
 },
 {
     "name" : "kfs",
-    "url"  : "http://localhost:8888/design"
+    "url"  : "http://localhost:8888/kfsorm",
+    "defaultUsername" : "user",
+    "defaultPassword" : "pass"
 }
 ]
 
