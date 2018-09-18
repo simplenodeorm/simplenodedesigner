@@ -2,9 +2,7 @@ import 'rc-tree/assets/index.css';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './App.css';
-import { Button } from 'reactstrap';
 import Tree, { TreeNode } from 'rc-tree';
-import Tooltip from 'rc-tooltip';
 
 import groups from '../config/document-groups.json';
 
@@ -31,7 +29,6 @@ function DocumentTree () {
     const treeNodes = loop(groups);   
         
     return  <div className="splitPaneChild">
-        <div className="listHeaderLabel">Documents:</div>
         <Tree 
           onRightClick={onRightClick}
           onSelect={onSelect}
@@ -40,11 +37,9 @@ function DocumentTree () {
         >{treeNodes}</Tree></div>;
 }
 
-function addDocument() {
-}
-
 function onSelect (selectedKeys) {
     state = { selectedKeys };
+    clearContextMenu();
 }
   
 function onRightClick(info) {
@@ -56,15 +51,13 @@ function onRightClick(info) {
 
     let html = '';
     if (info.node.props.isLeaf) {
+        ReactDOM.render(<ul><li><a href="#" onClick={editDocument}>Edit Document</a></li><li><a href="#" onClick={runDocument}>Run Document</a></li><li><a href="#" onClick={deleteDocument}>Delete Document</a></li></ul>, contextMenu);
     } else {
         ReactDOM.render(<ul><li><a href="#" onClick={addDocument}>Add Document</a></li></ul>, contextMenu);
     }
-
-    //contextMenu.innerHTML=html;
 }
 
 function addDocument() {
-    alert('----->1');
    clearContextMenu();
 }
 

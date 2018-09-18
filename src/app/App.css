@@ -119,7 +119,7 @@ body {
     background-image: -moz-linear-gradient(top, #535357, #3c3c3f);
     background-image: -ms-linear-gradient(top, #535357, #3c3c3f);
     background-image: -webkit-linear-gradient(top, #535357, #3c3c3f);
-    background-image: linear-gradient(top, #535357, #3c3c3f);
+    background-image: linear-gradient(to top, #535357, #3c3c3f);
 }
     
     
@@ -149,3 +149,5 @@ body {
     -moz-box-shadow: inset 0 2px 3px rgba(0,0,0, 0.2);
     box-shadow: inset 0 2px 3px rgba(0,0,0, 0.2);
 }
+
+
