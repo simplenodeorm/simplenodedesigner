@@ -1,10 +1,25 @@
+:root {
+    --default-bkcolor: white;
+    --main-color1:-moz-linear-gradient(top, #4c4c4c 0%, #595959 10%, #666666 30%, #474747 50%, #2c2c2c 100%, #000000 20%, #111111 60%, #2b2b2b 76%, #1c1c1c 91%, #131313 100%), -webkit-linear-gradient(#4c4c4c 0%, #595959 10%, #666666 30%, #474747 50%, #2c2c2c 100%, #000000 20%, #111111 60%, #2b2b2b 76%, #1c1c1c 91%, #131313 100%), linear-gradient(to bottom, #4c4c4c 0%, #595959 10%, #666666 30%, #474747 50%, #2c2c2c 100%, #000000 20%, #111111 60%, #2b2b2b 76%, #1c1c1c 91%, #131313 100%); 
+    --main-color2:-moz-linear-gradient(top, #4c4c4c 0%, #595959 12%, #666666 25%, #474747 39%, #2c2c2c 50%, #000000 51%, #111111 60%, #2b2b2b 76%, #1c1c1c 91%, #131313 100%), -webkit-linear-gradient(top, #4c4c4c 0%,#595959 12%,#666666 25%,#474747 39%,#2c2c2c 50%,#000000 51%,#111111 60%,#2b2b2b 76%,#1c1c1c 91%,#131313 100%), linear-gradient(to bottom, #4c4c4c 0%,#595959 12%,#666666 25%,#474747 39%,#2c2c2c 50%,#000000 51%,#111111 60%,#2b2b2b 76%,#1c1c1c 91%,#131313 100%); 
+    --main-color-high:#222;
+    --text-color-toolbar:#cccccc;
+    --text-hover: #fff;
+    --popup-background:#59595c;
+    --popup-hover:#414142;
+    --font-family:"HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
+    --font-size:10pt;
+    --font-weight:300;
+    --submit-bkcolor: #37a69b;
+  }
+
 body {
-    background-image: radial-gradient( cover, rgba(92,100,111,1) 0%,rgba(31,35,40,1) 100%); 
-    font-weight: 300;
+    background: var(--main-color1);
+    font-weight: var(--font-weight));
     float:left;
     text-align: left;
-    font-size:10pt;
-    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
+    font-size:var(--font-size);
+    font-family: var(--font-family);
 }
 
 
@@ -14,8 +29,8 @@ body {
 
 .popupMenu {
     position: relative;
-    background:gray; 
-    color:#fff; 
+    background:var(--main-color2); 
+    color: var(--text-hover); 
     padding:1px; 
     border:none; 
     cursor:pointer;
@@ -54,7 +69,7 @@ body {
     border-bottom: 1px solid #292929;
     display: block;
     padding: 3px 3px;
-    color: #fff;
+    color: var(--text-hover); 
     font-size: 80%;
     text-decoration: none;
     text-shadow: 0 1px 0 #000;
@@ -65,14 +80,14 @@ body {
 
 .popupMenu>ul li a {
     text-shadow: 0 0 8px rgba(255, 255, 255, 0.2);
-    background-color: #59595c;
+    background-color: var(--popup-background);
     -webkit-box-shadow: inset 0 1px 0px rgba(255, 255, 255, 0.2), 0 1px 0px #292929;
     -moz-box-shadow: inset 0 1px 0px rgba(255, 255, 255, 0.2), 0 1px 0px #292929;
     box-shadow: inset 0 1px 0px rgba(255, 255, 255, 0.2), 0 1px 0px #292929;
 }
 
 .popupMenu>ul li a:hover {
-    background-color: #414142;
+    background-color: var(--popup-hover);
     -webkit-box-shadow: inset 0 2px 3px rgba(0,0,0, 0.2);
     -moz-box-shadow: inset 0 2px 3px rgba(0,0,0, 0.2);
     box-shadow: inset 0 2px 3px rgba(0,0,0, 0.2);
@@ -115,20 +130,19 @@ input[type="password"]:focus, input[type="text"]:focus {
 input[type="submit"] {
     width:100px;
     height:25px;
-    font-family:Arial, "Helvetica", sans-serif;
     font-size:14px;
     font-weight:500;
     color:#fff;
     text-align: center;
+    vertical-align:middle;
     text-decoration:none;
     text-transform:uppercase;
     text-shadow:1px 1px 0px #37a69b;
-    padding-top:6px;
+    padding-top:3px;
     margin: 10px 0 0 10px;
     cursor:pointer;
     border: none;  
-    background-color: #37a69b;
-    background-image: linear-gradient(top,#3db0a6,#3111);
+    background-color: var(--submit-bkcolor);
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;
@@ -146,7 +160,7 @@ input[type="submit"] {
 }
 
 .Resizer {
-    background: slate;
+    background: var(--main-color1);
     opacity: .2;
     z-index: 1;
     -moz-box-sizing: border-box;
@@ -197,7 +211,7 @@ input[type="submit"] {
 
 .treeContainer {
     padding-top: 3px;
-    background: white;
+    background: var(--default-bkcolor);
     font-size: 90%;
     width: 100%;
     height: 100%;
@@ -205,20 +219,12 @@ input[type="submit"] {
 }
 
 .tabContainer {
-    background: white;
+    background: var(--default-bkcolor);
     width: 100%;
     height: 100%;
     overflow: hidden;
     padding: 2px;
 }
-
-
-:root {
-    --main-color: slate;
-    --main-color-high:#222;
-    --text-color:#cccccc;
-    --text-hover: #fff;
-  }
 
 .minimalist-toolbar{
     overflow-y: visible;
@@ -226,13 +232,10 @@ input[type="submit"] {
     top:0px;
     z-index: 1;
     left:0px;
+    background: var(--main-color2);
     max-height: 25px;
     min-height: 12px;
-    background: -moz-linear-gradient(top, #4c4c4c 0%, #595959 12%, #666666 25%, #474747 39%, #2c2c2c 50%, #000000 51%, #111111 60%, #2b2b2b 76%, #1c1c1c 91%, #131313 100%); /* FF3.6-15 */
-    background: -webkit-linear-gradient(top, #4c4c4c 0%,#595959 12%,#666666 25%,#474747 39%,#2c2c2c 50%,#000000 51%,#111111 60%,#2b2b2b 76%,#1c1c1c 91%,#131313 100%); /* Chrome10-25,Safari5.1-6 */
-    background: linear-gradient(to bottom, #4c4c4c 0%,#595959 12%,#666666 25%,#474747 39%,#2c2c2c 50%,#000000 51%,#111111 60%,#2b2b2b 76%,#1c1c1c 91%,#131313 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */   
     width:100%;
-    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
     font-weight: 300;
     float:left;
     text-align: left;
@@ -244,14 +247,14 @@ input[type="submit"] {
     margin: 0;
     padding: 0;
     overflow: visible;
-    background-color: var(--main-color);
+    background-color: var(--main-color2);
     font-size: 10pt;
     white-space: nowrap;
 }
 
 .minimalist-toolbar> ul> li {
     float: left;
-    color: var(--text-color);
+    color: var(--text-color-toolbar);
 }
 
 .minimalist-toolbar> ul> li:hover{
@@ -260,7 +263,7 @@ input[type="submit"] {
 
 .minimalist-toolbar> ul> li a{
     display: block;
-    color: var(--text-color);
+    color: var(--text-color-toolbar);
     text-align: center;
     padding: 5px 10px;
     text-decoration: none;
@@ -281,7 +284,7 @@ input[type="submit"] {
 
 .minimalist-toolbar-brand{
     color:var(--text-hover);
-    font-weight: 300;
+    font-weight: var(--font-weight));
     background: transparent;
 }
 
@@ -312,19 +315,19 @@ input[type="submit"] {
 .minimalist-toolbar .dropdown {
     position: relative;
     display: inline-block;
-    color: var(--text-color);
+    color: var(--text-color-toolbar);
     overflow: visible;
 }
 
 .minimalist-toolbar .dropdown:hover, .minimalist-toolbar .dropdown-content:hover{
-    background: var(--main-color);
+    background: var(--main-color2);
     color: var(--text-hover);
 }
 
 .minimalist-toolbar .dropdown-content {
     display: none;
     position: absolute;
-    background-color: #000;
+    background-color: black;
     min-width: 200px;
     width: auto;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
@@ -334,7 +337,7 @@ input[type="submit"] {
 .minimalist-toolbar .dropdown:hover .dropdown-content {
     display:inline-block;
     white-space: nowrap;
-    color: var(--text-color);
+    color: var(--text-color-toolbar);
 }
 
 .minimalist-toolbar .dropdown-content a:hover{
