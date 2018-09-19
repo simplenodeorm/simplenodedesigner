@@ -121,13 +121,15 @@ class LoginPage extends React.Component {
         let curcomp = this;
         const authString = 'Basic ' + base64.encode(username + ':' + password);
         var config = {
-            headers: {'Authorization': authString}
+            headers: {'Authorization': authString, 'Cache-Control': 'no-cache'}
         };
 
+        localStorage.removeItem('user')
+        localStorage.removeItem('orm')
         const instance = axios.create({baseURL: orm.url});
         instance.get('/design/login', config)
                 .then((response) => {
-                    if (response.status === 200) {
+                    if ((response.status === 200) && (response.data === 'success')) {
                         localStorage.setItem('user', username)
                         localStorage.setItem('orm', orm.name)
                         curcomp.props.history.push('/');
