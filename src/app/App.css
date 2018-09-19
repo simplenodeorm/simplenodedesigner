@@ -1,7 +1,6 @@
 :root {
     --default-bkcolor: white;
-    --main-color1:-moz-linear-gradient(top, #4c4c4c 0%, #595959 10%, #666666 30%, #474747 50%, #2c2c2c 100%, #000000 20%, #111111 60%, #2b2b2b 76%, #1c1c1c 91%, #131313 100%), -webkit-linear-gradient(#4c4c4c 0%, #595959 10%, #666666 30%, #474747 50%, #2c2c2c 100%, #000000 20%, #111111 60%, #2b2b2b 76%, #1c1c1c 91%, #131313 100%), linear-gradient(to bottom, #4c4c4c 0%, #595959 10%, #666666 30%, #474747 50%, #2c2c2c 100%, #000000 20%, #111111 60%, #2b2b2b 76%, #1c1c1c 91%, #131313 100%); 
-    --main-color2:-moz-linear-gradient(top, #4c4c4c 0%, #595959 12%, #666666 25%, #474747 39%, #2c2c2c 50%, #000000 51%, #111111 60%, #2b2b2b 76%, #1c1c1c 91%, #131313 100%), -webkit-linear-gradient(top, #4c4c4c 0%,#595959 12%,#666666 25%,#474747 39%,#2c2c2c 50%,#000000 51%,#111111 60%,#2b2b2b 76%,#1c1c1c 91%,#131313 100%), linear-gradient(to bottom, #4c4c4c 0%,#595959 12%,#666666 25%,#474747 39%,#2c2c2c 50%,#000000 51%,#111111 60%,#2b2b2b 76%,#1c1c1c 91%,#131313 100%); 
+    --main-color:-moz-linear-gradient(top, slateGray, black), -webkit-linear-gradient(slateGray, black), linear-gradient(to bottom, slateGray, black); 
     --main-color-high:#222;
     --text-color-toolbar:#cccccc;
     --text-hover: #fff;
@@ -11,10 +10,17 @@
     --font-size:10pt;
     --font-weight:300;
     --submit-bkcolor: #37a69b;
+    --header-background: -moz-linear-gradient(top, lightGray, silver), -webkit-linear-gradient(lightGray, silver), linear-gradient(to bottom, lightGray, silver);
+    --header-text-color:darkSlateGray;
   }
 
+html {
+    height:100%;
+      
+}
+
 body {
-    background: var(--main-color1);
+    background-image: var(--main-color);
     font-weight: var(--font-weight));
     float:left;
     text-align: left;
@@ -29,7 +35,7 @@ body {
 
 .popupMenu {
     position: relative;
-    background:var(--main-color2); 
+    background:var(--main-color); 
     color: var(--text-hover); 
     padding:1px; 
     border:none; 
@@ -160,7 +166,7 @@ input[type="submit"] {
 }
 
 .Resizer {
-    background: var(--main-color1);
+    background: var(--main-color);
     opacity: .2;
     z-index: 1;
     -moz-box-sizing: border-box;
@@ -232,7 +238,7 @@ input[type="submit"] {
     top:0px;
     z-index: 1;
     left:0px;
-    background: var(--main-color2);
+    background: var(--main-color);
     max-height: 25px;
     min-height: 12px;
     width:100%;
@@ -247,7 +253,7 @@ input[type="submit"] {
     margin: 0;
     padding: 0;
     overflow: visible;
-    background-color: var(--main-color2);
+    background-color: var(--main-color);
     font-size: 10pt;
     white-space: nowrap;
 }
@@ -320,7 +326,7 @@ input[type="submit"] {
 }
 
 .minimalist-toolbar .dropdown:hover, .minimalist-toolbar .dropdown-content:hover{
-    background: var(--main-color2);
+    background: var(--main-color);
     color: var(--text-hover);
 }
 
@@ -344,4 +350,30 @@ input[type="submit"] {
     color:var(--text-hover);
 }
 
+.login div {
+    text-align: right;
+    padding-right: 20px;
+}
+
+.login {
+    background: #eceeee;
+    border: 1px solid #42464b;
+    border-radius: 10px;
+    height: 240px;
+    margin: 15% 30%;
+    width: 375px;
+}
+
+.login h2 {
+    background: var(--header-background);
+    border-bottom: 2px solid #a6abaf;
+    border-radius: 10px 10px 0 0;
+    box-sizing: border-box;
+    color: var(--header-text-color);
+    display: block;
+    padding-top: 2px;
+    margin: 0;
+    height: 30px;
+    text-align: center;
+}
 

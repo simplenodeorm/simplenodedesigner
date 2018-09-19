@@ -5,7 +5,7 @@ import base64 from 'base-64';
 import axios from 'axios';
 import { withRouter } from 'react-router';
 
-import './LoginPage.css';
+import '../app/App.css';
 
 const loop = (data) => {
     return data.map((item) => {
