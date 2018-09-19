@@ -16,7 +16,7 @@ class HomePage extends React.Component {
         <br /><SplitPane 
                     split="vertical" 
                     minSize={10} 
-                    defaultSize={100}>
+                    defaultSize={150}>
                     <DocumentTree/>
                     <DesignTabs/>
                 </SplitPane></div>

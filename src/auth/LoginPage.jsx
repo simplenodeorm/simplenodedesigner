@@ -41,14 +41,14 @@ class LoginPage extends React.Component {
             if (value) {
                 for (let i = 0; i < orms.length; ++i) {
                     if (orms[i].name === e.target.value) {
-                        this.setState({[name]: orms[i].url});
+                        this.setState({orm: orms[i]});
                         this.setState({username: orms[i].defaultUsername});
                         this.setState({password: orms[i].defaultPassword});
                         break;
                     }
                 }
             } else {
-                this.setState({[name]: ''});
+                this.setState({orm: undefined});
                 this.setState({username: ''});
                 this.setState({password: ''});
             }
@@ -124,11 +124,12 @@ class LoginPage extends React.Component {
             headers: {'Authorization': authString}
         };
 
-        const instance = axios.create({baseURL: orm});
+        const instance = axios.create({baseURL: orm.url});
         instance.get('/design/login', config)
                 .then((response) => {
                     if (response.status === 200) {
                         localStorage.setItem('user', username)
+                        localStorage.setItem('orm', orm.name)
                         curcomp.props.history.push('/');
                     } else {
                         curcomp.setState({error: response.statusText, loading: false, submitted: false});
@@ -142,6 +143,7 @@ class LoginPage extends React.Component {
     logout() {
         // remove user from local storage to log user out
         localStorage.removeItem('user');
+        localStorage.removeItem('orm');
     }
 }
 
