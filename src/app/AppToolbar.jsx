@@ -1,6 +1,5 @@
 import React from 'react';
-import Toolbar from 'react-minimalist-toolbar';
-import 'react-minimalist-toolbar/lib/index.css';
+import Toolbar from '../components/Toolbar';
 import './App.css';
 
 const menu =  [
@@ -9,15 +8,15 @@ const menu =  [
         items: [
         {
             text: "Add Document",
-            callback: this.addDocument
+            callback: addDocument
         },
         {
             text: "Setup",
-            callback: this.setup
+            callback: setup
         },
         {
             text: "Preferences",
-            callback: this.preferences
+            callback: preferences
         }
         ]
     }

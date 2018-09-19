@@ -10,6 +10,18 @@ class App extends React.Component  {
         super(props);
     }
     
+    onUnload(event) { 
+        localStorage.removeItem('user');
+    }
+
+    componentDidMount() {
+       window.addEventListener("beforeunload", this.onUnload)
+    }
+
+    componentWillUnmount() {
+        window.removeEventListener("beforeunload", this.onUnload)
+    }
+
     render() {
         return (<div >
             <Router>
