@@ -1,9 +1,148 @@
 body {
+    background-image: radial-gradient( cover, rgba(92,100,111,1) 0%,rgba(31,35,40,1) 100%); 
     font-weight: 300;
     float:left;
     text-align: left;
-    font-size:8pt;
+    font-size:10pt;
     font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
+}
+
+
+.tabContainer {
+    margin-left: 2px;
+}
+
+.popupMenu {
+    position: relative;
+    background:gray; 
+    color:#fff; 
+    padding:1px; 
+    border:none; 
+    cursor:pointer;
+    font-family:'lucida sans unicode',sans-serif; font-size:1em;
+    border:solid 1px darkGray;
+    -webkit-transition: all .4s ease-in-out;
+    transition: all .4s ease-in-out;
+    white-space: nowrap;
+}
+.popupMenu:hover {
+    border:solid 1px #fff;
+    -moz-box-shadow:0 0 5px #999; 
+    -webkit-box-shadow:0 0 5px #999; 
+    box-shadow:0 0 5px #999
+}
+
+.popupMenu>ul { 
+    margin: 0;
+    padding: 0;
+    border: 1px solid #292929;
+    -webkit-box-shadow: 0 0 3px #3c3c40;
+    -moz-box-shadow: 0 0 3px #3c3c40;
+    box-shadow: 0 0 3px #3c3c40;          
+}
+
+.popupMenu>ul li { 
+    list-style-type: none;
+    background-image: -moz-linear-gradient(top, #535357, #3c3c3f);
+    background-image: -ms-linear-gradient(top, #535357, #3c3c3f);
+    background-image: -webkit-linear-gradient(top, #535357, #3c3c3f);
+    background-image: linear-gradient(to top, #535357, #3c3c3f);
+}
+
+
+.popupMenu>ul li a {
+    border-bottom: 1px solid #292929;
+    display: block;
+    padding: 3px 3px;
+    color: #fff;
+    font-size: 80%;
+    text-decoration: none;
+    text-shadow: 0 1px 0 #000;
+    -webkit-box-shadow: inset 0 1px 0px rgba(255, 255, 255, 0.2);
+    -moz-box-shadow: inset 0 1px 0px rgba(255, 255, 255, 0.2);
+    box-shadow: inset 0 1px 0px rgba(255, 255, 255, 0.2);
+}
+
+.popupMenu>ul li a {
+    text-shadow: 0 0 8px rgba(255, 255, 255, 0.2);
+    background-color: #59595c;
+    -webkit-box-shadow: inset 0 1px 0px rgba(255, 255, 255, 0.2), 0 1px 0px #292929;
+    -moz-box-shadow: inset 0 1px 0px rgba(255, 255, 255, 0.2), 0 1px 0px #292929;
+    box-shadow: inset 0 1px 0px rgba(255, 255, 255, 0.2), 0 1px 0px #292929;
+}
+
+.popupMenu>ul li a:hover {
+    background-color: #414142;
+    -webkit-box-shadow: inset 0 2px 3px rgba(0,0,0, 0.2);
+    -moz-box-shadow: inset 0 2px 3px rgba(0,0,0, 0.2);
+    box-shadow: inset 0 2px 3px rgba(0,0,0, 0.2);
+}
+
+
+select {
+    background: linear-gradient(top, #d6d7d7, #dee0e0);
+    border: 1px solid #a1a3a3;
+    border-radius: 4px;
+    box-shadow: 0 1px #fff;
+    box-sizing: border-box;
+    color: #696969;
+    height: 25px;
+    margin: 10px 0 0 10px;
+    padding-left: 5px;
+    transition: box-shadow 0.3s;
+    width: 240px;
+}
+
+input[type="password"], input[type="text"] {
+    background: linear-gradient(top, #d6d7d7, #dee0e0);
+    border: 1px solid #a1a3a3;
+    border-radius: 4px;
+    box-shadow: 0 1px #fff;
+    box-sizing: border-box;
+    color: #696969;
+    height: 25px;
+    margin: 10px 0 0 10px;
+    padding-left: 5px;
+    transition: box-shadow 0.3s;
+    width: 240px;
+}
+
+input[type="password"]:focus, input[type="text"]:focus {
+    box-shadow: 0 0 4px 1px rgba(55, 166, 155, 0.3);
+    outline: 0;
+}
+
+input[type="submit"] {
+    width:100px;
+    height:25px;
+    font-family:Arial, "Helvetica", sans-serif;
+    font-size:14px;
+    font-weight:500;
+    color:#fff;
+    text-align: center;
+    text-decoration:none;
+    text-transform:uppercase;
+    text-shadow:1px 1px 0px #37a69b;
+    padding-top:6px;
+    margin: 10px 0 0 10px;
+    cursor:pointer;
+    border: none;  
+    background-color: #37a69b;
+    background-image: linear-gradient(top,#3db0a6,#3111);
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius:5px;
+    box-shadow: inset 0px 1px 0px #2ab7ec, 0px 2px 0px 0px #497a78, 0px 10px 5px #999;
+}
+
+
+.errorMessage {
+    font-size: 12px;
+    height: 20px;
+    margin-left: 20px;
+    text-align: left;
+    color: crimson;
 }
 
 .Resizer {
@@ -56,165 +195,20 @@ body {
     border-color: transparent;
 }
 
-.listHeaderLabel {
-    padding-bottom: 2px;
-    font-size: 110%;
-    font-weight: bold;
-    border-bottom: 1px solid gray;
-}
-
-.splitPaneChild {
+.treeContainer {
+    padding-top: 3px;
+    background: white;
+    font-size: 90%;
     width: 100%;
+    height: 100%;
     overflow: hidden;
 }
 
-.addButton {
-    margin-left: 2px;
-    margin-right: 2px;
-    color: darkGreen;
-    font-size: 120%;
-    font-weight: bold;
-    text-align: center;
-    border: none;
-    border-radius: 3px;
-    background: linear-gradient(20deg, lightGray, darkGray);
-    border-bottom: 1px solid black;
-}
-
 .tabContainer {
-    margin-left: 2px;
+    background: white;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    padding: 2px;
 }
 
-.popupMenu {
-        position: relative;
-        background:gray; 
-        color:#fff; 
-        padding:1px; 
-        border:none; 
-        cursor:pointer;
-	font-family:'lucida sans unicode',sans-serif; font-size:1em;
-	border:solid 1px darkGray;
-	-webkit-transition: all .4s ease-in-out;
-	transition: all .4s ease-in-out;
-        white-space: nowrap;
-}
-.popupMenu:hover {
-	border:solid 1px #fff;
-	-moz-box-shadow:0 0 5px #999; 
-        -webkit-box-shadow:0 0 5px #999; 
-        box-shadow:0 0 5px #999
-}
-
-.popupMenu>ul { 
-    margin: 0;
-    padding: 0;
-    border: 1px solid #292929;
-    -webkit-box-shadow: 0 0 3px #3c3c40;
-    -moz-box-shadow: 0 0 3px #3c3c40;
-    box-shadow: 0 0 3px #3c3c40;          
-}
- 
-.popupMenu>ul li { 
-    list-style-type: none;
-    background-image: -moz-linear-gradient(top, #535357, #3c3c3f);
-    background-image: -ms-linear-gradient(top, #535357, #3c3c3f);
-    background-image: -webkit-linear-gradient(top, #535357, #3c3c3f);
-    background-image: linear-gradient(to top, #535357, #3c3c3f);
-}
-    
-    
-.popupMenu>ul li a {
-    border-bottom: 1px solid #292929;
-    display: block;
-    padding: 3px 3px;
-    color: #fff;
-    text-decoration: none;
-    text-shadow: 0 1px 0 #000;
-    -webkit-box-shadow: inset 0 1px 0px rgba(255, 255, 255, 0.2);
-    -moz-box-shadow: inset 0 1px 0px rgba(255, 255, 255, 0.2);
-    box-shadow: inset 0 1px 0px rgba(255, 255, 255, 0.2);
-}
- 
-.popupMenu>ul li a {
-    text-shadow: 0 0 8px rgba(255, 255, 255, 0.2);
-    background-color: #59595c;
-    -webkit-box-shadow: inset 0 1px 0px rgba(255, 255, 255, 0.2), 0 1px 0px #292929;
-    -moz-box-shadow: inset 0 1px 0px rgba(255, 255, 255, 0.2), 0 1px 0px #292929;
-    box-shadow: inset 0 1px 0px rgba(255, 255, 255, 0.2), 0 1px 0px #292929;
-}
- 
-.popupMenu>ul li a:hover {
-    background-color: #414142;
-    -webkit-box-shadow: inset 0 2px 3px rgba(0,0,0, 0.2);
-    -moz-box-shadow: inset 0 2px 3px rgba(0,0,0, 0.2);
-    box-shadow: inset 0 2px 3px rgba(0,0,0, 0.2);
-}
-
-
-select {
-    background: linear-gradient(top, #d6d7d7, #dee0e0);
-    border: 1px solid #a1a3a3;
-    font-size:10pt;
-    border-radius: 4px;
-    box-shadow: 0 1px #fff;
-    box-sizing: border-box;
-    color: #696969;
-    height: 25px;
-    margin: 10px 0 0 10px;
-    padding-left: 5px;
-    transition: box-shadow 0.3s;
-    width: 240px;
-}
-
-input[type="password"], input[type="text"] {
-    background: linear-gradient(top, #d6d7d7, #dee0e0);
-    border: 1px solid #a1a3a3;
-    border-radius: 4px;
-    box-shadow: 0 1px #fff;
-    box-sizing: border-box;
-    color: #696969;
-    font-size:10pt;
-    height: 25px;
-    margin: 10px 0 0 10px;
-    padding-left: 5px;
-    transition: box-shadow 0.3s;
-    width: 240px;
-}
-
-input[type="password"]:focus, input[type="text"]:focus {
-    box-shadow: 0 0 4px 1px rgba(55, 166, 155, 0.3);
-    outline: 0;
-}
-
-input[type="submit"] {
-    width:100px;
-    height:25px;
-    font-family:Arial, "Helvetica", sans-serif;
-    font-size:14px;
-    font-weight:500;
-    color:#fff;
-    text-align: center;
-    text-decoration:none;
-    text-transform:uppercase;
-    text-shadow:1px 1px 0px #37a69b;
-    padding-top:6px;
-    margin: 10px 0 0 10px;
-    cursor:pointer;
-    border: none;  
-    background-color: #37a69b;
-    background-image: linear-gradient(top,#3db0a6,#3111);
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
-    border-bottom-right-radius: 5px;
-    border-bottom-left-radius:5px;
-    box-shadow: inset 0px 1px 0px #2ab7ec, 0px 2px 0px 0px #497a78, 0px 10px 5px #999;
-}
-
-
-.errorMessage {
-    font-size: 12px;
-    height: 20px;
-    margin-left: 20px;
-    text-align: left;
-    color: crimson;
-}

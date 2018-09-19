@@ -8,15 +8,13 @@
             "groups": [
                 {
                     "name": "group2",
-                    "key" : 2,
-                    "isLeaf": false
+                    "key" : 2
                 }
             ]
         },
         {
             "name": "group3",
-            "key" : 3,
-            "isLeaf": false
+            "key" : 3
         }
     ]
 }]

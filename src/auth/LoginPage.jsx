@@ -3,9 +3,9 @@ import orms from '../config/orms.json';
 import config from '../config/appconfig.json';
 import base64 from 'base-64';
 import axios from 'axios';
+import { withRouter } from 'react-router';
 
 import './LoginPage.css';
-import '../app/App.css';
 
 const loop = (data) => {
     return data.map((item) => {
@@ -38,13 +38,19 @@ class LoginPage extends React.Component {
         const {name, value} = e.target;
 
         if (name === "orm") {
-            for (let i = 0; i < orms.length; ++i) {
-                if (orms[i].name === e.target.value) {
-                    this.setState({[name]: orms[i].url});
-                    this.setState({username: orms[i].defaultUsername});
-                    this.setState({password: orms[i].defaultPassword});
-                    break;
+            if (value) {
+                for (let i = 0; i < orms.length; ++i) {
+                    if (orms[i].name === e.target.value) {
+                        this.setState({[name]: orms[i].url});
+                        this.setState({username: orms[i].defaultUsername});
+                        this.setState({password: orms[i].defaultPassword});
+                        break;
+                    }
                 }
+            } else {
+                this.setState({[name]: ''});
+                this.setState({username: ''});
+                this.setState({password: ''});
             }
         } else {
             this.setState({[name]: value});
@@ -55,7 +61,7 @@ class LoginPage extends React.Component {
         e.preventDefault();
 
         this.setState({submitted: true, error: ''});
-        const {username, password, orm, returnUrl} = this.state;
+        const {username, password, orm} = this.state;
 
         // stop here if form is invalid
         if (!(username && password && orm)) {
@@ -70,46 +76,45 @@ class LoginPage extends React.Component {
         const {username, password, orm, submitted, loading, error} = this.state;
 
         return (
-                <div className="titledPage">
-                    <h1>{config.logintitletext}</h1>
-                    <div className="errorMessage">{error}</div>
-                    <div className="login">
-                        <h2>Design Login</h2>
-                        <form name="form" onSubmit={this.handleSubmit}>
-                            <div>
-                                <label htmlFor="username">Username</label>
-                                <input type="text" name="username" value={username} onChange={this.handleChange} />
-                                {submitted && !username &&
-                                    <div>*Username is required</div>
-                                }
-                            </div>
-                            <div>
-                                <label htmlFor="password">Password</label>
-                                <input type="password" name="password" value={password} onChange={this.handleChange} /> 
-                                {submitted && !password &&
-                                    <div>*Password is required</div>
-                                }
-                            </div>
-                            <div>
-                                <label>Target ORM</label>
-                                <select name="orm" onChange={this.handleChange}><option></option>{options}</select>
-                
-                                {submitted && !orm &&
-                                    <div>*Target ORM is required</div>
-                                }
-                            </div>
-                            <div>
-                                {loading &&
-                                    <img src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
-                                }
-                                <input type="submit" disabled={loading} value="Login"/>
-                            </div>
-                         
-                        </form>
-                    </div>
-                    
+            <div>
+                <h1>{config.logintitletext}</h1>
+                <div className="errorMessage">{error}</div>
+                <div className="login">
+                    <h2>Design Login</h2>
+                    <form name="form" onSubmit={this.handleSubmit}>
+                        <div>
+                            <label htmlFor="username">Username</label>
+                            <input type="text" name="username" value={username} onChange={this.handleChange} />
+                            {submitted && !username &&
+                                <div className="errorMessage">*Username is required</div>
+                            }
+                        </div>
+                        <div>
+                            <label htmlFor="password">Password</label>
+                            <input type="password" name="password" value={password} onChange={this.handleChange} /> 
+                            {submitted && !password &&
+                                <div className="errorMessage">*Password is required</div>
+                            }
+                        </div>
+                        <div>
+                            <label>Target ORM</label>
+                            <select name="orm" onChange={this.handleChange}><option></option>{options}</select>
+
+                            {submitted && !orm &&
+                                <div className="errorMessage">*Target ORM is required</div>
+                            }
+                        </div>
+                        <div>
+                            {loading &&
+                                <img src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
+                            }
+                            <input type="submit" disabled={loading} value="Login"/>
+                        </div>
+
+                    </form>
                 </div>
-                );
+            </div>
+        );
     }
 
     login(username, password, orm) {
@@ -123,7 +128,8 @@ class LoginPage extends React.Component {
         instance.get('/design/login', config)
                 .then((response) => {
                     if (response.status === 200) {
-                        curcomp.props.history.push('/home');
+                        localStorage.setItem('user', username)
+                        curcomp.props.history.push('/');
                     } else {
                         curcomp.setState({error: response.statusText, loading: false, submitted: false});
                     }
@@ -139,4 +145,4 @@ class LoginPage extends React.Component {
     }
 }
 
-export { LoginPage };
+export default withRouter(LoginPage);

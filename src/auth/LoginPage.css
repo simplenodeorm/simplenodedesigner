@@ -1,17 +1,9 @@
 html { height: 100% }
 ::-moz-selection { background: #fe57a1; color: #fff; text-shadow: none; }
 ::selection { background: #fe57a1; color: #fff; text-shadow: none; }
-body { 
-    background-image: radial-gradient( cover, rgba(92,100,111,1) 0%,rgba(31,35,40,1) 100%); 
-    font-weight: 300;
-    text-align: left;
-    font-size:10pt;
-    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
-}
 
 h1 {
-   font-size: 24px;
-   font-weight: 400;
+   font-size: 20px;
    color: gray;
 }
 
@@ -23,19 +15,20 @@ h1 {
 .login {
     background: #eceeee;
     border: 1px solid #42464b;
-    border-radius: 6px;
-    height: 250px;
-    margin: 25% 25%;
+    border-radius: 10px;
+    height: 240px;
+    margin: 15% 30%;
     width: 375px;
 }
 
 .login h2 {
     background-image: linear-gradient(top, #f1f3f3, #d4dae0);
-    border-bottom: 1px solid #a6abaf;
-    border-radius: 6px 6px 0 0;
+    border-bottom: 2px solid #a6abaf;
+    border-radius: 10px 10px 0 0;
     box-sizing: border-box;
     color: #727678;
     display: block;
+    padding-top: 2px;
     margin: 0;
     height: 30px;
     text-align: center;
