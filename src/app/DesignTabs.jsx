@@ -1,6 +1,8 @@
 import React from 'react';
 import './App.css';
 import 'react-tabs/style/react-tabs.css';
+import { MenuButton } from '../components/MenuButton';
+//import { DropdownMenu, MenuItem } from 'react-bootstrap-dropdown-menu';
 
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 
@@ -12,13 +14,14 @@ class DesignTabs extends React.Component {
             tab0Disabled: true,
             tab1Disabled: true,
             tab2Disabled: true,
-            tab3Disabled: true
+            tab3Disabled: true,
+            selectedModel: ''
         }
     }
 
     render() {
         const {tab0Disabled, tab1Disabled, tab2Disabled, tab3Disabled} = this.state;
-        return (<div className="tabContainer"><Tabs>
+        return (<div className="tabContainer"><MenuButton text='Select model...' onMenuClick={this.onMenuClick}/><Tabs>
         <TabList>
           <Tab disabled={tab0Disabled}>Select Data</Tab>
           <Tab disabled={tab1Disabled}>Format Selections</Tab>
@@ -50,6 +53,15 @@ class DesignTabs extends React.Component {
         </TabPanel>
         </Tabs></div>);
     }
+    
+    onMenuClick() {
+        alert('------------->clicked');
+    }
+
+    onMenuSelect() {
+    }
+
 };
+
 
 export {DesignTabs};

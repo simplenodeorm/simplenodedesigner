@@ -5,7 +5,6 @@ import { DesignTabs } from './DesignTabs';
 import AppToolbar from './AppToolbar';
 import './App.css';
 
-
 class HomePage extends React.Component {
     constructor(props) {
         super(props);

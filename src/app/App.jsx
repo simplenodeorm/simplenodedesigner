@@ -24,7 +24,7 @@ class App extends React.Component  {
     }
 
     render() {
-        return (<div >
+        return (<div>
             <Router>
                 <div>
                     <Route path="/login" component={LoginPage} />

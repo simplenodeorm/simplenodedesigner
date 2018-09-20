@@ -12,6 +12,7 @@
     --submit-bkcolor: #37a69b;
     --header-background: -moz-linear-gradient(top, lightGray, silver), -webkit-linear-gradient(lightGray, silver), linear-gradient(to bottom, lightGray, silver);
     --header-text-color:darkSlateGray;
+    --menu-button-color:darkBlue;
   }
 
 html {
@@ -377,3 +378,33 @@ input[type="submit"] {
     text-align: center;
 }
 
+.menuButton {
+    border-bottom-left-radius: 50%;
+    border-bottom-right-radius: 50%;
+    border-top-left-radius: 50%;
+    border-top-right-radius: 50%;
+    flex-basis: auto;
+    flex-grow: 0;
+    flex-shrink: 0;
+    height: 20px;
+    padding-left: 10px;
+    padding-bottom: 5px;
+    width:20px;
+    -moz-user-select: none;
+}
+
+.menuButton a{
+    color: var(--menu-button-color);
+    text-decoration: none;
+    text-align: left;
+    vertical-align: bottom;
+    white-space: nowrap;
+}
+
+.menuButton path {
+    fill: var(--menu-button-color);
+}  
+    
+.menuButton svg {
+    vertical-align: top;
+}

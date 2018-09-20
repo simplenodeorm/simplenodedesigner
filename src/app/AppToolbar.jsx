@@ -7,7 +7,7 @@ const menu =  [
         text: "File",
         items: [
         {
-            text: "Add Document",
+            text: "xxxxxxxxxxxxxxxxxx",
             callback: addDocument
         },
         {
