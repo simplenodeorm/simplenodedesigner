@@ -4,17 +4,27 @@
     "groups": [
         {
             "name": "General",
-            "key" : 1,
-            "groups": [
-                {
-                    "name": "Human Resources",
-                    "key" : 2
-                }
-            ]
+            "key" : 1
         },
         {
             "name": "Financial",
-            "key" : 3
+            "key" : 2,
+            "groups": [
+                {
+                    "name": "Accounting",
+                    "key" : 3
+                },
+                {
+                    "name": "Purchasing",
+                    "key" :4
+                }
+            ]
+
+        },
+        {
+            "name": "Personnel",
+            "key" : 5
         }
+        
     ]
 }]
