@@ -9,6 +9,7 @@
     --font-family:"HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
     --font-size:10pt;
     --font-weight:300;
+    --strong-font-weight:700;
     --submit-bkcolor: #37a69b;
     --header-background: -moz-linear-gradient(top, lightGray, silver), -webkit-linear-gradient(lightGray, silver), linear-gradient(to bottom, lightGray, silver);
     --header-text-color:darkSlateGray;
@@ -293,26 +294,17 @@ input[type="submit"] {
 .minimalist-toolbar-brand{
     color:var(--text-hover);
     padding-top: 3px;
-    font-weight: var(--font-weight));
+    padding-left: 5px;
+    font-weight: var(--strong-font-weight);
     background: transparent;
 }
 
-.minimalist-toolbar-brand:hover{
-    background: transparent;
-    font-weight: 400;  
-    max-height: 25px;
-}
 .minimalist-toolbar> ul> li .brand a{
     padding-left: 5px;
 }
 
-.minimalist-toolbar> ul> li .brand a:hover{
-  /*background: transparent;*/
-  max-height: 25px;
-}
-
 .minimalist-toolbar-brand .logo{
-    width: 18px;
+    width: 20px;
     margin-right: 5px;
     margin-left:5px;
     padding:auto;
