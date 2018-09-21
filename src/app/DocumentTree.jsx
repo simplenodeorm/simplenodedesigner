@@ -23,7 +23,11 @@ Object.assign(contextMenu.style, {
       position: 'absolute',
       visibility: 'hidden'});
 contextMenu.className = 'popupMenu';
-document.body.appendChild(contextMenu);
+contextMenu.id = 'cmdtree'
+
+if (!document.getElementById('cmdtree')) {
+    document.body.appendChild(contextMenu);
+}
 
 var state = { selectedKeys: ''};
 
