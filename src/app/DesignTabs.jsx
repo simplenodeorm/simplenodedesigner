@@ -8,10 +8,8 @@ import Sidebar from "react-sidebar";
 import orms from '../config/orms.json';
 import config from '../config/appconfig.json';
 import axios from 'axios';
-import Spinner from '../components/Spinner';
 
 var models;
-var selectedModel = 'Select model...';
 class DesignTabs extends React.Component {
     constructor(props) {
         super(props);
@@ -22,10 +20,10 @@ class DesignTabs extends React.Component {
             tab2Disabled: true,
             tab3Disabled: true,
             sidebarOpen: false,
-            selectedModel: '',
             modelsLoaded: false,
-            error: '',
-            loading: false
+            selectedModel: config.modelselectdefault,
+            loading: false,
+            error: ''
         };
 
         this.onSetSidebarOpen = this.onSetSidebarOpen.bind(this);
@@ -39,8 +37,7 @@ class DesignTabs extends React.Component {
         } else {
             
             if (model) {
-                selectedModel = model;
-                this.setState({ sidebarOpen: open, tab0Disabled: false, loading: true });
+                this.setState({ sidebarOpen: open, tab0Disabled: false, selectedModel: model});
                 this.loadModelHierarchy();
             } else {
                 this.setState({ sidebarOpen: open });
@@ -52,19 +49,18 @@ class DesignTabs extends React.Component {
         
     }
     render() {
-        const {tab0Disabled, tab1Disabled, tab2Disabled, tab3Disabled, loading, error} = this.state;
+        const {tab0Disabled, tab1Disabled, tab2Disabled, tab3Disabled, error, selectedModel, loading} = this.state;
         return (
         
        <div className="tabContainer"> 
         <Sidebar
             sidebar={models}
             open={this.state.sidebarOpen}
-            onSetOpen={this.onSetSidebarOpen}
-            styles={{ sidebar: { background: "white" } }}
-        >
-       {loading && <Spinner />}
-       <MenuButton text={selectedModel} onMenuClick={() => this.onSetSidebarOpen(true)}/>
-       {error && <div className="errorMessage">{error}</div> }
+            onSetOpen={this.onSetSidebarOpen}>
+       <MenuButton text={selectedModel} 
+            error={error} 
+            loading={loading}
+            onMenuClick={() => this.onSetSidebarOpen(true)}/>
       </Sidebar><br />
         
         <Tabs>
@@ -132,10 +128,6 @@ class DesignTabs extends React.Component {
             .catch((err) => {
                 curcomp.setState({error: err.toString(), loading: false});
             });     
-    }
-
-    selectModel(e) {
-        selectedModel = e.target.textContent;
     }
 }
 

@@ -1,3 +1,4 @@
 {
-    "logintitletext": "Simple Node ORM"
+    "logintitletext": "Simple Node ORM",
+    "modelselectdefault": "Select starting model..."
 }

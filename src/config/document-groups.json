@@ -3,17 +3,17 @@
     "key" : "root",
     "groups": [
         {
-            "name": "group1",
+            "name": "General",
             "key" : 1,
             "groups": [
                 {
-                    "name": "group2",
+                    "name": "Human Resources",
                     "key" : 2
                 }
             ]
         },
         {
-            "name": "group3",
+            "name": "Financial",
             "key" : 3
         }
     ]

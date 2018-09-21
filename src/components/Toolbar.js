@@ -145,8 +145,8 @@ var Toolbar = function (_Component2) {
             'li',
             { className: 'minimalist-toolbar-brand' },
             _react2.default.createElement(
-              'a',
-              { href: url },
+              'div',
+              null,
               logo,
               brand
             )

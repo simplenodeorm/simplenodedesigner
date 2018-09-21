@@ -292,6 +292,7 @@ input[type="submit"] {
 
 .minimalist-toolbar-brand{
     color:var(--text-hover);
+    padding-top: 3px;
     font-weight: var(--font-weight));
     background: transparent;
 }
