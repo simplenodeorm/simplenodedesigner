@@ -126,14 +126,14 @@ class LoginPage extends React.Component {
             headers: {'Authorization': authString, 'Cache-Control': 'no-cache'}
         };
 
-        localStorage.removeItem('user')
-        localStorage.removeItem('orm')
+        localStorage.removeItem('user');
+        localStorage.removeItem('orm');
         const instance = axios.create({baseURL: orm.url});
         instance.get('/design/login', config)
                 .then((response) => {
                     if ((response.status === 200) && (response.data === 'success')) {
-                        localStorage.setItem('user', username)
-                        localStorage.setItem('orm', orm.name)
+                        localStorage.setItem('user', authString);
+                        localStorage.setItem('orm', orm.name);
                         curcomp.props.history.push('/');
                     } else {
                         curcomp.setState({error: response.statusText, loading: false, submitted: false});

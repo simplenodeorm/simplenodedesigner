@@ -12,7 +12,8 @@
     --submit-bkcolor: #37a69b;
     --header-background: -moz-linear-gradient(top, lightGray, silver), -webkit-linear-gradient(lightGray, silver), linear-gradient(to bottom, lightGray, silver);
     --header-text-color:darkSlateGray;
-    --menu-button-color:darkBlue;
+    --menu-button-color:#1c2833 ;
+    --input-background:linear-gradient(top, #d6d7d7, #dee0e0);
   }
 
 html {
@@ -36,7 +37,7 @@ body {
 
 .popupMenu {
     position: relative;
-    background:var(--main-color); 
+    background: var(--main-color); 
     color: var(--text-hover); 
     padding:1px; 
     border:none; 
@@ -116,7 +117,7 @@ select {
 }
 
 input[type="password"], input[type="text"] {
-    background: linear-gradient(top, #d6d7d7, #dee0e0);
+    background: var(--input-background);
     border: 1px solid #a1a3a3;
     border-radius: 4px;
     box-shadow: 0 1px #fff;
@@ -386,18 +387,18 @@ input[type="submit"] {
     flex-basis: auto;
     flex-grow: 0;
     flex-shrink: 0;
-    height: 20px;
+    height: 25px;
     padding-left: 10px;
-    padding-bottom: 5px;
     width:20px;
     -moz-user-select: none;
+    cursor:pointer;
 }
 
 .menuButton a{
     color: var(--menu-button-color);
     text-decoration: none;
     text-align: left;
-    vertical-align: bottom;
+    vertical-align: middle;
     white-space: nowrap;
 }
 
@@ -407,4 +408,30 @@ input[type="submit"] {
     
 .menuButton svg {
     vertical-align: top;
+}
+
+.sidebarContainer {
+    overflow: hidden;
+    background: #eceeee;
+    border: 1px solid #a1a3a3;
+    padding:1px; 
+    border:none; 
+    cursor:pointer;
+}
+
+.sidebarContainer button {
+    background: none;
+    display: block;
+    color: inherit;
+    border: none;
+    padding: 0;
+    font: inherit;
+    cursor: pointer;
+    outline: inherit;
+}
+
+.sidebarContainer button:hover {
+   color:var(--text-hover);
+   background: var(--popup-background);
+   margin: 4px;
 }
