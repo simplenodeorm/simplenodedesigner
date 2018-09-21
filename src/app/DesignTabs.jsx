@@ -40,13 +40,17 @@ class DesignTabs extends React.Component {
             
             if (model) {
                 selectedModel = model;
-                this.setState({ sidebarOpen: open, tab0Disabled: false });
+                this.setState({ sidebarOpen: open, tab0Disabled: false, loading: true });
+                this.loadModelHierarchy();
             } else {
                 this.setState({ sidebarOpen: open });
             }
         }
     }
     
+    loadModelHierarchy() {
+        
+    }
     render() {
         const {tab0Disabled, tab1Disabled, tab2Disabled, tab3Disabled, loading, error} = this.state;
         return (
