@@ -5,6 +5,7 @@ import 'react-tabs/style/react-tabs.css';
 import { MenuButton } from '../components/MenuButton';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import Sidebar from "react-sidebar";
+import {SelectModelDataPanel} from '../components/SelectModelDataPanel'
 import orms from '../config/orms.json';
 import config from '../config/appconfig.json';
 import axios from 'axios';
@@ -38,16 +39,12 @@ class DesignTabs extends React.Component {
             
             if (model) {
                 this.setState({ sidebarOpen: open, tab0Disabled: false, selectedModel: model});
-                this.loadModelHierarchy();
             } else {
                 this.setState({ sidebarOpen: open });
             }
         }
     }
     
-    loadModelHierarchy() {
-        
-    }
     render() {
         const {tab0Disabled, tab1Disabled, tab2Disabled, tab3Disabled, error, selectedModel, loading} = this.state;
         return (
@@ -71,9 +68,7 @@ class DesignTabs extends React.Component {
           <Tab disabled={tab3Disabled}>Run Query</Tab>
         </TabList>
         <TabPanel>
-          <p>
-            <b>Tab1 panel</b>
-          </p>
+            <SelectModelDataPanel model={selectedModel}/>
         </TabPanel>
         <TabPanel>
           <p>
@@ -102,15 +97,13 @@ class DesignTabs extends React.Component {
     
     loadModels() {
         const curcomp = this;
-        const url = getOrm().url;
-        const instance = axios.create({baseURL: url});
-        const authString = localStorage.getItem('user');
+        const orm = JSON.parse(localStorage.getItem('orm'));
         const config = {
-            headers: {'Authorization': authString}
+            headers: {'Authorization': orm.authString}
         };
         
         this.setState({loading: true});
-        instance.get('/design/modelnames', config)
+        axios.get(orm.url + '/design/modelnames', config)
             .then((response) => {
                 if (response.status === 200) {
                     const loop = (data) => {
@@ -130,18 +123,5 @@ class DesignTabs extends React.Component {
             });     
     }
 }
-
-function getOrm() {
-    let retval;
-    let ormname = localStorage.getItem('orm');
-
-    for (let i = 0; i < orms.length; ++i) {
-        if (ormname === orms[i].name) {
-            retval = orms[i];
-        }
-    }
-
-    return retval;
-};
 
 export {DesignTabs};

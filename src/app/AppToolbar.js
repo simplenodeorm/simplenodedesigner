@@ -23,8 +23,8 @@ const menu =  [
 ];
 
 function AppToolbar() {
-    const orm = localStorage.getItem('orm');
-    return (<Toolbar menu={menu} brand={orm} logo="logo.png"></Toolbar>);
+    const orm = JSON.parse(localStorage.getItem('orm'));
+    return (<Toolbar menu={menu} brand={orm.name} logo="logo.png"></Toolbar>);
 }
 
 function loadMenu() {

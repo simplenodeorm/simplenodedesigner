@@ -8,6 +8,7 @@
     --popup-hover:#414142;
     --font-family:"HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
     --font-size:10pt;
+    --large-font-size:20pt;
     --font-weight:300;
     --strong-font-weight:700;
     --submit-bkcolor: #37a69b;
@@ -427,4 +428,13 @@ input[type="submit"] {
    color:var(--text-hover);
    background: var(--popup-background);
    margin: 4px;
+}
+
+.panelPrompt1 {
+    color: var(--header-text-color);
+    background-color: var(--default-bkcolor);
+    font-size: var(--large-font-size);
+    font-weight: 400;
+    margin: 30px;
+    
 }

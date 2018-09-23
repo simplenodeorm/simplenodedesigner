@@ -6,6 +6,7 @@ import "../app/App.css";
 import orms from '../config/orms.json';
 import config from '../config/appconfig.json';
 import axios from 'axios';
+import Spinner from './Spinner';
 
 
 var contextMenu = document.createElement('div');
@@ -13,7 +14,7 @@ Object.assign(contextMenu.style, {
       position: 'absolute',
       visibility: 'hidden'});
 contextMenu.className = 'popupMenu';
-contextMenu.id = 'cmmdatatree'
+contextMenu.id = 'cmmdatatree';
 
 if (!document.getElementById('cmmdatatree')) {
     document.body.appendChild(contextMenu);
@@ -39,19 +40,29 @@ class SelectModelDataPanel extends React.Component {
     }
 
     render() {
-        loadModelData();
-        return <div className="treeContainer">
-            <Tree 
-              onRightClick={this.onRightClick}
-              onSelect={this.onSelect}
-              showLine
-              showIcon={true}
-            >{treeNodes}</Tree></div>;
+        const {model, loading, error} = this.state;
+        if (model === config.modelselectdefault) {
+            return <div className="panelPrompt1">{config.modelselectprompt}</div>
+        } else if (error) {
+            return <div className="errorMessage">{error}</div>
+        } else if (loading) {
+            return <div><Spinner/>Loading model hierarchy for model...</div>
+        } else if (!loading && (model !== config.modelselectdefault)) {
+            this.loadModelData(model);
+        } else if (!loading && modelData) {
+            return <div className="treeContainer">
+                <Tree 
+                  onRightClick={this.onRightClick}
+                  onSelect={this.onSelect}
+                  showLine
+                  showIcon={true}
+                >{modelData}</Tree></div>;
+            }
     }
     
     onSelect (selectedKeys) {
         this.setState({ selectedKeys });
-        util.clearContextMenu();
+        this.clearContextMenu();
     }
   
     onRightClick(info) {
@@ -66,50 +77,32 @@ class SelectModelDataPanel extends React.Component {
         }
     }
     
-    loadModelData() {
-        const loop = (data) => {
-        return data.map((item) => {
-          if (item.groups) {
-            return <TreeNode title={item.name} key={item.key} isLeaf={false}>
-            {loop(item.groups)}
-             </TreeNode>;
-          }
-          return <TreeNode title={item.name} key={item.key} isLeaf={false}/>
-        });
-      };
-
-
-        const treeNodes = loop(groups);   
+    loadModelData(model) {
         const curcomp = this;
-        const url = getOrm().url;
-        const instance = axios.create({baseURL: url});
-        const authString = localStorage.getItem('user');
+        const orm = JSON.parse(localStorage.getItem('orm'));
         const config = {
-            headers: {'Authorization': authString}
+            headers: {'Authorization': orm.authString}
         };
-
-        const {model} = this.state;
-        instance.get('/design/modeldata/' + model, config)
+        this.setState({loading: true});
+        axios.get(orm.url + '/design/modeltree/' + model, config)
             .then((response) => {
                 if (response.status === 200) {
-                    const loop = (data) => {
-                        return data.map((item) => {
-                            return <button onClick={() => curcomp.onSetSidebarOpen(false, item)}>{item}</button>;
-                        });
-                    };
-
                     curcomp.setState({loading: false});
                 } else {
                     curcomp.setState({error: response.statusText, loading: false});
                 }
             })
             .catch((err) => {
-                curcomp.setState({error: err.toString(), loading: false});
+               curcomp.setState({error: ('' + err), loading: false});
             });     
+        }
+        
+    clearContextMenu() {
+        contextMenu.style.top = '-100px';
+        contextMenu.style.left = '-100px';
+        contextMenu.style.visibility = 'hidden';
     }
 
-
-    }
 }
 
 export {SelectModelDataPanel};

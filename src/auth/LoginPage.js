@@ -21,8 +21,6 @@ class LoginPage extends React.Component {
     constructor(props) {
         super(props);
 
-        this.logout();
-
         this.state = {
             username: '',
             password: '',
@@ -119,21 +117,22 @@ class LoginPage extends React.Component {
         );
     }
 
-    login(username, password, orm) {
+    login(username, password, selectedOrm) {
         let curcomp = this;
         const authString = 'Basic ' + base64.encode(username + ':' + password);
         var config = {
             headers: {'Authorization': authString, 'Cache-Control': 'no-cache'}
         };
 
-        localStorage.removeItem('user');
         localStorage.removeItem('orm');
+        selectedOrm.authString = authString;
+        
+        const orm = selectedOrm;
         const instance = axios.create({baseURL: orm.url});
         instance.get('/design/login', config)
                 .then((response) => {
-                    if ((response.status === 200) && (response.data === 'success')) {
-                        localStorage.setItem('user', authString);
-                        localStorage.setItem('orm', orm.name);
+                    if (response.status === 200) {
+                        localStorage.setItem('orm', JSON.stringify(orm));
                         curcomp.props.history.push('/');
                     } else {
                         curcomp.setState({error: response.statusText, loading: false, submitted: false});
@@ -145,8 +144,6 @@ class LoginPage extends React.Component {
     }
 
     logout() {
-        // remove user from local storage to log user out
-        localStorage.removeItem('user');
         localStorage.removeItem('orm');
     }
 }
