@@ -11,7 +11,7 @@ import '../app/App.css';
 
 const loop = (data) => {
     return data.map((item) => {
-        return <option value={item.name}>{item.name}</option>;
+        return <option key="{item.name}">{item.name}</option>;
     });
 };
 

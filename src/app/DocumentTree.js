@@ -1,23 +1,10 @@
-import 'rc-tree/assets/index.css';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Tree, { TreeNode } from 'rc-tree';
 import './App.css';
+import 'rc-tree/assets/index.css';
 import groups from '../config/document-groups.json';
 
-const loop = (data) => {
-  return data.map((item) => {
-    if (item.groups) {
-      return <TreeNode title={item.name} key={item.key} isLeaf={false}>
-      {loop(item.groups)}
-       </TreeNode>;
-    }
-    return <TreeNode title={item.name} key={item.key} isLeaf={false}/>
-  });
-};
-
-const treeNodes = loop(groups);   
-        
 var contextMenu = document.createElement('div');
 Object.assign(contextMenu.style, {
       position: 'absolute',
@@ -29,23 +16,45 @@ if (!document.getElementById('cmdtree')) {
     document.body.appendChild(contextMenu);
 }
 
-var state = { selectedKeys: ''};
+class DocumentTree extends React.Component {
+     constructor(props) {
+        super(props);
+        
+        this.state = {
+            selectedKeys: '',
+            loading: false,
+            error: ''
+        };
+    }
+    
+    render() {
+        const loop = (data) => {
+        return data.map((item) => {
+          if (item.groups) {
+            return <TreeNode title={item.name} key={item.key} isLeaf={false}>
+            {loop(item.groups)}
+             </TreeNode>;
+          }
+          return <TreeNode title={item.name} key={item.key} isLeaf={false}/>
+        });
+      };
 
-function DocumentTree() {
-    return  <div className="treeContainer">
+      const treeNodes = loop(groups);   
+        return <div className="treeContainer">
         <Tree 
           onRightClick={onRightClick}
           onSelect={onSelect}
           showLine
           showIcon={true}
         >{treeNodes}</Tree></div>;
+    }
 }
 
-function onSelect (selectedKeys) {
-    state = { selectedKeys };
+function onSelect (selkeys, e) {
+    e.event.target.setState({ selectedKeys: selkeys});
     clearContextMenu();
 }
-  
+
 function onRightClick(info) {
     contextMenu.style.top = info.event.pageY + 'px';
     contextMenu.style.left = info.event.pageX + 'px';
@@ -57,7 +66,7 @@ function onRightClick(info) {
         ReactDOM.render(<ul><li><a href="#" onClick={addDocument}>Add Document</a></li></ul>, contextMenu);
     }
 }
-
+    
 function addDocument() {
     clearContextMenu();
 }
@@ -70,7 +79,7 @@ function runDocument() {
     clearContextMenu();
 }
 
-function deleteDocument() {
+function  deleteDocument() {
     clearContextMenu();
 }
 
@@ -80,4 +89,4 @@ function clearContextMenu() {
     contextMenu.style.visibility = 'hidden';
 }
 
-export default DocumentTree;
+export { DocumentTree };

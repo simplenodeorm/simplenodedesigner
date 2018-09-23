@@ -27,9 +27,6 @@ function AppToolbar() {
     return (<Toolbar menu={menu} brand={orm.name} logo="logo.png"></Toolbar>);
 }
 
-function loadMenu() {
-}
-
 function addDocument() {
 }
 

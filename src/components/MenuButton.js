@@ -18,7 +18,6 @@ class MenuButton extends React.Component {
     }
 
     render() {
-        let btn = this;
         const {text, error, loading} = this.state;
         return <div className="menuButton">
                 {loading && <Spinner /> }

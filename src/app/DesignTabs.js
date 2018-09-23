@@ -1,12 +1,10 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import './App.css';
 import 'react-tabs/style/react-tabs.css';
 import { MenuButton } from '../components/MenuButton';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import Sidebar from "react-sidebar";
 import {SelectModelDataPanel} from '../components/SelectModelDataPanel'
-import orms from '../config/orms.json';
 import config from '../config/appconfig.json';
 import axios from 'axios';
 
@@ -106,13 +104,13 @@ class DesignTabs extends React.Component {
         axios.get(orm.url + '/design/modelnames', config)
             .then((response) => {
                 if (response.status === 200) {
-                    const loop = (data) => {
+                    const modelLoop = (data) => {
                         return data.map((item) => {
                             return <button onClick={() => curcomp.onSetSidebarOpen(false, item)}>{item}</button>;
                         });
                     };
 
-                    models = <div className="sidebarContainer">{loop(response.data)}</div>;
+                    models = <div className="sidebarContainer">{modelLoop(response.data)}</div>;
                     curcomp.setState({ sidebarOpen: true, modelsLoaded: true, loading: false});
                 } else {
                     curcomp.setState({error: response.statusText, loading: false});

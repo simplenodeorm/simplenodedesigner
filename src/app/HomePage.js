@@ -1,6 +1,6 @@
 import React from 'react';
 import SplitPane from 'react-split-pane';
-import DocumentTree from './DocumentTree';
+import { DocumentTree } from './DocumentTree';
 import { DesignTabs } from './DesignTabs';
 import AppToolbar from './AppToolbar';
 import './App.css';
