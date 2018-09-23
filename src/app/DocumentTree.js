@@ -16,6 +16,8 @@ if (!document.getElementById('cmdtree')) {
     document.body.appendChild(contextMenu);
 }
 
+var selectedKeys;
+
 class DocumentTree extends React.Component {
      constructor(props) {
         super(props);
@@ -51,7 +53,7 @@ class DocumentTree extends React.Component {
 }
 
 function onSelect (selkeys, e) {
-    e.event.target.setState({ selectedKeys: selkeys});
+    selectedKeys = selkeys;
     clearContextMenu();
 }
 
