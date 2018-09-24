@@ -1,21 +1,22 @@
 import React from 'react';
 import Toolbar from '../components/Toolbar';
 import './App.css';
+import config from '../config/appconfig';
 
 const menu =  [
     {
         text: "File",
         items: [
         {
-            text: "xxxxxxxxxxxxxxxxxx",
+            text: config.textmsg.adddocument,
             callback: addDocument
         },
         {
-            text: "Setup",
+            text: config.textmsg.setup,
             callback: setup
         },
         {
-            text: "Preferences",
+            text: config.textmsg.preferences,
             callback: preferences
         }
         ]

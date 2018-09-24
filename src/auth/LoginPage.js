@@ -77,7 +77,7 @@ class LoginPage extends React.Component {
 
         return (
             <div>
-                <h1>{config.logintitletext}</h1>
+                <h1>{config.textmsg.logintitletext}</h1>
                 <div className="errorMessage">{error}</div>
                 <div className="login">
                     <h2>Design Login</h2>

@@ -17,9 +17,10 @@ class DesignTabs extends React.Component {
             tab1Disabled: true,
             tab2Disabled: true,
             tab3Disabled: true,
+            tab4Disabled: true,
             sidebarOpen: false,
             modelsLoaded: false,
-            selectedModel: config.modelselectdefault,
+            selectedModel: config.textmsg.modelselectdefault,
             loading: false,
             error: ''
         };
@@ -42,7 +43,7 @@ class DesignTabs extends React.Component {
     }
     
     render() {
-        const {tab0Disabled, tab1Disabled, tab2Disabled, tab3Disabled, error, selectedModel, loading} = this.state;
+        const {tab0Disabled, tab1Disabled, tab2Disabled, tab3Disabled, tab4Disabled, error, selectedModel, loading} = this.state;
         return (
         
        <div className="tabContainer"> 
@@ -58,10 +59,11 @@ class DesignTabs extends React.Component {
         
         <Tabs>
         <TabList>
-          <Tab disabled={tab0Disabled}>Select Data</Tab>
-          <Tab disabled={tab1Disabled}>Format Selections</Tab>
-          <Tab disabled={tab2Disabled}>Create Filter</Tab>
-          <Tab disabled={tab3Disabled}>Run Query</Tab>
+          <Tab disabled={tab0Disabled}>{config.textmsg.selectdata}</Tab>
+          <Tab disabled={tab1Disabled}>{config.textmsg.formatselections}</Tab>
+          <Tab disabled={tab2Disabled}>{config.textmsg.definefilter}</Tab>
+          <Tab disabled={tab3Disabled}>{config.textmsg.designreport}</Tab>
+          <Tab disabled={tab4Disabled}>{config.textmsg.runquery}</Tab>
         </TabList>
         <TabPanel disabled={tab0Disabled}>
             <SelectModelDataPanel model={selectedModel}/>
@@ -81,6 +83,12 @@ class DesignTabs extends React.Component {
         <TabPanel>
           <p>
             <b>Tab3 panel</b>
+
+          </p>
+        </TabPanel>
+        <TabPanel>
+          <p>
+            <b>Tab4 panel</b>
 
           </p>
         </TabPanel>

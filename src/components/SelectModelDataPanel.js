@@ -45,7 +45,7 @@ class SelectModelDataPanel extends React.Component {
 
     componentWillReceiveProps(nextProps) {
         const {model} = this.state;
-        if ((nextProps.model !== config.modelselectdefault)
+        if ((nextProps.model !== config.textmsg.modelselectdefault)
             && (model !== nextProps.model)) {
             this.loadModelData(nextProps.model);
         }
@@ -55,8 +55,8 @@ class SelectModelDataPanel extends React.Component {
         const {model, loading, error, treeData} = this.state;
         if (error) {
             return <div className="errorMessage">{error}</div>;
-        } else if (model === config.modelselectdefault) {
-            return <div className="panelPrompt1">{config.modelselectprompt}</div>;
+        } else if (model === config.textmsg.modelselectdefault) {
+            return <div className="panelPrompt1">{config.textmsg.modelselectprompt}</div>;
         } else if (loading) {
             return <div className="panelPrompt1"><Spinner/>&nbsp;&nbsp;Loading model hierarchy for {model}...</div>;
         } else if (treeData) {
@@ -70,7 +70,7 @@ class SelectModelDataPanel extends React.Component {
                   treeData={treeData}
                   ><TreeNode title={model} key="t0" isLeaf={false}></TreeNode></Tree></div>;
         } else {
-            return <div className="panelPrompt1">{config.modelselectprompt}</div>;
+            return <div className="panelPrompt1">{config.textmsg.modelselectprompt}</div>;
         }
     }
     

@@ -1,5 +1,15 @@
 {
-    "logintitletext": "Simple Node ORM",
-    "modelselectdefault": "Select starting model...",
-    "modelselectprompt": "Please select a starting model"
+    "textmsg": {
+        "logintitletext": "Simple Node ORM",
+        "modelselectdefault": "Select starting model...",
+        "modelselectprompt": "Please select a starting model",
+        "adddocument": "Add Document",
+        "setup": "Setup",
+        "preferences": "Preferences",
+        "selectdata": "Select Data",
+        "formatselections": "Format Selections",
+        "definefilter": "Define Filter",
+        "designreport": "Design Report",
+        "runquery": "Run Query"
+    }
 }
