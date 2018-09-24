@@ -19,16 +19,30 @@ if (!document.getElementById('cmmdatatree')) {
     document.body.appendChild(contextMenu);
 }
 
-var modelData;
+const fieldLoop = (data) => {
+    return data.fields.map((field) => {
+        return <TreeNode title={field.fieldName} key={field.__key__} isLeaf/>;
+    });
+};
+
+const relationshipLoop = (data) => {
+    if (data.relationships) {
+        return data.relationships.map((rel) => {
+            return <TreeNode title={rel.fieldName} key={rel.__key__} isLeaf={false}>{fieldLoop(rel)}{relationshipLoop(rel)}</TreeNode>;});
+    }   
+};
+
+
+var selectedKeys;
 
 class SelectModelDataPanel extends React.Component {
     constructor(props) {
         super(props);
         
         this.state = {
-            selectedKeys: '',
             loading: false,
             model: props.model,
+            treeData: '',
             error: ''
         };
     }
@@ -36,81 +50,48 @@ class SelectModelDataPanel extends React.Component {
     componentWillReceiveProps(nextProps) {
         const model = this.state;
         if ((nextProps.model !== config.modelselectdefault)
-            && (model !==  nextProps.model)) {
-            this.loadModelData(nextProps.model);
+            && (model !== nextProps.model)) {
+            this.state.loading = true;
+            this.state.model = nextProps.model;
+            this.loadModelData(this.state.model);
         }
     }
 
     render() {
-        const {model, loading, error} = this.state;
-        let content;
+        const {model, loading, error, treeData} = this.state;
         if (error) {
-            return <div className="errorMessage">{error}</div>
+            return <div className="errorMessage">{error}</div>;
         } else if (model === config.modelselectdefault) {
-            return <div className="panelPrompt1">{config.modelselectprompt}</div>
+            return <div className="panelPrompt1">{config.modelselectprompt}</div>;
         } else if (loading) {
-            return <div><Spinner/>Loading model hierarchy for model...</div>
-        } else if (modelData) {
+            return <div className="panelPrompt1"><Spinner/>&nbsp;&nbsp;Loading model hierarchy for {model}...</div>;
+        } else if (treeData) {
             return <div className="treeContainer">
                 <Tree 
-                  onRightClick={this.onRightClick}
-                  onSelect={this.onSelect}
+                  onRightClick={onRightClick}
+                  checkable
                   showLine
+                  defaultExpandAll
                   showIcon={true}
-                >{content}</Tree></div>;
+                  treeData={treeData}
+                  ><TreeNode title={model} key="t0" isLeaf={false}></TreeNode></Tree></div>;
         } else {
-            return <div className="panelPrompt1">{config.modelselectprompt}</div>
-        }
-    }
-    
-    onSelect (selectedKeys) {
-        this.setState({ selectedKeys });
-        this.clearContextMenu();
-    }
-  
-    onRightClick(info) {
-        contextMenu.style.top = info.event.pageY + 'px';
-        contextMenu.style.left = info.event.pageX + 'px';
-        contextMenu.style.visibility = 'visible';
-
-        if (info.node.props.isLeaf) {
-       //     ReactDOM.render(<ul><li><a href="#" onClick={editDocument}>Edit Document</a></li><li><a href="#" onClick={runDocument}>Run Document</a></li><li><a href="#" onClick={deleteDocument}>Delete Document</a></li></ul>, contextMenu);
-        } else {
-      //      ReactDOM.render(<ul><li><a href="#" onClick={addDocument}>Add Document</a></li></ul>, contextMenu);
+            return <div className="panelPrompt1">{config.modelselectprompt}</div>;
         }
     }
     
     loadModelData(model) {
         const curcomp = this;
         const orm = JSON.parse(localStorage.getItem('orm'));
-        const inputModel = model
+        const inputModel = model;
         const config = {
             headers: {'Authorization': orm.authString}
         };
-        this.setState({loading: true});
+
         axios.get(orm.url + '/design/modeltree/' + inputModel, config)
             .then((response) => {
                 if (response.status === 200) {
-                    
-                    const fieldLoop = (data) => {
-                        if (data.fields) {
-                            return data.fields.map((field) => {
-                                return <TreeNode title={field.fieldName} key={field.__key__} isLeaf={true}/>
-
-                            });
-                        }
-                    };
-
-                    const relationshipLoop = (data) => {
-                        if (data.relationships) {
-                            return data.relationships.map((rel) => {
-                            return <TreeNode title={rel.fieldName} key={rel.__key__} isLeaf={false}>{fieldLoop(rel)} {relationshipLoop(rel)}</TreeNode> });
-                        } else if (data.fields) {
-                            return <TreeNode title={data.objectName} key={data.__key__} isLeaf={false}>{fieldLoop(data)}</TreeNode>
-                        }        
-                    };
-                    modelData = relationshipLoop(response.data);
-                    curcomp.setState({loading: false, model: inputModel});
+                    curcomp.setState({loading: false, model: inputModel, treeData: response.data});
                 } else {
                     curcomp.setState({error: response.statusText, loading: false});
                 }
@@ -120,12 +101,25 @@ class SelectModelDataPanel extends React.Component {
             });     
         }
         
-    clearContextMenu() {
-        contextMenu.style.top = '-100px';
-        contextMenu.style.left = '-100px';
-        contextMenu.style.visibility = 'hidden';
-    }
-
 }
+
+function onRightClick(info) {
+    contextMenu.style.top = info.event.pageY + 'px';
+    contextMenu.style.left = info.event.pageX + 'px';
+    contextMenu.style.visibility = 'visible';
+
+    if (info.node.props.isLeaf) {
+   //     ReactDOM.render(<ul><li><a href="#" onClick={editDocument}>Edit Document</a></li><li><a href="#" onClick={runDocument}>Run Document</a></li><li><a href="#" onClick={deleteDocument}>Delete Document</a></li></ul>, contextMenu);
+    } else {
+  //      ReactDOM.render(<ul><li><a href="#" onClick={addDocument}>Add Document</a></li></ul>, contextMenu);
+    }
+}
+
+function clearContextMenu() {
+    contextMenu.style.top = '-100px';
+    contextMenu.style.left = '-100px';
+    contextMenu.style.visibility = 'hidden';
+}
+
 
 export {SelectModelDataPanel};

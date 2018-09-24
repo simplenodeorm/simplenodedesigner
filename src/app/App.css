@@ -8,7 +8,7 @@
     --popup-hover:#414142;
     --font-family:"HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
     --font-size:10pt;
-    --large-font-size:20pt;
+    --large-font-size:14pt;
     --font-weight:300;
     --strong-font-weight:700;
     --submit-bkcolor: #37a69b;
@@ -18,12 +18,8 @@
     --input-background:linear-gradient(top, #d6d7d7, #dee0e0);
   }
 
-html {
+html, body {
     height:100%;
-      
-}
-
-body {
     background-image: var(--main-color);
     font-weight: var(--font-weight));
     float:left;
@@ -225,14 +221,14 @@ input[type="submit"] {
     font-size: 90%;
     width: 100%;
     height: 100%;
-    overflow: hidden;
+    overflow: auto;
 }
 
 .tabContainer {
     background: var(--default-bkcolor);
     width: 100%;
     height: 100%;
-    overflow: hidden;
+    overflow: auto;
     padding: 2px;
 }
 
@@ -436,5 +432,4 @@ input[type="submit"] {
     font-size: var(--large-font-size);
     font-weight: 400;
     margin: 30px;
-    
 }

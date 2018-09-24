@@ -16,6 +16,20 @@ if (!document.getElementById('cmdtree')) {
     document.body.appendChild(contextMenu);
 }
 
+const loop = (data) => {
+return data.map((item) => {
+  if (item.groups) {
+    return <TreeNode title={item.name} key={item.key} isLeaf={false}>
+    {loop(item.groups)}
+     </TreeNode>;
+  }
+  return <TreeNode title={item.name} key={item.key} isLeaf={false}/>
+});
+};
+
+const treeNodes = loop(groups);   
+
+
 var selectedKeys;
 
 class DocumentTree extends React.Component {
@@ -30,18 +44,6 @@ class DocumentTree extends React.Component {
     }
     
     render() {
-        const loop = (data) => {
-        return data.map((item) => {
-          if (item.groups) {
-            return <TreeNode title={item.name} key={item.key} isLeaf={false}>
-            {loop(item.groups)}
-             </TreeNode>;
-          }
-          return <TreeNode title={item.name} key={item.key} isLeaf={false}/>
-        });
-      };
-
-      const treeNodes = loop(groups);   
         return <div className="treeContainer">
         <Tree 
           onRightClick={onRightClick}
@@ -49,10 +51,11 @@ class DocumentTree extends React.Component {
           showLine
           showIcon={true}
         >{treeNodes}</Tree></div>;
+        
     }
 }
 
-function onSelect (selkeys, e) {
+function onSelect (selkeys) {
     selectedKeys = selkeys;
     clearContextMenu();
 }
