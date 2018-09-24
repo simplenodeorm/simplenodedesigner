@@ -9,7 +9,7 @@ Object.assign(contextMenu.style, {
       position: 'absolute',
       visibility: 'hidden'});
 contextMenu.className = 'popupMenu';
-contextMenu.id = 'cmdtree'
+contextMenu.id = 'cmdtree';
 
 if (!document.getElementById('cmdtree')) {
     document.body.appendChild(contextMenu);
@@ -22,7 +22,7 @@ return data.map((item) => {
     {loop(item.groups)}
      </TreeNode>;
   }
-  return <TreeNode title={item.name} key={item.key} isLeaf={false}/>
+  return <TreeNode title={item.name} key={item.key} isLeaf={false}/>;
 });
 };
 

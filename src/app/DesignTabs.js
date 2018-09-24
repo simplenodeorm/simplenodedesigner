@@ -27,7 +27,6 @@ class DesignTabs extends React.Component {
         this.onSetSidebarOpen = this.onSetSidebarOpen.bind(this);
     }
 
-
     onSetSidebarOpen(open, model) {
         const {modelsLoaded} = this.state;
         if (!modelsLoaded) {
@@ -64,7 +63,7 @@ class DesignTabs extends React.Component {
           <Tab disabled={tab2Disabled}>Create Filter</Tab>
           <Tab disabled={tab3Disabled}>Run Query</Tab>
         </TabList>
-        <TabPanel>
+        <TabPanel disabled={tab0Disabled}>
             <SelectModelDataPanel model={selectedModel}/>
         </TabPanel>
         <TabPanel>

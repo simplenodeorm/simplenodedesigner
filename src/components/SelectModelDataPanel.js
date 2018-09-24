@@ -31,9 +31,6 @@ const relationshipLoop = (data) => {
     }   
 };
 
-
-var selectedKeys;
-
 class SelectModelDataPanel extends React.Component {
     constructor(props) {
         super(props);
@@ -47,12 +44,10 @@ class SelectModelDataPanel extends React.Component {
     }
 
     componentWillReceiveProps(nextProps) {
-        const model = this.state;
+        const {model} = this.state;
         if ((nextProps.model !== config.modelselectdefault)
             && (model !== nextProps.model)) {
-            this.state.loading = true;
-            this.state.model = nextProps.model;
-            this.loadModelData(this.state.model);
+            this.loadModelData(nextProps.model);
         }
     }
 
@@ -70,7 +65,7 @@ class SelectModelDataPanel extends React.Component {
                   onRightClick={onRightClick}
                   checkable
                   showLine
-                  defaultExpandAll
+                  defaultExpandedKeys={['t0']}
                   showIcon={true}
                   treeData={treeData}
                   ><TreeNode title={model} key="t0" isLeaf={false}></TreeNode></Tree></div>;
