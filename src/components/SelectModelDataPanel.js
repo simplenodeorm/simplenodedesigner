@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Tree, { TreeNode } from 'rc-tree'
-import 'rc-tree/assets/index.css';
 import "../app/App.css";
 import config from '../config/appconfig.json';
 import axios from 'axios';

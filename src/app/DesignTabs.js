@@ -1,6 +1,5 @@
 import React from 'react';
 import './App.css';
-import 'react-tabs/style/react-tabs.css';
 import { MenuButton } from '../components/MenuButton';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import Sidebar from "react-sidebar";
