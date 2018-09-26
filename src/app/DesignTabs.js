@@ -7,18 +7,13 @@ import {SelectModelDataPanel} from '../components/SelectModelDataPanel'
 import config from '../config/appconfig.json';
 import axios from 'axios';
 
-document.designData = {
-    models: '',
-    modelHierarchy: ''
-};
-
 class DesignTabs extends React.Component {
     constructor(props) {
         super(props);
         
         this.state = {
             tab0Disabled: false,
-            tab1Disabled: false,
+            tab1Disabled: true,
             tab2Disabled: true,
             tab3Disabled: true,
             tab4Disabled: true,

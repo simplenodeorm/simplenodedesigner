@@ -2,21 +2,15 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Tree, { TreeNode } from 'rc-tree'
 import "../app/App.css";
+import '../app/iconTree.css';
 import config from '../config/appconfig.json';
 import axios from 'axios';
 import Spinner from './Spinner';
 
-
-var contextMenu = document.createElement('div');
-Object.assign(contextMenu.style, {
-      position: 'absolute',
-      visibility: 'hidden'});
-contextMenu.className = 'popupMenu';
-contextMenu.id = 'cmmdatatree';
-
-if (!document.getElementById('cmmdatatree')) {
-    document.body.appendChild(contextMenu);
-}
+const leafimg = <img src="/images/column.png"/>;
+const modelimg = <img src="/images/model.png"/>;
+const rootimg = <img src="/images/root.png"/>;
+var firstnode = true;
 
 class SelectModelDataPanel extends React.Component {
     constructor(props) {
@@ -53,13 +47,27 @@ class SelectModelDataPanel extends React.Component {
                   showLine
                   defaultExpandedKeys={['t0']}
                   showIcon={true}
+                  icon={this.getIcon}
+                  prefixCls="tree-icon"
                   treeData={document.designData.modelHierarchy}></Tree></div>;
         } else {
             return <div className="panelPrompt1">{config.textmsg.modelselectprompt}</div>;
         }
     }
     
+    getIcon(props) {
+        if (firstnode) {
+            firstnode = false;
+            return rootimg;
+        } else if (props.isLeaf) {
+            return leafimg;
+        } else {
+            return modelimg;
+        } 
+    }
+    
     loadModelData(model) {
+        firstnode = true;
         const curcomp = this;
         const orm = JSON.parse(localStorage.getItem('orm'));
         const inputModel = model;
@@ -84,21 +92,23 @@ class SelectModelDataPanel extends React.Component {
 }
 
 function onRightClick(info) {
-    contextMenu.style.top = info.event.pageY + 'px';
-    contextMenu.style.left = info.event.pageX + 'px';
-    contextMenu.style.visibility = 'visible';
+    const cm = document.getElementById('ctxmenu');
+    cm.style.top = info.event.pageY + 'px';
+    cm.style.left = info.event.pageX + 'px';
+    cm.style.visibility = 'visible';
 
     if (info.node.props.isLeaf) {
-   //     ReactDOM.render(<ul><li><a href="#" onClick={editDocument}>Edit Document</a></li><li><a href="#" onClick={runDocument}>Run Document</a></li><li><a href="#" onClick={deleteDocument}>Delete Document</a></li></ul>, contextMenu);
+   //     ReactDOM.render(<ul><li><a href="#" onClick={editDocument}>Edit Document</a></li><li><a href="#" onClick={runDocument}>Run Document</a></li><li><a href="#" onClick={deleteDocument}>Delete Document</a></li></ul>, cm);
     } else {
-  //      ReactDOM.render(<ul><li><a href="#" onClick={addDocument}>Add Document</a></li></ul>, contextMenu);
+  //      ReactDOM.render(<ul><li><a href="#" onClick={addDocument}>Add Document</a></li></ul>, cm);
     }
 }
 
 function clearContextMenu() {
-    contextMenu.style.top = '-100px';
-    contextMenu.style.left = '-100px';
-    contextMenu.style.visibility = 'hidden';
+    let cm = document.getElementById('ctxmenu');
+    cm.style.top = '-100px';
+    cm.style.left = '-100px';
+    cm.style.visibility = 'hidden';
 }
 
 

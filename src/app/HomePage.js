@@ -5,6 +5,17 @@ import { DesignTabs } from './DesignTabs';
 import AppToolbar from './AppToolbar';
 import './App.css';
 
+document.designData = {
+    models: '',
+    modelHierarchy: ''
+};
+
+const contextMenu = document.createElement('div');
+Object.assign(contextMenu.style, { position: 'absolute', visibility: 'hidden'});
+contextMenu.className = 'popupMenu';
+contextMenu.id = 'ctxmenu';
+document.body.appendChild(contextMenu);
+
 class HomePage extends React.Component {
     constructor(props) {
         super(props);

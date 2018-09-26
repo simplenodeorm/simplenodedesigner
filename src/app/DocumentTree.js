@@ -2,18 +2,9 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Tree, { TreeNode } from 'rc-tree';
 import './App.css';
+import './defaultTree.css';
 import groups from '../config/document-groups.json';
 
-var contextMenu = document.createElement('div');
-Object.assign(contextMenu.style, {
-      position: 'absolute',
-      visibility: 'hidden'});
-contextMenu.className = 'popupMenu';
-contextMenu.id = 'cmdtree';
-
-if (!document.getElementById('cmdtree')) {
-    document.body.appendChild(contextMenu);
-}
 
 const loop = (data) => {
 return data.map((item) => {
@@ -49,6 +40,7 @@ class DocumentTree extends React.Component {
           onSelect={onSelect}
           showLine
           showIcon={true}
+          prefixCls="tree-def"
         >{treeNodes}</Tree></div>;
         
     }
@@ -60,14 +52,15 @@ function onSelect (selkeys) {
 }
 
 function onRightClick(info) {
-    contextMenu.style.top = info.event.pageY + 'px';
-    contextMenu.style.left = info.event.pageX + 'px';
-    contextMenu.style.visibility = 'visible';
+    const cm = document.getElementById('ctxmenu');
+    cm.style.top = info.event.pageY + 'px';
+    cm.style.left = info.event.pageX + 'px';
+    cm.style.visibility = 'visible';
 
     if (info.node.props.isLeaf) {
-        ReactDOM.render(<ul><li><a href="#" onClick={editDocument}>Edit Document</a></li><li><a href="#" onClick={runDocument}>Run Document</a></li><li><a href="#" onClick={deleteDocument}>Delete Document</a></li></ul>, contextMenu);
+        ReactDOM.render(<ul><li><a href="#" onClick={editDocument}>Edit Document</a></li><li><a href="#" onClick={runDocument}>Run Document</a></li><li><a href="#" onClick={deleteDocument}>Delete Document</a></li></ul>, cm);
     } else {
-        ReactDOM.render(<ul><li><a href="#" onClick={addDocument}>Add Document</a></li></ul>, contextMenu);
+        ReactDOM.render(<ul><li><a href="#" onClick={addDocument}>Add Document</a></li></ul>, cm);
     }
 }
     
@@ -88,9 +81,10 @@ function  deleteDocument() {
 }
 
 function clearContextMenu() {
-    contextMenu.style.top = '-100px';
-    contextMenu.style.left = '-100px';
-    contextMenu.style.visibility = 'hidden';
+    let cm = document.getElementById('ctxmenu');
+    cm.style.top = '-100px';
+    cm.style.left = '-100px';
+    cm.style.visibility = 'hidden';
 }
 
 export { DocumentTree };
