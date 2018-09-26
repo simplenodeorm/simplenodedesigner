@@ -7,14 +7,18 @@ import {SelectModelDataPanel} from '../components/SelectModelDataPanel'
 import config from '../config/appconfig.json';
 import axios from 'axios';
 
-var models;
+document.designData = {
+    models: '',
+    modelHierarchy: ''
+};
+
 class DesignTabs extends React.Component {
     constructor(props) {
         super(props);
         
         this.state = {
-            tab0Disabled: true,
-            tab1Disabled: true,
+            tab0Disabled: false,
+            tab1Disabled: false,
             tab2Disabled: true,
             tab3Disabled: true,
             tab4Disabled: true,
@@ -25,12 +29,10 @@ class DesignTabs extends React.Component {
             error: ''
         };
 
-        this.onSetSidebarOpen = this.onSetSidebarOpen.bind(this);
     }
 
     onSetSidebarOpen(open, model) {
-        const {modelsLoaded} = this.state;
-        if (!modelsLoaded) {
+        if (!document.designData.models) {
           this.loadModels();
         } else {
             
@@ -48,7 +50,7 @@ class DesignTabs extends React.Component {
         
        <div className="tabContainer"> 
         <Sidebar
-            sidebar={models}
+            sidebar={document.designData.models}
             open={this.state.sidebarOpen}
             onSetOpen={this.onSetSidebarOpen}>
        <MenuButton text={selectedModel} 
@@ -69,7 +71,7 @@ class DesignTabs extends React.Component {
             <SelectModelDataPanel model={selectedModel}/>
         </TabPanel>
         <TabPanel>
-          <p>
+          <p> 
             <b>Tab2 panel</b>
 
           </p>
@@ -115,9 +117,8 @@ class DesignTabs extends React.Component {
                             return <button onClick={() => curcomp.onSetSidebarOpen(false, item)}>{item}</button>;
                         });
                     };
-
-                    models = <div className="sidebarContainer">{modelLoop(response.data)}</div>;
-                    curcomp.setState({ sidebarOpen: true, modelsLoaded: true, loading: false});
+                    document.designData.models = <div className="sidebarContainer">{modelLoop(response.data)}</div>;
+                    curcomp.setState({ sidebarOpen: true, loading: false});
                 } else {
                     curcomp.setState({error: response.statusText, loading: false});
                 }

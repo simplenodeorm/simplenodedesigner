@@ -18,19 +18,6 @@ if (!document.getElementById('cmmdatatree')) {
     document.body.appendChild(contextMenu);
 }
 
-const fieldLoop = (data) => {
-    return data.fields.map((field) => {
-        return <TreeNode title={field.fieldName} key={field.__key__} isLeaf/>;
-    });
-};
-
-const relationshipLoop = (data) => {
-    if (data.relationships) {
-        return data.relationships.map((rel) => {
-            return <TreeNode title={rel.fieldName} key={rel.__key__} isLeaf={false}>{fieldLoop(rel)}{relationshipLoop(rel)}</TreeNode>;});
-    }   
-};
-
 class SelectModelDataPanel extends React.Component {
     constructor(props) {
         super(props);
@@ -38,7 +25,6 @@ class SelectModelDataPanel extends React.Component {
         this.state = {
             loading: false,
             model: props.model,
-            treeData: '',
             error: ''
         };
     }
@@ -52,14 +38,14 @@ class SelectModelDataPanel extends React.Component {
     }
 
     render() {
-        const {model, loading, error, treeData} = this.state;
+        const {model, loading, error} = this.state;
         if (error) {
             return <div className="errorMessage">{error}</div>;
         } else if (model === config.textmsg.modelselectdefault) {
             return <div className="panelPrompt1">{config.textmsg.modelselectprompt}</div>;
         } else if (loading) {
             return <div className="panelPrompt1"><Spinner/>&nbsp;&nbsp;Loading model hierarchy for {model}...</div>;
-        } else if (treeData) {
+        } else if (document.designData.modelHierarchy) {
             return <div className="treeContainer">
                 <Tree 
                   onRightClick={onRightClick}
@@ -67,8 +53,7 @@ class SelectModelDataPanel extends React.Component {
                   showLine
                   defaultExpandedKeys={['t0']}
                   showIcon={true}
-                  treeData={treeData}
-                  ><TreeNode title={model} key="t0" isLeaf={false}></TreeNode></Tree></div>;
+                  treeData={document.designData.modelHierarchy}></Tree></div>;
         } else {
             return <div className="panelPrompt1">{config.textmsg.modelselectprompt}</div>;
         }
@@ -85,7 +70,8 @@ class SelectModelDataPanel extends React.Component {
         axios.get(orm.url + '/design/modeltree/' + inputModel, config)
             .then((response) => {
                 if (response.status === 200) {
-                    curcomp.setState({loading: false, model: inputModel, treeData: response.data});
+                    document.designData.modelHierarchy = response.data;
+                    curcomp.setState({loading: false, model: inputModel});
                 } else {
                     curcomp.setState({error: response.statusText, loading: false});
                 }
