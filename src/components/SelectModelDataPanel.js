@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Tree, { TreeNode } from 'rc-tree'
 import "../app/App.css";
-import '../app/iconTree.css';
+import '../app/defaultTree.css';
 import config from '../config/appconfig.json';
 import axios from 'axios';
 import Spinner from './Spinner';
@@ -48,7 +48,6 @@ class SelectModelDataPanel extends React.Component {
                   defaultExpandedKeys={['t0']}
                   showIcon={true}
                   icon={this.getIcon}
-                  prefixCls="tree-icon"
                   treeData={document.designData.modelHierarchy}></Tree></div>;
         } else {
             return <div className="panelPrompt1">{config.textmsg.modelselectprompt}</div>;
@@ -79,6 +78,7 @@ class SelectModelDataPanel extends React.Component {
             .then((response) => {
                 if (response.status === 200) {
                     document.designData.modelHierarchy = response.data;
+            console.log(document.designData.modelHierarchy);
                     curcomp.setState({loading: false, model: inputModel});
                 } else {
                     curcomp.setState({error: response.statusText, loading: false});

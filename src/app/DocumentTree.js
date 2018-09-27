@@ -40,7 +40,6 @@ class DocumentTree extends React.Component {
           onSelect={onSelect}
           showLine
           showIcon={true}
-          prefixCls="tree-def"
         >{treeNodes}</Tree></div>;
         
     }
