@@ -22,6 +22,7 @@ class SelectModelDataPanel extends React.Component {
             model: props.model,
             error: ''
         };
+        
     }
 
     componentWillReceiveProps(nextProps) {

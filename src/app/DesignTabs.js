@@ -22,14 +22,12 @@ class DesignTabs extends React.Component {
             selectedModel: config.textmsg.modelselectdefault,
             loading: false,
             error: ''
-        };
-    }
+        };    }
 
     onSetSidebarOpen(open, model) {
         if (!document.designData.models) {
             this.loadModels();
         } else {
-
             if (model) {
                 this.setState({sidebarOpen: open, tab0Disabled: false, selectedModel: model});
             } else {
@@ -42,16 +40,16 @@ class DesignTabs extends React.Component {
         const {tab0Disabled, tab1Disabled, tab2Disabled, tab3Disabled, tab4Disabled, error, selectedModel, loading} = this.state;
         return (
             <div className="tabContainer"> 
-                <Sidebar
+                <MenuButton text={selectedModel} 
+                    error={error} 
+                    loading={loading}
+                    onMenuClick={() => {  this.onSetSidebarOpen(true); }}/>
+                {this.state.sidebarOpen &&
+                <Sidebar 
                     sidebar={document.designData.models}
                     open={this.state.sidebarOpen}
                     onSetOpen={this.onSetSidebarOpen}>
-                    <MenuButton text={selectedModel} 
-                        error={error} 
-                        loading={loading}
-                        onMenuClick={(e) => { e.preventDefault(); this.onSetSidebarOpen(true); }}/>
-                </Sidebar>
-                <br />
+                </Sidebar> }
                 <Tabs>
                     <TabList>
                         <Tab disabled={tab0Disabled}>{config.textmsg.selectdata}</Tab>
@@ -100,22 +98,22 @@ class DesignTabs extends React.Component {
 
         this.setState({loading: true});
         axios.get(orm.url + '/design/modelnames', config)
-                .then((response) => {
-                    if (response.status === 200) {
-                        const modelLoop = (data) => {
-                            return data.map((item) => {
-                                return <button onClick={() => curcomp.onSetSidebarOpen(false, item)}>{item}</button>;
-                            });
-                        };
-                        document.designData.models = <div className="sidebarContainer">{modelLoop(response.data)}</div>;
-                        curcomp.setState({sidebarOpen: true, loading: false});
-                    } else {
-                        curcomp.setState({error: response.statusText, loading: false});
-                    }
-                })
-                .catch((err) => {
-                    curcomp.setState({error: err.toString(), loading: false});
-                });
+            .then((response) => {
+                if (response.status === 200) {
+                    const modelLoop = (data) => {
+                        return data.map((item) => {
+                            return <button onClick={() => curcomp.onSetSidebarOpen(false, item)}>{item}</button>;
+                        });
+                    };
+                    document.designData.models = <div className="sidebarContainer">{modelLoop(response.data)}</div>;
+                    curcomp.setState({sidebarOpen: true, loading: false});
+                } else {
+                    curcomp.setState({error: response.statusText, loading: false});
+                }
+            })
+            .catch((err) => {
+                curcomp.setState({error: err.toString(), loading: false});
+            });
     }
 }
 
