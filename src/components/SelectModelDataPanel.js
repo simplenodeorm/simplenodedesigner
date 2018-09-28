@@ -45,18 +45,29 @@ class SelectModelDataPanel extends React.Component {
         } else if (document.designData.modelHierarchy) {
             return <div className="treeContainer">
                 <Tree 
-                  onRightClick={onRightClick}
+                  onRightClick={this.onRightClick}
                   checkable
                   showLine
                   defaultExpandedKeys={['t0']}
                   showIcon={true}
                   icon={this.getIcon}
+                  onSelect={this.onSelect}
+                  onCheck={this.onCheck}
                   treeData={document.designData.modelHierarchy}></Tree></div>;
         } else {
             return <div className="panelPrompt1">{config.textmsg.modelselectprompt}</div>;
         }
     }
     
+    onCheck(checkedKeys) {
+    }
+    
+    onSelect(info) {
+    }
+    
+    onRightClick(info) {
+    }
+
     getIcon(props) {
         if (firstnode) {
             firstnode = false;
