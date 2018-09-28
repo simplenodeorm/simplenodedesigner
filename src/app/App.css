@@ -16,11 +16,14 @@
     --header-text-color:darkSlateGray;
     --menu-button-color:#1c2833 ;
     --input-background:linear-gradient(top, #d6d7d7, #dee0e0);
-    ----tree-node-content-height: 17px
   }
 
-html, body {
+html {
+    overflow:hidden;
     height:100%;
+}
+
+body {
     background-image: var(--main-color);
     font-weight: var(--font-weight));
     float:left;
@@ -29,10 +32,6 @@ html, body {
     font-family: var(--font-family);
 }
 
-
-.tabContainer {
-    margin-left: 2px;
-}
 
 .popupMenu {
     position: relative;
@@ -220,17 +219,15 @@ input[type="submit"] {
     padding-top: 3px;
     background: var(--default-bkcolor);
     font-size: 90%;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
+    height:100%;
 }
 
 .tabContainer {
     background: var(--default-bkcolor);
-    width: 100%;
-    height: 100%;
-    overflow: auto;
     padding: 2px;
+    margin-left: 3px;
+    height:100%;
+    overflow: auto;
 }
 
 .minimalist-toolbar{
@@ -487,7 +484,6 @@ input[type="submit"] {
 .react-tabs__tab-panel {
   display: none;
   height:100%;
-  overflow: auto;
 }
 
 .react-tabs__tab-panel--selected {

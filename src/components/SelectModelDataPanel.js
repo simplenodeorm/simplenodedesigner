@@ -8,6 +8,7 @@ import axios from 'axios';
 import Spinner from './Spinner';
 
 const leafimg = <img src="/images/column.png"/>;
+const keycolumnimg = <img src="/images/keycolumn.png"/>;
 const modelimg = <img src="/images/model.png"/>;
 const rootimg = <img src="/images/root.png"/>;
 var firstnode = true;
@@ -33,6 +34,7 @@ class SelectModelDataPanel extends React.Component {
 
     render() {
         const {model, loading, error} = this.state;
+        
         if (error) {
             return <div className="errorMessage">{error}</div>;
         } else if (model === config.textmsg.modelselectdefault) {
@@ -59,7 +61,11 @@ class SelectModelDataPanel extends React.Component {
             firstnode = false;
             return rootimg;
         } else if (props.isLeaf) {
-            return leafimg;
+            if (props.primaryKey) {
+                return keycolumnimg;
+            } else {
+                return leafimg;
+            }
         } else {
             return modelimg;
         } 
@@ -78,7 +84,6 @@ class SelectModelDataPanel extends React.Component {
             .then((response) => {
                 if (response.status === 200) {
                     document.designData.modelHierarchy = response.data;
-            console.log(document.designData.modelHierarchy);
                     curcomp.setState({loading: false, model: inputModel});
                 } else {
                     curcomp.setState({error: response.statusText, loading: false});
