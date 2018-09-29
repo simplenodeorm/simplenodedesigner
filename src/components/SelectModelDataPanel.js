@@ -13,14 +13,15 @@ const modelimg = <img src="/images/model.png"/>;
 const rootimg = <img src="/images/root.png"/>;
 var firstnode = true;
 
+var setDesignTabState;
 class SelectModelDataPanel extends React.Component {
     constructor(props) {
         super(props);
-        
+        setDesignTabState = this.props.setTabState;
         this.state = {
             loading: false,
             model: props.model,
-            error: ''
+            error: '',
         };
         
     }
@@ -59,7 +60,12 @@ class SelectModelDataPanel extends React.Component {
         }
     }
     
-    onCheck(checkedKeys) {
+    onCheck(checkedKeys, e) {
+        if (checkedKeys.length > 0) {
+            setDesignTabState(false, false, false, false);
+        } else {
+            setDesignTabState(false, true, true, true);
+        }
     }
     
     onSelect(info) {

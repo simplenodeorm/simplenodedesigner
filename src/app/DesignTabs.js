@@ -7,6 +7,7 @@ import {SelectModelDataPanel} from '../components/SelectModelDataPanel'
         import config from '../config/appconfig.json';
 import axios from 'axios';
 
+var curobj;
 class DesignTabs extends React.Component {
     constructor(props) {
         super(props);
@@ -17,12 +18,16 @@ class DesignTabs extends React.Component {
             tab2Disabled: true,
             tab3Disabled: true,
             tab4Disabled: true,
+            tabStateChannged: false,
             sidebarOpen: false,
             modelsLoaded: false,
             selectedModel: config.textmsg.modelselectdefault,
             loading: false,
             error: ''
-        };    }
+        };    
+        
+        curobj = this;
+    }
 
     onSetSidebarOpen(open, model) {
         if (!document.designData.models) {
@@ -37,17 +42,17 @@ class DesignTabs extends React.Component {
     }
 
     render() {
-        const {tab0Disabled, tab1Disabled, tab2Disabled, tab3Disabled, tab4Disabled, error, selectedModel, loading} = this.state;
+        const {tab0Disabled, tab1Disabled, tab2Disabled, tab3Disabled, error, selectedModel, loading, sidebarOpen, tabStateChanged} = this.state;
         return (
             <div className="tabContainer"> 
                 <MenuButton text={selectedModel} 
                     error={error} 
                     loading={loading}
                     onMenuClick={() => {  this.onSetSidebarOpen(true); }}/>
-                {this.state.sidebarOpen &&
+                {sidebarOpen &&
                 <Sidebar 
                     sidebar={document.designData.models}
-                    open={this.state.sidebarOpen}
+                    open={sidebarOpen}
                     onSetOpen={this.onSetSidebarOpen}>
                 </Sidebar> }
                 <Tabs>
@@ -55,20 +60,14 @@ class DesignTabs extends React.Component {
                         <Tab disabled={tab0Disabled}>{config.textmsg.selectdata}</Tab>
                         <Tab disabled={tab1Disabled}>{config.textmsg.formatselections}</Tab>
                         <Tab disabled={tab2Disabled}>{config.textmsg.definefilter}</Tab>
-                        <Tab disabled={tab3Disabled}>{config.textmsg.designreport}</Tab>
-                        <Tab disabled={tab4Disabled}>{config.textmsg.runquery}</Tab>
+                        <Tab disabled={tab3Disabled}>{config.textmsg.runquery}</Tab>
                     </TabList>
                     <TabPanel>
-                        <SelectModelDataPanel model={selectedModel}/>
+                        <SelectModelDataPanel setTabState={this.setTabState} model={selectedModel}/>
                     </TabPanel>
                     <TabPanel>
                         <p> 
                             <b>Tab2 panel</b>
-                        </p>
-                    </TabPanel>
-                    <TabPanel>
-                        <p>
-                            <b>Tab3 panel</b>
                         </p>
                     </TabPanel>
                     <TabPanel>
@@ -83,6 +82,10 @@ class DesignTabs extends React.Component {
                     </TabPanel>
                 </Tabs>
             </div>);
+    }
+    
+    setTabState(tab0, tab1, tab2, tab3) {
+        curobj.setState({tab0Disabled: tab0, tab1Disabled: tab1, tab2Disabled: tab2, tab3Disabled: tab3, tabStateChanged: true});
     }
 
     onDisplaySidebar() {
