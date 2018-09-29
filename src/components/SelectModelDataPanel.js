@@ -61,6 +61,7 @@ class SelectModelDataPanel extends React.Component {
     }
     
     onCheck(checkedKeys, e) {
+        document.designData.selectedObjectKeys = checkedKeys;
         if (checkedKeys.length > 0) {
             setDesignTabState(false, false, false, false);
         } else {

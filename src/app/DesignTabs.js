@@ -4,7 +4,8 @@ import { MenuButton } from '../components/MenuButton';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import Sidebar from "react-sidebar";
 import {SelectModelDataPanel} from '../components/SelectModelDataPanel'
-        import config from '../config/appconfig.json';
+import {FormatSelectionPanel} from '../components/FormatSelectionPanel'
+import config from '../config/appconfig.json';
 import axios from 'axios';
 
 var curobj;
@@ -66,9 +67,7 @@ class DesignTabs extends React.Component {
                         <SelectModelDataPanel setTabState={this.setTabState} model={selectedModel}/>
                     </TabPanel>
                     <TabPanel>
-                        <p> 
-                            <b>Tab2 panel</b>
-                        </p>
+                        <FormatSelectionPanel setTabState={this.setTabState}/>
                     </TabPanel>
                     <TabPanel>
                         <p>
