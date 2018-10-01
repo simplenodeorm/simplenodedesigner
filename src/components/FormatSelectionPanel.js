@@ -2,14 +2,14 @@ import React from 'react';
 import "../app/App.css";
 import config from '../config/appconfig.json';
 import Spinner from './Spinner';
+import {FormatSelectionLine} from './FormatSelectionLine';
 
 class FormatSelectionPanel extends React.Component {
     constructor(props) {
         super(props);
+
         this.state = {
-            loading: false,
-            error: '',
-            slectedItems: ''
+            error: ''
         };
     }
 
@@ -18,8 +18,6 @@ class FormatSelectionPanel extends React.Component {
         
         if (error) {
             return <div className="errorMessage">{error}</div>;
-        } else if (loading) {
-            return <div className="panelPrompt1"><Spinner/>&nbsp;&nbsp;Loading selected items...</div>;
         } else {
             return <div>Format selection panel</div>;
         } 

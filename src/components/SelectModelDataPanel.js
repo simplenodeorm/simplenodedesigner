@@ -10,8 +10,6 @@ import Spinner from './Spinner';
 const leafimg = <img src="/images/column.png"/>;
 const keycolumnimg = <img src="/images/keycolumn.png"/>;
 const modelimg = <img src="/images/model.png"/>;
-const rootimg = <img src="/images/root.png"/>;
-var firstnode = true;
 
 var setDesignTabState;
 class SelectModelDataPanel extends React.Component {
@@ -44,7 +42,7 @@ class SelectModelDataPanel extends React.Component {
         } else if (loading) {
             return <div className="panelPrompt1"><Spinner/>&nbsp;&nbsp;Loading model hierarchy for {model}...</div>;
         } else if (document.designData.modelHierarchy) {
-            return <div className="treeContainer">
+            return <div className="tabContainer"> <div className="treeContainer">
                 <Tree 
                   onRightClick={this.onRightClick}
                   checkable
@@ -54,7 +52,7 @@ class SelectModelDataPanel extends React.Component {
                   icon={this.getIcon}
                   onSelect={this.onSelect}
                   onCheck={this.onCheck}
-                  treeData={document.designData.modelHierarchy}></Tree></div>;
+                  treeData={document.designData.modelHierarchy}></Tree></div></div>;
         } else {
             return <div className="panelPrompt1">{config.textmsg.modelselectprompt}</div>;
         }
@@ -76,10 +74,7 @@ class SelectModelDataPanel extends React.Component {
     }
 
     getIcon(props) {
-        if (firstnode) {
-            firstnode = false;
-            return rootimg;
-        } else if (props.isLeaf) {
+        if (props.isLeaf) {
             if (props.primaryKey) {
                 return keycolumnimg;
             } else {
@@ -91,7 +86,6 @@ class SelectModelDataPanel extends React.Component {
     }
     
     loadModelData(model) {
-        firstnode = true;
         const curcomp = this;
         const orm = JSON.parse(localStorage.getItem('orm'));
         const inputModel = model;

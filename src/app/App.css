@@ -216,17 +216,17 @@ input[type="submit"] {
 }
 
 .treeContainer {
-    padding-top: 3px;
     background: var(--default-bkcolor);
     font-size: 90%;
     height:100%;
+    
 }
 
 .tabContainer {
     background: var(--default-bkcolor);
     padding: 2px;
     margin-left: 3px;
-    height:100%;
+    height:96%;
     overflow: auto;
 }
 
