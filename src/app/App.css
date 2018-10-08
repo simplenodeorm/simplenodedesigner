@@ -8,6 +8,7 @@
     --popup-hover:#414142;
     --font-family:"HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
     --font-size:10pt;
+    --med-font-size:12pt;
     --large-font-size:14pt;
     --font-weight:300;
     --strong-font-weight:700;
@@ -427,7 +428,7 @@ input[type="submit"] {
 .panelPrompt1 {
     color: var(--header-text-color);
     background-color: var(--default-bkcolor);
-    font-size: var(--large-font-size);
+    font-size: var(--med-font-size);
     font-weight: 400;
     margin: 30px;
 }
@@ -488,4 +489,8 @@ input[type="submit"] {
 
 .react-tabs__tab-panel--selected {
   display: block;
+}
+
+
+.formatSelectionLine {
 }

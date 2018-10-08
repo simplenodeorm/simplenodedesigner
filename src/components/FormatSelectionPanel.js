@@ -7,14 +7,13 @@ import {FormatSelectionLine} from './FormatSelectionLine';
 class FormatSelectionPanel extends React.Component {
     constructor(props) {
         super(props);
-
         this.state = {
             error: ''
         };
     }
 
     render() {
-        const {selectedItems, loading, error} = this.state;
+        const {error} = this.state;
         
         if (error) {
             return <div className="errorMessage">{error}</div>;
