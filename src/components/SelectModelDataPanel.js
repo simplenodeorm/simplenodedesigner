@@ -46,12 +46,16 @@ class SelectModelDataPanel extends React.Component {
                 return <div className="panelPrompt1">{config.textmsg.modelselectprompt}</div>;
             }
         } else if (document.designData.modelHierarchy) {
+            let defaultExpandedKeys = ['t0'];
+            if (document.designData.selectedObjectKeys) {
+                defaultExpandedKeys = document.designData.selectedObjectKeys;
+            }
             return <div className="tabContainer"> <div className="treeContainer">
                 <Tree 
                   onRightClick={this.onRightClick}
                   checkable
                   showLine
-                  defaultExpandedKeys={['t0']}
+                  defaultExpandedKeys={defaultExpandedKeys}
                   showIcon={true}
                   icon={this.getIcon}
                   onSelect={this.onSelect}
@@ -72,10 +76,6 @@ class SelectModelDataPanel extends React.Component {
         }
     }
     
-    onExpand(expandedKeys, e) {
-        document.designData.expandedObjectKeys = expandedKeys;
-    }
-
     onSelect(info) {
     }
     
