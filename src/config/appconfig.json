@@ -7,7 +7,7 @@
         "setup": "Setup",
         "preferences": "Preferences",
         "selectdata": "Select Data",
-        "formatselections": "Format Selections",
+        "formatselections": "Column Settings",
         "definefilter": "Define Filter",
         "designreport": "Design Report",
         "runquery": "Run Query"

@@ -8,7 +8,6 @@ import './App.css';
 document.designData = {
     models: '',
     modelHierarchy: '',
-    expandedObjectKeys: ['t0'],
     selectedObjectKeys: ''
 };
 
