@@ -19,15 +19,16 @@ class SelectModelDataPanel extends React.Component {
         this.state = {
             loading: false,
             model: props.model,
-            error: '',
+            error: ''
         };
-        
     }
 
     componentWillReceiveProps(nextProps) {
         const {model} = this.state;
         if ((nextProps.model !== config.textmsg.modelselectdefault)
             && (model !== nextProps.model)) {
+            document.designData.modelHierarchy = '';
+            document.designData.selectedObjectKeys = '';
             this.setState({loading: true});
             this.loadModelData(nextProps.model);
         }
@@ -54,6 +55,7 @@ class SelectModelDataPanel extends React.Component {
                   showIcon={true}
                   icon={this.getIcon}
                   onSelect={this.onSelect}
+                  checkedKeys={document.designData.selectedObjectKeys}
                   onCheck={this.onCheck}
                   treeData={document.designData.modelHierarchy}></Tree></div></div>;
         } else {
@@ -70,6 +72,10 @@ class SelectModelDataPanel extends React.Component {
         }
     }
     
+    onExpand(expandedKeys, e) {
+        document.designData.expandedObjectKeys = expandedKeys;
+    }
+
     onSelect(info) {
     }
     

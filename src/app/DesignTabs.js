@@ -56,7 +56,7 @@ class DesignTabs extends React.Component {
                     open={sidebarOpen}
                     onSetOpen={this.onSetSidebarOpen}>
                 </Sidebar> }
-                <Tabs>
+                <Tabs onSelect={this.onTabSelected}>
                     <TabList>
                         <Tab disabled={tab0Disabled}>{config.textmsg.selectdata}</Tab>
                         <Tab disabled={tab1Disabled}>{config.textmsg.formatselections}</Tab>
@@ -83,6 +83,13 @@ class DesignTabs extends React.Component {
             </div>);
     }
     
+    onTabSelected(index, lastIndex) {
+        if (lastIndex !== index) {
+            if (lastIndex === 0) {
+                document.designData.savedModelTree = document.designData.lastModelTree;
+            } 
+        }
+    }
     setTabState(tab0, tab1, tab2, tab3) {
         curobj.setState({tab0Disabled: tab0, tab1Disabled: tab1, tab2Disabled: tab2, tab3Disabled: tab3, tabStateChanged: true});
     }

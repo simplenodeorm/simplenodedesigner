@@ -13,12 +13,8 @@ class FormatSelectionLine extends React.Component {
 
     render() {
         return <div className="formatSelectionLine">
-        <div>{this.props.lineNumber}</div>
-        <div>{this.props.field.fieldName}</div>
-        <div>{this.props.lineNumber}</div>
-        <div>{this.props.lineNumber}</div>
-        <div>{this.props.lineNumber}</div>
-        </div>
+        <div>{this.props.columnNode.path}</div>
+        </div>;
         
     }
     

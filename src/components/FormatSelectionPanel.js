@@ -4,6 +4,11 @@ import config from '../config/appconfig.json';
 import Spinner from './Spinner';
 import {FormatSelectionLine} from './FormatSelectionLine';
 
+const loop = (data) => {
+    return data.map((node) => {
+       return <FormatSelectionLine columnNode={node}/>;
+    })};
+
 class FormatSelectionPanel extends React.Component {
     constructor(props) {
         super(props);
@@ -18,10 +23,38 @@ class FormatSelectionPanel extends React.Component {
         if (error) {
             return <div className="errorMessage">{error}</div>;
         } else {
-            return <div>Format selection panel</div>;
-        } 
+           let selnodes = new Array();
+           this.loadSelectedNodes(document.designData.modelHierarchy, selnodes, '',  new Set(document.designData.selectedObjectKeys));
+           return loop(selnodes);
+        }
     }
     
+    loadSelectedNodes(pnode, selnodes, curpath, keyset) {
+        for (let i = 0; i < pnode.children.length; ++i) {
+            if (pnode.children[i].columnName && keyset.has(pnode.children[i].key)) {
+                if (curpath) {
+                    pnode.children[i].path = curpath + '.' + pnode.children[i].title;
+                } else {
+                    pnode.children[i].path = pnode.children[i].title;
+                }
+                selnodes.push(pnode.children[i]);
+            }
+        }
+ 
+        
+        for (let i = 0; i < pnode.children.length; ++i) {
+            if (!pnode.children[i].columnName) {
+                let newpath;
+                if (curpath) {
+                    newpath = curpath + '.' + pnode.children[i].title;
+                } else {
+                    newpath = pnode.children[i].title;
+                }
+                
+                this.loadSelectedNodes(pnode.children[i], selnodes, newpath, keyset);
+            }
+        }
+    }
 }
 
 export {FormatSelectionPanel};
