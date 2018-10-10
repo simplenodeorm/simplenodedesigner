@@ -13,7 +13,7 @@ class FormatSelectionLine extends React.Component {
 
     render() {
         return <div className="formatSelectionLine">
-        <span className="lineStyle1"><span className="label">field:&nbsp;</span><span>{this.props.columnNode.path}</span></span><br /><br />
+        <span className="label">{this.props.columnNode.__index + 1}.&nbsp;</span><span className="lineStyle1"><span>{this.props.columnNode.path}</span></span><br /><br />
         </div>;
         
     }

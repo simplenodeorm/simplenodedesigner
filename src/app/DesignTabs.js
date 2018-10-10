@@ -39,7 +39,7 @@ class DesignTabs extends React.Component {
             document.designData.modelHierarchy = '';
             document.designData.selectedObjectKeys = '';
             if (model) {
-                this.setState({sidebarOpen: open, tab0Disabled: false, selectedModel: model});
+                this.setState({sidebarOpen: open, tab0Disabled: false, tab1Disabled: true, tab2Disabled: true, tab3Disabled: true, selectedModel: model});
             } else {
                 this.setState({sidebarOpen: open});
             }
