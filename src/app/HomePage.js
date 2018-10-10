@@ -25,14 +25,13 @@ class HomePage extends React.Component {
     render() {
         return (<div><AppToolbar/>
         <br /><SplitPane 
-                    split="vertical" 
-                    minSize={10} 
-                    defaultSize={150}>
-                    <DocumentTree/>
-                    <DesignTabs/>
-                </SplitPane></div>
-                
-            );
+                split="vertical" 
+                minSize={10} 
+                defaultSize={150}>
+                <DocumentTree/>
+                <DesignTabs/>
+            </SplitPane></div>
+        );
     }
 }
 

@@ -24,6 +24,7 @@ class DesignTabs extends React.Component {
             modelsLoaded: false,
             selectedModel: config.textmsg.modelselectdefault,
             loading: false,
+            tabIndex: 0,
             error: ''
         };    
         
@@ -34,6 +35,9 @@ class DesignTabs extends React.Component {
         if (!document.designData.models) {
             this.loadModels();
         } else {
+            this.state.tabIndex = 0;
+            document.designData.modelHierarchy = '';
+            document.designData.selectedObjectKeys = '';
             if (model) {
                 this.setState({sidebarOpen: open, tab0Disabled: false, selectedModel: model});
             } else {
@@ -44,7 +48,7 @@ class DesignTabs extends React.Component {
 
     render() {
         const {tab0Disabled, tab1Disabled, tab2Disabled, tab3Disabled, error, selectedModel, loading, sidebarOpen, tabStateChanged} = this.state;
-        return (
+        let retval = (
             <div className="tabContainer"> 
                 <MenuButton text={selectedModel} 
                     error={error} 
@@ -56,7 +60,8 @@ class DesignTabs extends React.Component {
                     open={sidebarOpen}
                     onSetOpen={this.onSetSidebarOpen}>
                 </Sidebar> }
-                <Tabs onSelect={this.onTabSelected}>
+                
+                <Tabs selectedIndex={this.state.tabIndex} onSelect={tabIndex => this.setState({ tabIndex })}> 
                     <TabList>
                         <Tab disabled={tab0Disabled}>{config.textmsg.selectdata}</Tab>
                         <Tab disabled={tab1Disabled}>{config.textmsg.formatselections}</Tab>
@@ -81,15 +86,13 @@ class DesignTabs extends React.Component {
                     </TabPanel>
                 </Tabs>
             </div>);
+            return retval;
     }
     
     onTabSelected(index, lastIndex) {
-        if (lastIndex !== index) {
-            if (lastIndex === 0) {
-                document.designData.savedModelTree = document.designData.lastModelTree;
-            } 
-        }
+        this.selectedIndex = index;
     }
+    
     setTabState(tab0, tab1, tab2, tab3) {
         curobj.setState({tab0Disabled: tab0, tab1Disabled: tab1, tab2Disabled: tab2, tab3Disabled: tab3, tabStateChanged: true});
     }

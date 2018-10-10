@@ -24,7 +24,7 @@ class MenuButton extends React.Component {
                 <a disabled={loading} onClick={this.props.onMenuClick}>
                     <svg viewBox="0 0 24 24">
                         <path focusable="false" color="blue" d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
-                        </svg>{text}
+                        </svg><span>{text}</span>
                     </a>{error && <div className="errorMessage">{error}</div> }
             </div>;
     }
