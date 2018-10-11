@@ -5,10 +5,6 @@ import config from '../config/appconfig.json';
 class SortPositionInput extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {
-            sortPosition: '',
-            ascending: true
-        };
     }
     
     render() {

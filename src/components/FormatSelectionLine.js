@@ -3,6 +3,8 @@ import "../app/App.css";
 import config from '../config/appconfig.json';
 import {AggregateFunctionSelect} from './AggregateFunctionSelect';
 import {SortPositionInput} from './SortPositionInput';
+import {AscDescCheckbox} from './AscDescCheckbox';
+import {CustomColumnInput} from './CustomColumnInput';
 
 const dateFunctions = ['count', 'min', 'max'];
 const stringFunctions = ['count'];
@@ -17,7 +19,8 @@ class FormatSelectionLine extends React.Component {
             error: '',
             sortPosition: '',
             aortAscending: true,
-            selectedFunction: ''
+            selectedFunction: '',
+            customColumnInput: ''
         };
     }
 
@@ -37,13 +40,22 @@ class FormatSelectionLine extends React.Component {
         }
 
         return <div className="formatSelectionLine">
-            <span className="label">{this.props.columnNode.__index + 1}.&nbsp;</span>
-            <span className="lineStyle1">{this.props.columnNode.path}</span>
-            <br />
-            <SortPositionInput onSortPosChange={this.onSortPosChange}/><AggregateFunctionSelect onFunctionChange={this.onFunctionChange} functions={funcs} />
+            <div className="lineStyle1"><span className="label">{this.props.columnNode.__index + 1}.&nbsp;</span>{this.props.columnNode.path}</div>
+            <AggregateFunctionSelect onFunctionChange={this.onFunctionChange} functions={funcs} />
+            <SortPositionInput onSortPosChange={this.onSortPosChange}/>
+            <AscDescCheckbox onAscDescChange={this.onAscDescChange}/>
+            <CustomColumnInput onCustomColumnInputChange={this.onCustomColumnInputChange}/>
         </div>;
     }
     
+    onAscDescChange(e) {
+        this.state.sortAscending = !e.target.checked;
+    }
+
+    onCustomColumnInputChantge(e) {
+        this.state.customColumnInput = e.target.value;
+    }
+
     onSortPosChange(e) {
         this.state.sortPosition = e.target.value;
     }

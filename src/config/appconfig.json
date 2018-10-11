@@ -12,6 +12,8 @@
         "designreport": "Design Report",
         "runquery": "Run Query",
         "aggfunctionlabel": "Function:",
-        "sortposlabel": "Sort Pos:"
+        "sortposlabel": "Sort Pos:",
+        "ascdesclabel": "Desc:",
+        "customcolinputlabel": "Custom:"
     }
 }
