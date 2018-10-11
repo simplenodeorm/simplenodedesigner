@@ -7,7 +7,8 @@
     --popup-background:#59595c;
     --popup-hover:#414142;
     --font-family:"HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
-    --font-size:10pt;
+    --small-font-size:8pt;
+    --default-font-size:10pt;
     --med-font-size:12pt;
     --large-font-size:14pt;
     --font-weight:300;
@@ -30,7 +31,7 @@ body {
     font-weight: var(--font-weight));
     float:left;
     text-align: left;
-    font-size:var(--font-size);
+    font-size:var(--default-font-size);
     font-family: var(--font-family);
 }
 
@@ -509,15 +510,26 @@ input[type="submit"] {
     font-weight: 600;
 }
 
+.fieldLabel {
+    margin-left: 3px;
+    font-size: var(--small-font-size);
+    text-align: right;
+    font-weight: 600;
+}
+
 .lineStyle1 {
     border-bottom: 1px solid var(--default-border-color);
     white-space: nowrap;
 }
 
 .formatSelectionLine select {
-    width: 100px;
+    margin: 2px;
+    width: 70px;
+    height: 18px;
 }
 
 .formatSelectionLine input {
+    margin: 2px;
     width: 50px;
+    height: 18px;
 }

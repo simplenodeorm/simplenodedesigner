@@ -10,6 +10,8 @@
         "formatselections": "Column Settings",
         "definefilter": "Define Filter",
         "designreport": "Design Report",
-        "runquery": "Run Query"
+        "runquery": "Run Query",
+        "aggfunctionlabel": "Function:",
+        "sortposlabel": "Sort Pos:"
     }
 }

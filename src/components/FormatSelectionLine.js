@@ -1,42 +1,55 @@
 import React from 'react';
 import "../app/App.css";
 import config from '../config/appconfig.json';
+import {AggregateFunctionSelect} from './AggregateFunctionSelect';
+import {SortPositionInput} from './SortPositionInput';
 
-const dateAggFunction = <select><option></option><option>count</option><option>max</option><option>min</option></select>
-const numAggFunction = <select><option></option><option>avg</option><option>count</option><option>max</option><option>min</option><option>sum</option></select>
-const strAggFunction = <select><option></option><option>count</option></select>
+const dateFunctions = ['count', 'min', 'max'];
+const stringFunctions = ['count'];
+const numberFunctions = ['avg', 'count', 'min', 'max', 'sum'];
 
 class FormatSelectionLine extends React.Component {
     constructor(props) {
         super(props);
-        
-        let fsel;
-        switch(this.getType(props.columnNode.type)) {
-            case "string":
-                fsel = strAggFunction;
-                break;
-            case "date":
-                fsel = dateAggFunction;
-                break;
-            case "number":
-                fsel = numAggFunction;
-                break;
-        }
-        
+
         this.state = {
             loading: false,
             error: '',
-            functionSelect: fsel
+            sortPosition: '',
+            aortAscending: true,
+            selectedFunction: ''
         };
     }
 
     render() {
+        let funcs;
+        
+        switch(this.getType(this.props.columnNode.type)) {
+            case "date":
+                funcs = dateFunctions;
+                break;
+            case "number":
+                funcs = numberFunctions;
+                break;
+            default:
+                funcs = stringFunctions;
+                break;
+        }
+
         return <div className="formatSelectionLine">
             <span className="label">{this.props.columnNode.__index + 1}.&nbsp;</span>
             <span className="lineStyle1">{this.props.columnNode.path}</span>
             <br />
-            <input type="text" value=''/>{this.state.functionSelect}
+            <SortPositionInput onSortPosChange={this.onSortPosChange}/><AggregateFunctionSelect onFunctionChange={this.onFunctionChange} functions={funcs} />
         </div>;
+    }
+    
+    onSortPosChange(e) {
+        this.state.sortPosition = e.target.value;
+    }
+
+    onFunctionChange(e) {
+        this.state.selectedFunction = e.target[e.target.selectedIndex].value;
     }
     
     getType(dbType) {
