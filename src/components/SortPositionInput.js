@@ -8,11 +8,13 @@ class SortPositionInput extends React.Component {
     }
     
     render() {
-        return <span className="fieldLabel">{config.textmsg.sortposlabel}<input type='text' maxlength='2' onKeyDown={this.checkNumeric} onBlur={this.props.onSortPosChange}/></span>;
+        return <span className="fieldLabel">{config.textmsg.sortposlabel}
+            <input type='text' maxlength='2' onKeyDown={this.checkNumeric} onBlur={this.props.onSortPosChange}/>
+            </span>;
     }
     
     checkNumeric(e) {
-        let charCode = (e.which) ? e.which : e.keyCode
+        let charCode = (e.which) ? e.which : e.keyCode;
         if (charCode > 31 && (charCode < 48 || charCode > 57)) {
             e.preventDefault();
         }

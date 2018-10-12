@@ -8,7 +8,9 @@ class ColumnLabel extends React.Component {
     }
     
     render() {
-        return <span className="fieldLabel">{config.textmsg.columnlabel}<input className="customColumnInput" type='text' onBlur={this.props.onColumnLabelChange}/></span>;
+        return <span className="fieldLabel">{config.textmsg.columnlabel}
+            <input className="customColumnInput" type='text' onBlur={this.props.onColumnLabelChange}/>
+            </span>;
     }
 }
 
