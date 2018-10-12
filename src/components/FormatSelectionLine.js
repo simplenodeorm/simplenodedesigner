@@ -5,7 +5,8 @@ import {AggregateFunctionSelect} from './AggregateFunctionSelect';
 import {SortPositionInput} from './SortPositionInput';
 import {AscDescCheckbox} from './AscDescCheckbox';
 import {CustomColumnInput} from './CustomColumnInput';
-
+import {ColumnLabel} from './ColumnLabel';
+    
 const dateFunctions = ['count', 'min', 'max'];
 const stringFunctions = ['count'];
 const numberFunctions = ['avg', 'count', 'min', 'max', 'sum'];
@@ -17,10 +18,6 @@ class FormatSelectionLine extends React.Component {
         this.state = {
             loading: false,
             error: '',
-            sortPosition: '',
-            aortAscending: true,
-            selectedFunction: '',
-            customColumnInput: ''
         };
     }
 
@@ -41,6 +38,7 @@ class FormatSelectionLine extends React.Component {
 
         return <div className="formatSelectionLine">
             <div className="lineStyle1"><span className="label">{this.props.columnNode.__index + 1}.&nbsp;</span>{this.props.columnNode.path}</div>
+            <ColumnLabel onColumnChange={this.onColumnLabelChange}/>
             <AggregateFunctionSelect onFunctionChange={this.onFunctionChange} functions={funcs} />
             <SortPositionInput onSortPosChange={this.onSortPosChange}/>
             <AscDescCheckbox onAscDescChange={this.onAscDescChange}/>
@@ -49,19 +47,23 @@ class FormatSelectionLine extends React.Component {
     }
     
     onAscDescChange(e) {
-        this.state.sortAscending = !e.target.checked;
+        this.props.columnNode.__sortDescending = e.target.checked;
     }
 
     onCustomColumnInputChantge(e) {
-        this.state.customColumnInput = e.target.value;
+        this.props.columnNode.__customColumnInput = e.target.value;
     }
 
     onSortPosChange(e) {
-        this.state.sortPosition = e.target.value;
+        this.props.columnNode.__sortPosition = e.target.value;
     }
 
     onFunctionChange(e) {
-        this.state.selectedFunction = e.target[e.target.selectedIndex].value;
+        this.props.columnNode.__selectedFunction = e.target[e.target.selectedIndex].value;
+    }
+    
+    onColumnLabelChange(e) {
+        this.props.columnNode.__columnLabel = e.target[e.target.selectedIndex].value;
     }
     
     getType(dbType) {
