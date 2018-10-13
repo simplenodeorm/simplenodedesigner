@@ -561,3 +561,15 @@ input[type="checkbox"] {
     margin: 2px;
 }
 
+
+.moveUp {
+    cursor: pointer;
+    vertical-align: bottom;
+    padding-right: 3px;
+}
+
+.moveDown {
+    cursor: pointer;
+    vertical-align: bottom;
+    padding-right: 3px;
+}

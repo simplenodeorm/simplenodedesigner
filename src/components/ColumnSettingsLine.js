@@ -37,12 +37,16 @@ class ColumnSettingsLine extends React.Component {
         }
 
         return <div className="formatSelectionLine">
-            <div className="lineStyle1"><span className="label">{this.props.columnNode.__index + 1}.&nbsp;</span>{this.props.columnNode.path}</div>
+        <div className="lineStyle1">
+        { (this.props.columnNode.__index > 0) ? <img className="moveUp" src="/images/uparrow.png"/> : <img src="/images/blank.png"/> }
+        <span className="label">{this.props.columnNode.__index + 1}.&nbsp;</span>{this.props.columnNode.path}</div>
+        <div className="lineStyle1">
+        { (this.props.columnNode.__index < (this.props.nodeCount() - 1)) ? <img className="moveDown" src="/images/downarrow.png"/> : <img src="/images/blank.png"/> }
             <ColumnLabel onColumnChange={this.onColumnLabelChange}/>
             <AggregateFunctionSelect onFunctionChange={this.onFunctionChange} functions={funcs} />
             <SortPositionInput onSortPosChange={this.onSortPosChange}/>
             <AscDescCheckbox onAscDescChange={this.onAscDescChange}/>
-            <CustomColumnInput onCustomColumnInputChange={this.onCustomColumnInputChange}/>
+            <CustomColumnInput onCustomColumnInputChange={this.onCustomColumnInputChange}/></div>
         </div>;
     }
     

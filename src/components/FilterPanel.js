@@ -6,11 +6,10 @@ import {ColumnSettingsLine} from './ColumnSettingsLine';
 
 const loop = (data) => {
     return data.map((node) => {
-       return <ColumnSettingsLine columnNode={node} nodeCount={getNodeCount}/>;
+       return <ColumnSettingsLine columnNode={node}/>;
        })};
 
-var nodeCount = 0;
-class ColumnSettingsPanel extends React.Component {
+class FilterPanel extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -24,19 +23,18 @@ class ColumnSettingsPanel extends React.Component {
         if (error) {
             return <div className="errorMessage">{error}</div>;
         } else {
-            let selnodes = new Array();
-            this.loadSelectedNodes(document.designData.modelHierarchy, selnodes, '',  new Set(document.designData.selectedObjectKeys));
+           let selnodes = new Array();
+           this.loadSelectedNodes(document.designData.modelHierarchy, selnodes, '',  new Set(document.designData.selectedObjectKeys));
            
-            if (!selnodes[0].__index) {
-                for (let i = 0; i < selnodes.length; ++i) {
+           if (!selnodes[0].__index) {
+               for (let i = 0; i < selnodes.length; ++i) {
                    selnodes[i].__index = i;
-                }
-            } else {
-               selnodes.sort(function(a, b){return a.__index-b.__index;});
-            }
+               }
+           } else {
+               selnodes.sort(function(a, b){return a.__index-b.__index});
+           }
            
-            nodeCount = selnodes.length;
-            return (<div className="tabContainer">{loop(selnodes)}</div>);
+           return (<div className="tabContainer">{loop(selnodes)}</div>);
         }
     }
     
@@ -68,9 +66,4 @@ class ColumnSettingsPanel extends React.Component {
     }
 }
 
-function getNodeCount() {
-    return nodeCount;
-}
-    
-
-export {ColumnSettingsPanel};
+export {FilterPanel};
