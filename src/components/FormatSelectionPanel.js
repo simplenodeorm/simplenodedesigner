@@ -7,7 +7,7 @@ import {FormatSelectionLine} from './FormatSelectionLine';
 const loop = (data) => {
     return data.map((node) => {
        return <FormatSelectionLine columnNode={node}/>;
-    })};
+       })};
 
 class FormatSelectionPanel extends React.Component {
     constructor(props) {
@@ -34,7 +34,7 @@ class FormatSelectionPanel extends React.Component {
                selnodes.sort(function(a, b){return a.__index-b.__index});
            }
            
-           return loop(selnodes);
+            return (<div className="tabContainer">{loop(selnodes)}</div>);
         }
     }
     
