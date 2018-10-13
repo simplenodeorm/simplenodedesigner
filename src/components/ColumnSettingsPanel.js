@@ -2,14 +2,14 @@ import React from 'react';
 import "../app/App.css";
 import config from '../config/appconfig.json';
 import Spinner from './Spinner';
-import {FormatSelectionLine} from './FormatSelectionLine';
+import {ColumnSettingsLine} from './ColumnSettingsLine';
 
 const loop = (data) => {
     return data.map((node) => {
-       return <FormatSelectionLine columnNode={node}/>;
+       return <ColumnSettingsLine columnNode={node}/>;
        })};
 
-class FormatSelectionPanel extends React.Component {
+class ColumnSettingsPanel extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -66,4 +66,4 @@ class FormatSelectionPanel extends React.Component {
     }
 }
 
-export {FormatSelectionPanel};
+export {ColumnSettingsPanel};

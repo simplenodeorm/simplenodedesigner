@@ -11,7 +11,7 @@ const dateFunctions = ['count', 'min', 'max'];
 const stringFunctions = ['count'];
 const numberFunctions = ['avg', 'count', 'min', 'max', 'sum'];
 
-class FormatSelectionLine extends React.Component {
+class ColumnSettingsLine extends React.Component {
     constructor(props) {
         super(props);
 
@@ -81,4 +81,4 @@ class FormatSelectionLine extends React.Component {
     }
 }
 
-export {FormatSelectionLine};
+export {ColumnSettingsLine};

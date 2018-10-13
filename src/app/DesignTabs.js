@@ -3,8 +3,8 @@ import './App.css';
 import { MenuButton } from '../components/MenuButton';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import Sidebar from "react-sidebar";
-import {SelectModelDataPanel} from '../components/SelectModelDataPanel'
-import {FormatSelectionPanel} from '../components/FormatSelectionPanel'
+import {SelectModelDataPanel} from '../components/SelectModelDataPanel';
+import {ColumnSettingsPanel} from '../components/ColumnSettingsPanel';
 import config from '../config/appconfig.json';
 import axios from 'axios';
 
@@ -72,7 +72,7 @@ class DesignTabs extends React.Component {
                         <SelectModelDataPanel setTabState={this.setTabState} model={selectedModel}/>
                     </TabPanel>
                     <TabPanel>
-                        <FormatSelectionPanel setTabState={this.setTabState}/>
+                        <ColumnSettingsPanel setTabState={this.setTabState}/>
                     </TabPanel>
                     <TabPanel>
                         <p>
