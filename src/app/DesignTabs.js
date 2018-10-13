@@ -49,7 +49,7 @@ class DesignTabs extends React.Component {
     render() {
         const {tab0Disabled, tab1Disabled, tab2Disabled, tab3Disabled, error, selectedModel, loading, sidebarOpen, tabStateChanged} = this.state;
         let retval = (
-            <div className="tabContainer"> 
+            <div className="tabSetContainer"> 
                 <MenuButton text={selectedModel} 
                     error={error} 
                     loading={loading}

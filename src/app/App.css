@@ -222,15 +222,26 @@ input[type="submit"] {
     background: var(--default-bkcolor);
     font-size: 90%;
     height:100%;
-    
+    width:100%;
+    overflow: auto;
+}
+
+.tabSetContainer {
+    position: absolute;
+    background: var(--default-bkcolor);
+    padding-left: 2px;
+    margin-left: 3px;
+    height:100%;
+    width: 100%;
 }
 
 .tabContainer {
+    position: absolute;
+    box-sizing:border-box;
     background: var(--default-bkcolor);
-    padding: 2px;
-    margin-left: 3px;
-    height:96%;
     overflow: auto;
+    height: 85%;
+    width: 95%;
 }
 
 .minimalist-toolbar{
@@ -382,6 +393,7 @@ input[type="submit"] {
     padding-left: 10px;
     width:20px;
     -moz-user-select: none;
+    white-space:nowrap;
     cursor:pointer;
 }
 
@@ -448,6 +460,7 @@ input[type="submit"] {
   border-bottom: 1px solid #aaa;
   margin: 0 0 10px;
   padding: 0;
+  white-space:nowrap;
 }
 
 .react-tabs__tab {
