@@ -7,7 +7,7 @@ import {ColumnSettingsLine} from './ColumnSettingsLine';
 const loop = (data) => {
     return data.map((node) => {
        return <ColumnSettingsLine columnNode={node} nodeCount={getNodeCount} onMove={onMove}/>;
-       })};
+       });};
 var curobj;
 class ColumnSettingsPanel extends React.Component {
     constructor(props) {
