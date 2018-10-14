@@ -6,9 +6,14 @@ class ColumnLabel extends React.Component {
     constructor(props) {
         super(props);
         this.onColumnLabelChange = this.onColumnLabelChange.bind(this);
+        
+        this.state = {
+            moved: false
+        }
     }
     
     render() {
+        this.state.moved = false;
         return <span className="fieldLabel">{config.textmsg.columnlabel}
             <input className="customColumnInput" type='text' onBlur={this.onColumnLabelChange} value={this.props.columnNode.__columnLabel}/>
             </span>;

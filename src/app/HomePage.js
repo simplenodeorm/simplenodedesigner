@@ -8,7 +8,8 @@ import './App.css';
 document.designData = {
     models: '',
     modelHierarchy: '',
-    selectedObjectKeys: ''
+    selectedObjectKeys: '',
+    selnodes: ''
 };
 
 const contextMenu = document.createElement('div');
