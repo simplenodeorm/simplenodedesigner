@@ -18,7 +18,7 @@ class ColumnSettingsLine extends React.Component {
 
         this.state = {
             loading: false,
-            error: '',
+            error: ''
         };
         
         this.onMove = this.onMove.bind(this);
@@ -44,36 +44,16 @@ class ColumnSettingsLine extends React.Component {
         <span className="label">{this.props.columnNode.__index + 1}.&nbsp;</span>{this.props.columnNode.path}</div>
         <div className="lineStyle1">
             { (this.props.columnNode.__index < (this.props.nodeCount() - 1)) ? <MoveButton type='down' index={this.props.columnNode.__index} onMove={this.onMove} /> : <img src="/images/blank.png"/> }
-            <ColumnLabel onColumnChange={this.onColumnLabelChange}/>
-            <AggregateFunctionSelect onFunctionChange={this.onFunctionChange} functions={funcs} />
-            <SortPositionInput onSortPosChange={this.onSortPosChange}/>
-            <AscDescCheckbox onAscDescChange={this.onAscDescChange}/>
-            <CustomColumnInput onCustomColumnInputChange={this.onCustomColumnInputChange}/></div>
+            <ColumnLabel columnNode={this.props.columnNode}/>
+            <AggregateFunctionSelect columnNode={this.props.columnNode} functions={funcs} />
+            <SortPositionInput columnNode={this.props.columnNode}/>
+            <AscDescCheckbox columnNode={this.props.columnNode}/>
+            <CustomColumnInput columnNode={this.props.columnNode}/></div>
         </div>;
     }
     
     onMove(index, inc) {
         this.props.onMove(index, inc);
-    }
-    
-    onAscDescChange(e) {
-        this.props.columnNode.__sortDescending = e.target.checked;
-    }
-
-    onCustomColumnInputChantge(e) {
-        this.props.columnNode.__customColumnInput = e.target.value;
-    }
-
-    onSortPosChange(e) {
-        this.props.columnNode.__sortPosition = e.target.value;
-    }
-
-    onFunctionChange(e) {
-        this.props.columnNode.__selectedFunction = e.target[e.target.selectedIndex].value;
-    }
-    
-    onColumnLabelChange(e) {
-        this.props.columnNode.__columnLabel = e.target[e.target.selectedIndex].value;
     }
     
     getType(dbType) {

@@ -10,11 +10,17 @@ const options = (functions) => {
 class AggregateFunctionSelect extends React.Component {
     constructor(props) {
         super(props);
+        this.onFunctionChange = this.onFunctionChange.bind(this);
     }
     
     render() {
-        return <span className="fieldLabel">{config.textmsg.aggfunctionlabel}<select onChange={this.props.onFunctionChange}><option></option>{options(this.props.functions)}</select></span>;
+        return <span className="fieldLabel">{config.textmsg.aggfunctionlabel}<select onChange={this.onFunctionChange}><option></option>{options(this.props.functions)}</select></span>;
     }
+    
+    onFunctionChange(e) {
+        this.props.columnNode.__selectedFunction = e.target[e.target.selectedIndex].value;
+    }
+    
 }
 
 export {AggregateFunctionSelect};

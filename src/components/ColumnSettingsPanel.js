@@ -72,13 +72,19 @@ class ColumnSettingsPanel extends React.Component {
 }
 
 function onMove(index, inc) {
+    let tmp = selnodes[index];
     if (inc < 0) {
-        selnodes[index-1].__index = selnodes[index].__index;
+        selnodes[index] = selnodes[index-1];
+        selnodes[index-1] = tmp;
     } else {
-        selnodes[index+1].__index = selnodes[index].__index;
+        selnodes[index] = selnodes[index + 1];
+        selnodes[index+1] = tmp;
     }   
-    selnodes[index].__index += inc;
-    selnodes.sort(function(a, b){return a.__index-b.__index;});
+    
+    for (let i = 0; i < selnodes.length; ++i) {
+        selnodes[i].__index = i;
+    }
+    
     curobj.setState({move: true});
 }
 
