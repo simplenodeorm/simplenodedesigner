@@ -6,16 +6,19 @@ import {ColumnSettingsLine} from './ColumnSettingsLine';
 
 const loop = (data) => {
     return data.map((node) => {
-       return <ColumnSettingsLine columnNode={node} nodeCount={getNodeCount}/>;
+       return <ColumnSettingsLine columnNode={node} nodeCount={getNodeCount} onMove={onMove}/>;
        })};
 
-var nodeCount = 0;
+var selnodes = new Array();
+var curobj;
 class ColumnSettingsPanel extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            error: ''
+            error: '',
+            move: false
         };
+        curobj = this;
     }
 
     render() {
@@ -24,23 +27,22 @@ class ColumnSettingsPanel extends React.Component {
         if (error) {
             return <div className="errorMessage">{error}</div>;
         } else {
-            let selnodes = new Array();
-            this.loadSelectedNodes(document.designData.modelHierarchy, selnodes, '',  new Set(document.designData.selectedObjectKeys));
+            if (selnodes.length === 0) {
+                this.loadSelectedNodes(document.designData.modelHierarchy, selnodes, '',  new Set(document.designData.selectedObjectKeys));
            
-            if (!selnodes[0].__index) {
-                for (let i = 0; i < selnodes.length; ++i) {
-                   selnodes[i].__index = i;
+                if (!selnodes[0].__index) {
+                    for (let i = 0; i < selnodes.length; ++i) {
+                       selnodes[i].__index = i;
+                    }
                 }
-            } else {
-               selnodes.sort(function(a, b){return a.__index-b.__index;});
             }
-           
-            nodeCount = selnodes.length;
+            
+            this.state.move = false;
             return (<div className="tabContainer">{loop(selnodes)}</div>);
         }
     }
     
-    loadSelectedNodes(pnode, selnodes, curpath, keyset) {
+    loadSelectedNodes(pnode, nodes, curpath, keyset) {
         for (let i = 0; i < pnode.children.length; ++i) {
             if (pnode.children[i].columnName && keyset.has(pnode.children[i].key)) {
                 if (curpath) {
@@ -48,7 +50,7 @@ class ColumnSettingsPanel extends React.Component {
                 } else {
                     pnode.children[i].path = pnode.children[i].title;
                 }
-                selnodes.push(pnode.children[i]);
+                nodes.push(pnode.children[i]);
             }
         }
  
@@ -62,15 +64,26 @@ class ColumnSettingsPanel extends React.Component {
                     newpath = pnode.children[i].title;
                 }
                 
-                this.loadSelectedNodes(pnode.children[i], selnodes, newpath, keyset);
+                this.loadSelectedNodes(pnode.children[i], nodes, newpath, keyset);
             }
         }
     }
+    
+}
+
+function onMove(index, inc) {
+    if (inc < 0) {
+        selnodes[index-1].__index = selnodes[index].__index;
+    } else {
+        selnodes[index+1].__index = selnodes[index].__index;
+    }   
+    selnodes[index].__index += inc;
+    selnodes.sort(function(a, b){return a.__index-b.__index;});
+    curobj.setState({move: true});
 }
 
 function getNodeCount() {
-    return nodeCount;
+    return selnodes.length;
 }
     
-
 export {ColumnSettingsPanel};

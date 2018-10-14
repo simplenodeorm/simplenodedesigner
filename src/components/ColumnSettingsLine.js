@@ -6,6 +6,7 @@ import {SortPositionInput} from './SortPositionInput';
 import {AscDescCheckbox} from './AscDescCheckbox';
 import {CustomColumnInput} from './CustomColumnInput';
 import {ColumnLabel} from './ColumnLabel';
+import {MoveButton} from './MoveButton';
     
 const dateFunctions = ['count', 'min', 'max'];
 const stringFunctions = ['count'];
@@ -19,11 +20,12 @@ class ColumnSettingsLine extends React.Component {
             loading: false,
             error: '',
         };
+        
+        this.onMove = this.onMove.bind(this);
     }
 
     render() {
         let funcs;
-        
         switch(this.getType(this.props.columnNode.type)) {
             case "date":
                 funcs = dateFunctions;
@@ -38,16 +40,20 @@ class ColumnSettingsLine extends React.Component {
 
         return <div className="formatSelectionLine">
         <div className="lineStyle1">
-        { (this.props.columnNode.__index > 0) ? <img className="moveUp" src="/images/uparrow.png"/> : <img src="/images/blank.png"/> }
+        { (this.props.columnNode.__index > 0) ? <MoveButton type='up' index={this.props.columnNode.__index} onMove={this.onMove} /> : <img src="/images/blank.png"/> }
         <span className="label">{this.props.columnNode.__index + 1}.&nbsp;</span>{this.props.columnNode.path}</div>
         <div className="lineStyle1">
-        { (this.props.columnNode.__index < (this.props.nodeCount() - 1)) ? <img className="moveDown" src="/images/downarrow.png"/> : <img src="/images/blank.png"/> }
+            { (this.props.columnNode.__index < (this.props.nodeCount() - 1)) ? <MoveButton type='down' index={this.props.columnNode.__index} onMove={this.onMove} /> : <img src="/images/blank.png"/> }
             <ColumnLabel onColumnChange={this.onColumnLabelChange}/>
             <AggregateFunctionSelect onFunctionChange={this.onFunctionChange} functions={funcs} />
             <SortPositionInput onSortPosChange={this.onSortPosChange}/>
             <AscDescCheckbox onAscDescChange={this.onAscDescChange}/>
             <CustomColumnInput onCustomColumnInputChange={this.onCustomColumnInputChange}/></div>
         </div>;
+    }
+    
+    onMove(index, inc) {
+        this.props.onMove(index, inc);
     }
     
     onAscDescChange(e) {
