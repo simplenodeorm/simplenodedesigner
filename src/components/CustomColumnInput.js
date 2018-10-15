@@ -5,17 +5,17 @@ import config from '../config/appconfig.json';
 class CustomColumnInput extends React.Component {
     constructor(props) {
         super(props);
-        this.onCustomColumnInputChange = this.onCustomColumnInputChange.bind(this);
+        this.onBlur = this.onBlur.bind(this);
     }
     
     render() {
         return <span className="fieldLabel">{config.textmsg.customcolinputlabel}
-            <input className="customColumnInput" type='text' onBlur={this.onCustomColumnInputChange} value={this.props.columnNode.__customColumnInput}/>
+            <input className="customColumnInput" type='text' onBlur={this.onBlur} value={document.designData.selnodes[this.props.index].__customColumnInput}/>
             </span>;
     }
     
-    onCustomColumnInputChange(e) {
-        this.props.columnNode.__customColumnInput = e.target.value;
+    onBlur(e) {
+        document.designData.selnodes[this.props.index].__customColumnInput = e.target.value;
     }
 }
 

@@ -27,8 +27,7 @@ class SelectModelDataPanel extends React.Component {
         const {model} = this.state;
         if ((nextProps.model !== config.textmsg.modelselectdefault)
             && (model !== nextProps.model)) {
-            document.designData.modelHierarchy = '';
-            document.designData.selectedObjectKeys = '';
+            this.clearDocumentDesignData();
             this.setState({loading: true});
             this.loadModelData(nextProps.model);
         }
@@ -114,8 +113,13 @@ class SelectModelDataPanel extends React.Component {
             .catch((err) => {
                curcomp.setState({error: ('' + err), loading: false});
             });     
-        }
+    }
         
+    clearDocumentDesignData() {
+        document.designData.modelHierarchy = '';
+        document.designData.selectedObjectKeys = '';
+        document.designData.selndes = '';
+    }
 }
 
 function onRightClick(info) {

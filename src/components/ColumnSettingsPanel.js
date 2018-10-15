@@ -4,11 +4,6 @@ import config from '../config/appconfig.json';
 import Spinner from './Spinner';
 import {ColumnSettingsLine} from './ColumnSettingsLine';
 
-const loop = (data) => {
-    return data.map((node) => {
-       return <ColumnSettingsLine columnNode={node} nodeCount={getNodeCount} onMove={onMove}/>;
-       });};
-var curobj;
 class ColumnSettingsPanel extends React.Component {
     constructor(props) {
         super(props);
@@ -16,7 +11,8 @@ class ColumnSettingsPanel extends React.Component {
             error: '',
             move: false
         };
-        curobj = this;
+        
+        this.onMove = this.onMove.bind(this);
     }
 
     render() {
@@ -35,6 +31,12 @@ class ColumnSettingsPanel extends React.Component {
             }
             
             this.state.move = false;
+
+            let loop = (data) => {
+                return data.map((node) => {
+                    return <ColumnSettingsLine index={node.__index} nodeCount={this.getNodeCount} onMove={this.onMove}/>;
+                   });};
+            
             return (<div className="tabContainer">{loop(document.designData.selnodes)}</div>);
         }
     }
@@ -66,27 +68,24 @@ class ColumnSettingsPanel extends React.Component {
         }
     }
     
-}
+    onMove(index, inc) {
+        if (inc < 0) {
+            document.designData.selnodes[index].__index = index - 1; 
+            document.designData.selnodes[index-1].__index = index;
+        } else {
+            document.designData.selnodes[index].__index = index + 1;
+            document.designData.selnodes[index+1].__index = index;
+        }   
 
-function onMove(index, inc) {
-    let tmp = document.designData.selnodes[index];
-    if (inc < 0) {
-        document.designData.selnodes[index] = document.designData.selnodes[index - 1];
-        document.designData.selnodes[index-1] = tmp;
-    } else {
-        document.designData.selnodes[index] = document.designData.selnodes[index + 1];
-        document.designData.selnodes[index+1] = tmp;
-    }   
-    
-    for (let i = 0; i < document.designData.selnodes.length; ++i) {
-        document.designData.selnodes[i].__index = i;
+        document.designData.selnodes.sort(function(a, b) { return a.__index - b.__index;});
+        
+        this.setState({move: true});
     }
-    
-    curobj.setState({move: true});
+
+    getNodeCount() {
+        return document.designData.selnodes.length;
+    }
 }
 
-function getNodeCount() {
-    return document.designData.selnodes.length;
-}
     
 export {ColumnSettingsPanel};

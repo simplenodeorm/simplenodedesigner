@@ -14,24 +14,27 @@ class ColumnSettingsLine extends React.Component {
 
         this.state = {
             loading: false,
-            error: ''
+            error: '',
+            moved: false
         };
         
         this.onMove = this.onMove.bind(this);
     }
     
     render() {
+        this.state.moved = false;
         return <div className="formatSelectionLine">
         <div className="lineStyle1">
-        { (this.props.columnNode.__index > 0) ? <MoveButton type='up' index={this.props.columnNode.__index} onMove={this.onMove} /> : <img src="/images/blank.png"/> }
-        <span className="label">{this.props.columnNode.__index + 1}.&nbsp;</span>{this.props.columnNode.path}</div>
-        <div className="lineStyle1">
-            { (this.props.columnNode.__index < (this.props.nodeCount() - 1)) ? <MoveButton type='down' index={this.props.columnNode.__index} onMove={this.onMove} /> : <img src="/images/blank.png"/> }
-            <ColumnLabel columnNode={this.props.columnNode}/>
-            <AggregateFunctionSelect columnNode={this.props.columnNode}/>
-            <SortPositionInput columnNode={this.props.columnNode}/>
-            <AscDescCheckbox columnNode={this.props.columnNode}/>
-            <CustomColumnInput columnNode={this.props.columnNode}/></div>
+        { (this.props.index > 0) ? <MoveButton type='up' index={this.props.index} onMove={this.onMove} /> : <img src="/images/blank.png"/> }
+        <span className="label">{this.props.index + 1}.&nbsp;</span>{document.designData.selnodes[this.props.index].path}</div>
+            <div className="lineStyle1">
+                { (this.props.index < (this.props.nodeCount() - 1)) ? <MoveButton type='down' index={this.props.index} onMove={this.onMove} /> : <img src="/images/blank.png"/> }
+                <ColumnLabel index={this.props.index}/>
+                <AggregateFunctionSelect index={this.props.index}/>
+                <SortPositionInput index={this.props.index}/>
+                <AscDescCheckbox index={this.props.index}/>
+                <CustomColumnInput index={this.props.index}/>
+            </div>
         </div>;
     }
     

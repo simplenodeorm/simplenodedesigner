@@ -36,8 +36,7 @@ class DesignTabs extends React.Component {
             this.loadModels();
         } else {
             this.state.tabIndex = 0;
-            document.designData.modelHierarchy = '';
-            document.designData.selectedObjectKeys = '';
+            this.clearDocumentDesignData();
             if (model) {
                 this.setState({sidebarOpen: open, tab0Disabled: false, tab1Disabled: true, tab2Disabled: true, tab3Disabled: true, selectedModel: model});
             } else {
@@ -127,6 +126,13 @@ class DesignTabs extends React.Component {
                 curcomp.setState({error: err.toString(), loading: false});
             });
     }
+    
+    clearDocumentDesignData() {
+        document.designData.modelHierarchy = '';
+        document.designData.selectedObjectKeys = '';
+        document.designData.selndes = '';
+    }
+
 }
 
 export {DesignTabs};

@@ -19,6 +19,7 @@ class MoveButton extends React.Component {
     }
     
     onClick(e) {
+        e.preventDefault();
         switch(this.props.type) {
             case 'up':
                 this.props.onMove(this.props.index, -1);

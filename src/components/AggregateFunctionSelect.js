@@ -15,9 +15,9 @@ const options = (functions) => {
 class AggregateFunctionSelect extends React.Component {
     constructor(props) {
         super(props);
-        this.onFunctionChange = this.onFunctionChange.bind(this);
+        this.onChange = this.onChange.bind(this);
         
-        switch(this.getType(this.props.columnNode.type)) {
+        switch(this.getType(document.designData.selnodes[this.props.index].type)) {
             case "date":
                 this.functions = dateFunctions;
                 break;
@@ -28,15 +28,14 @@ class AggregateFunctionSelect extends React.Component {
                 this.functions = stringFunctions;
                 break;
         }
-
     }
     
     render() {
-        return <span className="fieldLabel">{config.textmsg.aggfunctionlabel}<select onChange={this.onFunctionChange}><option></option>{options(this.functions)}</select></span>;
+        return <span className="fieldLabel">{config.textmsg.aggfunctionlabel}<select onChange={this.onChange}><option></option>{options(this.functions)}</select></span>;
     }
     
-    onFunctionChange(e) {
-        this.props.columnNode.__selectedFunction = e.target[e.target.selectedIndex].value;
+    onChange(e) {
+        document.designData.selnodes[this.props.index].__selectedFunction = e.target[e.target.selectedIndex].value;
     }
     
     getType(dbType) {
