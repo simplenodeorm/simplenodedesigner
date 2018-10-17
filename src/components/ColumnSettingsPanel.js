@@ -24,19 +24,15 @@ class ColumnSettingsPanel extends React.Component {
             if (!document.designData.selnodes) {
                 document.designData.selnodes = new Array();
                 this.loadSelectedNodes(document.designData.modelHierarchy, document.designData.selnodes, '',  new Set(document.designData.selectedObjectKeys));
-           
-                for (let i = 0; i < document.designData.selnodes.length; ++i) {
-                   document.designData.selnodes[i].__index = i;
-                }
             }
             
             this.state.move = false;
 
             let loop = (data) => {
-                return data.map((node) => {
-                    return <ColumnSettingsLine index={node.__index} nodeCount={this.getNodeCount} onMove={this.onMove}/>;
+                return data.map((node, i) => {
+                    return <ColumnSettingsLine key={node.path} index={i} nodeCount={this.getNodeCount} onMove={this.onMove}/>;
                    });};
-            
+
             return (<div className="tabContainer">{loop(document.designData.selnodes)}</div>);
         }
     }
@@ -69,16 +65,15 @@ class ColumnSettingsPanel extends React.Component {
     }
     
     onMove(index, inc) {
+        let tmp = document.designData.selnodes[index];
         if (inc < 0) {
-            document.designData.selnodes[index].__index = index - 1; 
-            document.designData.selnodes[index-1].__index = index;
+            document.designData.selnodes[index] = document.designData.selnodes[index-1]; 
+            document.designData.selnodes[index-1] = tmp;
         } else {
-            document.designData.selnodes[index].__index = index + 1;
-            document.designData.selnodes[index+1].__index = index;
+            document.designData.selnodes[index] = document.designData.selnodes[index+1];
+            document.designData.selnodes[index+1] = tmp;
         }   
 
-        document.designData.selnodes.sort(function(a, b) { return a.__index - b.__index;});
-        
         this.setState({move: true});
     }
 

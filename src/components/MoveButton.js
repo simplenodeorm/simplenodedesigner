@@ -2,6 +2,9 @@ import React from 'react';
 import "../app/App.css";
 import config from '../config/appconfig.json';
 
+const upImage = <img src='/images/uparrow.png' />;              
+const downImage = <img src='/images/downarrow.png' />;               
+
 class MoveButton extends React.Component {
     constructor(props) {
         super(props);
@@ -9,26 +12,22 @@ class MoveButton extends React.Component {
     }
     
     render() {
-        switch(this.props.type) {
-            case 'up':
-                return <button className="moveButton" onClick={this.onClick} ><img src='/images/uparrow.png' /></button>;              
-            case 'down':
-                return <button className="moveButton" onClick={this.onClick}><img src='/images/downarrow.png' /></button>;               
-            
-        }
+        return <button className="moveButton" onClick={this.onClick} >{this.getImage()}</button>;              
     }
     
     onClick(e) {
-        e.preventDefault();
+        this.props.onMove();
+    }
+
+    getImage() {
         switch(this.props.type) {
             case 'up':
-                this.props.onMove(this.props.index, -1);
-                break;
+                return upImage;              
             case 'down':
-                this.props.onMove(this.props.index, 1);
-                break;
+                return downImage;               
+            
         }
-    }
+   }
 }
 
 export {MoveButton};
