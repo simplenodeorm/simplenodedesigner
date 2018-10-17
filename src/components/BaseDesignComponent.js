@@ -1,0 +1,16 @@
+import React from 'react';
+
+class BaseDesignComponent extends React.Component {
+    constructor(props) {
+        super(props);
+    }
+    
+    clearDocumentDesignData() {
+        document.designData.modelHierarchy = '';
+        document.designData.selectedObjectKeys = '';
+        document.designData.selnodes = '';
+    }
+}
+
+export {BaseDesignComponent};
+

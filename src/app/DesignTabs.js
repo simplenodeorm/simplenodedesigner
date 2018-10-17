@@ -5,11 +5,12 @@ import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import Sidebar from "react-sidebar";
 import {SelectModelDataPanel} from '../components/SelectModelDataPanel';
 import {ColumnSettingsPanel} from '../components/ColumnSettingsPanel';
+import {BaseDesignComponent} from '../components/BaseDesignComponent';
 import config from '../config/appconfig.json';
 import axios from 'axios';
 
 var curobj;
-class DesignTabs extends React.Component {
+class DesignTabs extends BaseDesignComponent {
     constructor(props) {
         super(props);
 
@@ -126,13 +127,6 @@ class DesignTabs extends React.Component {
                 curcomp.setState({error: err.toString(), loading: false});
             });
     }
-    
-    clearDocumentDesignData() {
-        document.designData.modelHierarchy = '';
-        document.designData.selectedObjectKeys = '';
-        document.designData.selnodes = '';
-    }
-
 }
 
 export {DesignTabs};

@@ -6,13 +6,13 @@ import '../app/defaultTree.css';
 import config from '../config/appconfig.json';
 import axios from 'axios';
 import Spinner from './Spinner';
-
+import {BaseDesignComponent} from './BaseDesignComponent';
 const leafimg = <img src="/images/column.png"/>;
 const keycolumnimg = <img src="/images/keycolumn.png"/>;
 const modelimg = <img src="/images/model.png"/>;
 
 var setDesignTabState;
-class SelectModelDataPanel extends React.Component {
+class SelectModelDataPanel extends BaseDesignComponent {
     constructor(props) {
         super(props);
         setDesignTabState = this.props.setTabState;
@@ -113,12 +113,6 @@ class SelectModelDataPanel extends React.Component {
             .catch((err) => {
                curcomp.setState({error: ('' + err), loading: false});
             });     
-    }
-        
-    clearDocumentDesignData() {
-        document.designData.modelHierarchy = '';
-        document.designData.selectedObjectKeys = '';
-        document.designData.selnodes = '';
     }
 }
 
