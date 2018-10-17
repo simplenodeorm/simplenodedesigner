@@ -118,7 +118,7 @@ class SelectModelDataPanel extends React.Component {
     clearDocumentDesignData() {
         document.designData.modelHierarchy = '';
         document.designData.selectedObjectKeys = '';
-        document.designData.selndes = '';
+        document.designData.selnodes = '';
     }
 }
 
