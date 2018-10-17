@@ -27,7 +27,7 @@ class ColumnSettingsLine extends React.Component {
    return <div className="formatSelectionLine">
         <div className="lineStyle1">
         { (this.props.index > 0) ? <MoveButton type='up' index={this.props.index} onMove={this.onMoveUp} /> : <img src="/images/blank.png"/> }
-        <span className="label">{this.props.index + 1}.&nbsp;</span>{this._reactInternalFiber.key}</div>
+        <span className="label">{this.props.index + 1}.&nbsp;</span>{this._reactInternalFiber.key.replace(/\./g, '->')}</div>
             <div className="lineStyle1">
                 { (this.props.index < (this.props.nodeCount() - 1)) ? <MoveButton type='down' index={this.props.index} onMove={this.onMoveDown} /> : <img src="/images/blank.png"/> }
                 <ColumnLabel index={this.props.index}/>
