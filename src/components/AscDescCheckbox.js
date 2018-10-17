@@ -9,7 +9,11 @@ class AscDescCheckbox extends React.Component {
     }
     
     render() {
-        return <span className="fieldLabel">{config.textmsg.ascdesclabel}<input type='checkbox' onChange={this.onChange} /></span>;
+        if (document.designData.selnodes[this.props.index].__sortDescending) {
+            return <span className="fieldLabel">{config.textmsg.ascdesclabel}<input type='checkbox' onChange={this.onChange} checked /></span>; 
+        } else {
+            return <span className="fieldLabel">{config.textmsg.ascdesclabel}<input type='checkbox' onChange={this.onChange}/></span>;
+        }
     }
     
     onChange(e) {

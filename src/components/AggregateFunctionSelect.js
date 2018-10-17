@@ -7,11 +7,6 @@ const dateFunctions = ['count', 'min', 'max'];
 const stringFunctions = ['count'];
 const numberFunctions = ['avg', 'count', 'min', 'max', 'sum'];
 
-const options = (functions) => {
-    return functions.map((f) => {
-        return <option value={f}>{f}</option>;
-    })};
-
 class AggregateFunctionSelect extends React.Component {
     constructor(props) {
         super(props);
@@ -31,6 +26,16 @@ class AggregateFunctionSelect extends React.Component {
     }
     
     render() {
+        const selvalue = document.designData.selnodes[this.props.index].__selectedFunction
+        const options = (functions) => {
+            return functions.map((f) => {
+                if (f === selvalue) {
+                    return <option value={f} selected>{f}</option>;
+                } else {
+                    return <option value={f}>{f}</option>;
+                }
+            })};
+
         return <span className="fieldLabel">{config.textmsg.aggfunctionlabel}<select onChange={this.onChange}><option></option>{options(this.functions)}</select></span>;
     }
     
