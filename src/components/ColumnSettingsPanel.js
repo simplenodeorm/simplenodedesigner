@@ -30,7 +30,7 @@ class ColumnSettingsPanel extends React.Component {
 
             let loop = (data) => {
                 return data.map((node, i) => {
-                    return <ColumnSettingsLine key={node.path} index={i} nodeCount={this.getNodeCount} onMove={this.onMove}/>;
+                    return <ColumnSettingsLine key={node.key} index={i} nodeCount={this.getNodeCount} onMove={this.onMove}/>;
                    });};
 
             return (<div className="tabContainer">{loop(document.designData.selnodes)}</div>);

@@ -10,7 +10,7 @@ class AddFilterColumn extends React.Component {
     render() {
         const loadPaths  = (data) => {
             return data.map((node) => {
-                return <option>{node.path}</option>;
+                return <option>{node.__path__}</option>;
                });};
 
         return <div className="addFilterColumn">Add filter column:<br /><button className="moveButton" onClick={this.props.addColumn()}><img alt='add filter column' src='/images/add.png'/></button><select>{loadPaths(document.designData.selnodes)}</select></div>;
