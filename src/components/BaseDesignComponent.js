@@ -9,6 +9,7 @@ class BaseDesignComponent extends React.Component {
         document.designData.modelHierarchy = '';
         document.designData.selectedObjectKeys = '';
         document.designData.selnodes = '';
+        document.designData.whereComparisons = '';
     }
 }
 

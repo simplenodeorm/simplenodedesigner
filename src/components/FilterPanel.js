@@ -8,7 +8,8 @@ class FilterPanel extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            error: ''
+            error: '',
+            selectedColumn: document.designData[0].__path__
         };
     }
 
@@ -18,12 +19,29 @@ class FilterPanel extends React.Component {
         if (error) {
             return <div className="errorMessage">{error}</div>;
         } else {
-            return <AddFilterColumn addColumn={this.addColumn}/>;
+            return <AddFilterColumn onColumnChange={this.onColumnChange} addColumn={this.addColumn}/>;
         }
     }
     
     addColumn(path) {
+        let whereComparison = {
+            fieldName: this.state.selectedColumn,
+            comparisonValue: '',
+            comparisonOperator: '=',
+            openParen = '',
+            closeParen = '',
+            logicalOperator: 'AND'
+        };
         
+        if (!document.designData.whereComparisons) {
+            document.designData.whereComparisons = new Array();
+        }
+        
+        document.designData.whereComparisons.push(whereComparison);
+    }
+    
+    onColumnChange(e) {
+        this.state.selectedColumn = e.target.options[e.target.selectedIndex].text;
     }
 }
 

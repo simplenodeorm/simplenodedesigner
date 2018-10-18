@@ -9,7 +9,8 @@ document.designData = {
     models: '',
     modelHierarchy: '',
     selectedObjectKeys: '',
-    selnodes: ''
+    selnodes: '',
+    whereComparisons: ''
 };
 
 const contextMenu = document.createElement('div');
