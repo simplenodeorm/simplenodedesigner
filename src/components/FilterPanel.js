@@ -2,12 +2,7 @@ import React from 'react';
 import "../app/App.css";
 import config from '../config/appconfig.json';
 import Spinner from './Spinner';
-import {ColumnSettingsLine} from './ColumnSettingsLine';
-
-const loop = (data) => {
-    return data.map((node) => {
-       return <ColumnSettingsLine columnNode={node}/>;
-       })};
+import {AddFilterColumn} from './AddFilterColumn';
 
 class FilterPanel extends React.Component {
     constructor(props) {
@@ -23,39 +18,12 @@ class FilterPanel extends React.Component {
         if (error) {
             return <div className="errorMessage">{error}</div>;
         } else {
-           let selnodes = new Array();
-           this.loadSelectedNodes(document.designData.modelHierarchy, selnodes, '',  new Set(document.designData.selectedObjectKeys));
-           
-           
-           return (<div className="tabContainer">{loop(selnodes)}</div>);
+            return <AddFilterColumn addColumn={this.addColumn}/>;
         }
     }
     
-    loadSelectedNodes(pnode, selnodes, curpath, keyset) {
-        for (let i = 0; i < pnode.children.length; ++i) {
-            if (pnode.children[i].columnName && keyset.has(pnode.children[i].key)) {
-                if (curpath) {
-                    pnode.children[i].path = curpath + '.' + pnode.children[i].title;
-                } else {
-                    pnode.children[i].path = pnode.children[i].title;
-                }
-                selnodes.push(pnode.children[i]);
-            }
-        }
- 
+    addColumn(path) {
         
-        for (let i = 0; i < pnode.children.length; ++i) {
-            if (!pnode.children[i].columnName) {
-                let newpath;
-                if (curpath) {
-                    newpath = curpath + '.' + pnode.children[i].title;
-                } else {
-                    newpath = pnode.children[i].title;
-                }
-                
-                this.loadSelectedNodes(pnode.children[i], selnodes, newpath, keyset);
-            }
-        }
     }
 }
 

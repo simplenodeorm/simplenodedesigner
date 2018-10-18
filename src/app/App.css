@@ -569,3 +569,8 @@ input[type="checkbox"] {
     border: none;
     background: none;
 }
+
+.addFilterColumn {
+    border-bottom: 1px solid var(--default-border-color);
+    padding-bottom: 5px;
+}

@@ -6,6 +6,7 @@ import Sidebar from "react-sidebar";
 import {SelectModelDataPanel} from './SelectModelDataPanel';
 import {ColumnSettingsPanel} from './ColumnSettingsPanel';
 import {BaseDesignComponent} from './BaseDesignComponent';
+import {FilterPanel} from './FilterPanel';
 import config from '../config/appconfig.json';
 import axios from 'axios';
 
@@ -75,9 +76,7 @@ class DesignTabs extends BaseDesignComponent {
                         <ColumnSettingsPanel setTabState={this.setTabState}/>
                     </TabPanel>
                     <TabPanel>
-                        <p>
-                            <b>Tab3 panel</b>
-                        </p>
+                        <FilterPanel/>
                     </TabPanel>
                     <TabPanel>
                         <p>
