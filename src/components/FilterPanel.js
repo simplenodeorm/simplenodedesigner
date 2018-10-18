@@ -9,7 +9,7 @@ class FilterPanel extends React.Component {
         super(props);
         this.state = {
             error: '',
-            selectedColumn: document.designData[0].__path__
+            selectedColumn: document.designData.selnodes[0].__path__
         };
     }
 
@@ -23,13 +23,13 @@ class FilterPanel extends React.Component {
         }
     }
     
-    addColumn(path) {
+    addColumn() {
         let whereComparison = {
             fieldName: this.state.selectedColumn,
             comparisonValue: '',
             comparisonOperator: '=',
-            openParen = '',
-            closeParen = '',
+            openParen: '',
+            closeParen: '',
             logicalOperator: 'AND'
         };
         
