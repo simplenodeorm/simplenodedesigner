@@ -3,7 +3,7 @@ import SplitPane from 'react-split-pane';
 import { DocumentTree } from './DocumentTree';
 import { DesignTabs } from './DesignTabs';
 import AppToolbar from './AppToolbar';
-import './App.css';
+import '../app/App.css';
 
 document.designData = {
     models: '',

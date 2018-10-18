@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Tree, { TreeNode } from 'rc-tree'
 import "../app/App.css";
-import '../app/defaultTree.css';
+import './defaultTree.css';
 import config from '../config/appconfig.json';
 import axios from 'axios';
 import Spinner from './Spinner';

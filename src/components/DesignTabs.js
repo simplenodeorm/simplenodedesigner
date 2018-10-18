@@ -1,11 +1,11 @@
 import React from 'react';
-import './App.css';
-import { MenuButton } from '../components/MenuButton';
+import '../app/App.css';
+import { MenuButton } from './MenuButton';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import Sidebar from "react-sidebar";
-import {SelectModelDataPanel} from '../components/SelectModelDataPanel';
-import {ColumnSettingsPanel} from '../components/ColumnSettingsPanel';
-import {BaseDesignComponent} from '../components/BaseDesignComponent';
+import {SelectModelDataPanel} from './SelectModelDataPanel';
+import {ColumnSettingsPanel} from './ColumnSettingsPanel';
+import {BaseDesignComponent} from './BaseDesignComponent';
 import config from '../config/appconfig.json';
 import axios from 'axios';
 

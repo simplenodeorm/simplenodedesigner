@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Tree, { TreeNode } from 'rc-tree';
-import './App.css';
+import '../app/App.css';
 import './defaultTree.css';
 import groups from '../config/document-groups.json';
 

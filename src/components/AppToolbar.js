@@ -1,6 +1,6 @@
 import React from 'react';
-import Toolbar from '../components/Toolbar';
-import './App.css';
+import Toolbar from './Toolbar';
+import '../app/App.css';
 import config from '../config/appconfig';
 
 const menu =  [
