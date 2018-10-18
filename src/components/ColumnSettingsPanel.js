@@ -23,7 +23,7 @@ class ColumnSettingsPanel extends React.Component {
         } else {
             if (!document.designData.selnodes) {
                 document.designData.selnodes = new Array();
-                this.loadSelectedNodes(document.designData.modelHierarchy, document.designData.selnodes, '',  new Set(document.designData.selectedObjectKeys));
+                this.loadSelectedNodes(document.designData.modelHierarchy, document.designData.selnodes, new Set(document.designData.selectedObjectKeys));
             }
             
             this.state.move = false;
@@ -37,14 +37,9 @@ class ColumnSettingsPanel extends React.Component {
         }
     }
     
-    loadSelectedNodes(pnode, nodes, curpath, keyset) {
+    loadSelectedNodes(pnode, nodes, keyset) {
         for (let i = 0; i < pnode.children.length; ++i) {
             if (pnode.children[i].columnName && keyset.has(pnode.children[i].key)) {
-                if (curpath) {
-                    pnode.children[i].path = curpath + '.' + pnode.children[i].title;
-                } else {
-                    pnode.children[i].path = pnode.children[i].title;
-                }
                 nodes.push(pnode.children[i]);
             }
         }
@@ -52,14 +47,7 @@ class ColumnSettingsPanel extends React.Component {
         
         for (let i = 0; i < pnode.children.length; ++i) {
             if (!pnode.children[i].columnName) {
-                let newpath;
-                if (curpath) {
-                    newpath = curpath + '.' + pnode.children[i].title;
-                } else {
-                    newpath = pnode.children[i].title;
-                }
-                
-                this.loadSelectedNodes(pnode.children[i], nodes, newpath, keyset);
+                this.loadSelectedNodes(pnode.children[i], nodes, keyset);
             }
         }
     }

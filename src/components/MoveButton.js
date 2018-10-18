@@ -2,8 +2,8 @@ import React from 'react';
 import "../app/App.css";
 import config from '../config/appconfig.json';
 
-const upImage = <img src='/images/uparrow.png' />;              
-const downImage = <img src='/images/downarrow.png' />;               
+const upImage = <img alt='move line up' src='/images/uparrow.png' />;              
+const downImage = <img alt='move line down' src='/images/downarrow.png' />;               
 
 class MoveButton extends React.Component {
     constructor(props) {
