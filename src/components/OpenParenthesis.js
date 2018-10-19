@@ -2,7 +2,7 @@ import React from 'react';
 import "../app/App.css";
 import config from '../config/appconfig.json';
 
-
+const parenSelections = ['', '(', '((', '(((', '(((('];
 class OpenParenthesis extends React.Component {
     constructor(props) {
         super(props);
@@ -10,7 +10,17 @@ class OpenParenthesis extends React.Component {
     }
     
     render() {
-        return <select onChange={this.onChange}><option></option><option>(</option><option>((</option><option>(((</option></select>;
+        const loop = (data) => {
+            return data.map((p, i) => {
+                if (p === document.designData.whereComparisons[this.props.index].openParen) {
+                    return <option selected>{p}</option>;
+                } else {
+                    return <option>{p}</option>;
+                }
+            });
+        };
+
+        return <select onChange={this.onChange}>{loop(parenSelections)}</select>;
     }
     
     onChange(e) {
