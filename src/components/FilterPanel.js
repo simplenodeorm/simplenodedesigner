@@ -12,22 +12,26 @@ class FilterPanel extends BaseDesignComponent {
         this.state = {
             error: '',
             selectedColumn: document.designData.selnodes[0].__path__,
-            filterAdded: false
+            filterAdded: false,
+            lineDeleted: false
         };
         
         this.onColumnChange = this.onColumnChange.bind(this);
         this.addColumn = this.addColumn.bind(this);
+        this.onDeleteLine = this.onDeleteLine.bind(this);
     }
 
     render() {
         const {error} = this.state;
         const loop = (data) => {
             return data.map((node, i) => {
-                return <FilterLine key={i} index={i}/>;
+                return <FilterLine key={this.getUniqueKey()} index={i} onDelete={this.onDeleteLine}/>;
                });};
         
         this.loadSelectedNodesIfRequired();
         this.state.filterAdded = false;
+        this.state.lineDeleted = false;
+
         if (error) {
             return <div className="errorMessage">{error}</div>;
         } else if (document.designData.whereComparisons 
@@ -42,6 +46,11 @@ class FilterPanel extends BaseDesignComponent {
         }
     }
     
+    onDeleteLine(indx) {
+        document.designData.whereComparisons.splice(indx, 1);
+        this.setState({lineDeleted: true});
+    }
+    
     addColumn() {
         let whereComparison = {
             fieldName: this.state.selectedColumn,
@@ -49,7 +58,8 @@ class FilterPanel extends BaseDesignComponent {
             comparisonOperator: '=',
             openParen: '',
             closeParen: '',
-            logicalOperator: 'AND'
+            logicalOperator: 'AND',
+            customFilterInput: ''
         };
         
         if (!document.designData.whereComparisons) {
