@@ -4,6 +4,8 @@ import config from '../config/appconfig.json';
 import {LogicalOperatorSelect} from './LogicalOperatorSelect';
 import {OpenParenthesis} from './OpenParenthesis';
 import {CloseParenthesis} from './CloseParenthesis';
+import {ComparisonOperatorSelect} from './ComparisonOperatorSelect';
+import {ComparisonValueInput} from './ComparisonValueInput';
 
 class FilterLine extends React.Component {
     constructor(props) {
@@ -19,19 +21,26 @@ class FilterLine extends React.Component {
     
     render() {
         return <div className="formatSelectionLine">
-        <div className="lineStyle1">
-        <span className="label">{this.props.index + 1}.&nbsp;</span>{document.designData.whereComparisons[this.props.index].__path__.replace(/\./g, '->')}</div>
             <div className="lineStyle1">
-                <LogicalOperatorSelect/>
-                <OpenParenthesis/>
-                <ComparisonOperatorSelect/>
-                <ComparisonValueInput/>
-                <CloseParenthesis/>
+                <span className="label">{this.props.index + 1}.&nbsp;</span>{document.designData.whereComparisons[this.props.index].fieldName.replace(/\./g, '->')}
+            </div>
+            <div className="lineStyle1">
+                <LogicalOperatorSelect index={this.props.index}/>
+                <OpenParenthesis index={this.props.index}/>
+                &nbsp;<span className="label">current field</span>&nbsp;
+                <ComparisonOperatorSelect index={this.props.index}/>
+                <ComparisonValueInput index={this.props.index}/>
+                <CloseParenthesis index={this.props.index}/>
             </div>
         </div>;
     }
     
     onDelete() {
+    }
+    
+    getColumnName() {
+        let pos = document.designData.whereComparisons[this.props.index].fieldName.lastIndexOf('.');
+        return document.designData.whereComparisons[this.props.index].fieldName.substring(pos+1);
     }
 }
 

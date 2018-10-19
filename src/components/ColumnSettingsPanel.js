@@ -3,10 +3,12 @@ import "../app/App.css";
 import config from '../config/appconfig.json';
 import Spinner from './Spinner';
 import {ColumnSettingsLine} from './ColumnSettingsLine';
+import {BaseDesignComponent} from './BaseDesignComponent';
 
-class ColumnSettingsPanel extends React.Component {
+class ColumnSettingsPanel extends BaseDesignComponent {
     constructor(props) {
         super(props);
+        this.loadSelectedNodesIfRequired();
         this.state = {
             error: '',
             move: false
@@ -17,15 +19,11 @@ class ColumnSettingsPanel extends React.Component {
 
     render() {
         const {error} = this.state;
+        this.loadSelectedNodesIfRequired();
         
         if (error) {
             return <div className="errorMessage">{error}</div>;
         } else {
-            if (!document.designData.selnodes) {
-                document.designData.selnodes = new Array();
-                this.loadSelectedNodes(document.designData.modelHierarchy, document.designData.selnodes, new Set(document.designData.selectedObjectKeys));
-            }
-            
             this.state.move = false;
 
             let loop = (data) => {
@@ -34,21 +32,6 @@ class ColumnSettingsPanel extends React.Component {
                    });};
 
             return (<div className="tabContainer">{loop(document.designData.selnodes)}</div>);
-        }
-    }
-    
-    loadSelectedNodes(pnode, nodes, keyset) {
-        for (let i = 0; i < pnode.children.length; ++i) {
-            if (pnode.children[i].columnName && keyset.has(pnode.children[i].key)) {
-                nodes.push(pnode.children[i]);
-            }
-        }
- 
-        
-        for (let i = 0; i < pnode.children.length; ++i) {
-            if (!pnode.children[i].columnName) {
-                this.loadSelectedNodes(pnode.children[i], nodes, keyset);
-            }
         }
     }
     

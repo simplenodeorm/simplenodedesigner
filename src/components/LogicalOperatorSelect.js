@@ -10,7 +10,11 @@ class LogicalOperatorSelect extends React.Component {
     }
     
     render() {
-        return <select onChange={this.onChange}><option>AND</option><option>OR</option></select>;
+        if (this.props.index > 0) {
+            return <select onChange={this.onChange}><option>AND</option><option>OR</option></select>;
+        } else {
+            return <select onChange={this.onChange} disabled><option></option></select>;
+        }
     }
     
     onChange(e) {

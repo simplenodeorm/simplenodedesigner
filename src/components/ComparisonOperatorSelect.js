@@ -11,11 +11,11 @@ class ComparisonOperatorSelect extends React.Component {
     
     render() {
         return <select onChange={this.onChange}>
-                <option>&eq;</option>
+                <option>=</option>
                 <option>&lt;</option>
-                <option>&lt;&eq;</option>
+                <option>&lt;=</option>
                 <option>&gt;</option>
-                <option>&gt;&eq;</option>
+                <option>&gt;=</option>
                 <option>&lt;&gt;</option>
                 <option>null</option>
                 <option>not null</option>

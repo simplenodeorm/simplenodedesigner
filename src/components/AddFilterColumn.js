@@ -5,6 +5,7 @@ import config from '../config/appconfig.json';
 class AddFilterColumn extends React.Component {
     constructor(props) {
         super(props);
+        this.onChange = this.onChange.bind(this);
     }
     
     render() {
@@ -13,7 +14,11 @@ class AddFilterColumn extends React.Component {
                 return <option>{node.__path__}</option>;
                });};
 
-        return <div className="addFilterColumn">Add filter column:<br /><button className="moveButton" onClick={this.props.addColumn}><img alt='add filter column' src='/images/add.png'/></button><select onChange={this.props.onColumnChange}>{loadPaths(document.designData.selnodes)}</select></div>;
+        return <div className="addFilterColumn">Add filter column:<br /><button className="moveButton" onClick={this.props.addColumn}><img alt='add filter column' src='/images/add.png'/></button><select onChange={this.onChange}>{loadPaths(document.designData.selnodes)}</select></div>;
+    }
+    
+    onChange(e) {
+        this.props.onColumnChange(e.target);
     }
 }
 

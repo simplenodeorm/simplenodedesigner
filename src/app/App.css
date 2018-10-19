@@ -550,7 +550,7 @@ input[type="submit"] {
 
 .formatSelectionLine .customColumnInput {
     margin: 2px;
-    width: 120px;
+    width: 150px;
     height: 18px;
 }
 
@@ -573,4 +573,15 @@ input[type="checkbox"] {
 .addFilterColumn {
     border-bottom: 1px solid var(--default-border-color);
     padding-bottom: 5px;
+}
+
+.filterLine {
+    border-style: solid;
+    border-width: 1px;    
+    border-color: var(--default-border-color);
+    padding-bottom: 2px;
+}
+
+.filterComparisonValue {
+    width: 100px;
 }
