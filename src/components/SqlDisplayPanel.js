@@ -12,7 +12,6 @@ class SqlDisplayPanel extends BaseDesignComponent {
         this.state = {
             error: ''
         };
-        
     }
 
     render() {
@@ -20,7 +19,7 @@ class SqlDisplayPanel extends BaseDesignComponent {
         if (error) {
             return <div className="errorMessage">{error}</div>;
         } else {
-            return <div className="tabChildContainer">sql display</div>
+            return <div className="tabChildContainer">sql display</div>;
         }
     }
 

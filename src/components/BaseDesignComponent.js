@@ -44,6 +44,34 @@ class BaseDesignComponent extends React.Component {
         });
         return uuid;
     }
+    
+    getSelectNode(fieldName) {
+        let retval;
+        
+        for (let i = 0; i < document.designData.selnodes.length; ++i) {
+            if (fieldName === document.designData.selnodes[i].__path__) {
+                retval = document.designData.selnodes[i];
+                break;
+            }
+        }
+        
+        return retval;
+    }
+    
+    getFieldType(dbType) {
+        let retval = 'string';
+        switch(dbType) {
+            case 'DATE':
+                retval = 'date';
+                break;
+            case 'NUMBER':
+                retval = 'number';
+                break;
+        }
+        
+        return retval;
+    }
+
 }
 
 export {BaseDesignComponent};

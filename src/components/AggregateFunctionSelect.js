@@ -1,18 +1,18 @@
 import React from 'react';
 import "../app/App.css";
 import config from '../config/appconfig.json';
-
+import {BaseDesignComponent} from './BaseDesignComponent';
 
 const dateFunctions = ['count', 'min', 'max'];
 const stringFunctions = ['count'];
 const numberFunctions = ['avg', 'count', 'min', 'max', 'sum'];
 
-class AggregateFunctionSelect extends React.Component {
+class AggregateFunctionSelect extends BaseDesignComponent {
     constructor(props) {
         super(props);
         this.onChange = this.onChange.bind(this);
         
-        switch(this.getType(document.designData.selnodes[this.props.index].type)) {
+        switch(this.getFieldType(document.designData.selnodes[this.props.index].type)) {
             case "date":
                 this.functions = dateFunctions;
                 break;
@@ -41,20 +41,6 @@ class AggregateFunctionSelect extends React.Component {
     
     onChange(e) {
         document.designData.selnodes[this.props.index].__selectedFunction = e.target[e.target.selectedIndex].value;
-    }
-    
-    getType(dbType) {
-        let retval = 'string';
-        switch(dbType) {
-            case 'DATE':
-                retval = 'date';
-                break;
-            case 'NUMBER':
-                retval = 'number';
-                break;
-        }
-        
-        return retval;
     }
 }
 
