@@ -2,6 +2,7 @@ import React from 'react';
 import "../app/App.css";
 import config from '../config/appconfig.json';
 
+const logSelections = ['', 'and', 'or'];
 
 class LogicalOperatorSelect extends React.Component {
     constructor(props) {
@@ -10,8 +11,18 @@ class LogicalOperatorSelect extends React.Component {
     }
     
     render() {
+        const loop = (data) => {
+            return data.map((p, i) => {
+                if (p === document.designData.whereComparisons[this.props.index].logicalOperator) {
+                    return <option selected>{p}</option>;
+                } else {
+                    return <option>{p}</option>;
+                }
+            });
+        };
+
         if (this.props.index > 0) {
-            return <select onChange={this.onChange}><option>AND</option><option>OR</option></select>;
+            return <select onChange={this.onChange}>{loop(logSelections)}</select>;
         } else {
             return <select onChange={this.onChange} disabled><option></option></select>;
         }

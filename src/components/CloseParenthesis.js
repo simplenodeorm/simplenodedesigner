@@ -12,7 +12,7 @@ class CloseParenthesis extends React.Component {
     render() {
         const loop = (data) => {
             return data.map((p, i) => {
-                if (p === document.designData.whereComparisons[this.props.index].openParen) {
+                if (p === document.designData.whereComparisons[this.props.index].closeParen) {
                     return <option value={p} selected>{p}</option>;
                 } else {
                     return <option value={p}>{p}</option>;

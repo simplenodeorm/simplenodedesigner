@@ -9,7 +9,11 @@ class ComparisonValueInput extends React.Component {
     }
     
     render() {
-        return <span><input className="customColumnInput" type='text' onBlur={this.onBlur} value={document.designData.whereComparisons[this.props.index].comparisonValue}/></span>;
+        return <span><input 
+            className="customColumnInput" 
+            type='text' 
+            onBlur={this.onBlur} 
+            defaultValue={document.designData.whereComparisons[this.props.index].comparisonValue}/></span>;
     }
 
     onBlur(e) {
