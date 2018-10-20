@@ -4,6 +4,8 @@ import "../app/App.css";
 import config from '../config/appconfig.json';
 import Spinner from './Spinner';
 import {BaseDesignComponent} from './BaseDesignComponent';
+import {SqlDisplayPanel} from './SqlDisplayPanel';
+import {QueryResultsPanel} from './QueryResultsPanel';
 
 class QueryPanel extends BaseDesignComponent {
     constructor(props) {
@@ -11,7 +13,6 @@ class QueryPanel extends BaseDesignComponent {
         this.state = {
             error: ''
         };
-        
     }
 
     render() {
@@ -19,13 +20,15 @@ class QueryPanel extends BaseDesignComponent {
         if (error) {
             return <div className="errorMessage">{error}</div>;
         } else {
-            return <SplitPane 
-                split="horizontal" 
-                minSize={20} 
-                defaultSize={250}>
-                <div>Upper</div>
-                <div>Lower</div>
-            </SplitPane>
+            return <div className="tabSplitPaneContainer">
+                <SplitPane 
+                    split="horizontal" 
+                    minSize={20} 
+                    defaultSize={250}>
+                    <SqlDisplayPanel/>
+                    <QueryResultsPanel/>
+                </SplitPane>
+            </div>;
         }
     }
 }

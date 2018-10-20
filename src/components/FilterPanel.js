@@ -5,6 +5,7 @@ import {AddFilterColumn} from './AddFilterColumn';
 import {FilterLine} from './FilterLine';
 import {BaseDesignComponent} from './BaseDesignComponent';
 
+var setDesignTabState;
 class FilterPanel extends BaseDesignComponent {
     constructor(props) {
         super(props);
@@ -15,7 +16,8 @@ class FilterPanel extends BaseDesignComponent {
             filterAdded: false,
             lineDeleted: false
         };
-        
+        setDesignTabState = this.props.setTabState;
+
         this.onColumnChange = this.onColumnChange.bind(this);
         this.addColumn = this.addColumn.bind(this);
         this.onDeleteLine = this.onDeleteLine.bind(this);
@@ -46,9 +48,16 @@ class FilterPanel extends BaseDesignComponent {
         }
     }
     
+    
     onDeleteLine(indx) {
         document.designData.whereComparisons.splice(indx, 1);
         this.setState({lineDeleted: true});
+
+        if (document.designData.whereComparisons.length > 0) {
+            setDesignTabState(false, false, false, false);
+        } else {
+            setDesignTabState(false, false, false, true);
+        }
     }
     
     addColumn() {
@@ -67,6 +76,11 @@ class FilterPanel extends BaseDesignComponent {
         }
 
         document.designData.whereComparisons.push(whereComparison);
+        
+        if (document.designData.whereComparisons.length > 0) {
+            setDesignTabState(false, false, false, false);
+        } 
+
         this.setState({filterAdded: true});
     }
     

@@ -244,6 +244,24 @@ input[type="submit"] {
     width: 95%;
 }
 
+.tabSplitPaneContainer {
+    position: absolute;
+    box-sizing:border-box;
+    background: var(--default-bkcolor);
+    overflow: none;
+    height: 85%;
+    width: 100%;
+}
+
+.tabChildContainer {
+    position: relative;
+    box-sizing:border-box;
+    background: var(--default-bkcolor);
+    overflow: auto;
+    height: 85%;
+    width: 95%;
+}
+
 .minimalist-toolbar{
     overflow-y: visible;
     position: absolute;

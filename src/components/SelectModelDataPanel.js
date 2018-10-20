@@ -69,7 +69,7 @@ class SelectModelDataPanel extends BaseDesignComponent {
     onCheck(checkedKeys, e) {
         document.designData.selectedObjectKeys = checkedKeys;
         if (checkedKeys.length > 0) {
-            setDesignTabState(false, false, false, false);
+            setDesignTabState(false, false, false, true);
         } else {
             setDesignTabState(false, true, true, true);
         }

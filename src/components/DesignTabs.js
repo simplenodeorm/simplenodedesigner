@@ -77,7 +77,7 @@ class DesignTabs extends BaseDesignComponent {
                         <ColumnSettingsPanel setTabState={this.setTabState}/>
                     </TabPanel>
                     <TabPanel>
-                        <FilterPanel/>
+                        <FilterPanel setTabState={this.setTabState}/>
                     </TabPanel>
                     <TabPanel>
                         <QueryPanel/>
