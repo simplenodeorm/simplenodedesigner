@@ -7,6 +7,7 @@ import {SelectModelDataPanel} from './SelectModelDataPanel';
 import {ColumnSettingsPanel} from './ColumnSettingsPanel';
 import {BaseDesignComponent} from './BaseDesignComponent';
 import {FilterPanel} from './FilterPanel';
+import {QueryPanel} from './QueryPanel';
 import config from '../config/appconfig.json';
 import axios from 'axios';
 
@@ -79,9 +80,7 @@ class DesignTabs extends BaseDesignComponent {
                         <FilterPanel/>
                     </TabPanel>
                     <TabPanel>
-                        <p>
-                            <b>Tab4 panel</b>
-                        </p>
+                        <QueryPanel/>
                     </TabPanel>
                 </Tabs>
             </div>);

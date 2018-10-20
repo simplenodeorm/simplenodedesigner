@@ -37,7 +37,7 @@ class FilterPanel extends BaseDesignComponent {
         } else if (document.designData.whereComparisons 
                 && (document.designData.whereComparisons.length > 0)) {
             
-            return <div>
+            return <div className="tabContainer">
                 <AddFilterColumn onColumnChange={this.onColumnChange} addColumn={this.addColumn}/>
                     {loop(document.designData.whereComparisons)}
                 </div>;
