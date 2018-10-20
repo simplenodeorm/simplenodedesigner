@@ -23,7 +23,6 @@ class ComparisonValueInput extends BaseDesignComponent {
                 return <span><DateTimePicker onChange={this.onBlur} 
                     value={document.designData.whereComparisons[this.props.index].comparisonValue} 
                     disableClock={true} 
-                    clearIcon={null}
                     showLeadingZeros={true}
                     calendarIcon={calImage}/></span>;
             case 'number':

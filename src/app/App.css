@@ -681,7 +681,8 @@ input[type="checkbox"] {
 .react-datetime-picker__button {
   border: 0;
   background: transparent;
-  padding: 4px 6px;
+  vertical-align: middle;
+  padding:0;
 }
 .react-datetime-picker__button:enabled {
   cursor: pointer;
