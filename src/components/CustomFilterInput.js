@@ -9,12 +9,10 @@ class CustomFilterInput extends React.Component {
     }
     
     render() {
-        return <span className="fieldLabel">{config.textmsg.customcolinputlabel}
-            <input className="customFilterInput" 
+        return <input className="customFilterInput" 
                 type='text' 
                 onBlur={this.onBlur} 
-                defaultValue={document.designData.whereComparisons[this.props.index].customFilterInput}/>
-            </span>;
+                defaultValue={document.designData.whereComparisons[this.props.index].customFilterInput}/>;
     }
     
     onBlur(e) {

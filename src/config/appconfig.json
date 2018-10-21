@@ -15,6 +15,7 @@
         "sortposlabel": "Sort Pos:",
         "ascdesclabel": "Desc:",
         "customcolinputlabel": "Custom:",
-        "columnlabel": "Label:"
+        "columnlabel": "Label:",
+        "value": "Value:"
     }
 }

@@ -3,7 +3,9 @@ import "../app/App.css";
 import config from '../config/appconfig.json';
 import {BaseDesignComponent} from './BaseDesignComponent';
 import {NumericInput} from './NumericInput';
-import DateTimePicker from 'react-datetime-picker';
+import DatePicker from 'react-datepicker';
+import moment from 'moment'; 
+import 'react-datepicker/dist/react-datepicker.css';
 
 const calImage = <img src='/images/calendar.png'/>;
 
@@ -20,23 +22,22 @@ class ComparisonValueInput extends BaseDesignComponent {
     render() {
         switch(this.fieldType) {
             case 'date':
-                return <span><DateTimePicker onChange={this.onBlur} 
-                    value={document.designData.whereComparisons[this.props.index].comparisonValue} 
-                    disableClock={true} 
-                    showLeadingZeros={true}
-                    calendarIcon={calImage}/></span>;
+                return <DatePicker 
+                    className="dateInput"
+                    dateFormat="MM/DD/YYYY"
+                    selected={document.designData.whereComparisons[this.props.index].comparisonValue} 
+                    onChange={this.onBlur} />;
             case 'number':
-                return <span><NumericInput 
+                return <NumericInput 
                     maxLength='8' 
                     onBlur={this.onBlur} 
-                    defaultValue={document.designData.whereComparisons[this.props.index].comparisonValue}/></span>;
+                    defaultValue={document.designData.whereComparisons[this.props.index].comparisonValue}/>;
             default:
-                return <span>   
-                    <input 
+                return <input 
                     className="customColumnInput" 
                     type='text' 
                     onBlur={this.onBlur} 
-                    defaultValue={document.designData.whereComparisons[this.props.index].comparisonValue}/></span>;
+                    defaultValue={document.designData.whereComparisons[this.props.index].comparisonValue}/>;
         }
     }
 

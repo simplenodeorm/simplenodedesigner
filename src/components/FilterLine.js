@@ -25,17 +25,24 @@ class FilterLine extends React.Component {
                 <span className="label"><button className="moveButton" onClick={this.onDelete}><img alt='add filter column' src='/images/delete.png'/></button>{this.props.index + 1}.&nbsp;</span>{document.designData.whereComparisons[this.props.index].fieldName.replace(/\./g, '->')}
             </div>
             <div className="lineStyle1">
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <LogicalOperatorSelect index={this.props.index}/>
-                <OpenParenthesis index={this.props.index}/>
-                &nbsp;<span className="label">current field</span>&nbsp;
-                <ComparisonOperatorSelect index={this.props.index}/>
-                <ComparisonValueInput index={this.props.index}/>
+                <table>
+                    <tr>
+                        <td><LogicalOperatorSelect index={this.props.index}/></td>
+                        <td><OpenParenthesis index={this.props.index}/></td>
+                        <td><span className="label">field</span></td>
+                        <td><ComparisonOperatorSelect index={this.props.index}/></td>
+                        <td><ComparisonValueInput index={this.props.index} /></td>
+                    </tr>
+                </table>
             </div>
             <div className="lineStyle1">
-             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<CustomFilterInput index={this.props.index} /> 
-             <CloseParenthesis index={this.props.index}/>
-             </div>
+                <table>
+                    <tr>
+                        <td><span className="fieldLabel">{config.textmsg.customcolinputlabel}</span>&nbsp;<CustomFilterInput index={this.props.index} /></td>
+                        <td><CloseParenthesis index={this.props.index}/></td>
+                    </tr>
+               </table>
+            </div>
         </div>;
     }
     
