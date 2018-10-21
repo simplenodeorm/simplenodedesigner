@@ -73,6 +73,10 @@ class SelectModelDataPanel extends BaseDesignComponent {
         } else {
             setDesignTabState(false, true, true, true);
         }
+        
+        if (document.designData.selnodes) {
+            document.designData.selnodes = '';
+        }
     }
     
     onSelect(info) {
