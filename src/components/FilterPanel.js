@@ -5,7 +5,6 @@ import {AddFilterColumn} from './AddFilterColumn';
 import {FilterLine} from './FilterLine';
 import {BaseDesignComponent} from './BaseDesignComponent';
 
-var setDesignTabState;
 class FilterPanel extends BaseDesignComponent {
     constructor(props) {
         super(props);
@@ -16,8 +15,6 @@ class FilterPanel extends BaseDesignComponent {
             filterAdded: false,
             lineDeleted: false
         };
-        setDesignTabState = this.props.setTabState;
-
         this.onColumnChange = this.onColumnChange.bind(this);
         this.addColumn = this.addColumn.bind(this);
         this.onDeleteLine = this.onDeleteLine.bind(this);
@@ -25,9 +22,10 @@ class FilterPanel extends BaseDesignComponent {
 
     render() {
         const {error} = this.state;
+        const setTabState = this.props.setTabState;
         const loop = (data) => {
             return data.map((node, i) => {
-                return <FilterLine key={this.getUniqueKey()} index={i} onDelete={this.onDeleteLine}/>;
+                return <FilterLine key={this.getUniqueKey()} index={i} onDelete={this.onDeleteLine} setTabState={setTabState} />;
                });};
         
         this.loadSelectedNodesIfRequired();
@@ -44,19 +42,18 @@ class FilterPanel extends BaseDesignComponent {
                     {loop(document.designData.whereComparisons)}
                 </div>;
         } else {
-            return <div><AddFilterColumn onColumnChange={this.onColumnChange} addColumn={this.addColumn}/></div>
+            return <div><AddFilterColumn onColumnChange={this.onColumnChange} addColumn={this.addColumn}/></div>;
         }
     }
-    
     
     onDeleteLine(indx) {
         document.designData.whereComparisons.splice(indx, 1);
         this.setState({lineDeleted: true});
 
         if (document.designData.whereComparisons.length > 0) {
-            setDesignTabState(false, false, false, false);
+            this.props.setTabState(false, false, false, false);
         } else {
-            setDesignTabState(false, false, false, true);
+            this.props.setTabState(false, false, false, true);
         }
     }
     
@@ -77,11 +74,31 @@ class FilterPanel extends BaseDesignComponent {
 
         document.designData.whereComparisons.push(whereComparison);
         
-        if (document.designData.whereComparisons.length > 0) {
-            setDesignTabState(false, false, false, false);
+        if (this.isWhereValid()) {
+            this.props.setTabState(false, false, false, false);
         } 
 
         this.setState({filterAdded: true});
+    }
+    
+    isWhereValid() {
+        let retval = false;
+        
+        if ((document.designData.whereComparisons && document.designData.whereComparisons.length > 0)) {
+            let ok = true;
+            for (let i = 0; i < document.designData.whereComparisons.length; ++i) {
+                if (!document.designData.whereComparisons[i].customFilterInput 
+                    && !this.isUnaryOperator(document.designData.whereComparisons[i].comparisonOperator) 
+                        && !document.designData.whereComparisons[i].comparisonValue) {
+                    ok = false;
+                    break;
+                }
+            }
+                
+            retval = ok;
+        }
+        
+        return retval;
     }
     
     onColumnChange(sel) {

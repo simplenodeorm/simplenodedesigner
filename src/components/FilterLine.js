@@ -31,7 +31,7 @@ class FilterLine extends React.Component {
                         <td><OpenParenthesis index={this.props.index}/></td>
                         <td><span className="label">field</span></td>
                         <td><ComparisonOperatorSelect index={this.props.index}/></td>
-                        <td><ComparisonValueInput index={this.props.index} /></td>
+                        <td><ComparisonValueInput setTabState={this.props.setTabState} index={this.props.index} /></td>
                     </tr>
                 </table>
             </div>

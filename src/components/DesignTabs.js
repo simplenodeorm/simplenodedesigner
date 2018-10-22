@@ -90,7 +90,7 @@ class DesignTabs extends BaseDesignComponent {
     }
     
     onSave() {
-        
+        this.getQueryDocument();
     }
     
     onTabSelected(index, lastIndex) {

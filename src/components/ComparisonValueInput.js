@@ -42,11 +42,16 @@ class ComparisonValueInput extends BaseDesignComponent {
     }
 
     onBlur(val) {
+        let orig = document.designData.whereComparisons[this.props.index].comparisonValue;
         if (this.fieldType === 'date') {
             document.designData.whereComparisons[this.props.index].comparisonValue = val;
             this.setState({comparisonValue: val});
         } else {
             document.designData.whereComparisons[this.props.index].comparisonValue = val.target.value;
+        }
+        
+        if (!orig && document.designData.whereComparisons[this.props.index].comparisonValue) {
+            this.props.setTabState(false, false, false, false);
         }
     }
 }

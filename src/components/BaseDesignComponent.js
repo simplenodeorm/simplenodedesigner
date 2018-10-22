@@ -72,6 +72,30 @@ class BaseDesignComponent extends React.Component {
         return retval;
     }
 
+    getQueryDocument() {
+        let selectedNodes = new Array();
+        for (let i = 0; i < document.designData.selnodes.length; ++i) {
+            selectedNodes.push({
+                path: document.designData.selnodes[i].__path__,
+                label: document.designData.selnodes[i].__columnLabel,
+                function: document.designData.selnodes[i].__selectedFunction,
+                sortPosition: document.designData.selnodes[i].__sortPosition,
+                sortDescending: document.designData.selnodes[i].__sortDescending,
+                customInput: document.designData.selnodes[i].__customColumnInput
+            });
+        }
+        
+        
+        return {
+            rootModel: document.designData.modelHierarchy.title,
+            selectedColumns: selectedNodes,
+            whereComparisons: document.designData.whereComparisons
+        };
+    }
+    
+    isUnaryOperator(op) {
+        return (op && ((op === 'is null') || (op === 'is not null'))); 
+    }
 }
 
 export {BaseDesignComponent};
