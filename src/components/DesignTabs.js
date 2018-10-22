@@ -11,7 +11,6 @@ import {QueryPanel} from './QueryPanel';
 import config from '../config/appconfig.json';
 import axios from 'axios';
 
-var curobj;
 class DesignTabs extends BaseDesignComponent {
     constructor(props) {
         super(props);
@@ -31,7 +30,8 @@ class DesignTabs extends BaseDesignComponent {
             error: ''
         };    
         
-        curobj = this;
+        this.onSave = this.onSave.bind(this);
+        this.setTabState = this.setTabState.bind(this);
     }
 
     onSetSidebarOpen(open, model) {
@@ -55,6 +55,8 @@ class DesignTabs extends BaseDesignComponent {
                 <MenuButton text={selectedModel} 
                     error={error} 
                     loading={loading}
+                    saveDisabled={tab3Disabled}
+                    onSave={this.onSave}
                     onMenuClick={() => {  this.onSetSidebarOpen(true); }}/>
                 {sidebarOpen &&
                 <Sidebar 
@@ -87,12 +89,16 @@ class DesignTabs extends BaseDesignComponent {
             return retval;
     }
     
+    onSave() {
+        
+    }
+    
     onTabSelected(index, lastIndex) {
         this.selectedIndex = index;
     }
     
     setTabState(tab0, tab1, tab2, tab3) {
-        curobj.setState({tab0Disabled: tab0, tab1Disabled: tab1, tab2Disabled: tab2, tab3Disabled: tab3, tabStateChanged: true});
+        this.setState({tab0Disabled: tab0, tab1Disabled: tab1, tab2Disabled: tab2, tab3Disabled: tab3, tabStateChanged: true});
     }
 
     onDisplaySidebar() {

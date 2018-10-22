@@ -8,10 +8,6 @@ const menu =  [
         text: "File",
         items: [
         {
-            text: config.textmsg.adddocument,
-            callback: addDocument
-        },
-        {
             text: config.textmsg.setup,
             callback: setup
         },
