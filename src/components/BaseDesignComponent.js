@@ -97,23 +97,7 @@ class BaseDesignComponent extends React.Component {
     }
     
     isWhereValid() {
-        let retval = false;
-        
-        if ((document.designData.whereComparisons && document.designData.whereComparisons.length > 0)) {
-            let ok = true;
-            for (let i = 0; i < document.designData.whereComparisons.length; ++i) {
-                if (!document.designData.whereComparisons[i].customFilterInput 
-                    && !this.isUnaryOperator(document.designData.whereComparisons[i].comparisonOperator) 
-                        && !document.designData.whereComparisons[i].comparisonValue) {
-                    ok = false;
-                    break;
-                }
-            }
-                
-            retval = ok;
-        }
-        
-        return retval;
+        return (document.designData.whereComparisons && document.designData.whereComparisons.length > 0);
     }
 }
 
