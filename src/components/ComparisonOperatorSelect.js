@@ -10,9 +10,10 @@ class ComparisonOperatorSelect extends React.Component {
     }
     
     render() {
+        const curindx = this.props.index;
         const loop = (data) => {
             return data.map((p, i) => {
-                if (p === document.designData.whereComparisons[this.props.index].comparisonOperator) {
+                if (p === document.designData.whereComparisons[curindx].comparisonOperator) {
                     return <option selected>{p}</option>;
                 } else {
                     return <option>{p}</option>;

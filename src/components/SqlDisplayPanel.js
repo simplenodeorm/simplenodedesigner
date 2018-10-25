@@ -10,16 +10,21 @@ class SqlDisplayPanel extends BaseDesignComponent {
     constructor(props) {
         super(props);
         this.state = {
-            error: ''
+            error: '',
+            sql: ''
         };
     }
 
     render() {
-        const {error} = this.state;
+        const {error, sql} = this.state;
+        if (!sql) {
+            this.generateSql();
+        }
+        
         if (error) {
             return <div className="errorMessage">{error}</div>;
         } else {
-            return <div className="tabChildContainer">sql display</div>;
+            return <div className="tabChildContainer">{sql}</div>;
         }
     }
 
@@ -27,13 +32,13 @@ class SqlDisplayPanel extends BaseDesignComponent {
         const curcomp = this;
         const orm = JSON.parse(localStorage.getItem('orm'));
         const config = {
-            headers: {'Authorization': orm.authString}
+            headers: {'Authorization': orm.authString }
         };
 
-        axios.get(orm.url + '/design/generatesql', config)
+        axios.post(orm.url + '/design/generatesql', this.getQueryDocument(), config)
             .then((response) => {
                 if (response.status === 200) {
-                    curcomp.setState({loading: false});
+                    curcomp.setState({loading: false, sql: response.data});
                 } else {
                     curcomp.setState({error: response.statusText, loading: false});
                 }

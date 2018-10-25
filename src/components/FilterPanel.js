@@ -51,7 +51,7 @@ class FilterPanel extends BaseDesignComponent {
         document.designData.whereComparisons.splice(indx, 1);
         this.setState({filterDeleted: true});
 
-        if (document.designData.whereComparisons.length > 0) {
+        if (this.isWhereValid()) {
             this.props.setTabState(false, false, false, false);
         } else {
             this.props.setTabState(false, false, false, true);
@@ -61,16 +61,13 @@ class FilterPanel extends BaseDesignComponent {
     addColumn() {
         let whereComparison = {
             fieldName: this.state.selectedColumn,
-            comparisonValue: '',
-            comparisonOperator: '=',
-            openParen: '',
-            closeParen: '',
-            logicalOperator: 'AND',
-            customFilterInput: ''
+            comparisonOperator: '='
         };
         
         if (!document.designData.whereComparisons) {
             document.designData.whereComparisons = new Array();
+        } else {
+            whereComparison.logicalOperator = 'and';
         }
 
         document.designData.whereComparisons.push(whereComparison);
@@ -80,26 +77,6 @@ class FilterPanel extends BaseDesignComponent {
         } 
 
         this.setState({filterAdded: true});
-    }
-    
-    isWhereValid() {
-        let retval = false;
-        
-        if ((document.designData.whereComparisons && document.designData.whereComparisons.length > 0)) {
-            let ok = true;
-            for (let i = 0; i < document.designData.whereComparisons.length; ++i) {
-                if (!document.designData.whereComparisons[i].customFilterInput 
-                    && !this.isUnaryOperator(document.designData.whereComparisons[i].comparisonOperator) 
-                        && !document.designData.whereComparisons[i].comparisonValue) {
-                    ok = false;
-                    break;
-                }
-            }
-                
-            retval = ok;
-        }
-        
-        return retval;
     }
     
     onColumnChange(sel) {

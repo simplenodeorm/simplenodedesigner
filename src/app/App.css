@@ -16,7 +16,7 @@
     --submit-bkcolor: #37a69b;
     --header-background: -moz-linear-gradient(top, lightGray, silver), -webkit-linear-gradient(lightGray, silver), linear-gradient(to bottom, lightGray, silver);
     --header-text-color:darkSlateGray;
-    --menu-button-color:#1c2833;
+    --menu-button-color:darkBlue;
     --default-border-color: gray;
     --input-background:linear-gradient(top, #d6d7d7, #dee0e0);
   }

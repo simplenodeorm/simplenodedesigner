@@ -12,7 +12,6 @@ class BaseDesignComponent extends React.Component {
         document.designData.whereComparisons = '';
     }
     
-    
     loadSelectedNodesIfRequired() {
         if (!document.designData.selnodes) {
             document.designData.selnodes = new Array();
@@ -73,9 +72,9 @@ class BaseDesignComponent extends React.Component {
     }
 
     getQueryDocument() {
-        let selectedNodes = new Array();
+        let selectedColumns = new Array();
         for (let i = 0; i < document.designData.selnodes.length; ++i) {
-            selectedNodes.push({
+            selectedColumns.push({
                 path: document.designData.selnodes[i].__path__,
                 label: document.designData.selnodes[i].__columnLabel,
                 function: document.designData.selnodes[i].__selectedFunction,
@@ -88,13 +87,33 @@ class BaseDesignComponent extends React.Component {
         
         return {
             rootModel: document.designData.modelHierarchy.title,
-            selectedColumns: selectedNodes,
+            selectedColumns: selectedColumns,
             whereComparisons: document.designData.whereComparisons
         };
     }
     
     isUnaryOperator(op) {
         return (op && ((op === 'is null') || (op === 'is not null'))); 
+    }
+    
+    isWhereValid() {
+        let retval = false;
+        
+        if ((document.designData.whereComparisons && document.designData.whereComparisons.length > 0)) {
+            let ok = true;
+            for (let i = 0; i < document.designData.whereComparisons.length; ++i) {
+                if (!document.designData.whereComparisons[i].customFilterInput 
+                    && !this.isUnaryOperator(document.designData.whereComparisons[i].comparisonOperator) 
+                        && !document.designData.whereComparisons[i].comparisonValue) {
+                    ok = false;
+                    break;
+                }
+            }
+                
+            retval = ok;
+        }
+        
+        return retval;
     }
 }
 
