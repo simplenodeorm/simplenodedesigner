@@ -628,3 +628,17 @@ input[type="checkbox"] {
 .filterComparisonValue {
     width: 100px;
 }
+
+.formattedSql {
+    color: indigo;
+    font-size: var(--default-font-size);
+}
+
+.formattedSql .keyWord {
+    color:darkGreen;
+}
+
+.formattedSql .sqlText {
+    padding-left: 20px;
+    white-space: nowrap;
+}

@@ -5,6 +5,7 @@ import config from '../config/appconfig.json';
 import Spinner from './Spinner';
 import axios from 'axios';
 import {BaseDesignComponent} from './BaseDesignComponent';
+import {SqlFormatter} from './SqlFormatter';
 
 class SqlDisplayPanel extends BaseDesignComponent {
     constructor(props) {
@@ -24,7 +25,7 @@ class SqlDisplayPanel extends BaseDesignComponent {
         if (error) {
             return <div className="errorMessage">{error}</div>;
         } else {
-            return <div className="tabChildContainer">{sql}</div>;
+            return <div className="tabChildContainer"><SqlFormatter sql={sql}/></div>;
         }
     }
 
