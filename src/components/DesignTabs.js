@@ -1,4 +1,5 @@
-import React from 'react';
+import React, {PropTypes} from 'react';
+import ReactDOM from 'react-dom';
 import '../app/App.css';
 import { MenuButton } from './MenuButton';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
@@ -6,6 +7,7 @@ import Sidebar from "react-sidebar";
 import {SelectModelDataPanel} from './SelectModelDataPanel';
 import {ColumnSettingsPanel} from './ColumnSettingsPanel';
 import {BaseDesignComponent} from './BaseDesignComponent';
+import {ParameterInputPanel} from './ParameterInputPanel';
 import {FilterPanel} from './FilterPanel';
 import {QueryPanel} from './QueryPanel';
 import config from '../config/appconfig.json';
@@ -33,6 +35,7 @@ class DesignTabs extends BaseDesignComponent {
         this.onSave = this.onSave.bind(this);
         this.onRun = this.onRun.bind(this);
         this.onHelp = this.onHelp.bind(this);
+        this.onInputParameterClose = this.onInputParameterClose.bind(this);
         this.setTabState = this.setTabState.bind(this);
     }
 
@@ -58,7 +61,7 @@ class DesignTabs extends BaseDesignComponent {
                     error={error} 
                     loading={loading}
                     saveDisabled={tab3Disabled}
-                    runDisabled={tab3Disabled}
+                    runDisabled={tab3Disabled || (this.state.tabIndex < 3)}
                     onSave={this.onSave}
                     onRun={this.onRun}
                     onHelp={this.onHelp}
@@ -96,7 +99,19 @@ class DesignTabs extends BaseDesignComponent {
     
 
     onRun() {
-        alert('----->onRun');
+        if (this.inputParametersRequired()) {
+            const p = document.getElementById('ctxmenu');
+            p.style.top = '100px';
+            p.style.left = '50px';
+            p.style.visibility = 'visible';
+
+            ReactDOM.render(<ParameterInputPanel/>, p);
+        }
+        
+    }
+    
+    onInputParameterClose() {
+        
     }
         
     onHelp() {
@@ -104,6 +119,9 @@ class DesignTabs extends BaseDesignComponent {
     }
     
     onSave() {
+        let inputParams;
+    
+        alert('----->onSave');
         this.getQueryDocument();
     }
     
