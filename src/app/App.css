@@ -613,6 +613,27 @@ input[type="checkbox"] {
     background: none;
 }
 
+
+.runButton {
+    cursor: pointer;
+    vertical-align: bottom;
+    margin-top: 2px;
+    margin-left: 200px;
+    padding: 0;
+    border: none;
+    background: none;
+}
+
+.helpButton {
+    cursor: pointer;
+    vertical-align: bottom;
+    margin-top: 2px;
+    margin-left: 100px;
+    padding: 0;
+    border: none;
+    background: none;
+}
+
 .addFilterColumn {
     border-bottom: 1px solid var(--default-border-color);
     padding-bottom: 5px;

@@ -12,9 +12,9 @@ class SaveButton extends React.Component {
     
     render() {
         if (this.props.disabled) {
-            return <button className="saveButton" disabled>{saveDisabled}</button>;              
+            return <button title="Save Query" className="saveButton" disabled>{saveDisabled}</button>;              
         } else {
-            return <button className="saveButton" onClick={this.props.onSave} >{saveEnabled}</button>;              
+            return <button title="Save Query" className="saveButton" onClick={this.props.onSave} >{saveEnabled}</button>;              
         }
     }
 }

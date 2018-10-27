@@ -31,6 +31,8 @@ class DesignTabs extends BaseDesignComponent {
         };    
         
         this.onSave = this.onSave.bind(this);
+        this.onRun = this.onRun.bind(this);
+        this.onHelp = this.onHelp.bind(this);
         this.setTabState = this.setTabState.bind(this);
     }
 
@@ -56,7 +58,10 @@ class DesignTabs extends BaseDesignComponent {
                     error={error} 
                     loading={loading}
                     saveDisabled={tab3Disabled}
+                    runDisabled={tab3Disabled}
                     onSave={this.onSave}
+                    onRun={this.onRun}
+                    onHelp={this.onHelp}
                     onMenuClick={() => {  this.onSetSidebarOpen(true); }}/>
                 {sidebarOpen &&
                 <Sidebar 
@@ -87,6 +92,15 @@ class DesignTabs extends BaseDesignComponent {
                 </Tabs>
             </div>);
             return retval;
+    }
+    
+
+    onRun() {
+        alert('----->onRun');
+    }
+        
+    onHelp() {
+        alert('----->onHelp');
     }
     
     onSave() {
