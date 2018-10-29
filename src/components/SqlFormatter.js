@@ -43,14 +43,15 @@ class SqlFormatter extends React.Component {
         
         return <div className="formattedSql">
                 <div className="keyWord">select</div>
-                <div className="sqlText">{loop(this.props.sql.substring(selectPos + 7, fromPos), ',')}</div>
-                <div><span className="keyWord">from</span><span className="table">{this.props.sql.substring(fromPos + 6, t0Pos + 3)}</span></div>
-                { joins && <div className="sqlText">{loop(joins, ')')}</div> }
+                <div>{loop(this.props.sql.substring(selectPos + 7, fromPos), ',')}</div>
+                <div><span className="keyWord">from</span><span className="table">{this.props.sql.substring(fromPos + 6, t0Pos + 4)}</span></div>
+                { joins && <div>{loop(joins, ')')}</div> }
                 <div className="keyWord">where</div>
-                <div className="sqlText">{this.props.sql.substring(wherePos + 7, orderByPos)}</div>
+                { (groupByPos > 0) && <div className="sqlText">{this.props.sql.substring(wherePos + 7, groupByPos)}</div> }
+                { (groupByPos < 0) && <div className="sqlText">{this.props.sql.substring(wherePos + 7, orderByPos)}</div> }
                 { (groupByPos > 0) &&  <div className="keyWord">group by</div> }
-                { (groupByPos > 0) && <div className="sqlText">{this.props.sql.substring(groupByPos, orderByPos)}</div>}
-                { (orderByPos < this.props.sql.length) && <div className="Wkeyord">order by</div> }
+                { (groupByPos > 0) && <div>{loop(this.props.sql.substring(groupByPos + 10, orderByPos), ',')}</div>}
+                { (orderByPos < this.props.sql.length) && <div className="keyWord">order by</div> }
                 { (orderByPos < this.props.sql.length) && <div className="sqlText">{this.props.sql.substring(orderByPos + 10)}</div>}
             </div>
     }
