@@ -13,6 +13,7 @@ class ComparisonValueInput extends BaseDesignComponent {
     constructor(props) {
         super(props);
         this.onBlur = this.onBlur.bind(this);
+        this.allowCharacter = this.allowCharacter.bind(this);
         this.fieldType = this.getFieldType(this.getSelectNode(document.designData.whereComparisons[this.props.index].fieldName).type);
         this.state = {
             comparisonValue: document.designData.whereComparisons[this.props.index].comparisonValue
@@ -30,7 +31,8 @@ class ComparisonValueInput extends BaseDesignComponent {
             case 'number':
                 return <NumericInput 
                     maxLength='8' 
-                    onBlur={this.onBlur} 
+                    onBlur={this.onBlur}
+                    allowCharacter={this.allowCharacter}
                     defaultValue={document.designData.whereComparisons[this.props.index].comparisonValue}/>;
             default:
                 return <input 
@@ -41,6 +43,15 @@ class ComparisonValueInput extends BaseDesignComponent {
         }
     }
 
+    allowCharacter(charCode) {
+        // allow commas on in
+        if ((document.designData.whereComparisons[this.props.index].comparisonOperator === 'in') && (charCode === 188)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    
     onBlur(val) {
         if (this.fieldType === 'date') {
             document.designData.whereComparisons[this.props.index].comparisonValue = val;
