@@ -19,6 +19,12 @@ contextMenu.className = 'popupMenu';
 contextMenu.id = 'ctxmenu';
 document.body.appendChild(contextMenu);
 
+const modalContainer = document.createElement('div');
+Object.assign(modalContainer.style, { position: 'absolute', visibility: 'hidden'});
+modalContainer.className = 'modalContainer';
+modalContainer.id = 'modalcontainer';
+document.body.appendChild(modalContainer);
+
 class HomePage extends React.Component {
     constructor(props) {
         super(props);

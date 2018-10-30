@@ -35,7 +35,7 @@ class DesignTabs extends BaseDesignComponent {
         this.onSave = this.onSave.bind(this);
         this.onRun = this.onRun.bind(this);
         this.onHelp = this.onHelp.bind(this);
-        this.onInputParameterClose = this.onInputParameterClose.bind(this);
+        this.onParameterEntryOk = this.onParameterEntryOk.bind(this);
         this.setTabState = this.setTabState.bind(this);
     }
 
@@ -98,20 +98,21 @@ class DesignTabs extends BaseDesignComponent {
     }
     
 
-    onRun() {
+    onRun(e) {
         if (this.inputParametersRequired()) {
-            const p = document.getElementById('ctxmenu');
-            p.style.top = '100px';
-            p.style.left = '50px';
-            p.style.visibility = 'visible';
-
-            ReactDOM.render(<ParameterInputPanel/>, p);
+            let rc = {left: 200, top: 100, width: 400, height: 300};
+            let mc = this.getModalContainer(rc);
+            ReactDOM.render(<ParameterInputPanel/>, mc);
         }
-        
     }
     
-    onInputParameterClose() {
-        
+    inputParametersRequired() {
+        return true;
+    }
+    
+    onParameterEntryOk(params) {
+        if (params) {
+        }
     }
         
     onHelp() {

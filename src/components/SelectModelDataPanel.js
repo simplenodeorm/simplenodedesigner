@@ -133,12 +133,4 @@ function onRightClick(info) {
     }
 }
 
-function clearContextMenu() {
-    let cm = document.getElementById('ctxmenu');
-    cm.style.top = '-100px';
-    cm.style.left = '-100px';
-    cm.style.visibility = 'hidden';
-}
-
-
 export {SelectModelDataPanel};

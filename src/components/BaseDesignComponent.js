@@ -4,14 +4,14 @@ class BaseDesignComponent extends React.Component {
     constructor(props) {
         super(props);
     }
-    
+
     clearDocumentDesignData() {
         document.designData.modelHierarchy = '';
         document.designData.selectedObjectKeys = '';
         document.designData.selnodes = '';
         document.designData.whereComparisons = '';
     }
-    
+
     loadSelectedNodesIfRequired() {
         if (!document.designData.selnodes) {
             document.designData.selnodes = new Array();
@@ -25,41 +25,41 @@ class BaseDesignComponent extends React.Component {
                 nodes.push(pnode.children[i]);
             }
         }
- 
-        
+
+
         for (let i = 0; i < pnode.children.length; ++i) {
             if (!pnode.children[i].columnName) {
                 this.loadSelectedNodes(pnode.children[i], nodes, keyset);
             }
         }
     }
-    
+
     getUniqueKey() {
         let dt = new Date().getTime();
-        let uuid = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
-            let r = (dt + Math.random()*16)%16 | 0;
-            dt = Math.floor(dt/16);
-            return (c==='x' ? r :(r&0x3|0x8)).toString(16);
+        let uuid = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
+            let r = (dt + Math.random() * 16) % 16 | 0;
+            dt = Math.floor(dt / 16);
+            return (c === 'x' ? r : (r & 0x3 | 0x8)).toString(16);
         });
         return uuid;
     }
-    
+
     getSelectNode(fieldName) {
         let retval;
-        
+
         for (let i = 0; i < document.designData.selnodes.length; ++i) {
             if (fieldName === document.designData.selnodes[i].__path__) {
                 retval = document.designData.selnodes[i];
                 break;
             }
         }
-        
+
         return retval;
     }
-    
+
     getFieldType(dbType) {
         let retval = 'string';
-        switch(dbType) {
+        switch (dbType) {
             case 'DATE':
                 retval = 'date';
                 break;
@@ -67,7 +67,7 @@ class BaseDesignComponent extends React.Component {
                 retval = 'number';
                 break;
         }
-        
+
         return retval;
     }
 
@@ -83,37 +83,80 @@ class BaseDesignComponent extends React.Component {
                 customInput: document.designData.selnodes[i].__customColumnInput
             });
         }
-        
-        
+
+
         return {
             rootModel: document.designData.modelHierarchy.title,
             selectedColumns: selectedColumns,
             whereComparisons: document.designData.whereComparisons
         };
     }
-    
+
     isUnaryOperator(op) {
-        return (op && ((op === 'is null') || (op === 'is not null'))); 
+        return (op && ((op === 'is null') || (op === 'is not null')));
     }
-    
+
     isWhereValid() {
         return (document.designData.whereComparisons && document.designData.whereComparisons.length > 0);
     }
-    
-        inputParametersRequired() {
+
+    inputParametersRequired() {
         let retval;
-    
+
         for (let i = 0; i < document.designData.whereComparisons.length; ++i) {
-            if (!document.designData.whereComparisons[i].customFilterInput 
-                && !this.isUnaryOperator(document.designData.whereComparisons[i].comparisonOperator)
-                && !document.designData.whereComparisons[i].comparisonValue) {
+            if (!document.designData.whereComparisons[i].customFilterInput
+                    && !this.isUnaryOperator(document.designData.whereComparisons[i].comparisonOperator)
+                    && !document.designData.whereComparisons[i].comparisonValue) {
                 retval = true;
                 break;
             }
         }
-        
+
         return retval;
     }
+
+    inBounds(testX, testY, e) {
+        let rc = e.getBoundingClientRect();
+        let x = rc.left;
+        let y = rc.top;
+        let x2 = (x + rc.right);
+        let y2 = (y + rc.bottom);
+
+        return ((testX >= x) && (testY >= y) && (testX < x2) && (testY < y2));
+    }
+    
+    clearContextMenu() {
+        let cm = document.getElementById('ctxmenu');
+        cm.style.top = '-100px';
+        cm.style.left = '-100px';
+        cm.style.visibility = 'hidden';
+    }
+
+    getContextMenu(info) {
+        const retval = document.getElementById('ctxmenu');
+        retval.style.top = info.event.pageY + 'px';
+        retval.style.left = info.event.pageX + 'px';
+        retval.style.visibility = 'visible';
+        return retval;
+    }
+
+    getModalContainer(rc) {
+        const retval = document.getElementById('modalcontainer');
+        retval.style.top = rc.top + 'px';
+        retval.style.left = rc.left + 'px';
+        retval.style.width = rc.width + 'px';
+        retval.style.height = rc.height + 'px';
+        retval.style.visibility = 'visible';
+        return retval;
+    }
+
+    clearModalContainer() {
+        let mc = document.getElementById('modalcontainer');
+        mc.style.top = '-100px';
+        mc.style.left = '-100px';
+        mc.style.visibility = 'hidden';
+    }
+
 }
 
 export {BaseDesignComponent};

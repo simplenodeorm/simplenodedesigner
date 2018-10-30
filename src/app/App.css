@@ -682,3 +682,31 @@ input[type="checkbox"] {
     padding-left: 5px;
     font-weight: 700;
 }
+
+
+.modalContainer div {
+    text-align: right;
+    padding-right: 20px;
+}
+
+.modalContainer {
+    position: absolute;
+    background: #eceeee;
+    border: 1px solid #42464b;
+    border-radius: 10px;
+}
+
+.modalContainer h2 {
+    background: var(--header-background);
+    border-bottom: 2px solid #a6abaf;
+    border-radius: 10px 10px 0 0;
+    box-sizing: border-box;
+    color: var(--header-text-color);
+    display: block;
+    padding-top: 2px;
+    margin: 0;
+    height: 30px;
+    width: 100%;
+    text-align: center;
+}
+
