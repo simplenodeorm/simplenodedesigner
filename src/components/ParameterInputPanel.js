@@ -9,19 +9,12 @@ class ParameterInputPanel extends ModalDialog {
         super(props);
     }
 
-    render() {
-        return <div className="modalContainer">
-                <h1>xxx</h1>
-                <div>yyy</div>
-                </div>;
-    }
-    
     getContent() {
-        return <div>xxxxxxxxxxx</div>;
+        return <div>xxxxxxxxxxxxxxx</div>;
     }
     
     getTitle() {
-        return 'Query Parameter(s)';
+        return config.textmsg.paramentrytitle;
     }
 }
 

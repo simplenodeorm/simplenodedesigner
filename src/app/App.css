@@ -18,6 +18,7 @@
     --header-text-color:darkSlateGray;
     --menu-button-color:darkBlue;
     --default-border-color: gray;
+    --modal-button-color: #0099CC;;
     --input-background:linear-gradient(top, #d6d7d7, #dee0e0);
   }
 
@@ -684,16 +685,12 @@ input[type="checkbox"] {
 }
 
 
-.modalContainer div {
-    text-align: right;
-    padding-right: 20px;
-}
-
 .modalContainer {
-    position: absolute;
+    position: relative;
     background: #eceeee;
     border: 1px solid #42464b;
     border-radius: 10px;
+    z-index: 1;
 }
 
 .modalContainer h2 {
@@ -709,4 +706,27 @@ input[type="checkbox"] {
     width: 100%;
     text-align: center;
 }
+
+.modalContainer .buttonPanel {
+    position: absolute;
+    bottom: 10px;
+    border-top: 2px solid #a6abaf;
+    left: 5px;
+    right: 5px;
+    text-align: center;
+    white-space: nowrap;
+}
+
+.modalContainer .buttonPanel .button {
+    background-color: var(--modal-button-color);
+    border-radius: 200px; 
+    text-transform: uppercase;
+    color: white;
+    height:25px;
+    margin-top: 5px;
+    margin-left: 5px;
+    margin-right: 5px;
+    cursor:pointer;
+}
+
 

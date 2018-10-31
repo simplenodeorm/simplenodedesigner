@@ -115,14 +115,18 @@ class BaseDesignComponent extends React.Component {
         return retval;
     }
 
-    inBounds(testX, testY, e) {
-        let rc = e.getBoundingClientRect();
-        let x = rc.left;
-        let y = rc.top;
-        let x2 = (x + rc.right);
-        let y2 = (y + rc.bottom);
-
-        return ((testX >= x) && (testY >= y) && (testX < x2) && (testY < y2));
+    isModalClick(e) { 
+        let retval = false;
+        while (e) {
+            if (e.id && (e.id === 'modalcontainer')) {
+                retval = true;
+                break;
+            }
+            
+            e = e.parentNode;
+        }
+        
+        return retval;
     }
     
     clearContextMenu() {
@@ -150,13 +154,13 @@ class BaseDesignComponent extends React.Component {
         return retval;
     }
 
-    clearModalContainer() {
+    clearModalContainer(func) {
         let mc = document.getElementById('modalcontainer');
         mc.style.top = '-100px';
         mc.style.left = '-100px';
         mc.style.visibility = 'hidden';
+        document.removeEventListener('click', func, true);
     }
-
 }
 
 export {BaseDesignComponent};

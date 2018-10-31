@@ -16,6 +16,7 @@
         "ascdesclabel": "Desc:",
         "customcolinputlabel": "Custom:",
         "columnlabel": "Label:",
-        "value": "Value:"
+        "value": "Value:",
+        "paramentrytitle": "Search Parameters"
     }
 }
