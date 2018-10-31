@@ -729,4 +729,19 @@ input[type="checkbox"] {
     cursor:pointer;
 }
 
+.inputPanel {
+    position: relative;
+    box-sizing:border-box;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding: 5px;
+    height: 200px;
+}
+
+.inputPanel .inputLabel {
+    text-align: right;
+    font-weight: 600;
+    margin: 0;
+    padding:0;
+}
 
