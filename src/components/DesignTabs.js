@@ -29,6 +29,7 @@ class DesignTabs extends BaseDesignComponent {
             selectedModel: config.textmsg.modelselectdefault,
             loading: false,
             tabIndex: 0,
+            queryResults: '',
             error: ''
         };    
         
@@ -93,7 +94,7 @@ class DesignTabs extends BaseDesignComponent {
                         <FilterPanel setTabState={this.setTabState}/>
                     </TabPanel>
                     <TabPanel>
-                        <QueryPanel results={this.queryResults}/>
+                        <QueryPanel queryResults={this.state.queryResults}/>
                     </TabPanel>
                 </Tabs>
             </div>);
@@ -114,10 +115,10 @@ class DesignTabs extends BaseDesignComponent {
             headers: {'Authorization': orm.authString }
         };
 
-        axios.post(orm.url + '/design/runquerydoc', this.getQueryDocument(params), config)
+        axios.post(orm.url + '/design/runquery', this.getQueryDocument(params), config)
             .then((response) => {
                 if (response.status === 200) {
-                    curcomp.setState({loading: false, sql: response.data});
+                    curcomp.setState({loading: false, queryResults: response.data});
                 } else {
                     curcomp.setState({error: response.statusText, loading: false});
                 }
@@ -133,13 +134,10 @@ class DesignTabs extends BaseDesignComponent {
     }
         
     onHelp() {
-        alert('----->onHelp');
     }
     
     onSave() {
         let inputParams;
-    
-        alert('----->onSave');
         this.getQueryDocument();
     }
     

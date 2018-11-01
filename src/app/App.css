@@ -671,6 +671,10 @@ input[type="checkbox"] {
     white-space: nowrap;
 }
 
+.formattedSql .noWrap {
+    white-space: nowrap;
+}
+
 .formattedSql .join {
     color:darkGreen;
     padding-left: 20px;
@@ -744,6 +748,7 @@ input[type="checkbox"] {
     text-align: right;
     font-weight: 600;
     margin: 0;
+    vertical-align: middle;
     padding:0;
 }
 

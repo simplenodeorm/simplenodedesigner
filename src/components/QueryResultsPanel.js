@@ -11,9 +11,18 @@ class QueryResultsPanel extends BaseDesignComponent {
     constructor(props) {
         super(props);
         this.state = {
-            error: ''
+            error: '',
+            newresults: false
         };
         
+    }
+
+    componentWillReceiveProps(nextProps) {
+        const {model} = this.state;
+        if (nextProps.queryResults !== this.props.queryResults) {
+            this.props.queryResults = nextProps.queryResults;
+            this.setState({newresults: true});
+        }
     }
 
     render() {
@@ -21,30 +30,10 @@ class QueryResultsPanel extends BaseDesignComponent {
         if (error) {
             return <div className="errorMessage">{error}</div>;
         } else {
+            this.state.newresults = false;
             return <div className="tabChildContainer"><JsonFormatter json={this.props.queryResults}/></div>;
         }
     }
-
-    generateSql() {
-        const curcomp = this;
-        const orm = JSON.parse(localStorage.getItem('orm'));
-        const config = {
-            headers: {'Authorization': orm.authString}
-        };
-
-        axios.get(orm.url + '/design/runquery', config)
-            .then((response) => {
-                if (response.status === 200) {
-                    curcomp.setState({loading: false});
-                } else {
-                    curcomp.setState({error: response.statusText, loading: false});
-                }
-            })
-            .catch((err) => {
-               curcomp.setState({error: ('' + err), loading: false});
-            });     
-    }
-
 }
 
     

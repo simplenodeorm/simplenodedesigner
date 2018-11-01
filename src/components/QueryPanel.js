@@ -26,7 +26,7 @@ class QueryPanel extends BaseDesignComponent {
                     minSize={20} 
                     defaultSize={250}>
                     <SqlDisplayPanel/>
-                    <QueryResultsPanel queryReults={this.props.queryResults}/>
+                    <QueryResultsPanel queryResults={this.props.queryResults}/>
                 </SplitPane>
             </div>;
         }

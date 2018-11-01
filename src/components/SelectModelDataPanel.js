@@ -21,6 +21,10 @@ class SelectModelDataPanel extends BaseDesignComponent {
             model: props.model,
             error: ''
         };
+        
+        this.onSelect = this.onSelect.bind(this);
+        this.onCheck = this.onCheck.bind(this);
+        this.onRightClick = this.onRightClick.bind(this);
     }
 
     componentWillReceiveProps(nextProps) {
@@ -28,7 +32,6 @@ class SelectModelDataPanel extends BaseDesignComponent {
         if ((nextProps.model !== config.textmsg.modelselectdefault)
             && (model !== nextProps.model)) {
             this.clearDocumentDesignData();
-            this.setState({loading: true});
             this.loadModelData(nextProps.model);
         }
     }
@@ -38,17 +41,17 @@ class SelectModelDataPanel extends BaseDesignComponent {
         
         if (error) {
             return <div className="errorMessage">{error}</div>;
+        } else if (loading) {
+            return <div className="panelPrompt1"><Spinner/>&nbsp;&nbsp;Loading model hierarchy...</div>;
+            this.state.loading = false;
         } else if (model === config.textmsg.modelselectdefault) {
-            if (loading) {
-                return <div className="panelPrompt1"><Spinner/>&nbsp;&nbsp;Loading model hierarchy...</div>;
-            } else {
-                return <div className="panelPrompt1">{config.textmsg.modelselectprompt}</div>;
-            }
+            return <div className="panelPrompt1">{config.textmsg.modelselectprompt}</div>;
         } else if (document.designData.modelHierarchy) {
             let defaultExpandedKeys = ['t0'];
             if (document.designData.selectedObjectKeys) {
                 defaultExpandedKeys = document.designData.selectedObjectKeys;
             }
+            
             return <div className="tabContainer"> <div className="treeContainer">
                 <Tree 
                   onRightClick={this.onRightClick}
@@ -105,11 +108,12 @@ class SelectModelDataPanel extends BaseDesignComponent {
             headers: {'Authorization': orm.authString}
         };
 
+        curcomp.setState({model: inputModel, loading: true});
         axios.get(orm.url + '/design/modeltree/' + inputModel, config)
             .then((response) => {
                 if (response.status === 200) {
                     document.designData.modelHierarchy = response.data;
-                    curcomp.setState({loading: false, model: inputModel});
+                    curcomp.setState({model: inputModel, loading: false});
                 } else {
                     curcomp.setState({error: response.statusText, loading: false});
                 }

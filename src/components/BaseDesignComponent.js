@@ -92,10 +92,12 @@ class BaseDesignComponent extends React.Component {
         return {
             distinct: false,
             resultFormat: 'object',
-            rootModel: document.designData.modelHierarchy.title,
-            selectedColumns: selectedColumns,
-            whereComparisons: document.designData.whereComparisons,
-            paramters: params
+            paramters: params,
+            document: {
+                rootModel: document.designData.modelHierarchy.title,
+                selectedColumns: selectedColumns,
+                whereComparisons: document.designData.whereComparisons
+            }
         };
     }
 

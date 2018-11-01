@@ -14,7 +14,7 @@ let loop = (data, ch) => {
         if (txt.includes('join')) {
             let pos = txt.indexOf(' join ');
             let pos2 = txt.indexOf(' on ');
-            return <div><span className="join">{txt.substring(0, pos+6)}</span><span className="table">{txt.substring(pos+6, pos2)}</span><span className="sqlText2">{txt.substring(pos2)}</span></div>;
+            return <div className="noWrap"><span className="join">{txt.substring(0, pos+6)}</span><span className="table">{txt.substring(pos+6, pos2)}</span><span className="sqlText2">{txt.substring(pos2)}</span></div>;
         } else {
             return <div className="sqlText">{txt}</div>;
         }
