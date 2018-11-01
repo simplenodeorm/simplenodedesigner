@@ -12,9 +12,11 @@ class ParameterInputPanel extends ModalDialog {
         this.allowCharacter = this.allowCharacter.bind(this);
         this.onResultFormatChange = this.onResultFormatChange.bind(this);
         this.onDistinctChange = this.onDistinctChange.bind(this);
+        this.onValidityCheckOnlyChange = this.onValidityCheckOnlyChange.bind(this);
         this.params = new Array();
         this.comparisonOperators = new Array();
         this.distinct = false;
+        this.validityCheckOnly = false;
         this.resultFormat = 'object';
     }
 
@@ -52,6 +54,10 @@ class ParameterInputPanel extends ModalDialog {
                     <td></td>
                     <td>&nbsp;&nbsp;&nbsp;<input onChange={this.onDistinctChange} type="checkbox"/>Distinct</td>
                 </tr>
+                <tr>
+                    <td></td>
+                    <td>&nbsp;&nbsp;&nbsp;<input onChange={this.onValidityCheckOnlyChange} type="checkbox"/>Validity Check Only</td>
+                </tr>
             </table>
             <hr />
             <div className="inputEntryList">
@@ -66,6 +72,10 @@ class ParameterInputPanel extends ModalDialog {
 
     onDistinctChange(e) {
         this.distinct = e.target.checked;
+    }
+    
+    onValidityCheckOnlyChange(e) {
+        this.validityCheckOnly = e.target.checked;
     }
     
     isComplete() {
@@ -106,11 +116,13 @@ class ParameterInputPanel extends ModalDialog {
         let p = this.params.slice();
         let d = this.distinct;
         let rf = this.resultFormat;
+        let vc = this.validityCheckOnly;
         this.params = new Array();
         this.distinct = false;
         this.resultFormat = 'object';
+        this.vaidityCheckOnly = false;
         
-        return { distinct: d, resultFormat: rf, parameters: p };
+        return { distinct: d, resultFormat: rf, validityCheckOnly: vc, parameters: p };
     }
 
 }

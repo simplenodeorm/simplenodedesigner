@@ -96,6 +96,7 @@ class BaseDesignComponent extends React.Component {
         return {
             distinct: params.distinct,
             resultFormat: params.resultFormat,
+            validityCheckOnly: params.validityCheckOnly,
             parameters: params.parameters,
             document: {
                 rootModel: document.designData.modelHierarchy.title,
