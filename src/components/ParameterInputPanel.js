@@ -19,6 +19,7 @@ class ParameterInputPanel extends ModalDialog {
             let ipos = 0;
             return data.map((p, i) => {
                 if (!p.comparisonValue) {
+                    this.params.push('');
                     let pos = p.fieldName.lastIndexOf('.');
                     this.comparisonOperators.push(p.comparisonOperator);
                     return <tr><td title={p.fieldName} className="inputLabel">{p.fieldName.substring(pos+1) + ':'}</td><td><ComparisonValueInput 
@@ -31,7 +32,22 @@ class ParameterInputPanel extends ModalDialog {
             });
         };
         
-        return <div className="inputPanel"><table>{inputLoop(document.designData.whereComparisons)}</table></div>;
+        return <div className="inputPanel">
+            <table>{inputLoop(document.designData.whereComparisons)}</table>
+            </div>;
+    }
+    
+    isComplete() {
+        let retval = true;
+    
+        for (let i = 0; i < this.params.length; ++i) {
+            if (!this.params[i]) {
+                retval = false;
+                break;
+            }
+        }
+        
+        return retval;
     }
     
     getTitle() {

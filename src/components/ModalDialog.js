@@ -8,6 +8,11 @@ var clickFunction;
 class ModalDialog extends BaseDesignComponent {
     constructor(props) {
         super(props);
+                
+        this.state = {
+            error: ''
+        };
+
         this.onOk = this.onOk.bind(this);
         this.onCancel = this.onCancel.bind(this);
     }
@@ -29,6 +34,8 @@ class ModalDialog extends BaseDesignComponent {
         if (this.isComplete()) {
             this.clearModalContainer(clickFunction);
             this.props.onOk(this.getResult());
+        } else {
+            this.setState({error: 'Please complete all entries'});
         }
     }
     
@@ -39,6 +46,7 @@ class ModalDialog extends BaseDesignComponent {
     
     render() {
         return <div><h2>{this.getTitle()}</h2>{this.getContent()}
+        {this.state.error && <div className="errorMessage">{this.state.error}</div>}
             <div className="buttonPanel">
                 <button className="button" onClick={this.onOk}>Ok</button><button className="button" onClick={this.onCancel}>Cancel</button>
             </div>
@@ -46,7 +54,7 @@ class ModalDialog extends BaseDesignComponent {
     }
     
     isComplete() { return true; };
-    getTititke() { return 'Modal Dialog'; };
+    getTitle() { return 'Modal Dialog'; };
     getResult() {};
     getContent() {
         return<h2>modal dialog</h2>;
