@@ -10,8 +10,12 @@ class ParameterInputPanel extends ModalDialog {
         this.setValue = this.setValue.bind(this);
         this.getValue = this.getValue.bind(this);
         this.allowCharacter = this.allowCharacter.bind(this);
+        this.onResultFormatChange = this.onResultFormatChange.bind(this);
+        this.onDistinctChange = this.onDistinctChange.bind(this);
         this.params = new Array();
         this.comparisonOperators = new Array();
+        this.distinct = false;
+        this.resultFormat = 'object';
     }
 
     getContent() {
@@ -33,9 +37,35 @@ class ParameterInputPanel extends ModalDialog {
             });
         };
         
-        return <div className="inputPanel">
-            <table>{inputLoop(document.designData.whereComparisons)}</table>
-            </div>;
+        return <div className="parameterInputPanel">
+            <table>
+                <tr>
+                    <td className="inputLabel">Result Format</td>
+                    <td>
+                        <select onChange={this.onResultFormatChange}>
+                            <option value="object">object</option>
+                            <option value="result set">result set</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td><input onChange={this.onDistinctChange} type="checkbox"/>distinct</td>
+                </tr>
+            </table>
+            <hr />
+            <div className="inputEntryList">
+                <table>{inputLoop(document.designData.whereComparisons)}</table>
+            </div>
+        </div>;
+    }
+    
+    onResultFormatChange(e) {
+        this.resultFormat = e.target.value;
+    }
+
+    onDistinctChange(e) {
+        this.distinct = e.target.checked;
     }
     
     isComplete() {
@@ -73,7 +103,7 @@ class ParameterInputPanel extends ModalDialog {
     }
     
     getResult() {
-        return this.params;
+        return { distinc: this.distinct, resultFormat: this.resultFormat, parameters: this.params};
     }
 
 }

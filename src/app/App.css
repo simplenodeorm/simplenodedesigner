@@ -729,18 +729,24 @@ input[type="checkbox"] {
     cursor:pointer;
 }
 
-.inputPanel {
+.parameterInputPanel {
+    padding: 5px;
+}
+.inputEntryList {
     position: relative;
     box-sizing:border-box;
     overflow-y: auto;
     overflow-x: hidden;
-    padding: 5px;
     height: 200px;
 }
 
-.inputPanel .inputLabel {
+.parameterInputPanel .inputLabel {
     text-align: right;
     font-weight: 600;
     margin: 0;
     padding:0;
+}
+
+.formattedJson {
+    
 }

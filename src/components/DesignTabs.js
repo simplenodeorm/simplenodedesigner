@@ -38,6 +38,8 @@ class DesignTabs extends BaseDesignComponent {
         this.onParameterEntryOk = this.onParameterEntryOk.bind(this);
         this.setTabState = this.setTabState.bind(this);
         this.loadParametersAndRun = this.loadParametersAndRun.bind(this);
+        
+        this.queryResults = '';
     }
 
     onSetSidebarOpen(open, model) {
@@ -91,7 +93,7 @@ class DesignTabs extends BaseDesignComponent {
                         <FilterPanel setTabState={this.setTabState}/>
                     </TabPanel>
                     <TabPanel>
-                        <QueryPanel/>
+                        <QueryPanel results={this.queryResults}/>
                     </TabPanel>
                 </Tabs>
             </div>);
@@ -100,13 +102,9 @@ class DesignTabs extends BaseDesignComponent {
     
 
     onRun(e) {
-        if (this.inputParametersRequired()) {
-            let rc = {left: 200, top: 100, width: 400, height: 300};
-            let mc = this.getModalContainer(rc);
-            ReactDOM.render(<ParameterInputPanel onOk={this.loadParametersAndRun}/>, mc);
-        } else {
-            this.loadParametersAndRun(new Array());
-        }
+        let rc = {left: 200, top: 100, width: 400, height: 300};
+        let mc = this.getModalContainer(rc);
+        ReactDOM.render(<ParameterInputPanel onOk={this.loadParametersAndRun}/>, mc);
     }
     
     loadParametersAndRun(params) {

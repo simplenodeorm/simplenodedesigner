@@ -5,6 +5,7 @@ import config from '../config/appconfig.json';
 import Spinner from './Spinner';
 import axios from 'axios';
 import {BaseDesignComponent} from './BaseDesignComponent';
+import {JsonFormatter} from './JsonFormatter';
 
 class QueryResultsPanel extends BaseDesignComponent {
     constructor(props) {
@@ -20,7 +21,7 @@ class QueryResultsPanel extends BaseDesignComponent {
         if (error) {
             return <div className="errorMessage">{error}</div>;
         } else {
-            return <div className="tabChildContainer">query results</div>
+            return <div className="tabChildContainer"><JsonFormatter json={this.props.queryResults}/></div>;
         }
     }
 

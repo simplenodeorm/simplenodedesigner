@@ -28,7 +28,6 @@ class ComparisonValueInput extends BaseDesignComponent {
                     className="dateInput"
                     dateFormat="MM/DD/YYYY"
                     selected={val} 
-                    dropdownMode="scroll"
                     onChange={this.onBlur} />;
             case 'number':
             case 'float':
