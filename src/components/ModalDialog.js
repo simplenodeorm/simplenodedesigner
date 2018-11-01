@@ -32,6 +32,7 @@ class ModalDialog extends BaseDesignComponent {
     
     onOk() {
         if (this.isComplete()) {
+            this.state.error = '';
             this.clearModalContainer(clickFunction);
             this.props.onOk(this.getResult());
         } else {

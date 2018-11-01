@@ -75,7 +75,7 @@ class BaseDesignComponent extends React.Component {
         return retval;
     }
 
-    getQueryDocument() {
+    getQueryDocument(params) {
         let selectedColumns = new Array();
         for (let i = 0; i < document.designData.selnodes.length; ++i) {
             selectedColumns.push({
@@ -90,9 +90,12 @@ class BaseDesignComponent extends React.Component {
 
 
         return {
+            distinct: false,
+            resultFormat: 'object',
             rootModel: document.designData.modelHierarchy.title,
             selectedColumns: selectedColumns,
-            whereComparisons: document.designData.whereComparisons
+            whereComparisons: document.designData.whereComparisons,
+            paramters: params
         };
     }
 

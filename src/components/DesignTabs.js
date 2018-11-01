@@ -37,6 +37,7 @@ class DesignTabs extends BaseDesignComponent {
         this.onHelp = this.onHelp.bind(this);
         this.onParameterEntryOk = this.onParameterEntryOk.bind(this);
         this.setTabState = this.setTabState.bind(this);
+        this.loadParameters = this.loadParameters.bind(this);
     }
 
     onSetSidebarOpen(open, model) {
@@ -102,12 +103,43 @@ class DesignTabs extends BaseDesignComponent {
         if (this.inputParametersRequired()) {
             let rc = {left: 200, top: 100, width: 400, height: 300};
             let mc = this.getModalContainer(rc);
-            ReactDOM.render(<ParameterInputPanel/>, mc);
+            ReactDOM.render(<ParameterInputPanel onOk={this.runQuery}/>, mc);
         }
     }
     
+    runQuery(params) {
+        const curcomp = this;
+        const orm = JSON.parse(localStorage.getItem('orm'));
+        const config = {
+            headers: {'Authorization': orm.authString }
+        };
+
+        axios.post(orm.url + '/design/runquerydoc', this.getQueryDocument(params), config)
+            .then((response) => {
+                if (response.status === 200) {
+                    curcomp.setState({loading: false, sql: response.data});
+                } else {
+                    curcomp.setState({error: response.statusText, loading: false});
+                }
+            })
+            .catch((err) => {
+               curcomp.setState({error: ('' + err), loading: false});
+            });     
+    }
+    
     inputParametersRequired() {
-        return true;
+        let retval = false;
+    
+        for (let i = 0; i < document.designData.whereComparisons.length; ++i) {
+            if (!this.isUnaryOperator(document.designData.whereComparisons[i].comparisonOperator)) {
+                if (!document.designData.whereComparisons[i].comparisonValue) {
+                    retval = true;
+                    break;
+                }
+            }
+        }
+   
+        return retval;
     }
     
     onParameterEntryOk(params) {

@@ -70,6 +70,10 @@ class ParameterInputPanel extends ModalDialog {
             return false;
         }
     }
+    
+    getResult() {
+        return this.params;
+    }
 
 }
 
