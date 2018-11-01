@@ -61,7 +61,8 @@ class FilterPanel extends BaseDesignComponent {
     addColumn() {
         let whereComparison = {
             fieldName: this.state.selectedColumn,
-            comparisonOperator: '='
+            comparisonOperator: '=',
+            fieldType: this.state.fieldType
         };
         
         if (!document.designData.whereComparisons) {
@@ -81,6 +82,7 @@ class FilterPanel extends BaseDesignComponent {
     
     onColumnChange(sel) {
         this.state.selectedColumn = sel.options[sel.selectedIndex].text;
+        this.state.fieldType = this.getFieldType(document.designData.selnodes[sel.selectedIndex].type);
     }
 }
 

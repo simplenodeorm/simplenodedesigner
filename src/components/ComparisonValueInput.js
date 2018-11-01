@@ -13,53 +13,46 @@ class ComparisonValueInput extends BaseDesignComponent {
     constructor(props) {
         super(props);
         this.onBlur = this.onBlur.bind(this);
-        this.allowCharacter = this.allowCharacter.bind(this);
-        this.fieldType = this.getFieldType(this.getSelectNode(document.designData.whereComparisons[this.props.index].fieldName).type);
+        let val = this.props.getValue(this.props.index);
         this.state = {
-            comparisonValue: document.designData.whereComparisons[this.props.index].comparisonValue
-        }
+            comparisonValue: val
+        };
     }
     
     render() {
-        switch(this.fieldType) {
+        const val = this.props.getValue(this.props.index);
+        switch(this.props.fieldType) {
             case 'date':
                 return <DatePicker 
                     className="dateInput"
                     dateFormat="MM/DD/YYYY"
-                    selected={document.designData.whereComparisons[this.props.index].comparisonValue} 
+                    selected={val} 
                     onChange={this.onBlur} />;
             case 'number':
+            case 'float':
                 return <NumericInput 
                     maxLength='8' 
                     onBlur={this.onBlur}
-                    allowCharacter={this.allowCharacter}
-                    defaultValue={document.designData.whereComparisons[this.props.index].comparisonValue}/>;
+                    index={this.props.index}
+                    allowCharacter={this.props.allowCharacter}
+                    defaultValue={val}/>;
             default:
                 return <input 
                     className="customColumnInput" 
                     type='text' 
                     onBlur={this.onBlur} 
-                    defaultValue={document.designData.whereComparisons[this.props.index].comparisonValue}/>;
+                    defaultValue={val}/>;
         }
     }
 
-    allowCharacter(charCode) {
-        // allow commas on in
-        if ((document.designData.whereComparisons[this.props.index].comparisonOperator === 'in') && (charCode === 188)) {
-            return true;
-        } else {
-            return false;
-        }
-    }
-    
     onBlur(val) {
-        if (this.fieldType === 'date') {
-            document.designData.whereComparisons[this.props.index].comparisonValue = val;
+        if (this.props.fieldType === 'date') {
+            this.props.setValue(this.props.index, val);
             this.setState({comparisonValue: val});
         } else {
-            document.designData.whereComparisons[this.props.index].comparisonValue = val.target.value;
+            this.props.setValue(this.props.index, val.target.value);
         }
-        
+            
         this.props.setTabState(false, false, false, !this.isWhereValid());
     }
 }

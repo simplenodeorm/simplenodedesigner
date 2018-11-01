@@ -64,7 +64,11 @@ class BaseDesignComponent extends React.Component {
                 retval = 'date';
                 break;
             case 'NUMBER':
-                retval = 'number';
+                if (retval.includes(',')) {
+                    retval = 'float';
+                } else {
+                    retval = 'number';
+                }
                 break;
         }
 
