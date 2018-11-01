@@ -24,9 +24,11 @@ class ComparisonValueInput extends BaseDesignComponent {
         switch(this.props.fieldType) {
             case 'date':
                 return <DatePicker 
+                    withPortal={this.props.usePortal}
                     className="dateInput"
                     dateFormat="MM/DD/YYYY"
                     selected={val} 
+                    dropdownMode="scroll"
                     onChange={this.onBlur} />;
             case 'number':
             case 'float':

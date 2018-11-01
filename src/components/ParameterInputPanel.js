@@ -27,6 +27,7 @@ class ParameterInputPanel extends ModalDialog {
                     getValue={this.getValue}
                     allowCharacter={this.allowCharacter}
                     fieldType={p.fieldType}
+                    usePortal="true"
                     index={ipos++} /></td></tr>
                 } 
             });

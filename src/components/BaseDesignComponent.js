@@ -112,8 +112,8 @@ class BaseDesignComponent extends React.Component {
 
         for (let i = 0; i < document.designData.whereComparisons.length; ++i) {
             if (!document.designData.whereComparisons[i].customFilterInput
-                    && !this.isUnaryOperator(document.designData.whereComparisons[i].comparisonOperator)
-                    && !document.designData.whereComparisons[i].comparisonValue) {
+                && !this.isUnaryOperator(document.designData.whereComparisons[i].comparisonOperator)
+                && !document.designData.whereComparisons[i].comparisonValue) {
                 retval = true;
                 break;
             }
