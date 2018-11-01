@@ -103,7 +103,14 @@ class ParameterInputPanel extends ModalDialog {
     }
     
     getResult() {
-        return { distinc: this.distinct, resultFormat: this.resultFormat, parameters: this.params};
+        let p = this.params.slice();
+        let d = this.distinct;
+        let rf = this.resultFormat;
+        this.params = new Array();
+        this.distinct = false;
+        this.resultFormat = 'object';
+        
+        return { distinct: d, resultFormat: rf, parameters: p };
     }
 
 }

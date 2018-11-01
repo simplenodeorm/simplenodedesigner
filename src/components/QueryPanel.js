@@ -11,22 +11,30 @@ class QueryPanel extends BaseDesignComponent {
     constructor(props) {
         super(props);
         this.state = {
-            error: ''
+            error: '',
+            newQueryResults: false
         };
+    }
+    componentWillReceiveProps(nextProps) {
+        const {model, newQueryResults} = this.state;
+        if (nextProps.newQueryResults !== newQueryResults) {
+            this.setState({newQueryResults: nextProps.newResults});
+        }
     }
 
     render() {
-        const {error} = this.state;
+        const {error, newQueryResults} = this.state;
         if (error) {
             return <div className="errorMessage">{error}</div>;
         } else {
-            return <div className="tabSplitPaneContainer">
+            this.state.newQueryResults = false;
+           return <div className="tabSplitPaneContainer">
                 <SplitPane 
                     split="horizontal" 
                     minSize={20} 
                     defaultSize={250}>
                     <SqlDisplayPanel/>
-                    <QueryResultsPanel queryResults={this.props.queryResults}/>
+                    <QueryResultsPanel/>
                 </SplitPane>
             </div>;
         }

@@ -29,7 +29,7 @@ class DesignTabs extends BaseDesignComponent {
             selectedModel: config.textmsg.modelselectdefault,
             loading: false,
             tabIndex: 0,
-            queryResults: '',
+            newQueryResults: false,
             error: ''
         };    
         
@@ -58,7 +58,12 @@ class DesignTabs extends BaseDesignComponent {
     }
 
     render() {
-        const {tab0Disabled, tab1Disabled, tab2Disabled, tab3Disabled, error, selectedModel, loading, sidebarOpen, tabStateChanged} = this.state;
+        const {tab0Disabled, tab1Disabled, tab2Disabled, tab3Disabled, 
+            error, selectedModel, loading, sidebarOpen, tabStateChanged, newQueryResults} = this.state;
+        
+        if (newQueryResults) {
+            this.state.newQueryResults = false;
+        }
         let retval = (
             <div className="tabSetContainer"> 
                 <MenuButton text={selectedModel} 
@@ -94,7 +99,7 @@ class DesignTabs extends BaseDesignComponent {
                         <FilterPanel setTabState={this.setTabState}/>
                     </TabPanel>
                     <TabPanel>
-                        <QueryPanel queryResults={this.state.queryResults}/>
+                        <QueryPanel newResults={newQueryResults}/>
                     </TabPanel>
                 </Tabs>
             </div>);
@@ -114,11 +119,11 @@ class DesignTabs extends BaseDesignComponent {
         const config = {
             headers: {'Authorization': orm.authString }
         };
-
         axios.post(orm.url + '/design/runquery', this.getQueryDocument(params), config)
             .then((response) => {
                 if (response.status === 200) {
-                    curcomp.setState({loading: false, queryResults: response.data});
+                    document.designData.queryResults = response.data;
+                    curcomp.setState({loading: false, newQueryResults: true});
                 } else {
                     curcomp.setState({error: response.statusText, loading: false});
                 }
@@ -138,7 +143,7 @@ class DesignTabs extends BaseDesignComponent {
     
     onSave() {
         let inputParams;
-        this.getQueryDocument();
+        //this.getQueryDocument();
     }
     
     onTabSelected(index, lastIndex) {

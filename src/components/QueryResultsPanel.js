@@ -5,34 +5,38 @@ import config from '../config/appconfig.json';
 import Spinner from './Spinner';
 import axios from 'axios';
 import {BaseDesignComponent} from './BaseDesignComponent';
-import {JsonFormatter} from './JsonFormatter';
 
 class QueryResultsPanel extends BaseDesignComponent {
     constructor(props) {
         super(props);
         this.state = {
             error: '',
-            newresults: false
+            queryResults: this.props.newQueryResults
         };
         
     }
-
+    
     componentWillReceiveProps(nextProps) {
-        const {model} = this.state;
-        if (nextProps.queryResults !== this.props.queryResults) {
-            this.props.queryResults = nextProps.queryResults;
-            this.setState({newresults: true});
+        const {model, newQueryResults} = this.state;
+        if (nextProps.newQueryResults !== newQueryResults) {
+            this.setState({newQueryResults: nextProps.newQueryResults});
         }
     }
 
     render() {
-        const {error} = this.state;
+        const {error, newQueryResults} = this.state;
         if (error) {
-            return <div className="errorMessage">{error}</div>;
+            return <div className="tabChildContainer"><div className="errorMessage">{error}</div></div>;
+        } else if (document.designData.queryResults) {
+            this.state.newQueryResults = false;
+            return <div className="tabChildContainer"><div className="formattedJson"><pre>{this.formatJson()}</pre></div></div>;
         } else {
-            this.state.newresults = false;
-            return <div className="tabChildContainer"><JsonFormatter json={this.props.queryResults}/></div>;
+            return <div className="tabChildContainer"></div>;
         }
+    }
+    
+    formatJson() {
+        return JSON.stringify(document.designData.queryResults, undefined, 3);
     }
 }
 

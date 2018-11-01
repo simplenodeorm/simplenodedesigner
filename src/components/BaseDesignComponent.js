@@ -10,6 +10,7 @@ class BaseDesignComponent extends React.Component {
         document.designData.selectedObjectKeys = '';
         document.designData.selnodes = '';
         document.designData.whereComparisons = '';
+        document.designData.queryResult = '';
     }
 
     loadSelectedNodesIfRequired() {
@@ -76,6 +77,10 @@ class BaseDesignComponent extends React.Component {
     }
 
     getQueryDocument(params) {
+        if (!params) {
+            params = {distinct: false, resultFormat: 'object'};
+        }
+        
         let selectedColumns = new Array();
         for (let i = 0; i < document.designData.selnodes.length; ++i) {
             selectedColumns.push({
@@ -88,11 +93,10 @@ class BaseDesignComponent extends React.Component {
             });
         }
 
-
         return {
-            distinct: false,
-            resultFormat: 'object',
-            paramters: params,
+            distinct: params.distinct,
+            resultFormat: params.resultFormat,
+            parameters: params.parameters,
             document: {
                 rootModel: document.designData.modelHierarchy.title,
                 selectedColumns: selectedColumns,

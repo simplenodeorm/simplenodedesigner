@@ -23,7 +23,7 @@ class SqlDisplayPanel extends BaseDesignComponent {
         }
         
         if (error) {
-            return <div className="errorMessage">{error}</div>;
+            return <div className="tabChildContainer"><div className="errorMessage">{error}</div></div>;
         } else {
             return <div className="tabChildContainer"><SqlFormatter sql={sql}/></div>;
         }

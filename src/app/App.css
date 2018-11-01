@@ -18,7 +18,8 @@
     --header-text-color:darkSlateGray;
     --menu-button-color:darkBlue;
     --default-border-color: gray;
-    --modal-button-color: #0099CC;;
+    --modal-button-color: #0099CC;
+    --split-resizer-color: slateGray;
     --input-background:linear-gradient(top, #d6d7d7, #dee0e0);
   }
 
@@ -170,7 +171,7 @@ input[type="submit"] {
 }
 
 .Resizer {
-    background: var(--main-color);
+    background-color: var(--split-resizer-color);
     opacity: .2;
     z-index: 1;
     -moz-box-sizing: border-box;
@@ -187,8 +188,8 @@ input[type="submit"] {
 }
 
 .Resizer.horizontal {
-    height: 11px;
-    margin: -5px 0;
+    height: 13px;
+    margin: -3px 0;
     border-top: 5px solid rgba(255, 255, 255, 0);
     border-bottom: 5px solid rgba(255, 255, 255, 0);
     cursor: row-resize;
@@ -201,7 +202,7 @@ input[type="submit"] {
 }
 
 .Resizer.vertical {
-    width: 8px;
+    width: 10px;
     margin: 0 -5px;
     border-left: 5px solid rgba(255, 255, 255, 0);
     border-right: 5px solid rgba(255, 255, 255, 0);
@@ -255,12 +256,12 @@ input[type="submit"] {
 }
 
 .tabChildContainer {
-    position: relative;
+    position: absolute;
     box-sizing:border-box;
     background: var(--default-bkcolor);
     overflow: auto;
-    height: 85%;
-    width: 95%;
+    height: 100%;
+    width: 98%;
 }
 
 .minimalist-toolbar{
@@ -753,5 +754,11 @@ input[type="checkbox"] {
 }
 
 .formattedJson {
-    
+    color: indigo;
+    font-size: var(--default-font-size);
+}
+
+.formattedJsonl .keyWord {
+    color:darkGreen;
+    font-weight: 700;
 }
