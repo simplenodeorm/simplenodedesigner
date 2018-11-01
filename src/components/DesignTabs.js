@@ -8,6 +8,7 @@ import {SelectModelDataPanel} from './SelectModelDataPanel';
 import {ColumnSettingsPanel} from './ColumnSettingsPanel';
 import {BaseDesignComponent} from './BaseDesignComponent';
 import {ParameterInputPanel} from './ParameterInputPanel';
+import {SaveDocumentPanel} from './SaveDocumentPanel';
 import {FilterPanel} from './FilterPanel';
 import {QueryPanel} from './QueryPanel';
 import config from '../config/appconfig.json';
@@ -142,10 +143,14 @@ class DesignTabs extends BaseDesignComponent {
     }
     
     onSave() {
-        let inputParams;
-        //this.getQueryDocument();
+        let rc = {left: 200, top: 100, width: 400, height: 500};
+        let mc = this.getModalContainer(rc);
+        ReactDOM.render(<SaveDocumentPanel onOk={this.saveDocument}/>, mc);
     }
     
+    saveDocument(params) {
+        
+    }
     onTabSelected(index, lastIndex) {
         this.selectedIndex = index;
     }

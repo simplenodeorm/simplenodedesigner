@@ -762,3 +762,7 @@ input[type="checkbox"] {
     color:darkGreen;
     font-weight: 700;
 }
+
+.saveDocumentPanel {
+    padding: 5px;
+}
