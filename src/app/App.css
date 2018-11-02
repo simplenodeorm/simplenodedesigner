@@ -759,7 +759,7 @@ input[type="checkbox"] {
     text-align:right;
     margin: 0;
     vertical-align: middle;
-    padding:0;
+    padding-top: 10px
 }
 
 .formattedJson {
@@ -774,4 +774,11 @@ input[type="checkbox"] {
 
 .saveDocumentPanel {
     padding: 5px;
+}
+
+.modalTreeContainer {
+    border: var(--default-border-color) 2px solid;
+    background-color: var(--default-bkcolor);
+    overflow:auto;
+    height: 150px;
 }

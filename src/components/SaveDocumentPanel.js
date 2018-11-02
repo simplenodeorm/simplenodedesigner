@@ -72,7 +72,7 @@ class SaveDocumentPanel extends ModalDialog {
                 </table>
              </div>
             <hr />
-            <div><div className="treeContainer">
+            <div><div className="modalTreeContainer">
                 <Tree 
                   onSelect={this.onSelect}
                   showLine
