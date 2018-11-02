@@ -18,7 +18,12 @@
         "columnlabel": "Label:",
         "value": "Value:",
         "paramentrytitle": "Search Parameters",
-        "savedocumenttitle": "Save Document"
+        "savedocumenttitle": "Save Document",
+        "authenticatorlabel": "Authenticator:",
+        "resultformatlabel": "Result Format:",
+        "validitycheckonly": "Validity Check Only",
+        "distinct": "Distinct",
+        "documentnamelabel": "Document Name:"
     },
     "authenticators": ["DefaultAuthorizer"]
 }

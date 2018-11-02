@@ -42,7 +42,7 @@ class ParameterInputPanel extends ModalDialog {
         return <div className="parameterInputPanel">
             <table>
                 <tr>
-                    <td className="inputLabel">Result Format:</td>
+                    <td className="inputLabel">{config.textmsg.resultformatlabel}</td>
                     <td>
                         <select onChange={this.onResultFormatChange}>
                             <option value="object">object graph</option>
@@ -52,11 +52,11 @@ class ParameterInputPanel extends ModalDialog {
                 </tr>
                 <tr>
                     <td></td>
-                    <td>&nbsp;&nbsp;&nbsp;<input onChange={this.onDistinctChange} type="checkbox"/>Distinct</td>
+                    <td>&nbsp;&nbsp;&nbsp;<input onChange={this.onDistinctChange} type="checkbox"/>{config.textmsg.distinct}</td>
                 </tr>
                 <tr>
                     <td></td>
-                    <td>&nbsp;&nbsp;&nbsp;<input onChange={this.onValidityCheckOnlyChange} type="checkbox"/>Validity Check Only</td>
+                    <td>&nbsp;&nbsp;&nbsp;<input onChange={this.onValidityCheckOnlyChange} type="checkbox"/>{config.textmsg.validitycheckonly}</td>
                 </tr>
             </table>
             <hr />

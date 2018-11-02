@@ -93,6 +93,10 @@ class BaseDesignComponent extends React.Component {
             });
         }
 
+        if (params.documentName) {
+            params.documentName = params.documentName.replace(' ', '_');
+        }
+        
         return {
             distinct: params.distinct,
             authenticator: params.authenticator,

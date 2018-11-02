@@ -45,7 +45,7 @@ class SaveDocumentPanel extends ModalDialog {
             <div className="parameterInputPanel">
                 <table>
                     <tr>
-                        <td className="inputLabel">Result Format:</td>
+                    <td className="inputLabel">{config.textmsg.resultformatlabel}</td>
                         <td>
                             <select onChange={this.onResultFormatChange}>
                                 <option value="object">object graph</option>
@@ -54,7 +54,7 @@ class SaveDocumentPanel extends ModalDialog {
                         </td>
                     </tr>
                     <tr>
-                        <td className="inputLabel">Autheticator:</td>
+                        <td className="inputLabel">{config.textmsg.authenticatorlabel}</td>
                         <td>
                             <select onChange={this.onAuthenticatorChange}>
                                 { authenticatorLoop(config.authenticators) } 
@@ -62,12 +62,12 @@ class SaveDocumentPanel extends ModalDialog {
                         </td>
                     </tr>
                     <tr>
-                        <td className="inputLabel">Document Name:</td>
+                        <td className="inputLabel">{config.textmsg.documentnamelabel}</td>
                         <td><input type="text" onBlur={this.onNameChange} defaultValue={this.documentName} /></td>
                     </tr>
                     <tr>
                         <td></td>
-                        <td>&nbsp;&nbsp;&nbsp;<input onChange={this.onDistinctChange} type="checkbox"/>Distinct</td>
+                        <td>&nbsp;&nbsp;&nbsp;<input onChange={this.onDistinctChange} type="checkbox"/>{config.textmsg.distinct}</td>
                     </tr>
                 </table>
              </div>
