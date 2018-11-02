@@ -1,30 +1,36 @@
-[{
-    "name": "Queries",
-    "key" : "root",
-    "groups": [
+{
+    "title": "Queries",
+    "key" : "grp0",
+    "isLeaf": false,
+    "children": [
         {
-            "name": "General",
-            "key" : 1
+            "title": "General",
+            "key" : "grp1",
+            "isLeaf": false
         },
         {
-            "name": "Financial",
-            "key" : 2,
-            "groups": [
+            "title": "Financial",
+            "key" : "grp2",
+            "isLeaf": false,
+            "children": [
                 {
-                    "name": "Accounting",
-                    "key" : 3
+                    "title": "Accounting",
+                    "key" : "grp3",
+                    "isLeaf": false
                 },
                 {
-                    "name": "Purchasing",
-                    "key" :4
+                    "title": "Purchasing",
+                    "key" : "grp4",
+                    "isLeaf": false
                 }
             ]
 
         },
         {
-            "name": "Personnel",
-            "key" : 5
+            "title": "Personnel",
+            "key" : "grp5",
+            "isLeaf": false
         }
         
     ]
-}]
+}

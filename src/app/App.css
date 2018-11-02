@@ -20,6 +20,8 @@
     --default-border-color: gray;
     --modal-button-color: #0099CC;
     --split-resizer-color: slateGray;
+    --query-results-font-color: indigo;
+    --sql-text-font-color: indigo;
     --input-background:linear-gradient(top, #d6d7d7, #dee0e0);
   }
 
@@ -643,7 +645,7 @@ input[type="checkbox"] {
     cursor: pointer;
     vertical-align: bottom;
     margin-top: 2px;
-    margin-left: 100px;
+    margin-left: 50px;
     padding: 0;
     border: none;
     background: none;
@@ -666,7 +668,7 @@ input[type="checkbox"] {
 }
 
 .formattedSql {
-    color: indigo;
+    color: var(--sql-text-font-color);
     font-size: var(--default-font-size);
 }
 
@@ -769,14 +771,10 @@ input[type="checkbox"] {
 }
 
 .formattedJson {
-    color: indigo;
-    font-size: var(--default-font-size);
+    color: var(--query-results-font-color);
+    font-size: var(--small-font-size);
 }
 
-.formattedJsonl .keyWord {
-    color:darkGreen;
-    font-weight: 700;
-}
 
 .saveDocumentPanel {
     padding: 5px;

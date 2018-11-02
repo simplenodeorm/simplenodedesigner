@@ -6,6 +6,8 @@ import Tree, { TreeNode } from 'rc-tree';
 import './defaultTree.css';
 import "../app/App.css";
 
+const qfimage = <img alt="query folder" src="/images/queryfolder.png"/>;
+
 class SaveDocumentPanel extends ModalDialog {
     constructor(props) {
         super(props);
@@ -22,19 +24,11 @@ class SaveDocumentPanel extends ModalDialog {
         this.selectedGroup = '';
     }
 
-    getContent() {
-        const treeLoop = (data) => {
-            return data.map((item) => {
-              if (item.groups) {
-                return <TreeNode title={item.name} key={item.key} isLeaf={false}>
-                {treeLoop(item.groups)}
-                 </TreeNode>;
-              }
-              return <TreeNode title={item.name} key={item.key} isLeaf={false}/>;
-            });
-        };
+    getIcon(props) {
+        return qfimage;
+    }
 
-        const treeNodes = treeLoop(groups);   
+    getContent() {
         const authenticatorLoop = (data) => {
             return data.map((authenticator) => {
                 return <option value={authenticator}>{authenticator}</option>
@@ -76,8 +70,10 @@ class SaveDocumentPanel extends ModalDialog {
                 <Tree 
                   onSelect={this.onSelect}
                   showLine
+                  icon={this.getIcon}
                   showIcon={true}
-                  defaultExpandAll={true}>{treeNodes}</Tree>
+                  defaultExpandAll={true}
+                  treeData={groups}></Tree>
             </div></div>
         </div>;
     }
