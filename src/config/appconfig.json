@@ -17,6 +17,8 @@
         "customcolinputlabel": "Custom:",
         "columnlabel": "Label:",
         "value": "Value:",
-        "paramentrytitle": "Search Parameters"
-    }
+        "paramentrytitle": "Search Parameters",
+        "savedocumenttitle": "Save Document"
+    },
+    "authenticators": ["DefaultAuthorizer"]
 }

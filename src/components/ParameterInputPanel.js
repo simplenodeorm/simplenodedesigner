@@ -60,12 +60,11 @@ class ParameterInputPanel extends ModalDialog {
                 </tr>
             </table>
             <hr />
-            <div className="inputEntryList">
+            <div   className="inputEntryList">
                 <table>{inputLoop(document.designData.whereComparisons)}</table>
             </div>
         </div>;
     }
-    
     onResultFormatChange(e) {
         this.resultFormat = e.target.value;
     }

@@ -737,17 +737,19 @@ input[type="checkbox"] {
 .parameterInputPanel {
     padding: 5px;
 }
+
 .inputEntryList {
     position: relative;
     box-sizing:border-box;
     overflow-y: auto;
     overflow-x: hidden;
-    height: 200px;
+    height: 170px;
 }
 
 .parameterInputPanel .inputLabel {
     text-align: right;
     font-weight: 600;
+    text-align:right;
     margin: 0;
     vertical-align: middle;
     padding:0;
