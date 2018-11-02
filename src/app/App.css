@@ -170,6 +170,13 @@ input[type="submit"] {
     color: crimson;
 }
 
+.infoMessage {
+    font-size: 12px;
+    height: 20px;
+    margin-left: 20px;
+    text-align: left;
+    color: green;
+}
 .Resizer {
     background-color: var(--split-resizer-color);
     opacity: .2;

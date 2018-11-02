@@ -31,6 +31,7 @@ class DesignTabs extends BaseDesignComponent {
             loading: false,
             tabIndex: 0,
             newQueryResults: false,
+            message: '',
             error: ''
         };    
         
@@ -40,6 +41,7 @@ class DesignTabs extends BaseDesignComponent {
         this.onParameterEntryOk = this.onParameterEntryOk.bind(this);
         this.setTabState = this.setTabState.bind(this);
         this.loadParametersAndRun = this.loadParametersAndRun.bind(this);
+        this.saveDocument = this.saveDocument.bind(this);
         
         this.queryResults = '';
     }
@@ -60,15 +62,21 @@ class DesignTabs extends BaseDesignComponent {
 
     render() {
         const {tab0Disabled, tab1Disabled, tab2Disabled, tab3Disabled, 
-            error, selectedModel, loading, sidebarOpen, tabStateChanged, newQueryResults} = this.state;
+            error, message, selectedModel, loading, sidebarOpen, 
+            tabStateChanged, newQueryResults} = this.state;
         
         if (newQueryResults) {
             this.state.newQueryResults = false;
         }
+        
+        this.state.error = '';
+        this.state.message = '';
+        
         let retval = (
             <div className="tabSetContainer"> 
                 <MenuButton text={selectedModel} 
                     error={error} 
+                    message={message}
                     loading={loading}
                     saveDisabled={tab3Disabled}
                     runDisabled={tab3Disabled || (this.state.tabIndex < 3)}
@@ -149,8 +157,24 @@ class DesignTabs extends BaseDesignComponent {
     }
     
     saveDocument(params) {
-        
+        const curcomp = this;
+        const orm = JSON.parse(localStorage.getItem('orm'));
+        const config = {
+            headers: {'Authorization': orm.authString }
+        };
+        axios.post(orm.url + '/design/savequery', this.getQueryDocument(params), config)
+            .then((response) => {
+                if (response.status === 200) {
+                    curcomp.setState({loading: false, message: 'document saved'});
+                } else {
+                    curcomp.setState({error: response.statusText, loading: false});
+                }
+            })
+            .catch((err) => {
+               curcomp.setState({error: ('' + err), loading: false});
+            });     
     }
+
     onTabSelected(index, lastIndex) {
         this.selectedIndex = index;
     }

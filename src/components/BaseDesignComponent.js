@@ -95,6 +95,9 @@ class BaseDesignComponent extends React.Component {
 
         return {
             distinct: params.distinct,
+            authenticator: params.authenticator,
+            documentName: params.documentName,
+            group: params.group,
             resultFormat: params.resultFormat,
             validityCheckOnly: params.validityCheckOnly,
             parameters: params.parameters,
