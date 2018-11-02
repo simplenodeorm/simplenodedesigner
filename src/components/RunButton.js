@@ -12,9 +12,9 @@ class RunButton extends React.Component {
     
     render() {
         if (this.props.disabled) {
-            return <button title="Run Query" className="runButton" disabled>{runDisabled}</button>;              
+            return <button title="Run Query" className="runButton" disabled>{runDisabled}<span className="text">Run Query</span></button>;              
         } else {
-            return <button title="Run Query" className="runButton" onClick={this.props.onRun} >{runEnabled}</button>;              
+            return <button title="Run Query" className="runButton" onClick={this.props.onRun} >{runEnabled}<span className="text">Run Query</span></button>;              
         }
     }
 }
