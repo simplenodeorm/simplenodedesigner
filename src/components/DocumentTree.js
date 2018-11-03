@@ -19,7 +19,8 @@ class DocumentTree extends BaseDesignComponent {
         this.state = {
             selectedKeys: '',
             loading: false,
-            error: ''
+            error: '',
+            selectedDocument: ''
         };
         
         this.loadDocuments();
@@ -40,7 +41,8 @@ class DocumentTree extends BaseDesignComponent {
     render() {
         const {loading, error, documents} = this.state;
         if (!loading && !error && documents) {
-            this.traverseDocumentGroups(groups,  documents);
+            let treeData = JSON.parse(JSON.stringify(groups));
+            this.traverseDocumentGroups(treeData,  documents);
             
             return <div className="treeContainer">
                 <Tree 
@@ -50,7 +52,7 @@ class DocumentTree extends BaseDesignComponent {
                   showIcon={true}
                   icon={this.getIcon}
                   defaultExpandAll={true}
-                  treeData={groups}></Tree></div>;
+                  treeData={treeData}></Tree></div>;
 
         } else {
          return <div className="treeContainer">
@@ -72,7 +74,7 @@ class DocumentTree extends BaseDesignComponent {
                 
                 for (let j = 0; j < docs.length; ++j) {
                     let leaf = {
-                        title: docs[j].replace('_', ' '),
+                        title: docs[j].replace('_', ' ').replace('.json', ''),
                         isLeaf: true,
                         key: (grp.key + '.' + docs[j])
                     };
@@ -92,10 +94,11 @@ class DocumentTree extends BaseDesignComponent {
 
     
     onRightClick(info) {
-        const cm = this.getContextMenu(info);
-
+        const tree = this;
         if (info.node.props.isLeaf) {
-            ReactDOM.render(<ul><li><a href="#" onClick={this.editDocument}>Edit Document</a></li><li><a href="#" onClick={this.deleteDocument}>Delete Document</a></li></ul>, cm);
+            this.state.selectedDocument = info.node.props.eventKey;
+            const cm = this.getContextMenu(info);
+            ReactDOM.render(<ul><li><a href="#" onClick={tree.editDocument}>Edit Document</a></li><li><a href="#" onClick={tree.deleteDocument}>Delete Document</a></li></ul>, cm);
         } 
     }
     
@@ -109,6 +112,13 @@ class DocumentTree extends BaseDesignComponent {
     }
 
     deleteDocument() {
+        let {selectedDocument} = this.state;
+        let pos = selectedDocument.indexOf('.');
+        let response = window.confirm('Delete document ' + selectedDocument.substring(pos+1).replace('_', ' ').replace('.json', '') + '?');
+        if (response) {
+            
+        }
+        this.state.selectedDocument = '';
         this.clearContextMenu();
     }
     

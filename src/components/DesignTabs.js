@@ -79,7 +79,6 @@ class DesignTabs extends BaseDesignComponent {
                     message={message}
                     loading={loading}
                     saveDisabled={tab3Disabled}
-                    runDisabled={tab3Disabled || (this.state.tabIndex < 3)}
                     onSave={this.onSave}
                     onRun={this.onRun}
                     onHelp={this.onHelp}
