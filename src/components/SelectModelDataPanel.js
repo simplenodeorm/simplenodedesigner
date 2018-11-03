@@ -7,6 +7,8 @@ import config from '../config/appconfig.json';
 import axios from 'axios';
 import Spinner from './Spinner';
 import {BaseDesignComponent} from './BaseDesignComponent';
+import {clearDocumentDesignData} from './helpers';
+
 const leafimg = <img src="/images/column.png"/>;
 const keycolumnimg = <img src="/images/keycolumn.png"/>;
 const modelimg = <img src="/images/model.png"/>;
@@ -31,7 +33,7 @@ class SelectModelDataPanel extends BaseDesignComponent {
         const {model} = this.state;
         if ((nextProps.model !== config.textmsg.modelselectdefault)
             && (model !== nextProps.model)) {
-            this.clearDocumentDesignData();
+            clearDocumentDesignData();
             this.loadModelData(nextProps.model);
         }
     }

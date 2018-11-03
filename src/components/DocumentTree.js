@@ -7,6 +7,8 @@ import groups from '../config/document-groups.json';
 import {BaseDesignComponent} from './BaseDesignComponent';
 import Spinner from './Spinner';
 import axios from 'axios';
+import {clearContextMenu} from './helpers';
+import {getContextMenu} from './helpers';
 
 const qdimage = <img alt="query document" src="/images/querydoc.png"/>;
 const qfimage = <img alt="query folder" src="/images/queryfolder.png"/>;
@@ -97,18 +99,18 @@ class DocumentTree extends BaseDesignComponent {
         const tree = this;
         if (info.node.props.isLeaf) {
             this.state.selectedDocument = info.node.props.eventKey;
-            const cm = this.getContextMenu(info);
+            const cm = getContextMenu(info);
             ReactDOM.render(<ul><li><a href="#" onClick={tree.editDocument}>Edit Document</a></li><li><a href="#" onClick={tree.deleteDocument}>Delete Document</a></li></ul>, cm);
         } 
     }
     
     onSelect(selkeys) {
         selectedKeys = selkeys;
-        this.clearContextMenu();
+        clearContextMenu();
     }
 
     editDocument() {
-        this.clearContextMenu();
+        clearContextMenu();
     }
 
     deleteDocument() {
@@ -119,7 +121,8 @@ class DocumentTree extends BaseDesignComponent {
             
         }
         this.state.selectedDocument = '';
-        this.clearContextMenu();
+        
+        clearContextMenu();
     }
     
     loadDocuments() {

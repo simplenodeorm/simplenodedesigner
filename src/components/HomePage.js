@@ -11,7 +11,8 @@ document.designData = {
     selectedObjectKeys: '',
     selnodes: '',
     whereComparisons: '',
-    queryResults: ''
+    queryResults: '',
+    currentDocument: ''
 };
 
 const contextMenu = document.createElement('div');

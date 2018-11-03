@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import "../app/App.css";
 import config from '../config/appconfig.json';
 import {BaseDesignComponent} from './BaseDesignComponent';
+import {clearModalContainer} from './helpers';
 
 var clickFunction;
 class ModalDialog extends BaseDesignComponent {
@@ -33,7 +34,7 @@ class ModalDialog extends BaseDesignComponent {
     onOk() {
         if (this.isComplete()) {
             this.state.error = '';
-            this.clearModalContainer(clickFunction);
+            clearModalContainer(clickFunction);
             this.props.onOk(this.getResult());
         } else {
             this.setState({error: true});
@@ -41,7 +42,7 @@ class ModalDialog extends BaseDesignComponent {
     }
     
     onCancel() {
-        this.clearModalContainer(clickFunction);
+        clearModalContainer(clickFunction);
         this.props.onCancel();
     }
     

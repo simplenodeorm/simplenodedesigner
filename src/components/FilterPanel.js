@@ -4,6 +4,8 @@ import config from '../config/appconfig.json';
 import {AddFilterColumn} from './AddFilterColumn';
 import {FilterLine} from './FilterLine';
 import {BaseDesignComponent} from './BaseDesignComponent';
+import {getFieldType} from './helpers';
+import {getUniqueKey} from './helpers';
 
 class FilterPanel extends BaseDesignComponent {
     constructor(props) {
@@ -82,7 +84,7 @@ class FilterPanel extends BaseDesignComponent {
     
     onColumnChange(sel) {
         this.state.selectedColumn = sel.options[sel.selectedIndex].text;
-        this.state.fieldType = this.getFieldType(document.designData.selnodes[sel.selectedIndex].type);
+        this.state.fieldType = getFieldType(document.designData.selnodes[sel.selectedIndex].type);
     }
 }
 

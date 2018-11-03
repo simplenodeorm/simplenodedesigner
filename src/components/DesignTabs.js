@@ -13,6 +13,9 @@ import {FilterPanel} from './FilterPanel';
 import {QueryPanel} from './QueryPanel';
 import config from '../config/appconfig.json';
 import axios from 'axios';
+import {clearDocumentDesignData} from './helpers';
+import {getModalContainer} from './helpers';
+
 
 class DesignTabs extends BaseDesignComponent {
     constructor(props) {
@@ -51,7 +54,7 @@ class DesignTabs extends BaseDesignComponent {
             this.loadModels();
         } else {
             this.state.tabIndex = 0;
-            this.clearDocumentDesignData();
+            clearDocumentDesignData();
             if (model) {
                 this.setState({sidebarOpen: open, tab0Disabled: false, tab1Disabled: true, tab2Disabled: true, tab3Disabled: true, selectedModel: model});
             } else {
@@ -117,7 +120,7 @@ class DesignTabs extends BaseDesignComponent {
 
     onRun(e) {
         let rc = {left: 200, top: 100, width: 400, height: 350};
-        let mc = this.getModalContainer(rc);
+        let mc = getModalContainer(rc);
         ReactDOM.render(<ParameterInputPanel onOk={this.loadParametersAndRun}/>, mc);
     }
     
@@ -151,7 +154,7 @@ class DesignTabs extends BaseDesignComponent {
     
     onSave() {
         let rc = {left: 200, top: 50, width: 600, height: 400};
-        let mc = this.getModalContainer(rc);
+        let mc = getModalContainer(rc);
         ReactDOM.render(<SaveDocumentPanel onOk={this.saveDocument}/>, mc);
     }
     

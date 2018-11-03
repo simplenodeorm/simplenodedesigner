@@ -2,6 +2,7 @@ import React from 'react';
 import Toolbar from './Toolbar';
 import '../app/App.css';
 import config from '../config/appconfig';
+import {clearDocumentDesignData} from './helpers';
 
 const menu =  [
     {
@@ -30,12 +31,7 @@ function AppToolbar() {
 }
 
 function newDocument() {
-    document.designData.modelHierarchy = '';
-    document.designData.selectedObjectKeys = '';
-    document.designData.selnodes = '';
-    document.designData.whereComparisons = '';
-    document.designData.queryResult = '';
-    document.designData.currentDocument = '';
+    clearDocumentDesignData();
 }
 
 function preferences() {

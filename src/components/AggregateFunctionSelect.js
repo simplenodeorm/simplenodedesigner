@@ -2,7 +2,7 @@ import React from 'react';
 import "../app/App.css";
 import config from '../config/appconfig.json';
 import {BaseDesignComponent} from './BaseDesignComponent';
-
+import {getFieldType} from './helpers';
 const dateFunctions = ['count', 'min', 'max'];
 const stringFunctions = ['count'];
 const numberFunctions = ['avg', 'count', 'min', 'max', 'sum'];
@@ -12,7 +12,7 @@ class AggregateFunctionSelect extends BaseDesignComponent {
         super(props);
         this.onChange = this.onChange.bind(this);
         
-        switch(this.getFieldType(document.designData.selnodes[this.props.index].type)) {
+        switch(getFieldType(document.designData.selnodes[this.props.index].type)) {
             case "date":
                 this.functions = dateFunctions;
                 break;
