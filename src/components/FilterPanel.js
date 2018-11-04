@@ -44,6 +44,7 @@ class FilterPanel extends BaseDesignComponent {
                     {loop(document.designData.whereComparisons)}
                 </div>;
         } else {
+            this.state.fieldType = getFieldType(document.designData.selnodes[0].type);
             return <div><AddFilterColumn onColumnChange={this.onColumnChange} addColumn={this.addColumn}/></div>;
         }
     }

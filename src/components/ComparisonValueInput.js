@@ -9,10 +9,6 @@ class ComparisonValueInput extends BaseDesignComponent {
     constructor(props) {
         super(props);
         this.onBlur = this.onBlur.bind(this);
-        let val = this.props.getValue(this.props.index);
-        this.state = {
-            comparisonValue: val
-        };
     }
     
     render() {
@@ -45,7 +41,6 @@ class ComparisonValueInput extends BaseDesignComponent {
     onBlur(val) {
         if (this.props.fieldType === 'date') {
             this.props.setValue(this.props.index, val);
-            this.setState({comparisonValue: val});
         } else {
             this.props.setValue(this.props.index, val.target.value);
         }

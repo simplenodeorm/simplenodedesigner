@@ -115,14 +115,6 @@ class SaveDocumentPanel extends ModalDialog {
             authenticator: this.authenticator
         };
     }
-    
-    reset() {
-        this.documentName = '';
-        this.selectedGroup = '';
-        this.distinct = false;
-        this.resultFormat = 'object';
-        this.authenticator = config.authenticators[0];
-    }
 }
 
 export {SaveDocumentPanel};

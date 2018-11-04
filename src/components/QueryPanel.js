@@ -13,6 +13,7 @@ class QueryPanel extends BaseDesignComponent {
             newQueryResults: false
         };
     }
+    
     componentWillReceiveProps(nextProps) {
         const {newQueryResults} = this.state;
         if (nextProps.newQueryResults !== newQueryResults) {

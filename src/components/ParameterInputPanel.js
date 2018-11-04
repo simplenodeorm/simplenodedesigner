@@ -18,6 +18,7 @@ class ParameterInputPanel extends ModalDialog {
         this.distinct = false;
         this.validityCheckOnly = false;
         this.resultFormat = 'object';
+        this.reset = false;
     }
 
     getContent() {
@@ -28,13 +29,16 @@ class ParameterInputPanel extends ModalDialog {
                     this.params.push('');
                     let pos = p.fieldName.lastIndexOf('.');
                     this.comparisonOperators.push(p.comparisonOperator);
-                    return <tr><td title={p.fieldName} className="inputLabel">{p.fieldName.substring(pos+1) + ':'}</td><td><ComparisonValueInput 
-                    setValue={this.setValue} 
-                    getValue={this.getValue}
-                    allowCharacter={this.allowCharacter}
-                    fieldType={p.fieldType}
-                    usePortal="true"
-                    index={ipos++} /></td></tr>
+                    return <tr><td title={p.fieldName} className="inputLabel">{p.fieldName.substring(pos+1) + ':'}</td><td>
+                        <ComparisonValueInput 
+                            setValue={this.setValue} 
+                            getValue={this.getValue}
+                            allowCharacter={this.allowCharacter}
+                            fieldType={p.fieldType}
+                            usePortal="true"
+                            reset={this.reset}
+                            index={ipos++} />
+                    </td></tr>
                 }  else {
                     return undefined;
                 }
@@ -120,16 +124,6 @@ class ParameterInputPanel extends ModalDialog {
             validityCheckOnly: this.validityCheckOnly, 
             parameters: this.params 
         };
-    }
-
-    reset() {
-        for (let i = 0; i < this.params.length; ++i) {
-            this.params[i] = '';
-        }
-        
-        this.distinct = false;
-        this.resultFormat = 'object';
-        this.vaidityCheckOnly = false;
     }
 }
 

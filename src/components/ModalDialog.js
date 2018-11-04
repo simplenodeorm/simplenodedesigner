@@ -9,8 +9,7 @@ class ModalDialog extends BaseDesignComponent {
         super(props);
                 
         this.state = {
-            error: false,
-            reset: false
+            error: false
         };
 
         this.onOk = this.onOk.bind(this);
@@ -46,7 +45,6 @@ class ModalDialog extends BaseDesignComponent {
     }
     
     render() {
-        this.state.reset = false;
         return <div><h2>{this.getTitle()}</h2>
             {this.state.error && <div className="errorMessage">{this.getError()}</div>}
             {this.getContent()}
@@ -60,7 +58,6 @@ class ModalDialog extends BaseDesignComponent {
     getTitle() { return 'Modal Dialog'; };
     getResult() {};
     getError() { this.state.error = false; return 'Please complete all required entries';}
-    reset() {};
     getContent() {
         return<h2>modal dialog</h2>;
     }

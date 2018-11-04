@@ -101,7 +101,26 @@ class DocumentTree extends BaseDesignComponent {
     }
     
     editDocument() {
+        const curcomp = this;
         clearContextMenu();
+        let {selectedDocument} = this.state;
+        const orm = JSON.parse(localStorage.getItem('orm'));
+        const config = {
+            headers: {'Authorization': orm.authString}
+        };
+
+        this.setState({loading: true});
+        axios.get(orm.url + '/design/loaddocument/' + selectedDocument, config)
+            .then((response) => {
+                if (response.status === 200) {
+                    curcomp.setCurrentDocument(response.data)
+                } else {
+                    curcomp.setState({error: response.statusText, loading: false});
+                }
+            })
+            .catch((err) => {
+                curcomp.setState({error: err.toString(), loading: false});
+            });
     }
 
     deleteDocument() {
@@ -109,7 +128,24 @@ class DocumentTree extends BaseDesignComponent {
         let pos = selectedDocument.indexOf('.');
         let response = window.confirm('Delete document ' + selectedDocument.substring(pos+1).replace('_', ' ').replace('.json', '') + '?');
         if (response) {
-            
+            const curcomp = this;
+            const orm = JSON.parse(localStorage.getItem('orm'));
+            const config = {
+                headers: {'Authorization': orm.authString}
+            };
+
+            this.setState({loading: true});
+            axios.get(orm.url + '/design/deletedocument/' + selectedDocument, config)
+                .then((response) => {
+                    if (response.status === 200) {
+                        curcomp.loadDocuments()
+                    } else {
+                        curcomp.setState({error: response.statusText, loading: false});
+                    }
+                })
+                .catch((err) => {
+                    curcomp.setState({error: err.toString(), loading: false});
+                });
         }
         this.state.selectedDocument = '';
         
@@ -136,6 +172,10 @@ class DocumentTree extends BaseDesignComponent {
                 curcomp.setState({error: err.toString(), loading: false});
             });
 
+    }
+    
+    setCurrentDocument(doc) {
+        alert(doc);
     }
 }
 
