@@ -1,5 +1,8 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 import {isUnaryOperator} from './helpers';
+import {getWaitMessage} from './helpers';
+import {removeWaitMessage} from './helpers';
 
 class BaseDesignComponent extends React.Component {
     constructor(props) {
@@ -112,6 +115,14 @@ class BaseDesignComponent extends React.Component {
         return retval;
     }
     
+    showWaitMessage(msg) {
+        this.clearWaitMessage();
+        ReactDOM.render(<div className="waitMessage"><img src="/images/spinner.gif"/><span>{msg}</span></div>, getWaitMessage());
+    }
+
+    clearWaitMessage() {
+        removeWaitMessage();
+    }
 }
 
 export {BaseDesignComponent};

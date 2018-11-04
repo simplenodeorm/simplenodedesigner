@@ -31,7 +31,6 @@ class DesignTabs extends BaseDesignComponent {
             sidebarOpen: false,
             modelsLoaded: false,
             selectedModel: config.textmsg.modelselectdefault,
-            loading: false,
             tabIndex: 0,
             newQueryResults: false,
             message: '',
@@ -65,7 +64,7 @@ class DesignTabs extends BaseDesignComponent {
 
     render() {
         const {tab0Disabled, tab1Disabled, tab2Disabled, tab3Disabled, 
-            error, message, selectedModel, loading, sidebarOpen, 
+            error, message, selectedModel, sidebarOpen, 
             newQueryResults} = this.state;
         
         if (newQueryResults) {
@@ -80,7 +79,6 @@ class DesignTabs extends BaseDesignComponent {
                 <MenuButton text={selectedModel} 
                     error={error} 
                     message={message}
-                    loading={loading}
                     saveDisabled={tab3Disabled}
                     onSave={this.onSave}
                     onRun={this.onRun}
@@ -125,6 +123,7 @@ class DesignTabs extends BaseDesignComponent {
     }
     
     loadParametersAndRun(params) {
+        this.showWaitMessage('Running query...');
         const curcomp = this;
         const orm = JSON.parse(localStorage.getItem('orm'));
         const config = {
@@ -134,13 +133,16 @@ class DesignTabs extends BaseDesignComponent {
             .then((response) => {
                 if (response.status === 200) {
                     document.designData.queryResults = response.data;
-                    curcomp.setState({loading: false, newQueryResults: true});
+                    curcomp.setState({newQueryResults: true});
                 } else {
-                    curcomp.setState({error: response.statusText, loading: false});
+                    curcomp.setState({error: response.statusText});
                 }
+                
+                curcomp.clearWaitMessage();
             })
             .catch((err) => {
-               curcomp.setState({error: ('' + err), loading: false});
+                curcomp.setState({error: ('' + err)});
+                curcomp.clearWaitMessage();
             });     
     }
     
@@ -159,6 +161,7 @@ class DesignTabs extends BaseDesignComponent {
     }
     
     saveDocument(params) {
+        this.showWaitMessage('Saving document...');
         const curcomp = this;
         const orm = JSON.parse(localStorage.getItem('orm'));
         const config = {
@@ -167,13 +170,16 @@ class DesignTabs extends BaseDesignComponent {
         axios.post(orm.url + '/design/savequery', this.getQueryDocument(params), config)
             .then((response) => {
                 if (response.status === 200) {
-                    curcomp.setState({loading: false, message: 'document saved'});
+                    curcomp.setState({message: 'document saved'});
                 } else {
-                    curcomp.setState({error: response.statusText, loading: false});
+                    curcomp.setState({error: response.statusText});
                 }
+                
+                curcomp.clearWaitMessage();
             })
             .catch((err) => {
-               curcomp.setState({error: ('' + err), loading: false});
+                curcomp.setState({error: ('' + err)});
+                curcomp.clearWaitMessage();
             });     
     }
 
@@ -190,6 +196,7 @@ class DesignTabs extends BaseDesignComponent {
     }
 
     loadModels() {
+        this.showWaitMessage('Loading models...');
         const curcomp = this;
         const orm = JSON.parse(localStorage.getItem('orm'));
         const config = {
@@ -206,13 +213,16 @@ class DesignTabs extends BaseDesignComponent {
                         });
                     };
                     document.designData.models = <div className="sidebarContainer">{modelLoop(response.data)}</div>;
-                    curcomp.setState({sidebarOpen: true, loading: false});
+                    curcomp.setState({sidebarOpen: true});
                 } else {
-                    curcomp.setState({error: response.statusText, loading: false});
+                    curcomp.setState({error: response.statusText});
                 }
+                
+                curcomp.clearWaitMessage();
             })
             .catch((err) => {
-                curcomp.setState({error: err.toString(), loading: false});
+                curcomp.setState({error: err.toString()});
+                curcomp.clearWaitMessage();
             });
     }
 }

@@ -16,7 +16,6 @@ class SaveDocumentPanel extends ModalDialog {
         this.onResultFormatChange = this.onResultFormatChange.bind(this);
         this.onDistinctChange = this.onDistinctChange.bind(this);
         this.onNameChange = this.onNameChange.bind(this);
-        this.reset();
     }
 
     getIcon(props) {

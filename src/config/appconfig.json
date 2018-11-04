@@ -2,7 +2,6 @@
     "textmsg": {
         "logintitletext": "Simple Node ORM",
         "modelselectdefault": "Select starting model...",
-        "modelselectprompt": "Please select a starting model",
         "adddocument": "Add Document",
         "setupmenuname": "Setup",
         "filemenuname": "File",

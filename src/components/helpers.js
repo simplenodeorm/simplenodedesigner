@@ -1,5 +1,3 @@
-import config from '../config/appconfig.json';
-
 document.designData = {
     models: '',
     modelHierarchy: '',
@@ -73,11 +71,7 @@ export function getContextMenu(info) {
     retval.className = 'popupMenu';
     retval.id = 'ctxmenu';
     document.body.appendChild(retval);
-    
-    let clickFunction
-            
     document.addEventListener('click', popupMenuClick, true);
-    
     retval.style.position = 'absolute';
     retval.style.top = info.event.pageY + 'px';
     retval.style.left = info.event.pageX + 'px';
@@ -102,6 +96,29 @@ export function getModalContainer(rc) {
 export function clearModalContainer(mc) {
     document.removeEventListener('click', mc.clickFunction, true);
     document.body.removeChild(document.getElementById('modalcontainer'));
+}
+
+export function getWaitMessage() {
+    const retval = document.createElement('div');
+    retval.className = 'modalContainer';
+    retval.id = 'waitmsg';
+    document.body.appendChild(retval);
+    retval.style.position = 'absolute';
+    retval.style.top = '100px';
+    retval.style.left = '200px';
+    retval.style.width = '250px';
+    retval.style.height = '30px';
+    retval.style.border = 'none';
+    retval.style.visibility = 'visible';
+    return retval;
+}
+
+export function removeWaitMessage() {
+    let e = document.getElementById('waitmsg');
+    if (e) {
+        document.removeEventListener('click', e.waitMessageClick, true);
+        document.body.removeChild(document.getElementById('waitmsg'));
+    }
 }
 
 export function getUniqueKey() {

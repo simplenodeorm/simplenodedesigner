@@ -4,7 +4,6 @@ import "../app/App.css";
 import './defaultTree.css';
 import config from '../config/appconfig.json';
 import axios from 'axios';
-import Spinner from './Spinner';
 import {BaseDesignComponent} from './BaseDesignComponent';
 import {clearDocumentDesignData} from './helpers';
 
@@ -18,7 +17,6 @@ class SelectModelDataPanel extends BaseDesignComponent {
         super(props);
         setDesignTabState = this.props.setTabState;
         this.state = {
-            loading: false,
             model: props.model,
             error: ''
         };
@@ -37,15 +35,12 @@ class SelectModelDataPanel extends BaseDesignComponent {
     }
 
     render() {
-        const {model, loading, error} = this.state;
+        const {model, error} = this.state;
         
         if (error) {
             return <div className="errorMessage">{error}</div>;
-        } else if (loading) {
-            this.state.loading = false;
-            return <div className="panelPrompt1"><Spinner/>&nbsp;&nbsp;Loading model hierarchy...</div>;
         } else if (model === config.textmsg.modelselectdefault) {
-            return <div className="panelPrompt1">{config.textmsg.modelselectprompt}</div>;
+            return <div></div>;
         } else if (document.designData.modelHierarchy) {
             let defaultExpandedKeys = ['t0'];
             if (document.designData.selectedObjectKeys) {
@@ -65,7 +60,7 @@ class SelectModelDataPanel extends BaseDesignComponent {
                   onCheck={this.onCheck}
                   treeData={document.designData.modelHierarchy}></Tree></div></div>;
         } else {
-            return <div className="panelPrompt1">{config.textmsg.modelselectprompt}</div>;
+            return <div></div>;
         }
     }
     
@@ -101,6 +96,7 @@ class SelectModelDataPanel extends BaseDesignComponent {
     }
     
     loadModelData(model) {
+        this.showWaitMessage('Loading model hierarchy...');
         const curcomp = this;
         const orm = JSON.parse(localStorage.getItem('orm'));
         const inputModel = model;
@@ -108,18 +104,21 @@ class SelectModelDataPanel extends BaseDesignComponent {
             headers: {'Authorization': orm.authString}
         };
 
-        curcomp.setState({model: inputModel, loading: true});
+        curcomp.setState({model: inputModel});
         axios.get(orm.url + '/design/modeltree/' + inputModel, config)
             .then((response) => {
                 if (response.status === 200) {
                     document.designData.modelHierarchy = response.data;
-                    curcomp.setState({model: inputModel, loading: false});
+                    curcomp.setState({model: inputModel});
                 } else {
-                    curcomp.setState({error: response.statusText, loading: false});
+                    curcomp.setState({error: response.statusText});
                 }
+                
+                curcomp.clearWaitMessage();
             })
             .catch((err) => {
-               curcomp.setState({error: ('' + err), loading: false});
+               curcomp.setState({error: ('' + err)});
+               curcomp.clearWaitMessage();
             });     
     }
 }

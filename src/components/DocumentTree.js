@@ -5,7 +5,6 @@ import '../app/App.css';
 import './defaultTree.css';
 import groups from '../config/document-groups.json';
 import {BaseDesignComponent} from './BaseDesignComponent';
-import Spinner from './Spinner';
 import axios from 'axios';
 import {clearContextMenu} from './helpers';
 import {getContextMenu} from './helpers';
@@ -55,7 +54,6 @@ class DocumentTree extends BaseDesignComponent {
         } else {
          return <div className="treeContainer">
             {error && <div className="errorMessage">{error}</div>}
-            {loading && <div className="panelPrompt1"><Spinner/>&nbsp;&nbsp;Loading documents...</div>}
             </div>;
         }
     }

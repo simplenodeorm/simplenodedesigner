@@ -3,7 +3,7 @@ import orms from '../config/orms.json';
 import config from '../config/appconfig.json';
 import base64 from 'base-64';
 import axios from 'axios';
-import Spinner from '../components/Spinner';
+import {BaseDesignComponent} from '../components/BaseDesignComponent';
 
 import { withRouter } from 'react-router';
 
@@ -17,7 +17,7 @@ const loop = (data) => {
 
 const options = loop(orms);
 
-class LoginPage extends React.Component {
+class LoginPage extends BaseDesignComponent {
     constructor(props) {
         super(props);
 
@@ -105,9 +105,6 @@ class LoginPage extends React.Component {
                             }
                         </div>
                         <div>
-                            {loading && 
-                               <Spinner/>
-                            }
                             <input type="submit" disabled={loading} value="Login"/>
                         </div>
 
@@ -118,6 +115,7 @@ class LoginPage extends React.Component {
     }
 
     login(username, password, selectedOrm) {
+        this.showWaitMessage('Authenticating...');
         let curcomp = this;
         const authString = 'Basic ' + base64.encode(username + ':' + password);
         var config = {
@@ -134,6 +132,7 @@ class LoginPage extends React.Component {
                     if (response.status === 200) {
                         localStorage.setItem('orm', JSON.stringify(orm));
                         curcomp.props.history.push('/');
+                        curcomp.clearWaitMessage();
                     } else {
                         curcomp.setState({error: response.statusText, loading: false, submitted: false});
                     }

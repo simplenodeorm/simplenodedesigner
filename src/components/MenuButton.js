@@ -1,5 +1,4 @@
 import React from 'react';
-import Spinner from './Spinner';
 import {SaveButton} from './SaveButton';
 import {RunButton} from './RunButton';
 import {HelpButton} from './HelpButton';
@@ -13,20 +12,18 @@ class MenuButton extends React.Component {
             text: props.text,
             error: props.error,
             message: props.message,
-            loading: false
         };
     }
     
     componentWillReceiveProps(nextProps) {
-        this.setState({ text: nextProps.text, error:  nextProps.error, loading: nextProps.loading, message: nextProps.message});
+        this.setState({ text: nextProps.text, error:  nextProps.error, message: nextProps.message});
     }
 
     render() {
-        const {text, error, message, loading} = this.state;
+        const {text, error, message} = this.state;
         this.state.error = '';
         return <div className="menuButton">
-                {loading && <Spinner /> }
-                <a disabled={loading} onClick={this.props.onMenuClick}>
+                <a onClick={this.props.onMenuClick}>
                     <svg viewBox="0 -4 24 26">
                         <path focusable="false" color="blue" d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
                         </svg><span>{text}{error && <span className="errorMessage"> *{error}</span> }

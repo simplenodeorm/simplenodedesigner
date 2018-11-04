@@ -1,5 +1,4 @@
 import React from 'react';
-import ReactDOM from 'react';
 import "../app/App.css";
 import {BaseDesignComponent} from './BaseDesignComponent';
 import {clearModalContainer} from './helpers';
@@ -31,9 +30,10 @@ class ModalDialog extends BaseDesignComponent {
     
     onOk() {
         if (this.isComplete()) {
-            this.state.error = '';
             clearModalContainer(this);
-            this.props.onOk(this.getResult());
+            if (this.props.onOk) {
+                this.props.onOk(this.getResult());
+            }
         } else {
             this.setState({error: true});
         }
@@ -41,12 +41,14 @@ class ModalDialog extends BaseDesignComponent {
     
     onCancel() {
         clearModalContainer(this);
-        this.props.onCancel();
+        if (this.props.onCancel) {
+            this.props.onCancel();
+        }
     }
     
     render() {
-        return <div><h2>{this.getTitle()}</h2>
-            {this.state.error && <div className="errorMessage">{this.getError()}</div>}
+        return <div>{this.getTitle() && <h2>{this.getTitle()}</h2>}
+            {this.getError() && this.state.error && <div className="errorMessage">{this.getError()}</div>}
             {this.getContent()}
             <div className="buttonPanel">
                 <button className="button" onClick={this.onOk}>Ok</button><button className="button" onClick={this.onCancel}>Cancel</button>
@@ -57,7 +59,7 @@ class ModalDialog extends BaseDesignComponent {
     isComplete() { return true; };
     getTitle() { return 'Modal Dialog'; };
     getResult() {};
-    getError() { this.state.error = false; return 'Please complete all required entries';}
+    getError() { return 'Please complete all required entries';}
     getContent() {
         return<h2>modal dialog</h2>;
     }

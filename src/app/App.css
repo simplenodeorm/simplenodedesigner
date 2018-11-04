@@ -22,6 +22,7 @@
     --split-resizer-color: slateGray;
     --query-results-font-color: indigo;
     --sql-text-font-color: indigo;
+    --wait-message-font-color: navy;
     --input-background:linear-gradient(top, #d6d7d7, #dee0e0);
   }
 
@@ -761,7 +762,6 @@ input[type="checkbox"] {
     font-size: var(--small-font-size);
 }
 
-
 .saveDocumentPanel {
     padding: 5px;
 }
@@ -771,4 +771,21 @@ input[type="checkbox"] {
     background-color: var(--default-bkcolor);
     overflow:auto;
     height: 150px;
+}
+
+.waitMessage {
+    background: #eceeee;
+    border: 1px solid #42464b;
+    border-radius: 5px;
+    font-weight:550;
+    color: var(--wait-message-font-color);
+    white-space: nowrap;
+}
+
+.waitMessage span {
+    position: absolute;
+    padding-top: 5px;
+}
+.waitMessage img {
+    margin: 5px;
 }

@@ -27,6 +27,7 @@ class SqlDisplayPanel extends BaseDesignComponent {
     }
 
     generateSql() {
+        this.setWaitMessage('Generating sql...');
         const curcomp = this;
         const orm = JSON.parse(localStorage.getItem('orm'));
         const config = {
@@ -36,13 +37,16 @@ class SqlDisplayPanel extends BaseDesignComponent {
         axios.post(orm.url + '/design/generatesql', this.getQueryDocument(), config)
             .then((response) => {
                 if (response.status === 200) {
-                    curcomp.setState({loading: false, sql: response.data});
+                    curcomp.setState({sql: response.data});
                 } else {
-                    curcomp.setState({error: response.statusText, loading: false});
+                    curcomp.setState({error: response.statusText});
                 }
+                
+                curcomp.clearWaitMessage();
             })
             .catch((err) => {
-               curcomp.setState({error: ('' + err), loading: false});
+                curcomp.setState({error: ('' + err), loading: false});
+                curcomp.clearWaitMessage();
             });     
     }
 

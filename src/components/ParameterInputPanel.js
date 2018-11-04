@@ -18,7 +18,6 @@ class ParameterInputPanel extends ModalDialog {
         this.distinct = false;
         this.validityCheckOnly = false;
         this.resultFormat = 'object';
-        this.reset = false;
     }
 
     getContent() {
@@ -36,7 +35,6 @@ class ParameterInputPanel extends ModalDialog {
                             allowCharacter={this.allowCharacter}
                             fieldType={p.fieldType}
                             usePortal="true"
-                            reset={this.reset}
                             index={ipos++} />
                     </td></tr>
                 }  else {
