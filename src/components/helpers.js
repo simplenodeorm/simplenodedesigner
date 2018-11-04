@@ -1,17 +1,5 @@
 import config from '../config/appconfig.json';
 
-const contextMenu = document.createElement('div');
-Object.assign(contextMenu.style, { position: 'absolute', visibility: 'hidden'});
-contextMenu.className = 'popupMenu';
-contextMenu.id = 'ctxmenu';
-document.body.appendChild(contextMenu);
-
-const modalContainer = document.createElement('div');
-Object.assign(modalContainer.style, { position: 'absolute', visibility: 'hidden'});
-modalContainer.className = 'modalContainer';
-modalContainer.id = 'modalcontainer';
-document.body.appendChild(modalContainer);
-
 document.designData = {
     models: '',
     modelHierarchy: '',
@@ -22,6 +10,14 @@ document.designData = {
     currentDocument: ''
 };
 
+var popupMenuClick = function(e) { 
+    let rect = e.target.getBoundingClientRect();
+    let x = e.clientX - rect.left; 
+    let y = e.clientY - rect.top; 
+    if ((x < 0) || (y < 0) || (x >= rect.right) || (y >= rect.top)) {
+        clearContextMenu();
+    }
+};
 
 export function clearDocumentDesignData() {
     document.designData.modelHierarchy = '';
@@ -34,16 +30,30 @@ export function clearDocumentDesignData() {
     
 export function getFieldType(dbType) {
     let retval;
-    switch (dbType) {
-        case 'DATE':
+    let check = dbType.toLowerCase();
+    if (check.startsWith('number')) {
+        check = 'number';
+        
+    }
+    switch (check) {
+        case 'date':
+        case 'timestamp':
             retval = 'date';
             break;
-        case 'NUMBER':
-            if (retval.includes(',')) {
+        case 'number':
+            if (dbType.includes(',')) {
                 retval = 'float';
             } else {
                 retval = 'number';
             }
+            break;
+        case 'float':
+        case 'double':
+            retval = 'float';
+            break;
+        case 'integer':
+        case 'long':
+            retval = 'number';
             break;
         default:
             retval = 'string';
@@ -54,14 +64,21 @@ export function getFieldType(dbType) {
 }
 
 export function clearContextMenu() {
-    let cm = document.getElementById('ctxmenu');
-    cm.style.top = '-100px';
-    cm.style.left = '-100px';
-    cm.style.visibility = 'hidden';
+    document.removeEventListener('click', popupMenuClick, true);
+    document.body.removeChild(document.getElementById('ctxmenu'));
 }
 
 export function getContextMenu(info) {
-    const retval = document.getElementById('ctxmenu');
+    const retval = document.createElement('div');
+    retval.className = 'popupMenu';
+    retval.id = 'ctxmenu';
+    document.body.appendChild(retval);
+    
+    let clickFunction
+            
+    document.addEventListener('click', popupMenuClick, true);
+    
+    retval.style.position = 'absolute';
     retval.style.top = info.event.pageY + 'px';
     retval.style.left = info.event.pageX + 'px';
     retval.style.visibility = 'visible';
@@ -69,7 +86,11 @@ export function getContextMenu(info) {
 }
 
 export function getModalContainer(rc) {
-    const retval = document.getElementById('modalcontainer');
+    const retval = document.createElement('div');
+    retval.className = 'modalContainer';
+    retval.id = 'modalcontainer';
+    document.body.appendChild(retval);
+    retval.style.position = 'absolute';
     retval.style.top = rc.top + 'px';
     retval.style.left = rc.left + 'px';
     retval.style.width = rc.width + 'px';
@@ -78,14 +99,9 @@ export function getModalContainer(rc) {
     return retval;
 }
 
-export function clearModalContainer(modal) {
-    modal.setState({reset: true});
-    let mc = document.getElementById('modalcontainer');
-    mc.style.top = '-100px';
-    mc.style.left = '-100px';
-    mc.style.visibility = 'hidden';
-    document.removeEventListener('click', modal.clickFunction, true);
-    modal.reset();
+export function clearModalContainer(mc) {
+    document.removeEventListener('click', mc.clickFunction, true);
+    document.body.removeChild(document.getElementById('modalcontainer'));
 }
 
 export function getUniqueKey() {
