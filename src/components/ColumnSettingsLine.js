@@ -1,6 +1,5 @@
 import React from 'react';
 import "../app/App.css";
-import config from '../config/appconfig.json';
 import {AggregateFunctionSelect} from './AggregateFunctionSelect';
 import {SortPositionInput} from './SortPositionInput';
 import {AscDescCheckbox} from './AscDescCheckbox';

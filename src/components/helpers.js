@@ -1,3 +1,28 @@
+import config from '../config/appconfig.json';
+
+const contextMenu = document.createElement('div');
+Object.assign(contextMenu.style, { position: 'absolute', visibility: 'hidden'});
+contextMenu.className = 'popupMenu';
+contextMenu.id = 'ctxmenu';
+document.body.appendChild(contextMenu);
+
+const modalContainer = document.createElement('div');
+Object.assign(modalContainer.style, { position: 'absolute', visibility: 'hidden'});
+modalContainer.className = 'modalContainer';
+modalContainer.id = 'modalcontainer';
+document.body.appendChild(modalContainer);
+
+document.designData = {
+    models: '',
+    modelHierarchy: '',
+    selectedObjectKeys: '',
+    selnodes: '',
+    whereComparisons: '',
+    queryResults: '',
+    currentDocument: ''
+};
+
+
 export function clearDocumentDesignData() {
     document.designData.modelHierarchy = '';
     document.designData.selectedObjectKeys = '';
@@ -8,7 +33,7 @@ export function clearDocumentDesignData() {
 }
     
 export function getFieldType(dbType) {
-    let retval = 'string';
+    let retval;
     switch (dbType) {
         case 'DATE':
             retval = 'date';
@@ -19,6 +44,9 @@ export function getFieldType(dbType) {
             } else {
                 retval = 'number';
             }
+            break;
+        default:
+            retval = 'string';
             break;
     }
 
@@ -50,12 +78,14 @@ export function getModalContainer(rc) {
     return retval;
 }
 
-export function clearModalContainer(func) {
+export function clearModalContainer(modal) {
+    modal.setState({reset: true});
     let mc = document.getElementById('modalcontainer');
     mc.style.top = '-100px';
     mc.style.left = '-100px';
     mc.style.visibility = 'hidden';
-    document.removeEventListener('click', func, true);
+    document.removeEventListener('click', modal.clickFunction, true);
+    modal.reset();
 }
 
 export function getUniqueKey() {
@@ -66,4 +96,8 @@ export function getUniqueKey() {
         return (c === 'x' ? r : (r & 0x3 | 0x8)).toString(16);
     });
     return uuid;
+}
+
+export function isUnaryOperator(op) {
+    return (op && ((op === 'is null') || (op === 'is not null')));
 }

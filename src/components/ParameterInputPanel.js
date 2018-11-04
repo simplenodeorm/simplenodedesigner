@@ -13,8 +13,8 @@ class ParameterInputPanel extends ModalDialog {
         this.onResultFormatChange = this.onResultFormatChange.bind(this);
         this.onDistinctChange = this.onDistinctChange.bind(this);
         this.onValidityCheckOnlyChange = this.onValidityCheckOnlyChange.bind(this);
-        this.params = new Array();
-        this.comparisonOperators = new Array();
+        this.params = [];
+        this.comparisonOperators = [];
         this.distinct = false;
         this.validityCheckOnly = false;
         this.resultFormat = 'object';
@@ -35,7 +35,9 @@ class ParameterInputPanel extends ModalDialog {
                     fieldType={p.fieldType}
                     usePortal="true"
                     index={ipos++} /></td></tr>
-                } 
+                }  else {
+                    return undefined;
+                }
             });
         };
         
@@ -52,11 +54,11 @@ class ParameterInputPanel extends ModalDialog {
                 </tr>
                 <tr>
                     <td></td>
-                    <td>&nbsp;&nbsp;&nbsp;<input onChange={this.onDistinctChange} type="checkbox"/>{config.textmsg.distinct}</td>
+                    <td>&nbsp;&nbsp;&nbsp;<input onChange={this.onDistinctChange} defaultValue={this.distinct} type="checkbox"/>{config.textmsg.distinct}</td>
                 </tr>
                 <tr>
                     <td></td>
-                    <td>&nbsp;&nbsp;&nbsp;<input onChange={this.onValidityCheckOnlyChange} type="checkbox"/>{config.textmsg.validitycheckonly}</td>
+                    <td>&nbsp;&nbsp;&nbsp;<input onChange={this.onValidityCheckOnlyChange} type="checkbox" defaultValue={this.validityCheckOnly}/>{config.textmsg.validitycheckonly}</td>
                 </tr>
             </table>
             <hr />
@@ -112,18 +114,23 @@ class ParameterInputPanel extends ModalDialog {
     }
     
     getResult() {
-        let p = this.params.slice();
-        let d = this.distinct;
-        let rf = this.resultFormat;
-        let vc = this.validityCheckOnly;
-        this.params = new Array();
+        return { 
+            distinct: this.distinct,
+            resultFormat: this.resultFormat, 
+            validityCheckOnly: this.validityCheckOnly, 
+            parameters: this.params 
+        };
+    }
+
+    reset() {
+        for (let i = 0; i < this.params.length; ++i) {
+            this.params[i] = '';
+        }
+        
         this.distinct = false;
         this.resultFormat = 'object';
         this.vaidityCheckOnly = false;
-        
-        return { distinct: d, resultFormat: rf, validityCheckOnly: vc, parameters: p };
     }
-
 }
 
 export {ParameterInputPanel};

@@ -1,6 +1,5 @@
 import React from 'react';
 import "../app/App.css";
-import config from '../config/appconfig.json';
 
 class AddFilterColumn extends React.Component {
     constructor(props) {

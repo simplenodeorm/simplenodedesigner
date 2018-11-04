@@ -1,6 +1,5 @@
 import React from 'react';
 import "../app/App.css";
-import config from '../config/appconfig.json';
 import {AddFilterColumn} from './AddFilterColumn';
 import {FilterLine} from './FilterLine';
 import {BaseDesignComponent} from './BaseDesignComponent';
@@ -28,7 +27,7 @@ class FilterPanel extends BaseDesignComponent {
         const setTabState = this.props.setTabState;
         const loop = (data) => {
             return data.map((node, i) => {
-                return <FilterLine key={this.getUniqueKey()} index={i} onDelete={this.onDeleteLine} setTabState={setTabState} />;
+                return <FilterLine key={getUniqueKey()} index={i} onDelete={this.onDeleteLine} setTabState={setTabState} />;
                });};
         
         this.loadSelectedNodesIfRequired();
@@ -68,7 +67,7 @@ class FilterPanel extends BaseDesignComponent {
         };
         
         if (!document.designData.whereComparisons) {
-            document.designData.whereComparisons = new Array();
+            document.designData.whereComparisons = [];
         } else {
             whereComparison.logicalOperator = 'and';
         }

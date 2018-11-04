@@ -1,6 +1,5 @@
 import React from 'react';
 import "../app/App.css";
-import config from '../config/appconfig.json';
 
 const copSelections = ['=', '<', '<=', '>', '>=', '<>', 'is null', 'is not null', 'in', 'like'];
 class ComparisonOperatorSelect extends React.Component {

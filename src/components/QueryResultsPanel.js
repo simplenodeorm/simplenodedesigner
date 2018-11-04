@@ -1,9 +1,5 @@
 import React from 'react';
-import SplitPane from 'react-split-pane';
 import "../app/App.css";
-import config from '../config/appconfig.json';
-import Spinner from './Spinner';
-import axios from 'axios';
 import {BaseDesignComponent} from './BaseDesignComponent';
 
 class QueryResultsPanel extends BaseDesignComponent {
@@ -17,7 +13,7 @@ class QueryResultsPanel extends BaseDesignComponent {
     }
     
     componentWillReceiveProps(nextProps) {
-        const {model, newQueryResults} = this.state;
+        const {newQueryResults} = this.state;
         if (nextProps.newQueryResults !== newQueryResults) {
             this.setState({newQueryResults: nextProps.newQueryResults});
         }

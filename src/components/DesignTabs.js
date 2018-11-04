@@ -1,4 +1,4 @@
-import React, {PropTypes} from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom';
 import '../app/App.css';
 import { MenuButton } from './MenuButton';
@@ -66,7 +66,7 @@ class DesignTabs extends BaseDesignComponent {
     render() {
         const {tab0Disabled, tab1Disabled, tab2Disabled, tab3Disabled, 
             error, message, selectedModel, loading, sidebarOpen, 
-            tabStateChanged, newQueryResults} = this.state;
+            newQueryResults} = this.state;
         
         if (newQueryResults) {
             this.state.newQueryResults = false;

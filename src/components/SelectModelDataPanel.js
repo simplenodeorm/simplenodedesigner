@@ -1,6 +1,5 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import Tree, { TreeNode } from 'rc-tree'
+import Tree from 'rc-tree'
 import "../app/App.css";
 import './defaultTree.css';
 import config from '../config/appconfig.json';
@@ -26,7 +25,6 @@ class SelectModelDataPanel extends BaseDesignComponent {
         
         this.onSelect = this.onSelect.bind(this);
         this.onCheck = this.onCheck.bind(this);
-        this.onRightClick = this.onRightClick.bind(this);
     }
 
     componentWillReceiveProps(nextProps) {
@@ -44,8 +42,8 @@ class SelectModelDataPanel extends BaseDesignComponent {
         if (error) {
             return <div className="errorMessage">{error}</div>;
         } else if (loading) {
-            return <div className="panelPrompt1"><Spinner/>&nbsp;&nbsp;Loading model hierarchy...</div>;
             this.state.loading = false;
+            return <div className="panelPrompt1"><Spinner/>&nbsp;&nbsp;Loading model hierarchy...</div>;
         } else if (model === config.textmsg.modelselectdefault) {
             return <div className="panelPrompt1">{config.textmsg.modelselectprompt}</div>;
         } else if (document.designData.modelHierarchy) {
@@ -123,19 +121,6 @@ class SelectModelDataPanel extends BaseDesignComponent {
             .catch((err) => {
                curcomp.setState({error: ('' + err), loading: false});
             });     
-    }
-}
-
-function onRightClick(info) {
-    const cm = document.getElementById('ctxmenu');
-    cm.style.top = info.event.pageY + 'px';
-    cm.style.left = info.event.pageX + 'px';
-    cm.style.visibility = 'visible';
-
-    if (info.node.props.isLeaf) {
-   //     ReactDOM.render(<ul><li><a href="#" onClick={editDocument}>Edit Document</a></li><li><a href="#" onClick={runDocument}>Run Document</a></li><li><a href="#" onClick={deleteDocument}>Delete Document</a></li></ul>, cm);
-    } else {
-  //      ReactDOM.render(<ul><li><a href="#" onClick={addDocument}>Add Document</a></li></ul>, cm);
     }
 }
 

@@ -1,6 +1,5 @@
 import React from 'react';
 import "../app/App.css";
-import config from '../config/appconfig.json';
 
 const runEnabled = <img alt='save' src='/images/run.png' />;              
 const runDisabled = <img alt='save' src='/images/run-disabled.png' />;               

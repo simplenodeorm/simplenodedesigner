@@ -1,7 +1,5 @@
 import React from 'react';
 import "../app/App.css";
-import config from '../config/appconfig.json';
-import Spinner from './Spinner';
 import {ColumnSettingsLine} from './ColumnSettingsLine';
 import {BaseDesignComponent} from './BaseDesignComponent';
 

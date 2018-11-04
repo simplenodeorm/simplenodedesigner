@@ -1,6 +1,5 @@
 import React from 'react';
 import "../app/App.css";
-import config from '../config/appconfig.json';
 
 const help = <img alt='help' src='/images/help.png' />;              
 

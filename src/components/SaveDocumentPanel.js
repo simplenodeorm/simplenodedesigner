@@ -2,10 +2,10 @@ import React from 'react';
 import config from '../config/appconfig.json';
 import {ModalDialog} from './ModalDialog';
 import groups from '../config/document-groups.json';
-import Tree, { TreeNode } from 'rc-tree';
+import Tree from 'rc-tree';
 import './defaultTree.css';
 import "../app/App.css";
-
+import {defaultSaveSettings} from './helpers';
 const qfimage = <img alt="query folder" src="/images/queryfolder.png"/>;
 
 class SaveDocumentPanel extends ModalDialog {
@@ -16,18 +16,13 @@ class SaveDocumentPanel extends ModalDialog {
         this.onResultFormatChange = this.onResultFormatChange.bind(this);
         this.onDistinctChange = this.onDistinctChange.bind(this);
         this.onNameChange = this.onNameChange.bind(this);
-        
-        this.distinct = false;
-        this.authenticator = config.authenticators[0];
-        this.documentName = '';
-        this.resultFormat = 'object';
-        this.selectedGroup = '';
+        this.reset();
     }
 
     getIcon(props) {
         return qfimage;
     }
-
+    
     getContent() {
         const authenticatorLoop = (data) => {
             return data.map((authenticator) => {
@@ -42,7 +37,7 @@ class SaveDocumentPanel extends ModalDialog {
                     <td className="inputLabel">{config.textmsg.resultformatlabel}</td>
                         <td>
                             <select onChange={this.onResultFormatChange}>
-                                <option value="object">object graph</option>
+                                <option value="object" selected>object graph</option>
                                 <option value="result set">result set</option>
                             </select>
                         </td>
@@ -61,7 +56,7 @@ class SaveDocumentPanel extends ModalDialog {
                     </tr>
                     <tr>
                         <td></td>
-                        <td>&nbsp;&nbsp;&nbsp;<input onChange={this.onDistinctChange} type="checkbox"/>{config.textmsg.distinct}</td>
+                        <td>&nbsp;&nbsp;&nbsp;<input onChange={this.onDistinctChange} type="checkbox" defaultValue={this.distinct}/>{config.textmsg.distinct}</td>
                     </tr>
                 </table>
              </div>
@@ -107,20 +102,26 @@ class SaveDocumentPanel extends ModalDialog {
     }
     
     getError() { 
-        return 'Please select a folder and complete all required entries';
         this.state.error = false;
+        return 'Please select a folder and complete all required entries';
     }
 
     getResult() {
-        let d = this.distinct;
-        let rf = this.resultFormat;
-        let g = this.selectedGroup;
-        let nm = this.documentName;
-        
+        return { 
+            documentName: this.documentName, 
+            group: this.selectedGroup, 
+            distinct: this.distinct, 
+            resultFormat: this.resultFormat, 
+            authenticator: this.authenticator
+        };
+    }
+    
+    reset() {
+        this.documentName = '';
+        this.selectedGroup = '';
         this.distinct = false;
         this.resultFormat = 'object';
-        this.selectedGroup = '';
-        return { documentName: nm, group: g, distinct: d, resultFormat: rf };
+        this.authenticator = config.authenticators[0];
     }
 }
 

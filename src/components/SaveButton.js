@@ -1,6 +1,5 @@
 import React from 'react';
 import "../app/App.css";
-import config from '../config/appconfig.json';
 
 const saveEnabled = <img alt='save' src='/images/save.png' />;              
 const saveDisabled = <img alt='save' src='/images/save-disabled.png' />;               

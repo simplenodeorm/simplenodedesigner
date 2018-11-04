@@ -1,6 +1,5 @@
 import React from 'react';
 import "../app/App.css";
-import config from '../config/appconfig.json';
 
 const upImage = <img alt='move line up' src='/images/uparrow.png' />;              
 const downImage = <img alt='move line down' src='/images/downarrow.png' />;               
@@ -24,7 +23,9 @@ class MoveButton extends React.Component {
             case 'up':
                 return upImage;              
             case 'down':
-                return downImage;               
+                return downImage;     
+            default:
+              break;      
             
         }
    }

@@ -1,6 +1,5 @@
 import React from 'react';
 import "../app/App.css";
-import config from '../config/appconfig.json';
 
 const parenSelections = ['', '(', '((', '(((', '(((('];
 class OpenParenthesis extends React.Component {

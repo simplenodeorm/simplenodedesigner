@@ -1,4 +1,5 @@
 import React from 'react';
+import {isUnaryOperator} from './helpers';
 
 class BaseDesignComponent extends React.Component {
     constructor(props) {
@@ -7,7 +8,7 @@ class BaseDesignComponent extends React.Component {
 
     loadSelectedNodesIfRequired() {
         if (!document.designData.selnodes) {
-            document.designData.selnodes = new Array();
+            document.designData.selnodes = [];
             this.loadSelectedNodes(document.designData.modelHierarchy, document.designData.selnodes, new Set(document.designData.selectedObjectKeys));
         }
     }
@@ -46,7 +47,7 @@ class BaseDesignComponent extends React.Component {
             params = {distinct: false, resultFormat: 'object'};
         }
         
-        let selectedColumns = new Array();
+        let selectedColumns = [];
         for (let i = 0; i < document.designData.selnodes.length; ++i) {
             selectedColumns.push({
                 path: document.designData.selnodes[i].__path__,
@@ -78,10 +79,6 @@ class BaseDesignComponent extends React.Component {
         };
     }
 
-    isUnaryOperator(op) {
-        return (op && ((op === 'is null') || (op === 'is not null')));
-    }
-
     isWhereValid() {
         return (document.designData.whereComparisons && document.designData.whereComparisons.length > 0);
     }
@@ -91,7 +88,7 @@ class BaseDesignComponent extends React.Component {
 
         for (let i = 0; i < document.designData.whereComparisons.length; ++i) {
             if (!document.designData.whereComparisons[i].customFilterInput
-                && !this.isUnaryOperator(document.designData.whereComparisons[i].comparisonOperator)
+                && !isUnaryOperator(document.designData.whereComparisons[i].comparisonOperator)
                 && !document.designData.whereComparisons[i].comparisonValue) {
                 retval = true;
                 break;

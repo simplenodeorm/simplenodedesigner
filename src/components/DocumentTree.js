@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Tree, { TreeNode } from 'rc-tree';
+import Tree from 'rc-tree';
 import '../app/App.css';
 import './defaultTree.css';
 import groups from '../config/document-groups.json';
@@ -13,13 +13,11 @@ import {getContextMenu} from './helpers';
 const qdimage = <img alt="query document" src="/images/querydoc.png"/>;
 const qfimage = <img alt="query folder" src="/images/queryfolder.png"/>;
 
-var selectedKeys;
 class DocumentTree extends BaseDesignComponent {
      constructor(props) {
         super(props);
         
         this.state = {
-            selectedKeys: '',
             loading: false,
             error: '',
             selectedDocument: ''
@@ -27,7 +25,6 @@ class DocumentTree extends BaseDesignComponent {
         
         this.loadDocuments();
         this.onRightClick = this.onRightClick.bind(this);
-        this.onSelect = this.onSelect.bind(this);
         this.editDocument = this.editDocument.bind(this);
         this.deleteDocument = this.deleteDocument.bind(this);
     }
@@ -49,7 +46,6 @@ class DocumentTree extends BaseDesignComponent {
             return <div className="treeContainer">
                 <Tree 
                   onRightClick={this.onRightClick}
-                  onSelect={this.onSelect}
                   showLine
                   showIcon={true}
                   icon={this.getIcon}
@@ -70,7 +66,7 @@ class DocumentTree extends BaseDesignComponent {
             let docs = documents[grp.key];
             if (docs) {
                 if (!grp.children) {
-                    grp.children = new Array();
+                    grp.children = [];
                     canRecurse = false;
                 } 
                 
@@ -104,11 +100,6 @@ class DocumentTree extends BaseDesignComponent {
         } 
     }
     
-    onSelect(selkeys) {
-        selectedKeys = selkeys;
-        clearContextMenu();
-    }
-
     editDocument() {
         clearContextMenu();
     }

@@ -1,13 +1,9 @@
 import React from 'react';
 import "../app/App.css";
-import config from '../config/appconfig.json';
 import {BaseDesignComponent} from './BaseDesignComponent';
 import {NumericInput} from './NumericInput';
 import DatePicker from 'react-datepicker';
-import moment from 'moment'; 
 import 'react-datepicker/dist/react-datepicker.css';
-
-const calImage = <img src='/images/calendar.png'/>;
 
 class ComparisonValueInput extends BaseDesignComponent {
     constructor(props) {

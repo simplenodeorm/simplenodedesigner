@@ -1,7 +1,5 @@
 import React from 'react';
 import "../app/App.css";
-import config from '../config/appconfig.json';
-
 
 let loop = (data, ch) => {
     let l = data.split(ch);
