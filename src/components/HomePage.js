@@ -5,25 +5,28 @@ import { DesignTabs } from './DesignTabs';
 import AppToolbar from './AppToolbar';
 import '../app/App.css';
 
+var documentTree;
 class HomePage extends React.Component {
     constructor(props) {
         super(props);
     }
 
     render() {
+        const curcomp = this;
+    
         return (<div><AppToolbar/>
         <br /><SplitPane 
                 split="vertical" 
                 minSize={10} 
                 defaultSize={150}>
-                <DocumentTree/>
+                <DocumentTree ref={(dtree) => {documentTree = dtree}}/>
                 <DesignTabs reloadDocuments={this.reloadDocuments}/>
             </SplitPane></div>
         );
     }
     
     reloadDocuments() {
-        this.documentTree.loadDocument();
+        documentTree.loadDocuments();
     }
 }
 
