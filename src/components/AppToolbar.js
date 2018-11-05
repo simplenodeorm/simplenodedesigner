@@ -8,6 +8,9 @@ import {clearDocumentDesignData} from './helpers';
 class AppToolbar extends BaseDesignComponent {
     constructor(props) {
         super(props);
+        this.newDocument = this.newDocument.bind(this);
+        this.setup = this.setup.bind(this);
+        this.preferences = this.preferences.bind(this);
     }
     
     
@@ -38,6 +41,7 @@ class AppToolbar extends BaseDesignComponent {
 
     newDocument() {
         clearDocumentDesignData();
+        this.props.setCurrentDocument(config.textmsg.newdocument);
     }
 
     preferences() {

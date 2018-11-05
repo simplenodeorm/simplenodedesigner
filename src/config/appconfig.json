@@ -6,6 +6,7 @@
         "setupmenuname": "Setup",
         "filemenuname": "File",
         "newmenuname": "New",
+        "newdocument": "New",
         "preferencesmenuname": "Preferences",
         "selectdata": "Select Data",
         "formatselections": "Column Settings",

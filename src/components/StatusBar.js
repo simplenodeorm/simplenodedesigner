@@ -1,12 +1,13 @@
 import React from 'react';
 import "../app/App.css";
+import config from '../config/appconfig.json';
 
 class StatusBar extends React.Component {
     constructor(props) {
         super(props);
         
         this.state = {
-            currentDocument: 'New',
+            currentDocument: config.textmsg.newdocument,
             error: '',
             info: ''
         };

@@ -131,6 +131,7 @@ class DocumentTree extends BaseDesignComponent {
                 .then((response) => {
                     if (response.status === 200) {
                         curcomp.loadDocuments()
+                        curcomp.props.setStatus('document deleted', false);
                     } else {
                         curcomp.props.setStatus(response.statusText, true);
                     }
@@ -166,6 +167,7 @@ class DocumentTree extends BaseDesignComponent {
     }
     
     setCurrentDocument(doc) {
+        this.props.setStatus
     }
 }
 

@@ -16,13 +16,15 @@ class HomePage extends React.Component {
     render() {
         return <div>
             <div>
-                <AppToolbar/>
+                <AppToolbar setCurrentDocument={this.setCurrentDocument}/>
                     <br />
                     <SplitPane 
                         split="vertical" 
                         minSize={10} 
                         defaultSize={150}>
-                        <DocumentTree ref={(dtree) => {documentTree = dtree}} setStatus={this.setStatus}/>
+                        <DocumentTree ref={(dtree) => {documentTree = dtree}} 
+                            setStatus={this.setStatus} 
+                            setCurrentDocument={this.setCurrentDocument}/>
                         <DesignTabs reloadDocuments={this.reloadDocuments} setStatus={this.setStatus}/>
                     </SplitPane>
             </div>
@@ -33,6 +35,10 @@ class HomePage extends React.Component {
     
     reloadDocuments() {
         documentTree.loadDocuments();
+    }
+
+    setCurrentDocument(docname) {
+        statusBar.setState({currentDocument: docname});
     }
     
     setStatus(msg, iserr) {
