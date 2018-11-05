@@ -38,7 +38,6 @@ class DesignTabs extends BaseDesignComponent {
         this.onSave = this.onSave.bind(this);
         this.onRun = this.onRun.bind(this);
         this.onHelp = this.onHelp.bind(this);
-        this.onParameterEntryOk = this.onParameterEntryOk.bind(this);
         this.setTabState = this.setTabState.bind(this);
         this.loadParametersAndRun = this.loadParametersAndRun.bind(this);
         this.saveDocument = this.saveDocument.bind(this);
@@ -138,12 +137,8 @@ class DesignTabs extends BaseDesignComponent {
             });     
     }
     
-    onParameterEntryOk(params) {
-        if (params) {
-        }
-    }
-        
     onHelp() {
+        alert("under construction");
     }
     
     onSave() {
