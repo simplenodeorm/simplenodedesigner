@@ -27,7 +27,6 @@ class SqlDisplayPanel extends BaseDesignComponent {
     }
 
     generateSql() {
-        this.setWaitMessage('Generating sql...');
         const curcomp = this;
         const orm = JSON.parse(localStorage.getItem('orm'));
         const config = {
@@ -41,11 +40,9 @@ class SqlDisplayPanel extends BaseDesignComponent {
                 } else {
                     curcomp.setState({error: response.statusText});
                 }
-                
-                curcomp.clearWaitMessage();
             })
             .catch((err) => {
-                curcomp.setState({error: ('' + err), loading: false});
+                curcomp.setState({error: ('' + err)});
                 curcomp.clearWaitMessage();
             });     
     }

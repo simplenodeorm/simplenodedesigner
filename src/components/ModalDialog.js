@@ -28,6 +28,7 @@ class ModalDialog extends BaseDesignComponent {
         document.addEventListener('click', this.clickFunction, true);
     }
     
+    
     onOk() {
         if (this.isComplete()) {
             clearModalContainer(this);
@@ -40,15 +41,15 @@ class ModalDialog extends BaseDesignComponent {
     }
     
     onCancel() {
-        clearModalContainer(this);
         if (this.props.onCancel) {
             this.props.onCancel();
         }
+        clearModalContainer(this);
     }
     
     render() {
-        return <div>{this.getTitle() && <h2>{this.getTitle()}</h2>}
-            {this.getError() && this.state.error && <div className="errorMessage">{this.getError()}</div>}
+        return <div><h2>{this.getTitle()}</h2>
+            {this.state.error && <div className="errorMessage">{this.getError()}</div>}
             {this.getContent()}
             <div className="buttonPanel">
                 <button className="button" onClick={this.onOk}>Ok</button><button className="button" onClick={this.onCancel}>Cancel</button>

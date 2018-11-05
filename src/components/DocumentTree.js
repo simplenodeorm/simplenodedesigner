@@ -17,7 +17,6 @@ class DocumentTree extends BaseDesignComponent {
         super(props);
         
         this.state = {
-            loading: false,
             error: '',
             selectedDocument: ''
         };
@@ -37,8 +36,8 @@ class DocumentTree extends BaseDesignComponent {
     }
 
     render() {
-        const {loading, error, documents} = this.state;
-        if (!loading && !error && documents) {
+        const {error, documents} = this.state;
+        if (!error && documents) {
             let treeData = JSON.parse(JSON.stringify(groups));
             this.traverseDocumentGroups(treeData,  documents);
             
@@ -161,19 +160,18 @@ class DocumentTree extends BaseDesignComponent {
         axios.get(orm.url + '/design/documents', config)
             .then((response) => {
                 if (response.status === 200) {
-                    curcomp.setState({loading: false, documents: response.data});
+                    curcomp.setState({documents: response.data});
                 } else {
-                    curcomp.setState({error: response.statusText, loading: false});
+                    curcomp.setState({error: response.statusText});
                 }
             })
             .catch((err) => {
-                curcomp.setState({error: err.toString(), loading: false});
+                curcomp.setState({error: err.toString()});
             });
 
     }
     
     setCurrentDocument(doc) {
-        alert(doc);
     }
 }
 

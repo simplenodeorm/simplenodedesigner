@@ -16,6 +16,11 @@ class SaveDocumentPanel extends ModalDialog {
         this.onResultFormatChange = this.onResultFormatChange.bind(this);
         this.onDistinctChange = this.onDistinctChange.bind(this);
         this.onNameChange = this.onNameChange.bind(this);
+        
+        this.distinct = false;
+        this.resultFormat = 'object'; 
+        this.authenticator = config.authenticators[0];
+
     }
 
     getIcon(props) {
@@ -97,7 +102,8 @@ class SaveDocumentPanel extends ModalDialog {
     }
         
     isComplete() {
-        return (this.documentName && this.selectedGroup && this.authenticator);
+        let retval = (this.documentName && this.selectedGroup && this.authenticator);
+        return retval;
     }
     
     getError() { 
