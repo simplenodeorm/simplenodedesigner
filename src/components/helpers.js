@@ -18,12 +18,15 @@ var popupMenuClick = function(e) {
 };
 
 export function clearDocumentDesignData() {
-    document.designData.modelHierarchy = '';
-    document.designData.selectedObjectKeys = '';
-    document.designData.selnodes = '';
-    document.designData.whereComparisons = '';
-    document.designData.queryResult = '';
-    document.designData.currentDocument = '';
+    document.designData = {
+        models: '',
+        modelHierarchy: '',
+        selectedObjectKeys: '',
+        selnodes: '',
+        whereComparisons: '',
+        queryResults: '',
+        currentDocument: ''
+    };
 }
     
 export function getFieldType(dbType) {

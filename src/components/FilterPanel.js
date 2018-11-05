@@ -13,7 +13,8 @@ class FilterPanel extends BaseDesignComponent {
         this.state = {
             selectedColumn: document.designData.selnodes[0].__path__,
             filterAdded: false,
-            filterDeleted: false
+            filterDeleted: false,
+            redraw: false
         };
         
         this.onColumnChange = this.onColumnChange.bind(this);
@@ -31,6 +32,7 @@ class FilterPanel extends BaseDesignComponent {
         this.loadSelectedNodesIfRequired();
         this.state.filterAdded = false;
         this.state.filterDeleted = false;
+        this.state.redraw = false;
 
         if (document.designData.whereComparisons 
             && (document.designData.whereComparisons.length > 0)) {

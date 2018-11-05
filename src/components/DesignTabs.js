@@ -16,7 +16,7 @@ import axios from 'axios';
 import {clearDocumentDesignData} from './helpers';
 import {getModalContainer} from './helpers';
 
-
+const tabs = [];
 class DesignTabs extends BaseDesignComponent {
     constructor(props) {
         super(props);
@@ -34,7 +34,8 @@ class DesignTabs extends BaseDesignComponent {
             tabIndex: 0,
             newQueryResults: false
         };    
-        
+
+        this.tabs = [];
         this.onSave = this.onSave.bind(this);
         this.onRun = this.onRun.bind(this);
         this.onHelp = this.onHelp.bind(this);
@@ -90,16 +91,16 @@ class DesignTabs extends BaseDesignComponent {
                         <Tab disabled={tab3Disabled}>{config.textmsg.runquery}</Tab>
                     </TabList>
                     <TabPanel>
-                        <SelectModelDataPanel setTabState={this.setTabState} model={selectedModel} setStatus={this.props.setStatus}/>
+                        <SelectModelDataPanel ref={(tab) => {tabs[0] = tab}} setTabState={this.setTabState} model={selectedModel} setStatus={this.props.setStatus}/>
                     </TabPanel>
                     <TabPanel>
-                        <ColumnSettingsPanel setTabState={this.setTabState}/>
+                        <ColumnSettingsPanel ref={(tab) => {tabs[1] = tab}} setTabState={this.setTabState}/>
                     </TabPanel>
                     <TabPanel>
-                        <FilterPanel setTabState={this.setTabState}/>
+                        <FilterPanel ref={(tab) => {tabs[2] = tab}} setTabState={this.setTabState}/>
                     </TabPanel>
                     <TabPanel>
-                        <QueryPanel newResults={newQueryResults} setStatus={this.props.setStatus}/>
+                        <QueryPanel ref={(tab) => {tabs[3] = tab}} newResults={newQueryResults} setStatus={this.props.setStatus}/>
                     </TabPanel>
                 </Tabs>
             </div>);
@@ -212,6 +213,12 @@ class DesignTabs extends BaseDesignComponent {
                 curcomp.props.setStatus(err.toString(), true);
                 curcomp.clearWaitMessage();
             });
+    }
+    
+    setDocumentLoaded(existing) {
+        for (let i = 0; i < tabs.length; ++i) {
+            tabs[i].setState({redraw: true});
+        }
     }
 }
 

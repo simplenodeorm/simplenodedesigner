@@ -40,8 +40,7 @@ class AppToolbar extends BaseDesignComponent {
     }
 
     newDocument() {
-        clearDocumentDesignData();
-        this.props.setCurrentDocument(config.textmsg.newdocument);
+        this.props.setCurrentDocument();
     }
 
     preferences() {

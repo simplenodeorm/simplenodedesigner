@@ -106,7 +106,7 @@ class DocumentTree extends BaseDesignComponent {
         axios.get(orm.url + '/design/loaddocument/' + selectedDocument, config)
             .then((response) => {
                 if (response.status === 200) {
-                    curcomp.setCurrentDocument(response.data)
+                    curcomp.loadDocumentData(response.data)
                 } else {
                     curcomp.props.setStatus(response.statusText, true);
                 }
@@ -166,8 +166,83 @@ class DocumentTree extends BaseDesignComponent {
 
     }
     
-    setCurrentDocument(doc) {
-        this.props.setStatus
+    loadDocumentData(doc) {
+        this.showWaitMessage('Loading model hierarchy...');
+        const curcomp = this;
+        const seldoc = doc
+        const orm = JSON.parse(localStorage.getItem('orm'));
+        const config = {
+            headers: {'Authorization': orm.authString}
+        };
+
+        curcomp.setState({model: seldoc.document.rootModel});
+        axios.get(orm.url + '/design/modeltree/' + seldoc.document.rootModel, config)
+            .then((response) => {
+                if (response.status === 200) {
+                    curcomp.setCurrentDocument(seldoc, response.data);
+                } else {
+                    curcomp.props.setStatus(response.statusText, true);
+                }
+                
+                curcomp.clearWaitMessage();
+            })
+            .catch((err) => {
+               curcomp.props.setStatus('' + err, true);
+               curcomp.clearWaitMessage();
+            });     
+    }
+
+    setCurrentDocument(doc, data) {
+        document.designData.modelHierarchy = data;
+        document.designData.currentDocument = doc;
+        document.designData.whereComparisons = doc.document.whereComparisons;
+        document.designData.selnodes = [];
+        document.designData.selectedObjectKeys = [];
+        
+        for (let i = 0; i < doc.document.selectedColumns.length; ++i) {
+            let selnode = this.findNode(document.designData.modelHierarchy, doc.document.selectedColumns[i].path);
+            if (selnode) {
+                selnode.__path__ = doc.document.selectedColumns[i].path;
+                selnode.__columnLabel = doc.document.selectedColumns[i].label;
+                selnode.__selectedFunction = doc.document.selectedColumns[i].function;
+                selnode.__sortPosition = doc.document.selectedColumns[i].sortPosition;
+                selnode.__sortDescending = doc.document.selectedColumns[i].sortDescending;
+                selnode.__customColumnInput = doc.document.selectedColumns[i].customInput;
+                document.designData.selnodes.push(selnode);
+                document.designData.selectedObjectKeys.push(selnode.key);
+            }
+        }
+
+        this.clearWaitMessage();
+        this.props.setCurrentDocument(doc.documentName);
+    }
+    
+    findNode(node, path) {
+        let retval;
+        let parts = path.split('\.');
+        let curnode = node;
+        if (parts.length > 1) {
+            for (let i = 0; curnode && (i < (parts.length-1)); ++i) {
+                for (let j = 0; j < curnode.children.length; ++j) {
+                    if (curnode.children[j].fieldName === parts[i]) {
+                        curnode = curnode.children[j];
+                        break;
+                    }
+                }
+            }
+            if (curnode.fieldName === parts[parts.length-1]) {
+                retval = curnode;
+            }
+        } else {
+            for (let i = 0; i < curnode.children.length; ++i) {
+                if (curnode.children[i].fieldName === parts[0]) {
+                    retval = curnode.children[i];
+                    break;
+                }
+            }
+        }
+        
+        return retval;
     }
 }
 

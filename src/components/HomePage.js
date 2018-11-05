@@ -5,12 +5,16 @@ import { DesignTabs } from './DesignTabs';
 import {AppToolbar} from './AppToolbar';
 import {StatusBar} from './StatusBar';
 import '../app/App.css';
+import {clearDocumentDesignData} from './helpers';
+import config from '../config/appconfig.json';
 
 var documentTree;
 var statusBar;
+var designTabs;
 class HomePage extends React.Component {
     constructor(props) {
         super(props);
+        this.setTabState = this.setTabState.bind(this);
     }
 
     render() {
@@ -24,8 +28,12 @@ class HomePage extends React.Component {
                         defaultSize={150}>
                         <DocumentTree ref={(dtree) => {documentTree = dtree}} 
                             setStatus={this.setStatus} 
-                            setCurrentDocument={this.setCurrentDocument}/>
-                        <DesignTabs reloadDocuments={this.reloadDocuments} setStatus={this.setStatus}/>
+                            setCurrentDocument={this.setCurrentDocument}
+                            setTabState={this.setTabState}/>
+                        <DesignTabs 
+                            ref={(dtabs) => {designTabs = dtabs}} 
+                            reloadDocuments={this.reloadDocuments} 
+                            setStatus={this.setStatus}/>
                     </SplitPane>
             </div>
             <StatusBar ref={(status) => {statusBar = status}} />
@@ -38,7 +46,20 @@ class HomePage extends React.Component {
     }
 
     setCurrentDocument(docname) {
-        statusBar.setState({currentDocument: docname});
+        if (!docname) {
+            clearDocumentDesignData();
+            designTabs.setDocumentLoaded(false);
+            designTabs.setTabState(false, true, true, true);
+            statusBar.setState({currentDocument: config.textmsg.newdocument});
+        } else {
+            designTabs.setDocumentLoaded(true);
+            designTabs.setTabState(false, false, false, false);
+            statusBar.setState({currentDocument: docname});
+        }
+    }
+    
+    setTabState(tab0State, tab1State, tab2State, tab3State) {
+        designTabs.setTabState(tab0State, tab1State, tab2State, tab3State);
     }
     
     setStatus(msg, iserr) {

@@ -17,7 +17,8 @@ class SelectModelDataPanel extends BaseDesignComponent {
         super(props);
         setDesignTabState = this.props.setTabState;
         this.state = {
-            model: props.model
+            model: props.model,
+            redraw: false
         };
         
         this.onSelect = this.onSelect.bind(this);
@@ -26,19 +27,17 @@ class SelectModelDataPanel extends BaseDesignComponent {
 
     componentWillReceiveProps(nextProps) {
         const {model} = this.state;
-        if ((nextProps.model !== config.textmsg.modelselectdefault)
-            && (model !== nextProps.model)) {
+        if (model !== nextProps.model) {
             clearDocumentDesignData();
             this.loadModelData(nextProps.model);
         }
     }
 
     render() {
-        const {model} = this.state;
+        const {model, redraw} = this.state;
+        this.state.redraw = false;
         
-        if (model === config.textmsg.modelselectdefault) {
-            return <div></div>;
-        } else if (document.designData.modelHierarchy) {
+        if (document.designData.modelHierarchy) {
             let defaultExpandedKeys = ['t0'];
             if (document.designData.selectedObjectKeys) {
                 defaultExpandedKeys = document.designData.selectedObjectKeys;

@@ -9,7 +9,8 @@ class QueryPanel extends BaseDesignComponent {
     constructor(props) {
         super(props);
         this.state = {
-            newQueryResults: false
+            newQueryResults: false,
+            redraw: false
         };
     }
     
@@ -21,21 +22,18 @@ class QueryPanel extends BaseDesignComponent {
     }
 
     render() {
-        const {error, newQueryResults} = this.state;
-        if (error) {
-            return <div className="errorMessage">{error}</div>;
-        } else {
-            this.state.newQueryResults = false;
-           return <div className="tabSplitPaneContainer">
-                <SplitPane 
-                    split="horizontal" 
-                    minSize={20} 
-                    defaultSize={250}>
-                    <SqlDisplayPanel setStatus={this.props.setStatus}/>
-                    <QueryResultsPanel/>
-                </SplitPane>
-            </div>;
-        }
+        const {newQueryResults} = this.state;
+        this.state.newQueryResults = false;
+        this.state.redraw = false;
+        return <div className="tabSplitPaneContainer">
+             <SplitPane 
+                 split="horizontal" 
+                 minSize={20} 
+                 defaultSize={250}>
+                 <SqlDisplayPanel setStatus={this.props.setStatus}/>
+                 <QueryResultsPanel/>
+             </SplitPane>
+         </div>;
     }
 }
 

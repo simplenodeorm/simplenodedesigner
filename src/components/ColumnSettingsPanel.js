@@ -8,7 +8,8 @@ class ColumnSettingsPanel extends BaseDesignComponent {
         super(props);
         this.loadSelectedNodesIfRequired();
         this.state = {
-            move: false
+            move: false,
+            redraw: false
         };
         
         this.onMove = this.onMove.bind(this);
@@ -18,6 +19,7 @@ class ColumnSettingsPanel extends BaseDesignComponent {
         this.loadSelectedNodesIfRequired();
         
         this.state.move = false;
+        this.state.redraw = false;
 
         let loop = (data) => {
             return data.map((node, i) => {
