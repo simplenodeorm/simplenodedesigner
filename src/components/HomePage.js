@@ -17,9 +17,13 @@ class HomePage extends React.Component {
                 minSize={10} 
                 defaultSize={150}>
                 <DocumentTree/>
-                <DesignTabs/>
+                <DesignTabs reloadDocuments={this.reloadDocuments}/>
             </SplitPane></div>
         );
+    }
+    
+    reloadDocuments() {
+        this.documentTree.loadDocument();
     }
 }
 

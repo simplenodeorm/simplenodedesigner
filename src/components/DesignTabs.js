@@ -171,11 +171,13 @@ class DesignTabs extends BaseDesignComponent {
             .then((response) => {
                 if (response.status === 200) {
                     curcomp.setState({message: 'document saved'});
+                    curcomp.clearWaitMessage();
+                    curcomp.props.reloadDocuments();
                 } else {
+                    curcomp.clearWaitMessage();
                     curcomp.setState({error: response.statusText});
                 }
                 
-                curcomp.clearWaitMessage();
             })
             .catch((err) => {
                 curcomp.setState({error: ('' + err)});

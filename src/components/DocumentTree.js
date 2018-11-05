@@ -8,7 +8,7 @@ import {BaseDesignComponent} from './BaseDesignComponent';
 import axios from 'axios';
 import {clearContextMenu} from './helpers';
 import {getContextMenu} from './helpers';
-
+import {updateState} from './HomePage';
 const qdimage = <img alt="query document" src="/images/querydoc.png"/>;
 const qfimage = <img alt="query folder" src="/images/queryfolder.png"/>;
 
@@ -20,7 +20,7 @@ class DocumentTree extends BaseDesignComponent {
             error: '',
             selectedDocument: ''
         };
-        
+
         this.loadDocuments();
         this.onRightClick = this.onRightClick.bind(this);
         this.editDocument = this.editDocument.bind(this);
@@ -106,17 +106,16 @@ class DocumentTree extends BaseDesignComponent {
             headers: {'Authorization': orm.authString}
         };
 
-        this.setState({loading: true});
         axios.get(orm.url + '/design/loaddocument/' + selectedDocument, config)
             .then((response) => {
                 if (response.status === 200) {
                     curcomp.setCurrentDocument(response.data)
                 } else {
-                    curcomp.setState({error: response.statusText, loading: false});
+                    curcomp.setState({error: response.statusText});
                 }
             })
             .catch((err) => {
-                curcomp.setState({error: err.toString(), loading: false});
+                curcomp.setState({error: err.toString()});
             });
     }
 
@@ -131,17 +130,16 @@ class DocumentTree extends BaseDesignComponent {
                 headers: {'Authorization': orm.authString}
             };
 
-            this.setState({loading: true});
             axios.get(orm.url + '/design/deletedocument/' + selectedDocument, config)
                 .then((response) => {
                     if (response.status === 200) {
                         curcomp.loadDocuments()
                     } else {
-                        curcomp.setState({error: response.statusText, loading: false});
+                        curcomp.setState({error: response.statusText});
                     }
                 })
                 .catch((err) => {
-                    curcomp.setState({error: err.toString(), loading: false});
+                    curcomp.setState({error: err.toString()});
                 });
         }
         this.state.selectedDocument = '';
@@ -156,7 +154,6 @@ class DocumentTree extends BaseDesignComponent {
             headers: {'Authorization': orm.authString}
         };
 
-        this.setState({loading: true});
         axios.get(orm.url + '/design/documents', config)
             .then((response) => {
                 if (response.status === 200) {
