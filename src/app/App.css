@@ -23,6 +23,8 @@
     --query-results-font-color: indigo;
     --sql-text-font-color: indigo;
     --wait-message-font-color: navy;
+    --error-message-color: lightRed;
+    --info-message-color: lightGreen;
     --input-background:linear-gradient(top, #d6d7d7, #dee0e0);
   }
 
@@ -142,22 +144,6 @@ input[type="submit"] {
     box-shadow: inset 0px 1px 0px #2ab7ec, 0px 2px 0px 0px #497a78, 0px 10px 5px #999;
 }
 
-
-.errorMessage {
-    font-size: 12px;
-    height: 20px;
-    margin-left: 20px;
-    text-align: left;
-    color: crimson;
-}
-
-.infoMessage {
-    font-size: 12px;
-    height: 20px;
-    margin-left: 20px;
-    text-align: left;
-    color: green;
-}
 .Resizer {
     background-color: var(--split-resizer-color);
     opacity: .2;
@@ -585,11 +571,19 @@ input[type="checkbox"] {
     margin: 2px;
 }
 
-
 .moveButton {
     cursor: pointer;
     vertical-align: bottom;
     padding: 0;
+    border: none;
+    background: none;
+}
+
+.addFilter {
+    cursor: pointer;
+    vertical-align: middle;
+    padding: 0;
+    margin: 0;
     border: none;
     background: none;
 }
@@ -786,6 +780,43 @@ input[type="checkbox"] {
     position: absolute;
     padding-top: 5px;
 }
+
 .waitMessage img {
     margin: 5px;
 }
+
+.statusBar {
+    position: fixed;
+    background-image: var(--main-color);
+    font-size: var(--small-font-size);
+    z-index: 100; 
+    bottom: 0; 
+    left: 0;
+    width: 100%;
+    padding-left: 5px;
+    white-space: nowrap;
+}
+
+.statusBar .infoMessage {
+    vertical-align: top;
+    background: transparent;
+    color: var(--info-message-color);
+    padding-left: 50%;
+}
+
+.statusBar .errorMessage {
+    background: transparent;
+    color: white;
+    color: var(--error-message-color);
+    padding-right: 10px;
+    padding-left: 50%;
+}
+
+.statusBar .currentDocument {
+    background: transparent;
+    color: white;
+    padding-right: 10px;
+    text-align: right;
+}
+
+

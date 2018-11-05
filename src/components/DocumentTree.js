@@ -17,7 +17,6 @@ class DocumentTree extends BaseDesignComponent {
         super(props);
         
         this.state = {
-            error: '',
             selectedDocument: ''
         };
 
@@ -36,8 +35,8 @@ class DocumentTree extends BaseDesignComponent {
     }
 
     render() {
-        const {error, documents} = this.state;
-        if (!error && documents) {
+        const {documents} = this.state;
+        if (documents) {
             let treeData = JSON.parse(JSON.stringify(groups));
             this.traverseDocumentGroups(treeData,  documents);
             
@@ -51,9 +50,7 @@ class DocumentTree extends BaseDesignComponent {
                   treeData={treeData}></Tree></div>;
 
         } else {
-         return <div className="treeContainer">
-            {error && <div className="errorMessage">{error}</div>}
-            </div>;
+            return <div className="treeContainer"></div>
         }
     }
     
@@ -111,11 +108,11 @@ class DocumentTree extends BaseDesignComponent {
                 if (response.status === 200) {
                     curcomp.setCurrentDocument(response.data)
                 } else {
-                    curcomp.setState({error: response.statusText});
+                    curcomp.props.setStatus(response.statusText, true);
                 }
             })
             .catch((err) => {
-                curcomp.setState({error: err.toString()});
+                curcomp.props.setStatus(err.toString(), true);
             });
     }
 
@@ -135,11 +132,11 @@ class DocumentTree extends BaseDesignComponent {
                     if (response.status === 200) {
                         curcomp.loadDocuments()
                     } else {
-                        curcomp.setState({error: response.statusText});
+                        curcomp.props.setStatus(response.statusText, true);
                     }
                 })
                 .catch((err) => {
-                    curcomp.setState({error: err.toString()});
+                    curcomp.props.setStatus(err.toString(), true);
                 });
         }
         this.state.selectedDocument = '';
@@ -159,11 +156,11 @@ class DocumentTree extends BaseDesignComponent {
                 if (response.status === 200) {
                     curcomp.setState({documents: response.data});
                 } else {
-                    curcomp.setState({error: response.statusText});
+                    curcomp.props.setStatus(response.statusText, true);
                 }
             })
             .catch((err) => {
-                curcomp.setState({error: err.toString()});
+                curcomp.setStatus(err.toString(), true);
             });
 
     }

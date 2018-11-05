@@ -17,8 +17,7 @@ class SelectModelDataPanel extends BaseDesignComponent {
         super(props);
         setDesignTabState = this.props.setTabState;
         this.state = {
-            model: props.model,
-            error: ''
+            model: props.model
         };
         
         this.onSelect = this.onSelect.bind(this);
@@ -35,11 +34,9 @@ class SelectModelDataPanel extends BaseDesignComponent {
     }
 
     render() {
-        const {model, error} = this.state;
+        const {model} = this.state;
         
-        if (error) {
-            return <div className="errorMessage">{error}</div>;
-        } else if (model === config.textmsg.modelselectdefault) {
+        if (model === config.textmsg.modelselectdefault) {
             return <div></div>;
         } else if (document.designData.modelHierarchy) {
             let defaultExpandedKeys = ['t0'];
@@ -111,13 +108,13 @@ class SelectModelDataPanel extends BaseDesignComponent {
                     document.designData.modelHierarchy = response.data;
                     curcomp.setState({model: inputModel});
                 } else {
-                    curcomp.setState({error: response.statusText});
+                    curcomp.props.setStatus(response.statusText, true);
                 }
                 
                 curcomp.clearWaitMessage();
             })
             .catch((err) => {
-               curcomp.setState({error: ('' + err)});
+               curcomp.props.setStatus('' + err, true);
                curcomp.clearWaitMessage();
             });     
     }

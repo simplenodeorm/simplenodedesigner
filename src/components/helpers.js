@@ -62,8 +62,12 @@ export function getFieldType(dbType) {
 }
 
 export function clearContextMenu() {
-    document.removeEventListener('click', popupMenuClick, true);
-    document.body.removeChild(document.getElementById('ctxmenu'));
+    let cm = document.getElementById('ctxmenu');
+    
+    if (cm) {
+        document.removeEventListener('click', popupMenuClick, true);
+        document.body.removeChild(cm);
+    }
 }
 
 export function getContextMenu(info) {
@@ -94,8 +98,11 @@ export function getModalContainer(rc) {
 }
 
 export function clearModalContainer(mc) {
-    document.removeEventListener('click', mc.clickFunction, true);
-    document.body.removeChild(document.getElementById('modalcontainer'));
+    const mcdom = document.getElementById('modalcontainer');
+    if (mcdom) {
+        document.removeEventListener('click', mc.clickFunction, true);
+        document.body.removeChild(mcdom);
+    }
 }
 
 export function getWaitMessage() {
@@ -117,7 +124,7 @@ export function removeWaitMessage() {
     let e = document.getElementById('waitmsg');
     if (e) {
         document.removeEventListener('click', e.waitMessageClick, true);
-        document.body.removeChild(document.getElementById('waitmsg'));
+        document.body.removeChild(e);
     }
 }
 

@@ -20,10 +20,8 @@ class QueryResultsPanel extends BaseDesignComponent {
     }
 
     render() {
-        const {error, newQueryResults} = this.state;
-        if (error) {
-            return <div className="tabChildContainer"><div className="errorMessage">{error}</div></div>;
-        } else if (document.designData.queryResults) {
+        const {newQueryResults} = this.state;
+        if (document.designData.queryResults) {
             this.state.newQueryResults = false;
             return <div className="tabChildContainer"><div className="formattedJson"><pre>{this.formatJson()}</pre></div></div>;
         } else {

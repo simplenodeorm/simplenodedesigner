@@ -12,8 +12,6 @@ class ColumnSettingsLine extends React.Component {
         super(props);
 
         this.state = {
-            loading: false,
-            error: '',
             moved: false
         };
         

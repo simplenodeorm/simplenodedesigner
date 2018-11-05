@@ -11,7 +11,6 @@ class FilterPanel extends BaseDesignComponent {
         super(props);
         this.loadSelectedNodesIfRequired();
         this.state = {
-            error: '',
             selectedColumn: document.designData.selnodes[0].__path__,
             filterAdded: false,
             filterDeleted: false
@@ -23,7 +22,6 @@ class FilterPanel extends BaseDesignComponent {
     }
 
     render() {
-        const {error} = this.state;
         const setTabState = this.props.setTabState;
         const loop = (data) => {
             return data.map((node, i) => {
@@ -34,10 +32,8 @@ class FilterPanel extends BaseDesignComponent {
         this.state.filterAdded = false;
         this.state.filterDeleted = false;
 
-        if (error) {
-            return <div className="errorMessage">{error}</div>;
-        } else if (document.designData.whereComparisons 
-                && (document.designData.whereComparisons.length > 0)) {
+        if (document.designData.whereComparisons 
+            && (document.designData.whereComparisons.length > 0)) {
             
             return <div className="tabContainer">
                 <AddFilterColumn onColumnChange={this.onColumnChange} addColumn={this.addColumn}/>

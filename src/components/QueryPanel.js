@@ -9,7 +9,6 @@ class QueryPanel extends BaseDesignComponent {
     constructor(props) {
         super(props);
         this.state = {
-            error: '',
             newQueryResults: false
         };
     }
@@ -32,7 +31,7 @@ class QueryPanel extends BaseDesignComponent {
                     split="horizontal" 
                     minSize={20} 
                     defaultSize={250}>
-                    <SqlDisplayPanel/>
+                    <SqlDisplayPanel setStatus={this.props.setStatus}/>
                     <QueryResultsPanel/>
                 </SplitPane>
             </div>;

@@ -2,45 +2,51 @@ import React from 'react';
 import Toolbar from './Toolbar';
 import '../app/App.css';
 import config from '../config/appconfig';
+import {BaseDesignComponent} from './BaseDesignComponent';
 import {clearDocumentDesignData} from './helpers';
 
-const menu =  [
-    {
-        text: config.textmsg.filemenuname,
-        items: [
-        {
-            text: config.textmsg.newmenuname,
-            callback: newDocument
-        },
-
-        {
-            text: config.textmsg.setupmenuname,
-            callback: setup
-        },
-        {
-            text: config.textmsg.preferencesmenuname,
-            callback: preferences
-        }
-        ]
+class AppToolbar extends BaseDesignComponent {
+    constructor(props) {
+        super(props);
     }
-];
+    
+    
+    render() {
+        const menu =  [
+            {
+                text: config.textmsg.filemenuname,
+                items: [
+                {
+                    text: config.textmsg.newmenuname,
+                    callback: this.newDocument
+                },
 
-function AppToolbar() {
-    const orm = JSON.parse(localStorage.getItem('orm'));
-    return (<Toolbar menu={menu} brand={orm.name} logo="logo.png"></Toolbar>);
+                {
+                    text: config.textmsg.setupmenuname,
+                    callback: this.setup
+                },
+                {
+                    text: config.textmsg.preferencesmenuname,
+                    callback: this.preferences
+                }
+                ]
+            }
+        ];
+        const orm = JSON.parse(localStorage.getItem('orm'));
+        return <Toolbar menu={menu} brand={orm.name} logo="logo.png"></Toolbar>
+    }
+
+    newDocument() {
+        clearDocumentDesignData();
+    }
+
+    preferences() {
+        alert("under construction");
+    }
+
+    setup() {
+        alert("under construction");
+    }
 }
 
-function newDocument() {
-    clearDocumentDesignData();
-}
-
-function preferences() {
-    alert("under construction");
-}
-
-function setup() {
-    alert("under construction");
-}
-
-
-export default AppToolbar;
+export {AppToolbar};

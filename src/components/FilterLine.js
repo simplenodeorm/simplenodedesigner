@@ -11,10 +11,6 @@ import {CustomFilterInput} from './CustomFilterInput';
 class FilterLine extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {
-            error: ''
-        };
-        
         this.onDelete = this.onDelete.bind(this);
         this.setValue = this.setValue.bind(this);
         this.getValue = this.getValue.bind(this);

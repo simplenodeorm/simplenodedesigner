@@ -32,9 +32,7 @@ class DesignTabs extends BaseDesignComponent {
             modelsLoaded: false,
             selectedModel: config.textmsg.modelselectdefault,
             tabIndex: 0,
-            newQueryResults: false,
-            message: '',
-            error: ''
+            newQueryResults: false
         };    
         
         this.onSave = this.onSave.bind(this);
@@ -64,21 +62,15 @@ class DesignTabs extends BaseDesignComponent {
 
     render() {
         const {tab0Disabled, tab1Disabled, tab2Disabled, tab3Disabled, 
-            error, message, selectedModel, sidebarOpen, 
-            newQueryResults} = this.state;
+            selectedModel, sidebarOpen, newQueryResults} = this.state;
         
         if (newQueryResults) {
             this.state.newQueryResults = false;
         }
         
-        this.state.error = '';
-        this.state.message = '';
-        
         let retval = (
             <div className="tabSetContainer"> 
                 <MenuButton text={selectedModel} 
-                    error={error} 
-                    message={message}
                     saveDisabled={tab3Disabled}
                     onSave={this.onSave}
                     onRun={this.onRun}
@@ -99,7 +91,7 @@ class DesignTabs extends BaseDesignComponent {
                         <Tab disabled={tab3Disabled}>{config.textmsg.runquery}</Tab>
                     </TabList>
                     <TabPanel>
-                        <SelectModelDataPanel setTabState={this.setTabState} model={selectedModel}/>
+                        <SelectModelDataPanel setTabState={this.setTabState} model={selectedModel} setStatus={this.props.setStatus}/>
                     </TabPanel>
                     <TabPanel>
                         <ColumnSettingsPanel setTabState={this.setTabState}/>
@@ -108,7 +100,7 @@ class DesignTabs extends BaseDesignComponent {
                         <FilterPanel setTabState={this.setTabState}/>
                     </TabPanel>
                     <TabPanel>
-                        <QueryPanel newResults={newQueryResults}/>
+                        <QueryPanel newResults={newQueryResults} setStatus={this.props.setStatus}/>
                     </TabPanel>
                 </Tabs>
             </div>);
@@ -135,13 +127,13 @@ class DesignTabs extends BaseDesignComponent {
                     document.designData.queryResults = response.data;
                     curcomp.setState({newQueryResults: true});
                 } else {
-                    curcomp.setState({error: response.statusText});
+                    curcomp.props.setStatus(response.statusText, true);
                 }
                 
                 curcomp.clearWaitMessage();
             })
             .catch((err) => {
-                curcomp.setState({error: ('' + err)});
+                curcomp.props.setStatus('' + err, true);
                 curcomp.clearWaitMessage();
             });     
     }
@@ -170,17 +162,17 @@ class DesignTabs extends BaseDesignComponent {
         axios.post(orm.url + '/design/savequery', this.getQueryDocument(params), config)
             .then((response) => {
                 if (response.status === 200) {
-                    curcomp.setState({message: 'document saved'});
+                    curcomp.props.setStatus('document saved', false);
                     curcomp.clearWaitMessage();
                     curcomp.props.reloadDocuments();
                 } else {
                     curcomp.clearWaitMessage();
-                    curcomp.setState({error: response.statusText});
+                    curcomp.props.setStatus(response.statusText, true);
                 }
                 
             })
             .catch((err) => {
-                curcomp.setState({error: ('' + err)});
+                curcomp.props.setStatus('' + err, true);
                 curcomp.clearWaitMessage();
             });     
     }
@@ -205,7 +197,6 @@ class DesignTabs extends BaseDesignComponent {
             headers: {'Authorization': orm.authString}
         };
 
-        this.setState({loading: true});
         axios.get(orm.url + '/design/modelnames', config)
             .then((response) => {
                 if (response.status === 200) {
@@ -217,13 +208,13 @@ class DesignTabs extends BaseDesignComponent {
                     document.designData.models = <div className="sidebarContainer">{modelLoop(response.data)}</div>;
                     curcomp.setState({sidebarOpen: true});
                 } else {
-                    curcomp.setState({error: response.statusText});
+                    curcomp.props.setStatus(response.statusText, true);
                 }
                 
                 curcomp.clearWaitMessage();
             })
             .catch((err) => {
-                curcomp.setState({error: err.toString()});
+                curcomp.props.setStatus(err.toString(), true);
                 curcomp.clearWaitMessage();
             });
     }

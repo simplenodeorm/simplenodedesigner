@@ -8,7 +8,6 @@ class ColumnSettingsPanel extends BaseDesignComponent {
         super(props);
         this.loadSelectedNodesIfRequired();
         this.state = {
-            error: '',
             move: false
         };
         
@@ -16,21 +15,16 @@ class ColumnSettingsPanel extends BaseDesignComponent {
     }
 
     render() {
-        const {error} = this.state;
         this.loadSelectedNodesIfRequired();
         
-        if (error) {
-            return <div className="errorMessage">{error}</div>;
-        } else {
-            this.state.move = false;
+        this.state.move = false;
 
-            let loop = (data) => {
-                return data.map((node, i) => {
-                    return <ColumnSettingsLine key={node.key} index={i} nodeCount={this.getNodeCount} onMove={this.onMove}/>;
-                   });};
+        let loop = (data) => {
+            return data.map((node, i) => {
+                return <ColumnSettingsLine key={node.key} index={i} nodeCount={this.getNodeCount} onMove={this.onMove}/>;
+               });};
 
-            return (<div className="tabContainer">{loop(document.designData.selnodes)}</div>);
-        }
+        return (<div className="tabContainer">{loop(document.designData.selnodes)}</div>);
     }
     
     onMove(index, inc) {
