@@ -146,7 +146,7 @@ input[type="submit"] {
 
 .Resizer {
     background-color: var(--split-resizer-color);
-    opacity: .2;
+    opacity: .4;
     z-index: 1;
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
@@ -162,8 +162,10 @@ input[type="submit"] {
 }
 
 .Resizer.horizontal {
-    height: 13px;
+    height: 12px;
     margin: -3px 0;
+    opacity: 0.7;
+    background-color: black;
     border-top: 5px solid rgba(255, 255, 255, 0);
     border-bottom: 5px solid rgba(255, 255, 255, 0);
     cursor: row-resize;
@@ -176,7 +178,7 @@ input[type="submit"] {
 }
 
 .Resizer.vertical {
-    width: 10px;
+    width: 7px;
     margin: 0 -5px;
     border-left: 5px solid rgba(255, 255, 255, 0);
     border-right: 5px solid rgba(255, 255, 255, 0);
