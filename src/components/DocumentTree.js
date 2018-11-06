@@ -224,21 +224,18 @@ class DocumentTree extends BaseDesignComponent {
         if (parts.length > 1) {
             for (let i = 0; curnode && (i < (parts.length-1)); ++i) {
                 for (let j = 0; j < curnode.children.length; ++j) {
-                    if (curnode.children[j].fieldName === parts[i]) {
+                    if (curnode.children[j].title === parts[i]) {
                         curnode = curnode.children[j];
                         break;
                     }
                 }
             }
-            if (curnode.fieldName === parts[parts.length-1]) {
-                retval = curnode;
-            }
-        } else {
-            for (let i = 0; i < curnode.children.length; ++i) {
-                if (curnode.children[i].fieldName === parts[0]) {
-                    retval = curnode.children[i];
-                    break;
-                }
+        }
+        
+        for (let i = 0; i < curnode.children.length; ++i) {
+            if (curnode.children[i].title === parts[parts.length-1]) {
+                retval = curnode.children[i];
+                break;
             }
         }
         
