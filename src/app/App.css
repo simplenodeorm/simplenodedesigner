@@ -23,7 +23,7 @@
     --query-results-font-color: indigo;
     --sql-text-font-color: indigo;
     --wait-message-font-color: navy;
-    --error-message-color: lightRed;
+    --error-message-color: red;
     --info-message-color: lightGreen;
     --input-background:linear-gradient(top, #d6d7d7, #dee0e0);
   }

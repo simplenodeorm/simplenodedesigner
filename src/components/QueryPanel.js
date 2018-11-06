@@ -31,7 +31,7 @@ class QueryPanel extends BaseDesignComponent {
                  minSize={20} 
                  defaultSize={250}>
                  <SqlDisplayPanel setStatus={this.props.setStatus}/>
-                 <QueryResultsPanel/>
+                 <QueryResultsPanel setStatus={this.props.setStatus}/>
              </SplitPane>
          </div>;
     }

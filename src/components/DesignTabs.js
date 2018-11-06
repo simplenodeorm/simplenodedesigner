@@ -64,9 +64,7 @@ class DesignTabs extends BaseDesignComponent {
         const {tab0Disabled, tab1Disabled, tab2Disabled, tab3Disabled, 
             selectedModel, sidebarOpen, newQueryResults} = this.state;
         
-        if (newQueryResults) {
-            this.state.newQueryResults = false;
-        }
+        this.state.newQueryResults = false;
         
         let retval = (
             <div className="tabSetContainer"> 
@@ -83,7 +81,8 @@ class DesignTabs extends BaseDesignComponent {
                     onSetOpen={this.onSetSidebarOpen}>
                 </Sidebar> }
                 
-                <Tabs selectedIndex={this.state.tabIndex} onSelect={tabIndex => this.setState({ tabIndex })}> 
+                <Tabs selectedIndex={this.state.tabIndex} 
+                    onSelect={tabIndex => this.setState({ tabIndex })}> 
                     <TabList>
                         <Tab disabled={tab0Disabled}>{config.textmsg.selectdata}</Tab>
                         <Tab disabled={tab1Disabled}>{config.textmsg.formatselections}</Tab>
@@ -91,16 +90,23 @@ class DesignTabs extends BaseDesignComponent {
                         <Tab disabled={tab3Disabled}>{config.textmsg.runquery}</Tab>
                     </TabList>
                     <TabPanel>
-                        <SelectModelDataPanel ref={(tab) => {tabs[0] = tab}} setTabState={this.setTabState} model={selectedModel} setStatus={this.props.setStatus}/>
+                        <SelectModelDataPanel ref={(tab) => {tabs[0] = tab}} 
+                            setTabState={this.setTabState} 
+                            model={selectedModel} 
+                            setStatus={this.props.setStatus}/>
                     </TabPanel>
                     <TabPanel>
-                        <ColumnSettingsPanel ref={(tab) => {tabs[1] = tab}} setTabState={this.setTabState}/>
+                        <ColumnSettingsPanel ref={(tab) => {tabs[1] = tab}} 
+                            setTabState={this.setTabState}/>
                     </TabPanel>
                     <TabPanel>
-                        <FilterPanel ref={(tab) => {tabs[2] = tab}} setTabState={this.setTabState}/>
+                        <FilterPanel ref={(tab) => {tabs[2] = tab}} 
+                            setTabState={this.setTabState}/>
                     </TabPanel>
                     <TabPanel>
-                        <QueryPanel ref={(tab) => {tabs[3] = tab}} newResults={newQueryResults} setStatus={this.props.setStatus}/>
+                        <QueryPanel ref={(tab) => {tabs[3] = tab}} 
+                            newResults={newQueryResults} 
+                            setStatus={this.props.setStatus}/>
                     </TabPanel>
                 </Tabs>
             </div>);
@@ -217,7 +223,11 @@ class DesignTabs extends BaseDesignComponent {
     
     setDocumentLoaded(existing) {
         for (let i = 0; i < tabs.length; ++i) {
-            tabs[i].setState({redraw: true});
+            try {
+                tabs[i].setState({redraw: true});
+            }
+            
+            catch (e) {};
         }
     }
 }

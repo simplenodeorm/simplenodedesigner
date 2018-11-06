@@ -46,15 +46,17 @@ class HomePage extends React.Component {
     }
 
     setCurrentDocument(docname) {
-        if (!docname) {
-            clearDocumentDesignData();
-            designTabs.setDocumentLoaded(false);
-            designTabs.setTabState(false, true, true, true);
-            statusBar.setState({currentDocument: config.textmsg.newdocument});
-        } else {
+        if (docname) {
+            designTabs.setState({tab0Disabled: false, tab1Disabled: false, 
+                tab2Disabled: false, tab3Disabled: false, tabIndex: 0, tabStateChanged: true});
             designTabs.setDocumentLoaded(true);
-            designTabs.setTabState(false, false, false, false);
             statusBar.setState({currentDocument: docname});
+        } else {
+            clearDocumentDesignData();
+            designTabs.setState({tab0Disabled: false, tab1Disabled: true, tab2Disabled: true, 
+                tab3Disabled: true, tabIndex: 0, tabStateChanged: true});
+            designTabs.setDocumentLoaded(false);
+            statusBar.setState({currentDocument: config.textmsg.newdocument});
         }
     }
     

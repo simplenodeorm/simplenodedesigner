@@ -35,6 +35,7 @@ class SqlDisplayPanel extends BaseDesignComponent {
                 } else {
                     curcomp.props.setStatus(response.statusText, true);
                 }
+                curcomp.clearWaitMessage();
             })
             .catch((err) => {
                 curcomp.props.setStatus('' + err, true);

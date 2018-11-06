@@ -74,6 +74,7 @@ export function clearContextMenu() {
 }
 
 export function getContextMenu(info) {
+    clearContextMenu();
     const retval = document.createElement('div');
     retval.className = 'popupMenu';
     retval.id = 'ctxmenu';
