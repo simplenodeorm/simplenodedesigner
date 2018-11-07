@@ -56,7 +56,7 @@ class HomePage extends React.Component {
             designTabs.setState({tab0Disabled: false, tab1Disabled: true, tab2Disabled: true, 
                 tab3Disabled: true, tabIndex: 0, tabStateChanged: true});
             designTabs.setDocumentLoaded(false);
-            statusBar.setState({currentDocument: config.textmsg.newdocument});
+            statusBar.setState({currentDocument: config.textmsg.newdocument, error: '', inf0: ''});
         }
     }
     

@@ -52,6 +52,8 @@ class DesignTabs extends BaseDesignComponent {
         } else {
             this.state.tabIndex = 0;
             clearDocumentDesignData();
+            this.props.setStatus('', true);
+            this.props.setStatus('', false);
             if (model) {
                 this.setState({sidebarOpen: open, tab0Disabled: false, tab1Disabled: true, tab2Disabled: true, tab3Disabled: true, selectedModel: model});
             } else {
