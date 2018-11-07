@@ -812,6 +812,14 @@ input[type="checkbox"] {
     padding-left: 50%;
 }
 
+.errorDisplay {
+    background: transparent;
+    color: white;
+    color: var(--error-message-color);
+    padding-right: 10px;
+    padding-left: 10px;
+}
+
 .statusBar .currentDocument {
     background: transparent;
     color: white;

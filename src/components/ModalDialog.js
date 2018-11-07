@@ -49,7 +49,7 @@ class ModalDialog extends BaseDesignComponent {
     
     render() {
         return <div><h2>{this.getTitle()}</h2>
-            {this.state.error && <div className="errorMessage">{this.getError()}</div>}
+            {this.state.error && <div className="errorDisplay">{this.getError()}</div>}
             {this.getContent()}
             <div className="buttonPanel">
                 <button className="button" onClick={this.onOk}>Ok</button><button className="button" onClick={this.onCancel}>Cancel</button>
