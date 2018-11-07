@@ -64,12 +64,18 @@ class DesignTabs extends BaseDesignComponent {
     render() {
         const {tab0Disabled, tab1Disabled, tab2Disabled, tab3Disabled, 
             selectedModel, sidebarOpen, newQueryResults} = this.state;
+            
+        let curModel = selectedModel;
+        if (document.designData.currentDocument) {
+            curModel = document.designData.currentDocument.document.rootModel;
+            this.state.selectedModel = curModel;
+        }
         
         this.state.newQueryResults = false;
         
         let retval = (
             <div className="tabSetContainer"> 
-                <MenuButton text={selectedModel} 
+                <MenuButton text={curModel} 
                     saveDisabled={tab3Disabled}
                     onSave={this.onSave}
                     onRun={this.onRun}
