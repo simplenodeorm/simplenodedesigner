@@ -38,7 +38,6 @@ class DesignTabs extends BaseDesignComponent {
         this.tabs = [];
         this.onSave = this.onSave.bind(this);
         this.onRun = this.onRun.bind(this);
-        this.onHelp = this.onHelp.bind(this);
         this.setTabState = this.setTabState.bind(this);
         this.loadParametersAndRun = this.loadParametersAndRun.bind(this);
         this.saveDocument = this.saveDocument.bind(this);
@@ -133,7 +132,7 @@ class DesignTabs extends BaseDesignComponent {
             .then((response) => {
                 if (response.status === 200) {
                     document.designData.queryResults = response.data;
-                    curcomp.setState({newQueryResults: true});
+                    curcomp.setState({newQueryResults: true, tabIndex: 3});
                 } else {
                     curcomp.props.setStatus(response.statusText, true);
                 }
@@ -144,10 +143,6 @@ class DesignTabs extends BaseDesignComponent {
                 curcomp.props.setStatus('' + err, true);
                 curcomp.clearWaitMessage();
             });     
-    }
-    
-    onHelp() {
-        
     }
     
     onSave() {
