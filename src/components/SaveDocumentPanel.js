@@ -113,6 +113,7 @@ class SaveDocumentPanel extends ModalDialog {
 
     getResult() {
         return { 
+            interactice: false,
             documentName: this.documentName, 
             group: this.selectedGroup, 
             distinct: this.distinct, 

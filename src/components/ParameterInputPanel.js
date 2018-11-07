@@ -118,6 +118,7 @@ class ParameterInputPanel extends ModalDialog {
     
     getResult() {
         return { 
+            interactive: true,
             distinct: this.distinct,
             resultFormat: this.resultFormat, 
             validityCheckOnly: this.validityCheckOnly, 

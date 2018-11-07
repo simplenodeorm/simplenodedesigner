@@ -67,6 +67,7 @@ class BaseDesignComponent extends React.Component {
         }
         
         return {
+            interactive: params.interactive,
             distinct: params.distinct,
             authenticator: params.authenticator,
             documentName: params.documentName,
