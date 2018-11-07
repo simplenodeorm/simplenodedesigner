@@ -147,7 +147,7 @@ class DesignTabs extends BaseDesignComponent {
     }
     
     onHelp() {
-        alert("under construction");
+        
     }
     
     onSave() {
