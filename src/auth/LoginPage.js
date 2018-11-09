@@ -78,7 +78,7 @@ class LoginPage extends BaseDesignComponent {
         return (
             <div>
                 <h1>{config.textmsg.logintitletext}</h1>
-                <div className="errorMessage">{error}</div>
+                <div className="errorDisplay">{error}</div>
                 <div className="login">
                     <h2>Design Login</h2>
                     <form name="form" onSubmit={this.handleSubmit}>
