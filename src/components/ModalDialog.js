@@ -48,16 +48,19 @@ class ModalDialog extends BaseDesignComponent {
     }
     
     render() {
+        const {error} = this.state;
         return <div><h2>{this.getTitle()}</h2>
-            {this.state.error && <div className="errorDisplay">{this.getError()}</div>}
+            {error && <div className="errorDisplay">{this.getError()}</div>}
             {this.getContent()}
             <div className="buttonPanel">
                 <button className="button" onClick={this.onOk}>Ok</button><button className="button" onClick={this.onCancel}>Cancel</button>
             </div>
+            {this.resetError()}
         </div>;
     }
     
     isComplete() { return true; };
+    resetError() { this.state.error = false; }
     getTitle() { return 'Modal Dialog'; };
     getResult() {};
     getError() { return 'Please complete all required entries';}

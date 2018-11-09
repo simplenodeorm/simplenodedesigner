@@ -22,11 +22,14 @@ class ParameterInputPanel extends ModalDialog {
     }
 
     getContent() {
+        const initParams = (this.params.length === 0);
         const inputLoop = (data) => {
             let ipos = 0;
             return data.map((p, i) => {
                 if (!p.comparisonValue && !isUnaryOperator(p.comparisonOperator) && !p.customFilterInput) {
-                    this.params.push('');
+                    if (initParams) {
+                        this.params.push('');
+                    }
                     let pos = p.fieldName.lastIndexOf('.');
                     this.comparisonOperators.push(p.comparisonOperator);
                     return <tr><td title={p.fieldName} className="inputLabel">{p.fieldName.substring(pos+1) + ':'}</td><td>
