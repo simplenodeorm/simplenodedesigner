@@ -26,6 +26,7 @@
     --error-message-color: red;
     --info-message-color: lightGreen;
     --input-background:linear-gradient(top, #d6d7d7, #dee0e0);
+    --sidebar-hover-text-color: khaki;
   }
 
 html {
@@ -55,6 +56,7 @@ body {
     transition: all .4s ease-in-out;
     white-space: nowrap;
 }
+
 .popupMenu:hover {
     -moz-box-shadow:0 0 5px #999; 
     -webkit-box-shadow:0 0 5px #999; 
@@ -435,10 +437,13 @@ input[type="submit"] {
 }
 
 .sidebarContainer button:hover {
-   color:var(--text-hover);
+   color: var(--sidebar-hover-text-color);
+   text-align: left;
+   height: 25px;
+   padding-left: 5px;
    background: var(--popup-background);
    width: 100%;
-   font-size: var(--med-font-size);
+   font-size: var(--default-font-size);
    margin: 4px;
 }
 
