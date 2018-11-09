@@ -35,7 +35,6 @@ class DesignTabs extends BaseDesignComponent {
             newQueryResults: false
         };    
 
-        this.tabs = [];
         this.onSave = this.onSave.bind(this);
         this.onRun = this.onRun.bind(this);
         this.setTabState = this.setTabState.bind(this);
