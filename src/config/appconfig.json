@@ -27,5 +27,6 @@
         "distinct": "Distinct",
         "documentnamelabel": "Document Name:"
     },
-    "authenticators": ["DefaultAuthorizer"]
+    "authenticators": ["DefaultAuthorizer"],
+    "defaultDesignAuthenticator": "DefaultAuthorizer"
 }
