@@ -4,6 +4,7 @@ import axios from 'axios';
 import {BaseDesignComponent} from './BaseDesignComponent';
 import {SqlFormatter} from './SqlFormatter';
 import {ClipboardButton} from './ClipboardButton';
+import {clearSelectedText} from './helpers';
 
 class SqlDisplayPanel extends BaseDesignComponent {
     constructor(props) {
@@ -47,8 +48,25 @@ class SqlDisplayPanel extends BaseDesignComponent {
     }
     
     onCopyToClipboard() {
-        const {sql} = this.state;
-        navigator.clipboard.writeText(sql);
+        let e = document.getElementsByClassName('formattedSql')[0];
+        try {
+            if (e) {
+                if (document.selection) { // IE
+                    var range = document.body.createTextRange();
+                    range.moveToElementText(e);
+                    range.select();
+                } else if (window.getSelection) {
+                    var range = document.createRange();
+                    range.selectNode(e);
+                    window.getSelection().removeAllRanges();
+                    window.getSelection().addRange(range);
+                }
+
+                document.execCommand('copy');
+                clearSelectedText();
+                
+            }
+        } catch (err) {};
     }
 }
 
