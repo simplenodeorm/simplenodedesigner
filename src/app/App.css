@@ -437,6 +437,8 @@ input[type="submit"] {
 .sidebarContainer button:hover {
    color:var(--text-hover);
    background: var(--popup-background);
+   width: 100%;
+   font-size: var(--med-font-size);
    margin: 4px;
 }
 
