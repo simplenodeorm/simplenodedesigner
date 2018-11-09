@@ -60,7 +60,7 @@ class DesignTabs extends BaseDesignComponent {
             }
         }
     }
-
+    
     render() {
         const {tab0Disabled, tab1Disabled, tab2Disabled, tab3Disabled, 
             selectedModel, sidebarOpen, newQueryResults} = this.state;
@@ -182,10 +182,6 @@ class DesignTabs extends BaseDesignComponent {
             });     
     }
 
-    onTabSelected(index, lastIndex) {
-        this.selectedIndex = index;
-    }
-    
     setTabState(tab0, tab1, tab2, tab3) {
         this.setState({tab0Disabled: tab0, tab1Disabled: tab1, tab2Disabled: tab2, tab3Disabled: tab3, tabStateChanged: true});
     }
