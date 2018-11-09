@@ -3,6 +3,7 @@ import "../app/App.css";
 import axios from 'axios';
 import {BaseDesignComponent} from './BaseDesignComponent';
 import {SqlFormatter} from './SqlFormatter';
+import {ClipboardButton} from './ClipboardButton';
 
 class SqlDisplayPanel extends BaseDesignComponent {
     constructor(props) {
@@ -10,6 +11,8 @@ class SqlDisplayPanel extends BaseDesignComponent {
         this.state = {
             sql: ''
         };
+        
+        this.onCopyToClipboard = this.onCopyToClipboard.bind(this);
     }
 
     render() {
@@ -18,7 +21,7 @@ class SqlDisplayPanel extends BaseDesignComponent {
             this.generateSql();
         }
         
-        return <div className="tabChildContainer"><SqlFormatter sql={sql}/></div>;
+        return <div className="tabChildContainer"><ClipboardButton onCopyToClipboard={this.onCopyToClipboard}/><SqlFormatter sql={sql}/></div>;
     }
 
     generateSql() {
@@ -42,7 +45,11 @@ class SqlDisplayPanel extends BaseDesignComponent {
                 curcomp.clearWaitMessage();
             });     
     }
-
+    
+    onCopyToClipboard() {
+        const {sql} = this.state;
+        navigator.clipboard.writeText(sql);
+    }
 }
 
     
