@@ -25,6 +25,12 @@ class SelectModelDataPanel extends BaseDesignComponent {
         this.onCheck = this.onCheck.bind(this);
     }
 
+    componentDidMount() {
+        const {model} = this.state;
+        if (model) {
+            this.loadModelData(model);
+        }
+    }
     componentWillReceiveProps(nextProps) {
         const {model} = this.state;
         if (model !== nextProps.model) {

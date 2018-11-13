@@ -33,7 +33,8 @@ class HomePage extends React.Component {
                         <DesignTabs 
                             ref={(dtabs) => {designTabs = dtabs}} 
                             reloadDocuments={this.reloadDocuments} 
-                            setStatus={this.setStatus}/>
+                            setStatus={this.setStatus}
+                            setCurrentDocument={this.setCurrentDocument}/>
                     </SplitPane>
             </div>
             <StatusBar ref={(status) => {statusBar = status}} />

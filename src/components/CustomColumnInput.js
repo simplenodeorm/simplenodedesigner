@@ -10,7 +10,10 @@ class CustomColumnInput extends React.Component {
     
     render() {
         return <span className="fieldLabel">{config.textmsg.customcolinputlabel}
-            <input className="customColumnInput" type="text" onBlur={this.onBlur} value={document.designData.selnodes[this.props.index].__customColumnInput}/>
+            <input className="customColumnInput" 
+                type="text" 
+                onBlur={this.onBlur} 
+                defaultValue={document.designData.selnodes[this.props.index].__customColumnInput}/>
             </span>;
     }
     
