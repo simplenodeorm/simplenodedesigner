@@ -48,10 +48,10 @@ class HomePage extends React.Component {
 
     setCurrentDocument(docname) {
         if (docname) {
-            designTabs.setState({tab0Disabled: false, tab1Disabled: false, 
-                tab2Disabled: false, tab3Disabled: false, tabIndex: 0, tabStateChanged: true});
             designTabs.setDocumentLoaded(true);
             statusBar.setState({currentDocument: docname});
+            designTabs.setState({tab0Disabled: false, tab1Disabled: false, 
+                tab2Disabled: false, tab3Disabled: false, tabIndex: 0, tabStateChanged: true, selectedModel: document.designData.model});
         } else {
             clearDocumentDesignData();
             designTabs.setState({tab0Disabled: false, tab1Disabled: true, tab2Disabled: true, 

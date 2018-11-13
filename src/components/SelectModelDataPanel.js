@@ -27,14 +27,14 @@ class SelectModelDataPanel extends BaseDesignComponent {
 
     componentDidMount() {
         const {model} = this.state;
-        if (model) {
+        if (model && (model !== document.designData.model)) {
             this.loadModelData(model);
         }
     }
+
     componentWillReceiveProps(nextProps) {
         const {model} = this.state;
-        if (model !== nextProps.model) {
-            clearDocumentDesignData();
+        if (this.props.model !== nextProps.model) {
             this.loadModelData(nextProps.model);
         }
     }
@@ -106,10 +106,10 @@ class SelectModelDataPanel extends BaseDesignComponent {
             headers: {'Authorization': orm.authString}
         };
 
-        curcomp.setState({model: inputModel});
         axios.get(orm.url + '/design/modeltree/' + inputModel, config)
             .then((response) => {
                 if (response.status === 200) {
+                    clearDocumentDesignData();
                     document.designData.modelHierarchy = response.data;
                     curcomp.setState({model: inputModel});
                 } else {
