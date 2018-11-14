@@ -98,30 +98,32 @@ class SelectModelDataPanel extends BaseDesignComponent {
     }
     
     loadModelData(model) {
-        this.showWaitMessage('Loading model hierarchy...');
-        const curcomp = this;
-        const orm = JSON.parse(localStorage.getItem('orm'));
-        const inputModel = model;
-        const config = {
-            headers: {'Authorization': orm.authString}
-        };
+        if (model && (model !== config.textmsg.modelselectdefault))  {
+            this.showWaitMessage('Loading model hierarchy...');
+            const curcomp = this;
+            const orm = JSON.parse(localStorage.getItem('orm'));
+            const inputModel = model;
+            const config = {
+                headers: {'Authorization': orm.authString}
+            };
 
-        axios.get(orm.url + '/design/modeltree/' + inputModel, config)
-            .then((response) => {
-                if (response.status === 200) {
-                    clearDocumentDesignData();
-                    document.designData.modelHierarchy = response.data;
-                    curcomp.setState({model: inputModel});
-                } else {
-                    curcomp.props.setStatus(response.statusText, true);
-                }
-                
-                curcomp.clearWaitMessage();
-            })
-            .catch((err) => {
-               curcomp.props.setStatus('' + err, true);
-               curcomp.clearWaitMessage();
-            });     
+            axios.get(orm.url + '/design/modeltree/' + inputModel, config)
+                .then((response) => {
+                    if (response.status === 200) {
+                        clearDocumentDesignData();
+                        document.designData.modelHierarchy = response.data;
+                        curcomp.setState({model: inputModel});
+                    } else {
+                        curcomp.props.setStatus(response.statusText, true);
+                    }
+
+                    curcomp.clearWaitMessage();
+                })
+                .catch((err) => {
+                   curcomp.props.setStatus('' + err, true);
+                   curcomp.clearWaitMessage();
+                });     
+        }
     }
 }
 
