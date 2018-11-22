@@ -159,3 +159,27 @@ export function clearSelectedText() {
         document.selection.empty();
     }
 }
+
+ export function copyToClipboard(className) {
+    let e = document.getElementsByClassName(className)[0];
+    try {
+        if (e) {
+            if (document.selection) { // IE
+                var range = document.body.createTextRange();
+                range.moveToElementText(e);
+                range.select();
+            } else if (window.getSelection) {
+                var range = document.createRange();
+                range.selectNode(e);
+                window.getSelection().removeAllRanges();
+                window.getSelection().addRange(range);
+            }
+
+            document.execCommand('copy');
+            clearSelectedText();
+
+        }
+    } 
+        
+     catch (err) {};    
+}

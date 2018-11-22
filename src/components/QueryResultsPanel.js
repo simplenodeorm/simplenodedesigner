@@ -2,6 +2,8 @@ import React from 'react';
 import "../app/App.css";
 import {BaseDesignComponent} from './BaseDesignComponent';
 import {ClipboardButton} from './ClipboardButton';
+import {clearSelectedText} from './helpers';
+import {copyToClipboard} from './helpers';
 
 class QueryResultsPanel extends BaseDesignComponent {
     constructor(props) {
@@ -36,7 +38,7 @@ class QueryResultsPanel extends BaseDesignComponent {
     }
     
     onCopyToClipboard() {
-        navigator.clipboard.writeText(this.formatJson());
+        copyToClipboard('formattedJson');
     }
 }
 
