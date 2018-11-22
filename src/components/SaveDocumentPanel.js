@@ -6,6 +6,8 @@ import Tree from 'rc-tree';
 import './defaultTree.css';
 import "../app/App.css";
 import {defaultSaveSettings} from './helpers';
+import axios from 'axios';
+
 const qfimage = <img alt="query folder" src="/images/queryfolder.png"/>;
 
 class SaveDocumentPanel extends ModalDialog {
@@ -19,7 +21,11 @@ class SaveDocumentPanel extends ModalDialog {
         
         this.distinct = false;
         this.resultFormat = 'object'; 
-        this.authenticator = config.authenticators[0];
+        this.authenticator = 'DefaultAuthorizer'
+        
+        this.state = {
+            authorizers: ''
+        };
 
     }
 
@@ -28,9 +34,15 @@ class SaveDocumentPanel extends ModalDialog {
     }
     
     getContent() {
-        const authenticatorLoop = (data) => {
-            return data.map((authenticator) => {
-                return <option value={authenticator}>{authenticator}</option>
+        const {authorizers} = this.state;
+        
+        if (!authorizers) {
+            this.loadAuthorizers();
+        }
+        
+        const authorizerLoop = (data) => {
+            return data.map((authorizer) => {
+                return <option value={authorizer}>{authorizer}</option>
             });
         };
         
@@ -50,7 +62,7 @@ class SaveDocumentPanel extends ModalDialog {
                         <td className="inputLabel">{config.textmsg.authenticatorlabel}</td>
                         <td>
                             <select onChange={this.onAuthenticatorChange}>
-                                { authenticatorLoop(config.authenticators) } 
+                                {authorizers && authorizerLoop(authorizers) } 
                             </select>
                         </td>
                     </tr>
@@ -121,6 +133,28 @@ class SaveDocumentPanel extends ModalDialog {
             authenticator: this.authenticator
         };
     }
+    
+    
+    loadAuthorizers() {
+        const curcomp = this;
+        const orm = JSON.parse(localStorage.getItem('orm'));
+        const config = {
+            headers: {'Authorization': orm.authString}
+        };
+
+        axios.get(orm.url + '/design/authorizers', config)
+            .then((response) => {
+                if (response.status === 200) {
+                    curcomp.setState({authorizers: response.data});
+                } else {
+                    curcomp.setState({error: response.statusText});
+                }
+            })
+            .catch((err) => {
+                curcomp.setState({error: err.toString()});
+            });
+    }
+
 }
 
 export {SaveDocumentPanel};
