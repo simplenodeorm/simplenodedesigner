@@ -17,6 +17,7 @@ class AggregateFunctionSelect extends BaseDesignComponent {
                 this.functions = dateFunctions;
                 break;
             case "number":
+            case "float":
                 this.functions = numberFunctions;
                 break;
             default:
