@@ -54,7 +54,8 @@ class SaveDocumentPanel extends ModalDialog {
                         <td>
                             <select onChange={this.onResultFormatChange}>
                                 <option value="object" selected>object graph</option>
-                                <option value="result set">result set</option>
+                                {document.designData.currentDocument && (document.designData.currentDocument.resultFormat === 'result set') &&  <option value="result set" selected>result set</option> }
+                                {!document.designData.currentDocument || (document.designData.currentDocument.resultFormat !== 'result set') &&  <option value="result set" >result set</option> }
                             </select>
                         </td>
                     </tr>

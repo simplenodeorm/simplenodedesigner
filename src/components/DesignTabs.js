@@ -40,12 +40,15 @@ class DesignTabs extends BaseDesignComponent {
         this.setTabState = this.setTabState.bind(this);
         this.loadParametersAndRun = this.loadParametersAndRun.bind(this);
         this.saveDocument = this.saveDocument.bind(this);
+        this.onSetSidebarOpen = this.onSetSidebarOpen.bind(this);
         
         this.queryResults = '';
     }
 
     onSetSidebarOpen(open, model) {
-        if (!document.designData.models) {
+        if (!open && !model) {
+            this.setState({sidebarOpen: false});
+        } else if (!document.designData.models) {
             this.loadModels();
         } else {
             this.props.setCurrentDocument();
@@ -201,7 +204,7 @@ class DesignTabs extends BaseDesignComponent {
                 if (response.status === 200) {
                     const modelLoop = (data) => {
                         return data.map((item) => {
-                            return <button onClick={() => curcomp.onSetSidebarOpen(false, item)}>{item}</button>;
+                            return <button onClick={(e) => curcomp.onSetSidebarOpen(false, item, e)}>{item}</button>;
                         });
                     };
                     document.designData.models = <div className="sidebarContainer">{modelLoop(response.data)}</div>;

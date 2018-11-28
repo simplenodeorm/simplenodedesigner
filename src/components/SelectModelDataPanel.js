@@ -27,7 +27,14 @@ class SelectModelDataPanel extends BaseDesignComponent {
 
     componentDidMount() {
         const {model} = this.state;
-        if (model && (model !== document.designData.model)) {
+        let curModel;
+        
+        if (document.designData.currentDocument ) {
+            curModel = document.designData.currentDocument.document.rootModel;
+        } else if (document.designData.modelHierarchy) {
+            curModel = document.designData.modelHierarchy.title;
+        }
+        if (model && (model !== curModel)) {
             this.loadModelData(model);
         }
     }
