@@ -1,6 +1,6 @@
 {
   "name": "@simplenodeorm/simplenodedesigner",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/rbtucker/simplenodedesigner.git"
@@ -21,10 +21,22 @@
     "react-split-pane": "^0.1.84"
 
   },
+  "bugs": {
+    "url": "https://github.com/rbtucker/simplenodedesigner/issues"
+  },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   }
+  
+  "keywords": [
+    "oracle",
+    "oracle orm",
+    "query designer",
+    "sql",
+    "simplenodeorm"
+  ],
+  "homepage": "https://github.com/rbtucker/simplenodedesigner#readme"
 }
