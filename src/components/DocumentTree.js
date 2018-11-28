@@ -66,7 +66,7 @@ class DocumentTree extends BaseDesignComponent {
                 
                 for (let j = 0; j < docs.length; ++j) {
                     let leaf = {
-                        title: docs[j].replace('_', ' ').replace('.json', ''),
+                        title: docs[j].replace(/_/g, ' ').replace('.json', ''),
                         isLeaf: true,
                         key: (grp.key + '.' + docs[j])
                     };

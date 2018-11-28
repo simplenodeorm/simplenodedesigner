@@ -63,7 +63,7 @@ class BaseDesignComponent extends React.Component {
         }
 
         if (params.documentName) {
-            params.documentName = params.documentName.replace(' ', '_');
+            params.documentName = params.documentName.replace(/ /g, '_');
         }
         
         return {
