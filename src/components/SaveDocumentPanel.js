@@ -19,9 +19,20 @@ class SaveDocumentPanel extends ModalDialog {
         this.onDistinctChange = this.onDistinctChange.bind(this);
         this.onNameChange = this.onNameChange.bind(this);
         
-        this.distinct = false;
-        this.resultFormat = 'object'; 
-        this.authenticator = 'DefaultAuthorizer'
+        if (document.designData.currentDocument) {
+            this.distinct = document.designData.currentDocument.distinct;
+            this.resultFormat = document.designData.currentDocument.resultFormat; 
+            this.authenticator = document.designData.currentDocument.authenticator;
+            this.documentName = document.designData.currentDocument.documentName.replace(/_/g, ' ');
+            this.selectedGroup = document.designData.currentDocument.group;
+        } else {
+            this.distinct = false;
+            this.resultFormat = 'object'; 
+            this.authenticator = 'DefaultAuthorizer';
+            this.documentName = 'new document';
+        }
+        
+        
         
         this.state = {
             authorizers: ''
@@ -85,6 +96,7 @@ class SaveDocumentPanel extends ModalDialog {
                   icon={this.getIcon}
                   showIcon={true}
                   defaultExpandAll={true}
+                  defaultSelectedKeys={this.selectedGroup}
                   treeData={groups}></Tree>
             </div></div>
         </div>;
