@@ -53,21 +53,21 @@ class SaveDocumentPanel extends ModalDialog {
         
         const authorizerLoop = (data) => {
             return data.map((authorizer) => {
-                return <option value={authorizer}>{authorizer}</option>
+                return <option value={authorizer}>{authorizer}</option>;
             });
         };
-        
+
+        let formatSelect = <select onChange={this.onResultFormatChange}><option value='object' selected>object graph</option><option value='result set'>result set</option></select>;
+        if ( document.designData.currentDocument &&  (document.designData.currentDocument.resultFormat === 'result set')) {
+            formatSelect = <select onChange={this.onResultFormatChange}><option value='object'>object graph</option><option value='result set' selected>result set</option></select>;
+        }
         return <div className="saveDocumentPanel">
             <div className="parameterInputPanel">
                 <table>
                     <tr>
                     <td className="inputLabel">{config.textmsg.resultformatlabel}</td>
                         <td>
-                            <select onChange={this.onResultFormatChange}>
-                                <option value="object" selected>object graph</option>
-                                {document.designData.currentDocument && (document.designData.currentDocument.resultFormat === 'result set') &&  <option value="result set" selected>result set</option> }
-                                {(!document.designData.currentDocument || (document.designData.currentDocument.resultFormat !== 'result set')) &&  <option value="result set" >result set</option> }
-                            </select>
+                            {formatSelect}
                         </td>
                     </tr>
                     <tr>
