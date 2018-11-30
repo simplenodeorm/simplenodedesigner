@@ -1,4 +1,5 @@
 :root {
+    --bar-color:#202020;
     --default-bkcolor: white;
     --main-color:-moz-linear-gradient(top, slateGray, black), -webkit-linear-gradient(slateGray, black), linear-gradient(to bottom, slateGray, black); 
     --main-color-high:#222;
@@ -35,7 +36,7 @@ html {
 }
 
 body {
-    background-image: var(--main-color);
+    background-color: var(--bar-color);
     font-weight: var(--font-weight));
     float:left;
     text-align: left;
@@ -46,7 +47,7 @@ body {
 
 .popupMenu {
     position: relative;
-    background: var(--main-color); 
+    background-color: var(--bar-color); 
     color: var(--text-hover); 
     padding:1px; 
     border:none; 
@@ -248,7 +249,7 @@ input[type="submit"] {
     top:0px;
     z-index: 1;
     left:0px;
-    background: var(--main-color);
+    background-color: var(--bar-color);
     max-height: 25px;
     min-height: 12px;
     width:100%;
@@ -263,7 +264,7 @@ input[type="submit"] {
     margin: 0;
     padding: 0;
     overflow: visible;
-    background-color: var(--main-color);
+    background-color: var(--bar-color);
     font-size: 10pt;
     white-space: nowrap;
 }
@@ -328,7 +329,7 @@ input[type="submit"] {
 }
 
 .minimalist-toolbar .dropdown:hover, .minimalist-toolbar .dropdown-content:hover{
-    background: var(--main-color);
+    background-color: var(--bar-color);
     color: var(--text-hover);
 }
 
@@ -794,7 +795,7 @@ input[type="checkbox"] {
 
 .statusBar {
     position: fixed;
-    background-image: var(--main-color);
+    background-color: var(--bar-color);
     font-size: var(--small-font-size);
     z-index: 100; 
     bottom: 0; 
