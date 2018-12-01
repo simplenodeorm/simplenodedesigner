@@ -847,3 +847,7 @@ input[type="checkbox"] {
     background: none;
 }
 
+.loginTitle {
+    color: gray
+}
+
