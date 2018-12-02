@@ -1,7 +1,6 @@
 import React from 'react';
 import config from '../config/appconfig.json';
 import {ModalDialog} from './ModalDialog';
-import groups from '../config/document-groups.json';
 import Tree from 'rc-tree';
 import './defaultTree.css';
 import "../app/App.css";
@@ -9,7 +8,6 @@ import {defaultSaveSettings} from './helpers';
 import axios from 'axios';
 
 const qfimage = <img alt="query folder" src="/images/queryfolder.png"/>;
-
 class SaveDocumentPanel extends ModalDialog {
     constructor(props) {
         super(props);
@@ -35,9 +33,11 @@ class SaveDocumentPanel extends ModalDialog {
         
         
         this.state = {
-            authorizers: ''
+            authorizers: '',
+            groups: ''
         };
 
+        this.loadDocumentGroups();
     }
 
     getIcon(props) {
@@ -45,7 +45,7 @@ class SaveDocumentPanel extends ModalDialog {
     }
     
     getContent() {
-        const {authorizers} = this.state;
+        const {authorizers, groups} = this.state;
         
         if (!authorizers) {
             this.loadAuthorizers();
@@ -62,6 +62,7 @@ class SaveDocumentPanel extends ModalDialog {
             formatSelect = <select onChange={this.onResultFormatChange}><option value='object'>object graph</option><option value='result set' selected>result set</option></select>;
             this.resultFormat = 'result set';
         }
+        
         return <div className="saveDocumentPanel">
             <div className="parameterInputPanel">
                 <table>
@@ -91,6 +92,7 @@ class SaveDocumentPanel extends ModalDialog {
              </div>
             <hr />
             <div><div className="modalTreeContainer">
+            {groups && 
                 <Tree 
                   onSelect={this.onSelect}
                   showLine
@@ -98,7 +100,7 @@ class SaveDocumentPanel extends ModalDialog {
                   showIcon={true}
                   defaultExpandAll={true}
                   defaultSelectedKeys={this.selectedGroup}
-                  treeData={groups}></Tree>
+                  treeData={groups}></Tree> }
             </div></div>
         </div>;
     }
@@ -168,6 +170,28 @@ class SaveDocumentPanel extends ModalDialog {
                 curcomp.setState({error: err.toString()});
             });
     }
+    
+    loadDocumentGroups() {
+        const curcomp = this;
+        const orm = JSON.parse(localStorage.getItem('orm'));
+        const config = {
+            headers: {'Authorization': orm.authString}
+        };
+
+        axios.get(orm.url + '/design/document/groups', config)
+            .then((response) => {
+                if (response.status === 200) {
+                    curcomp.setState({groups: response.data});
+                } else {
+                    curcomp.props.setStatus(response.statusText, true);
+                }
+            })
+            .catch((err) => {
+                curcomp.setStatus(err.toString(), true);
+            });
+
+    }
+
 
 }
 

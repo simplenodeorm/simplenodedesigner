@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom';
 import Tree from 'rc-tree';
 import '../app/App.css';
 import './defaultTree.css';
-import groups from '../config/document-groups.json';
 import {BaseDesignComponent} from './BaseDesignComponent';
 import axios from 'axios';
 import {clearContextMenu} from './helpers';
@@ -12,6 +11,7 @@ import {updateState} from './HomePage';
 const qdimage = <img alt="query document" src="/images/querydoc.png"/>;
 const qfimage = <img alt="query folder" src="/images/queryfolder.png"/>;
 
+var groups;
 class DocumentTree extends BaseDesignComponent {
      constructor(props) {
         super(props);
@@ -20,7 +20,7 @@ class DocumentTree extends BaseDesignComponent {
             selectedDocument: ''
         };
 
-        this.loadDocuments();
+        this.loadDocumentGroups();
         this.onRightClick = this.onRightClick.bind(this);
         this.editDocument = this.editDocument.bind(this);
         this.deleteDocument = this.deleteDocument.bind(this);
@@ -36,7 +36,7 @@ class DocumentTree extends BaseDesignComponent {
 
     render() {
         const {documents} = this.state;
-        if (documents) {
+        if (groups && documents) {
             let treeData = JSON.parse(JSON.stringify(groups));
             this.traverseDocumentGroups(treeData,  documents);
             
@@ -145,6 +145,28 @@ class DocumentTree extends BaseDesignComponent {
         clearContextMenu();
     }
     
+    loadDocumentGroups() {
+        const curcomp = this;
+        const orm = JSON.parse(localStorage.getItem('orm'));
+        const config = {
+            headers: {'Authorization': orm.authString}
+        };
+
+        axios.get(orm.url + '/design/document/groups', config)
+            .then((response) => {
+                if (response.status === 200) {
+                    groups = response.data;
+                    curcomp.loadDocuments();
+                } else {
+                    curcomp.props.setStatus(response.statusText, true);
+                }
+            })
+            .catch((err) => {
+                curcomp.setStatus(err.toString(), true);
+            });
+
+    }
+
     loadDocuments() {
         const curcomp = this;
         const orm = JSON.parse(localStorage.getItem('orm'));
