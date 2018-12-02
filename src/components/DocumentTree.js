@@ -163,7 +163,7 @@ class DocumentTree extends BaseDesignComponent {
                 }
             })
             .catch((err) => {
-                curcomp.setStatus(err.toString(), true);
+                curcomp.props.setStatus(err.toString(), true);
             });
 
     }
@@ -184,7 +184,7 @@ class DocumentTree extends BaseDesignComponent {
                 }
             })
             .catch((err) => {
-                curcomp.setStatus(err.toString(), true);
+                curcomp.props.setStatus(err.toString(), true);
             });
 
     }
