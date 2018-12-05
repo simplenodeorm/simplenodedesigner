@@ -782,6 +782,8 @@ input[type="checkbox"] {
     font-weight:550;
     color: var(--wait-message-font-color);
     white-space: nowrap;
+    z-index: 1;
+
 }
 
 .waitMessage span {
