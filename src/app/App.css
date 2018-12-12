@@ -28,6 +28,7 @@
     --info-message-color: lightGreen;
     --input-background:linear-gradient(top, #d6d7d7, #dee0e0);
     --sidebar-hover-text-color: khaki;
+    --default-input-height: 20px;
   }
 
 html {
@@ -98,7 +99,7 @@ select {
     box-shadow: 0 1px #fff;
     box-sizing: border-box;
     color: #696969;
-    height: 25px;
+    height: var(--default-input-height);
     margin: 10px 0 0 10px;
     padding-left: 5px;
     transition: box-shadow 0.3s;
@@ -112,7 +113,7 @@ input[type="password"], input[type="text"] {
     box-shadow: 0 1px #fff;
     box-sizing: border-box;
     color: #696969;
-    height: 25px;
+    height: var(--default-input-height);
     margin: 10px 0 0 10px;
     padding-left: 5px;
     transition: box-shadow 0.3s;
@@ -363,7 +364,7 @@ input[type="submit"] {
     background: #eceeee;
     border: 1px solid #42464b;
     border-radius: 10px;
-    height: 240px;
+    height: 225px;
     margin: 15% 30%;
     width: 375px;
 }
