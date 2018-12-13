@@ -29,7 +29,9 @@
     --input-background:linear-gradient(top, #d6d7d7, #dee0e0);
     --sidebar-hover-text-color: khaki;
     --default-input-height: 22px;
-  }
+    --status-bar-height: 18px;
+     --wait-message-height: 28px;
+ }
 
 html {
     overflow:hidden;
@@ -782,6 +784,7 @@ input[type="checkbox"] {
     border: 1px solid #42464b;
     border-radius: 5px;
     font-weight:550;
+    height: var(--wait-message-height);
     color: var(--wait-message-font-color);
     white-space: nowrap;
     z-index: 1;
@@ -803,6 +806,7 @@ input[type="checkbox"] {
     font-size: var(--small-font-size);
     z-index: 100; 
     bottom: 0; 
+    height: var(--status-bar-height);
     left: 0;
     width: 100%;
     padding-left: 5px;
