@@ -8,6 +8,7 @@ import axios from 'axios';
 import {clearContextMenu} from './helpers';
 import {getContextMenu} from './helpers';
 import {updateState} from './HomePage';
+import config from '../config/appconfig.json';
 const qdimage = <img alt="query document" src="/images/querydoc.png"/>;
 const qfimage = <img alt="query folder" src="/images/queryfolder.png"/>;
 
@@ -91,7 +92,7 @@ class DocumentTree extends BaseDesignComponent {
         if (info.node.props.isLeaf) {
             this.state.selectedDocument = info.node.props.eventKey;
             const cm = getContextMenu(info);
-            ReactDOM.render(<ul><li><button onClick={tree.editDocument}>Edit Document</button></li><li><button onClick={tree.deleteDocument}>Delete Document</button></li></ul>, cm);
+            ReactDOM.render(<ul><li><button onClick={tree.editDocument}>{config.textmsg.loaddocument}</button></li><li><button onClick={tree.deleteDocument}>{config.textmsg.deletedocument}</button></li></ul>, cm);
         } 
     }
     

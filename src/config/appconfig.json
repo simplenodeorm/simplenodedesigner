@@ -2,6 +2,8 @@
     "textmsg": {
         "logintitletext": "Simple Node Query Designer",
         "modelselectdefault": "Select starting model...",
+        "loaddocument": "Load Document",
+        "deletedocument": "Delete Document",
         "adddocument": "Add Document",
         "setupmenuname": "Setup",
         "filemenuname": "File",
