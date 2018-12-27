@@ -29,7 +29,7 @@ class QueryResultsPanel extends BaseDesignComponent {
             this.state.newQueryResults = false;
             return <div className="tabChildContainer"><div className="formattedJson"><ClipboardButton onCopyToClipboard={this.onCopyToClipboard}/><pre>{this.formatJson()}</pre></div></div>;
         } else {
-            return <div className="tabChildContainer"></div>;
+            return <div className="tabChildContainer"/>;
         }
     }
     

@@ -85,7 +85,7 @@ class SaveDocumentPanel extends ModalDialog {
                         <td><input type="text" onBlur={this.onNameChange} defaultValue={this.documentName} /></td>
                     </tr>
                     <tr>
-                        <td></td>
+                        <td/>
                         <td>&nbsp;&nbsp;&nbsp;<input onChange={this.onDistinctChange} type="checkbox" defaultValue={this.distinct}/>{config.textmsg.distinct}</td>
                     </tr>
                 </table>
@@ -130,8 +130,7 @@ class SaveDocumentPanel extends ModalDialog {
     }
         
     isComplete() {
-        let retval = (this.documentName && this.selectedGroup && this.authenticator);
-        return retval;
+        return (this.documentName && this.selectedGroup && this.authenticator);
     }
     
     getError() { 

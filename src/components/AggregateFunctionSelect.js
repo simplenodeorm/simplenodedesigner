@@ -37,7 +37,7 @@ class AggregateFunctionSelect extends BaseDesignComponent {
                 }
             })};
 
-        return <span className="fieldLabel">{config.textmsg.aggfunctionlabel}<select onChange={this.onChange}><option></option>{options(this.functions)}</select></span>;
+        return <span className="fieldLabel">{config.textmsg.aggfunctionlabel}<select onChange={this.onChange}><option/>{options(this.functions)}</select></span>;
     }
     
     onChange(e) {

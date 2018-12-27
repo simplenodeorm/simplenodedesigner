@@ -73,7 +73,7 @@ class DesignTabs extends BaseDesignComponent {
         
         this.state.newQueryResults = false;
         
-        let retval = (
+        return (
             <div className="tabSetContainer"> 
                 <MenuButton text={curModel} 
                     saveDisabled={tab3Disabled}
@@ -117,7 +117,6 @@ class DesignTabs extends BaseDesignComponent {
                     </TabPanel>
                 </Tabs>
             </div>);
-            return retval;
     }
     
 

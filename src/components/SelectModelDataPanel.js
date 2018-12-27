@@ -57,7 +57,7 @@ class SelectModelDataPanel extends BaseDesignComponent {
             }
             
             return <div className="tabContainer"> <div className="treeContainer">
-                <Tree 
+                <Tree
                   onRightClick={this.onRightClick}
                   checkable
                   showLine
@@ -69,7 +69,7 @@ class SelectModelDataPanel extends BaseDesignComponent {
                   onCheck={this.onCheck}
                   treeData={document.designData.modelHierarchy}></Tree></div></div>;
         } else {
-            return <div></div>;
+            return <div/>;
         }
     }
     

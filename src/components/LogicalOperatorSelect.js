@@ -24,7 +24,7 @@ class LogicalOperatorSelect extends React.Component {
             return <select onChange={this.onChange}>{loop(logSelections)}</select>;
         } else {
             document.designData.whereComparisons[this.props.index].logicalOperator = '';
-            return <select onChange={this.onChange} disabled><option></option></select>;
+            return <select onChange={this.onChange} disabled><option/></select>;
         }
     }
     
