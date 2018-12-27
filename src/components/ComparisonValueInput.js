@@ -44,8 +44,10 @@ class ComparisonValueInput extends BaseDesignComponent {
         } else {
             this.props.setValue(this.props.index, val.target.value);
         }
-            
-        this.props.setTabState(false, false, false, !this.isWhereValid());
+
+        if (this.props.setTabState) {
+            this.props.setTabState(false, false, false, !this.isWhereValid());
+        }
     }
 }
 
