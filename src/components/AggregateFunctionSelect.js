@@ -27,7 +27,7 @@ class AggregateFunctionSelect extends BaseDesignComponent {
     }
     
     render() {
-        const selvalue = document.designData.selnodes[this.props.index].__selectedFunction
+        const selvalue = document.designData.selnodes[this.props.index].__selectedFunction;
         const options = (functions) => {
             return functions.map((f) => {
                 if (f === selvalue) {

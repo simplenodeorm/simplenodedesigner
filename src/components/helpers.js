@@ -164,12 +164,13 @@ export function clearSelectedText() {
     let e = document.getElementsByClassName(className)[0];
     try {
         if (e) {
+            let range;
             if (document.selection) { // IE
-                var range = document.body.createTextRange();
+                range = document.body.createTextRange();
                 range.moveToElementText(e);
                 range.select();
             } else if (window.getSelection) {
-                var range = document.createRange();
+                range = document.createRange();
                 range.selectNode(e);
                 window.getSelection().removeAllRanges();
                 window.getSelection().addRange(range);
@@ -181,5 +182,5 @@ export function clearSelectedText() {
         }
     } 
         
-     catch (err) {};    
+     catch (err) {}
 }

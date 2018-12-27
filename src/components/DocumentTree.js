@@ -43,16 +43,16 @@ class DocumentTree extends BaseDesignComponent {
             this.traverseDocumentGroups(treeData,  documents);
             
             return <div className="treeContainer">
-                <Tree 
-                  onRightClick={this.onRightClick}
-                  showLine
-                  showIcon={true}
-                  icon={this.getIcon}
-                  defaultExpandAll={true}
-                  treeData={treeData}></Tree></div>;
+                <Tree
+    onRightClick={this.onRightClick}
+    showLine
+    showIcon={true}
+    icon={this.getIcon}
+    defaultExpandAll={true}
+    treeData={treeData}/></div>;
 
         } else {
-            return <div className="treeContainer"></div>;
+            return <div className="treeContainer"/>;
         }
     }
     
@@ -132,7 +132,7 @@ class DocumentTree extends BaseDesignComponent {
             axios.get(orm.url + '/design/deletedocument/' + selectedDocument, config)
                 .then((response) => {
                     if (response.status === 200) {
-                        curcomp.loadDocuments()
+                        curcomp.loadDocuments();
                         curcomp.props.setStatus('document deleted', false);
                     } else {
                         curcomp.props.setStatus(response.statusText, true);
@@ -193,7 +193,7 @@ class DocumentTree extends BaseDesignComponent {
     loadDocumentData(doc) {
         this.showWaitMessage('Loading model hierarchy...');
         const curcomp = this;
-        const seldoc = doc
+        const seldoc = doc;
         const orm = JSON.parse(localStorage.getItem('orm'));
         const config = {
             headers: {'Authorization': orm.authString}

@@ -68,11 +68,7 @@ class FilterLine extends React.Component {
 
     allowCharacter(charCode) {
         // allow commas on in
-        if ((document.designData.whereComparisons[this.props.index].comparisonOperator === 'in') && (charCode === 188)) {
-            return true;
-        } else {
-            return false;
-        }
+        return (document.designData.whereComparisons[this.props.index].comparisonOperator === 'in') && (charCode === 188);
     }
 }
 

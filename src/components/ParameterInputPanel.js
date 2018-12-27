@@ -62,11 +62,11 @@ class ParameterInputPanel extends ModalDialog {
                     </td>
                 </tr>
                 <tr>
-                    <td></td>
+                    <td/>
                     <td>&nbsp;&nbsp;&nbsp;<input onChange={this.onDistinctChange} defaultValue={this.distinct} type="checkbox"/>{config.textmsg.distinct}</td>
                 </tr>
                 <tr>
-                    <td></td>
+                    <td/>
                     <td>&nbsp;&nbsp;&nbsp;<input onChange={this.onValidityCheckOnlyChange} type="checkbox" defaultValue={this.validityCheckOnly}/>{config.textmsg.validitycheckonly}</td>
                 </tr>
             </table>
@@ -115,11 +115,7 @@ class ParameterInputPanel extends ModalDialog {
     
     allowCharacter(charCode, indx) {
         // allow commas on in
-        if ((this.comparisonOperators[indx] === 'in') && (charCode === 188)) {
-            return true;
-        } else {
-            return false;
-        }
+        return (this.comparisonOperators[indx] === 'in') && (charCode === 188);
     }
     
     getResult() {

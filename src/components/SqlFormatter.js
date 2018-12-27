@@ -25,11 +25,11 @@ class SqlFormatter extends React.Component {
     
     render() {
         let selectPos = this.props.sql.indexOf('select ');
-        let fromPos = this.props.sql.indexOf(' from ')
+        let fromPos = this.props.sql.indexOf(' from ');
         let wherePos = this.props.sql.indexOf(' where ');
         let groupByPos = this.props.sql.indexOf(' group by ');
         let orderByPos = this.props.sql.indexOf(' order by ');
-        let t0Pos = this.props.sql.indexOf(' t0 ', fromPos)
+        let t0Pos = this.props.sql.indexOf(' t0 ', fromPos);
         if (orderByPos < 0) {
             orderByPos = this.props.sql.length+1;
         }

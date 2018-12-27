@@ -13,7 +13,6 @@ import {FilterPanel} from './FilterPanel';
 import {QueryPanel} from './QueryPanel';
 import config from '../config/appconfig.json';
 import axios from 'axios';
-import {clearDocumentDesignData} from './helpers';
 import {getModalContainer} from './helpers';
 
 const tabs = [];
@@ -227,7 +226,7 @@ class DesignTabs extends BaseDesignComponent {
                 tabs[i].setState({redraw: true});
             }
             
-            catch (e) {};
+            catch (e) {}
         }
     }
 }
