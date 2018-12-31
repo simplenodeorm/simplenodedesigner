@@ -26,7 +26,7 @@ class DesignTabs extends BaseDesignComponent {
             tab2Disabled: true,
             tab3Disabled: true,
             tab4Disabled: true,
-            tabStateChannged: false,
+            tabStateChanged: false,
             sidebarOpen: false,
             modelsLoaded: false,
             selectedModel: config.textmsg.modelselectdefault,
