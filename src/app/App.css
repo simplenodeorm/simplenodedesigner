@@ -98,7 +98,7 @@ select {
     box-sizing: border-box;
     color: #696969;
     height: var(--default-input-height);
-    margin: 10px 0 0 10px;
+    margin: 5px 0 0 10px;
     padding-left: 5px;
     transition: box-shadow 0.3s;
     width: 240px;
@@ -112,7 +112,7 @@ input[type="password"], input[type="text"] {
     box-sizing: border-box;
     color: #696969;
     height: var(--default-input-height);
-    margin: 10px 0 0 10px;
+    margin: 5px 0 0 10px;
     padding-left: 5px;
     transition: box-shadow 0.3s;
     width: 240px;
@@ -364,7 +364,7 @@ input[type="submit"] {
     width: 375px;
 }
 
-.login h2 {
+.login h3 {
     background: var(--header-background);
     border-bottom: 2px solid #a6abaf;
     border-radius: 10px 10px 0 0;
@@ -373,7 +373,7 @@ input[type="submit"] {
     display: block;
     padding-top: 2px;
     margin: 0;
-    height: 30px;
+    height: 24px;
     text-align: center;
 }
 
@@ -695,7 +695,7 @@ input[type="checkbox"] {
     z-index: 1;
 }
 
-.modalContainer h2 {
+.modalContainer h3 {
     background: var(--header-background);
     border-bottom: 2px solid #a6abaf;
     border-radius: 10px 10px 0 0;
@@ -704,7 +704,7 @@ input[type="checkbox"] {
     display: block;
     padding-top: 2px;
     margin: 0;
-    height: 30px;
+    height: 24px;
     width: 100%;
     text-align: center;
 }
