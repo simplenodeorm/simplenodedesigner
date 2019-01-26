@@ -27,7 +27,9 @@
         "resultformatlabel": "Result Format:",
         "validitycheckonly": "Validity Check Only",
         "distinct": "Distinct",
-        "documentnamelabel": "Document Name:"
+        "documentnamelabel": "Document Name:",
+        "ok": "Ok",
+        "cancel": "Cancel"
     },
     "defaultDesignAuthenticator": "DefaultAuthorizer"
 }
