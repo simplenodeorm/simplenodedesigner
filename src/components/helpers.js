@@ -1,3 +1,5 @@
+import ReactDOM from 'react-dom';
+
 document.designData = {
     models: '',
     modelHierarchy: '',
@@ -69,6 +71,7 @@ export function clearContextMenu() {
     
     if (cm) {
         document.removeEventListener('click', popupMenuClick, true);
+        ReactDOM.unmountComponentAtNode(cm)
         document.body.removeChild(cm);
     }
 }
@@ -105,6 +108,7 @@ export function clearModalContainer(mc) {
     const mcdom = document.getElementById('modalcontainer');
     if (mcdom) {
         document.removeEventListener('click', mc.clickFunction, true);
+        ReactDOM.unmountComponentAtNode(mcdom)
         document.body.removeChild(mcdom);
     }
 }
