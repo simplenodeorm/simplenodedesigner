@@ -1,3 +1,4 @@
+import React from 'react';
 import ReactDOM from 'react-dom';
 
 document.designData = {
@@ -71,8 +72,8 @@ export function clearContextMenu() {
     
     if (cm) {
         document.removeEventListener('click', popupMenuClick, true);
-        ReactDOM.unmountComponentAtNode(cm)
         document.body.removeChild(cm);
+        unmountComponent(document.designData.currentContextMenu);
     }
 }
 
@@ -108,8 +109,8 @@ export function clearModalContainer(mc) {
     const mcdom = document.getElementById('modalcontainer');
     if (mcdom) {
         document.removeEventListener('click', mc.clickFunction, true);
-        ReactDOM.unmountComponentAtNode(mcdom)
         document.body.removeChild(mcdom);
+        unmountComponent(document.designData.currentModalContainer);
     }
 }
 
@@ -133,6 +134,7 @@ export function removeWaitMessage() {
     if (e) {
         document.removeEventListener('click', e.waitMessageClick, true);
         document.body.removeChild(e);
+        unmountComponent(document.designData.currentWaitMessage);
     }
 }
 
@@ -185,5 +187,14 @@ export function clearSelectedText() {
         }
     } 
         
-     catch (err) {}
+    catch (err) {}
+}
+
+function unmountComponent(comp) {
+    if (comp) {
+        try {
+            ReactDOM.unmountComponentAtNode(comp);
+        } catch(e) {};
+        comp = '';
+    }
 }

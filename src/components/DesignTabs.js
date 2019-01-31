@@ -123,7 +123,7 @@ class DesignTabs extends BaseDesignComponent {
     onRun(e) {
         let rc = {left: 200, top: 100, width: 400, height: 350};
         let mc = getModalContainer(rc);
-        ReactDOM.render(<ParameterInputPanel onOk={this.loadParametersAndRun}/>, mc);
+        document.designData.currentModalContainer = ReactDOM.render(<ParameterInputPanel onOk={this.loadParametersAndRun}/>, mc);
     }
     
     loadParametersAndRun(params) {
@@ -153,7 +153,7 @@ class DesignTabs extends BaseDesignComponent {
     onSave() {
         let rc = {left: 200, top: 50, width: 600, height: 425};
         let mc = getModalContainer(rc);
-        ReactDOM.render(<SaveDocumentPanel onOk={this.saveDocument}/>, mc);
+        document.designData.currentModalContainer = ReactDOM.render(<SaveDocumentPanel onOk={this.saveDocument}/>, mc);
     }
     
     saveDocument(params) {
