@@ -71,9 +71,9 @@ export function clearContextMenu() {
     let cm = document.getElementById('ctxmenu');
     
     if (cm) {
+        unmountComponent(cm);
+        cm.parentNode.removeChild(cm);
         document.removeEventListener('click', popupMenuClick, true);
-        document.body.removeChild(cm);
-        unmountComponent(document.designData.currentContextMenu);
     }
 }
 
@@ -108,9 +108,9 @@ export function getModalContainer(rc) {
 export function clearModalContainer(mc) {
     const mcdom = document.getElementById('modalcontainer');
     if (mcdom) {
+        unmountComponent(mcdom);
+        mcdom.parentNode.removeChild(mcdom);
         document.removeEventListener('click', mc.clickFunction, true);
-        document.body.removeChild(mcdom);
-        unmountComponent(document.designData.currentModalContainer);
     }
 }
 
@@ -130,11 +130,11 @@ export function getWaitMessage() {
 }
 
 export function removeWaitMessage() {
-    let e = document.getElementById('waitmsg');
-    if (e) {
-        document.removeEventListener('click', e.waitMessageClick, true);
-        document.body.removeChild(e);
-        unmountComponent(document.designData.currentWaitMessage);
+    let wm = document.getElementById('waitmsg');
+    if (wm) {
+        wm.parentNode.removeChild(wm);
+        unmountComponent(wm);
+        document.removeEventListener('click', wm.waitMessageClick, true);
     }
 }
 
@@ -194,7 +194,6 @@ function unmountComponent(comp) {
     if (comp) {
         try {
             ReactDOM.unmountComponentAtNode(comp);
-        } catch(e) {};
-        comp = '';
+        } catch(e) {}
     }
 }

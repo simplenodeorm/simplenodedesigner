@@ -118,7 +118,7 @@ class BaseDesignComponent extends React.Component {
     
     showWaitMessage(msg) {
         this.clearWaitMessage();
-        document.designData.currentWaitMessage = ReactDOM.render(<div className="waitMessage"><img src="/images/spinner.gif"/><span>{msg}</span></div>, getWaitMessage());
+        ReactDOM.render(<div className="waitMessage"><img alt="waiting" src="/images/spinner.gif"/><span>{msg}</span></div>, getWaitMessage());
     }
 
     clearWaitMessage() {
