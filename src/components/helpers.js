@@ -11,14 +11,17 @@ document.designData = {
     currentDocument: ''
 };
 
-var popupMenuClick = function(e) { 
-    let rect = e.target.getBoundingClientRect();
-    let x = e.clientX - rect.left; 
-    let y = e.clientY - rect.top; 
-    if ((x < 0) || (y < 0) || (x >= rect.right) || (y >= rect.top)) {
+const popupMenuClick = function(e) {
+    let cm = document.getElementById('ctxmenu');
+    if (!isPointInRect(e.pageX, e.pageY, cm.getBoundingClientRect())) {
         clearContextMenu();
     }
 };
+
+export function isPointInRect(x, y, rc) {
+    return ((x > rc.left && (x < (rc.left + rc.width))
+        && (y > rc.top) && ( y < (rc.top + rc.height))));
+}
 
 export function clearDocumentDesignData() {
     document.designData = {
