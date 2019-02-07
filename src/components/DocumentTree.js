@@ -5,8 +5,7 @@ import '../app/App.css';
 import './defaultTree.css';
 import {BaseDesignComponent} from './BaseDesignComponent';
 import axios from 'axios';
-import {clearContextMenu} from './helpers';
-import {getContextMenu} from './helpers';
+import {clearContextMenu,removeWaitMessage,getContextMenu} from './helpers';
 import {updateState} from './HomePage';
 import config from '../config/appconfig.json';
 const qdimage = <img alt="query document" src="/images/querydoc.png"/>;
@@ -207,12 +206,12 @@ class DocumentTree extends BaseDesignComponent {
                 } else {
                     curcomp.props.setStatus(response.statusText, true);
                 }
-                
-                curcomp.clearWaitMessage();
+    
+                removeWaitMessage();
             })
             .catch((err) => {
                curcomp.props.setStatus('' + err, true);
-               curcomp.clearWaitMessage();
+                removeWaitMessage();
             });     
     }
 
@@ -236,8 +235,8 @@ class DocumentTree extends BaseDesignComponent {
                 document.designData.selectedObjectKeys.push(selnode.key);
             }
         }
-
-        this.clearWaitMessage();
+    
+        removeWaitMessage();
         this.props.setCurrentDocument(doc.documentName);
     }
     

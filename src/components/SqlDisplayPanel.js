@@ -4,7 +4,7 @@ import axios from 'axios';
 import {BaseDesignComponent} from './BaseDesignComponent';
 import {SqlFormatter} from './SqlFormatter';
 import {ClipboardButton} from './ClipboardButton';
-import {clearSelectedText} from './helpers';
+import {removeWaitMessage} from './helpers';
 import {copyToClipboard} from './helpers';
 
 class SqlDisplayPanel extends BaseDesignComponent {
@@ -40,11 +40,11 @@ class SqlDisplayPanel extends BaseDesignComponent {
                 } else {
                     curcomp.props.setStatus(response.statusText, true);
                 }
-                curcomp.clearWaitMessage();
+                removeWaitMessage();
             })
             .catch((err) => {
                 curcomp.props.setStatus('' + err, true);
-                curcomp.clearWaitMessage();
+                removeWaitMessage();
             });     
     }
     

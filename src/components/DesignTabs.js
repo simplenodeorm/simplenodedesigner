@@ -13,7 +13,7 @@ import {FilterPanel} from './FilterPanel';
 import {QueryPanel} from './QueryPanel';
 import config from '../config/appconfig.json';
 import axios from 'axios';
-import {getModalContainer} from './helpers';
+import {getModalContainer,removeWaitMessage} from './helpers';
 
 const tabs = [];
 class DesignTabs extends BaseDesignComponent {
@@ -120,7 +120,7 @@ class DesignTabs extends BaseDesignComponent {
     }
     
 
-    onRun(e) {
+    onRun() {
         let rc = {left: 200, top: 100, width: 400, height: 350};
         let mc = getModalContainer(rc);
         document.designData.currentModalContainer = ReactDOM.render(<ParameterInputPanel onOk={this.loadParametersAndRun}/>, mc);
@@ -141,12 +141,12 @@ class DesignTabs extends BaseDesignComponent {
                 } else {
                     curcomp.props.setStatus(response.statusText, true);
                 }
-                
-                curcomp.clearWaitMessage();
+    
+                removeWaitMessage();
             })
             .catch((err) => {
                 curcomp.props.setStatus('' + err, true);
-                curcomp.clearWaitMessage();
+                removeWaitMessage();
             });     
     }
     
@@ -167,17 +167,17 @@ class DesignTabs extends BaseDesignComponent {
             .then((response) => {
                 if (response.status === 200) {
                     curcomp.props.setStatus('document saved', false);
-                    curcomp.clearWaitMessage();
+                    removeWaitMessage();
                     curcomp.props.reloadDocuments();
                 } else {
-                    curcomp.clearWaitMessage();
+                    removeWaitMessage();
                     curcomp.props.setStatus(response.statusText, true);
                 }
                 
             })
             .catch((err) => {
                 curcomp.props.setStatus('' + err, true);
-                curcomp.clearWaitMessage();
+                removeWaitMessage();
             });     
     }
 
@@ -210,16 +210,16 @@ class DesignTabs extends BaseDesignComponent {
                 } else {
                     curcomp.props.setStatus(response.statusText, true);
                 }
-                
-                curcomp.clearWaitMessage();
+    
+                removeWaitMessage();
             })
             .catch((err) => {
                 curcomp.props.setStatus(err.toString(), true);
-                curcomp.clearWaitMessage();
+                removeWaitMessage();
             });
     }
     
-    setDocumentLoaded(existing) {
+    setDocumentLoaded() {
         for (let i = 0; i < tabs.length; ++i) {
             try {
                 tabs[i].setState({redraw: true});

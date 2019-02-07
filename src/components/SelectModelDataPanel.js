@@ -5,11 +5,11 @@ import './defaultTree.css';
 import config from '../config/appconfig.json';
 import axios from 'axios';
 import {BaseDesignComponent} from './BaseDesignComponent';
-import {clearDocumentDesignData} from './helpers';
+import {clearDocumentDesignData,removeWaitMessage} from './helpers';
 
-const leafimg = <img src="/images/column.png"/>;
-const keycolumnimg = <img src="/images/keycolumn.png"/>;
-const modelimg = <img src="/images/model.png"/>;
+const leafimg = <img alt="column" src="/images/column.png"/>;
+const keycolumnimg = <img alt="key column" src="/images/keycolumn.png"/>;
+const modelimg = <img alt="model" src="/images/model.png"/>;
 
 var setDesignTabState;
 class SelectModelDataPanel extends BaseDesignComponent {
@@ -40,14 +40,12 @@ class SelectModelDataPanel extends BaseDesignComponent {
     }
 
     componentWillReceiveProps(nextProps) {
-        const {model} = this.state;
         if (this.props.model !== nextProps.model) {
             this.loadModelData(nextProps.model);
         }
     }
 
     render() {
-        const {model, redraw} = this.state;
         this.state.redraw = false;
         
         if (document.designData.modelHierarchy) {
@@ -67,13 +65,13 @@ class SelectModelDataPanel extends BaseDesignComponent {
                   onSelect={this.onSelect}
                   checkedKeys={document.designData.selectedObjectKeys}
                   onCheck={this.onCheck}
-                  treeData={document.designData.modelHierarchy}></Tree></div></div>;
+                  treeData={document.designData.modelHierarchy}/></div></div>;
         } else {
             return <div/>;
         }
     }
     
-    onCheck(checkedKeys, e) {
+    onCheck(checkedKeys) {
         document.designData.selectedObjectKeys = checkedKeys;
         if (checkedKeys.length > 0) {
             setDesignTabState(false, false, false, true);
@@ -123,12 +121,12 @@ class SelectModelDataPanel extends BaseDesignComponent {
                     } else {
                         curcomp.props.setStatus(response.statusText, true);
                     }
-
-                    curcomp.clearWaitMessage();
+    
+                    removeWaitMessage();
                 })
                 .catch((err) => {
                    curcomp.props.setStatus('' + err, true);
-                   curcomp.clearWaitMessage();
+                    removeWaitMessage();
                 });     
         }
     }
