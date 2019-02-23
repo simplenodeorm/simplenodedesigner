@@ -84,16 +84,16 @@ class LoginPage extends BaseDesignComponent {
                     <form name="form" onSubmit={this.handleSubmit}>
                         <div>
                             <label htmlFor="username">{config.textmsg.username}</label>
-                            <input type="text" name="username" value={username} onChange={this.handleChange} />
+                            <input type="text" name="username" defaultValue={username} onChange={this.handleChange} />
                             {submitted && !username &&
-                                <div className="errorDisplay">*Username is required</div>
+                                <div className="errorDisplay">*{config.textmsg.usernamerequired}</div>
                             }
                         </div>
                         <div>
                             <label htmlFor="password">{config.textmsg.password}</label>
-                            <input type="password" name="password" value={password} onChange={this.handleChange} /> 
+                            <input type="password" name="password" defaultValue={password} onChange={this.handleChange} />
                             {submitted && !password &&
-                                <div className="errorDisplay">*Password is required</div>
+                                <div className="errorDisplay">*{config.textmsg.passwordrequired}</div>
                             }
                         </div>
                         <div>
@@ -101,7 +101,7 @@ class LoginPage extends BaseDesignComponent {
                             <select name="orm" onChange={this.handleChange}><option/>{options}</select>
 
                             {submitted && !orm &&
-                                <div className="errorDisplay">*Target ORM is required</div>
+                                <div className="errorDisplay">*{config.textmsg.targetormrequired}</div>
                             }
                         </div>
                         <div>

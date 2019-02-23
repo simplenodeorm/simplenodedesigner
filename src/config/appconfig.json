@@ -34,6 +34,9 @@
         "password": "Password:",
         "targetorm": "Target ORM:",
         "designlogin": "Design Login",
+        "targetormrequired": "Target ORM is Required",
+        "passwordrequired": "Password is required",
+        "usernamerequired": "Username is required",
         "authenticating": "Authenticating..."
     },
     "defaultDesignAuthenticator": "DefaultAuthorizer"
