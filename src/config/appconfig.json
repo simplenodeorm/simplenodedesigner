@@ -1,6 +1,6 @@
 {
     "textmsg": {
-        "logintitletext": "Simple Node Query Designer",
+        "logintitletext": "Query Designer",
         "modelselectdefault": "Select starting model...",
         "loaddocument": "Load Document",
         "deletedocument": "Delete Document",
@@ -29,7 +29,12 @@
         "distinct": "Distinct",
         "documentnamelabel": "Document Name:",
         "ok": "Ok",
-        "cancel": "Cancel"
+        "cancel": "Cancel",
+        "username": "Username:",
+        "password": "Password:",
+        "targetorm": "Target ORM:",
+        "designlogin": "Design Login",
+        "authenticating": "Authenticating..."
     },
     "defaultDesignAuthenticator": "DefaultAuthorizer"
 }

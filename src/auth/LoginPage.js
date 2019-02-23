@@ -69,7 +69,7 @@ class LoginPage extends BaseDesignComponent {
         }
 
         this.setState({loading: true});
-        this.login(username, password, orm);
+        this.login(username, password, orm, config);
     }
 
     render() {
@@ -80,24 +80,24 @@ class LoginPage extends BaseDesignComponent {
                 <h1 className="loginTitle">{config.textmsg.logintitletext}</h1>
                 <div className="errorDisplay">{error}</div>
                 <div className="login">
-                    <h3>Design Login</h3>
+                    <h3>{config.textmsg.designlogin}</h3>
                     <form name="form" onSubmit={this.handleSubmit}>
                         <div>
-                            <label htmlFor="username">Username</label>
+                            <label htmlFor="username">{config.textmsg.username}</label>
                             <input type="text" name="username" value={username} onChange={this.handleChange} />
                             {submitted && !username &&
                                 <div className="errorDisplay">*Username is required</div>
                             }
                         </div>
                         <div>
-                            <label htmlFor="password">Password</label>
+                            <label htmlFor="password">{config.textmsg.password}</label>
                             <input type="password" name="password" value={password} onChange={this.handleChange} /> 
                             {submitted && !password &&
                                 <div className="errorDisplay">*Password is required</div>
                             }
                         </div>
                         <div>
-                            <label>Target ORM</label>
+                            <label>{config.textmsg.targetorm}</label>
                             <select name="orm" onChange={this.handleChange}><option/>{options}</select>
 
                             {submitted && !orm &&
@@ -114,11 +114,11 @@ class LoginPage extends BaseDesignComponent {
         );
     }
 
-    login(username, password, selectedOrm) {
-        this.showWaitMessage('Authenticating...');
+    login(username, password, selectedOrm, cfg) {
+        this.showWaitMessage(cfg.textmsg.authenticating);
         let curcomp = this;
         const authString = 'Basic ' + base64.encode(username + ':' + password);
-        var config = {
+        const config = {
             headers: {'Authorization': authString, 'Cache-Control': 'no-cache'}
         };
 
