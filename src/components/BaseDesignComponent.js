@@ -1,6 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {isUnaryOperator} from './helpers';
 import {getWaitMessage} from './helpers';
 import {removeWaitMessage} from './helpers';
 
@@ -9,8 +8,8 @@ class BaseDesignComponent extends React.Component {
         super(props);
     }
 
-    loadSelectedNodesIfRequired() {
-        if (!document.designData.selnodes) {
+    loadSelectedNodesIfRequired(force) {
+        if (!document.designData.selnodes || force) {
             document.designData.selnodes = [];
             this.loadSelectedNodes(document.designData.modelHierarchy, document.designData.selnodes, new Set(document.designData.selectedObjectKeys));
         }
@@ -29,19 +28,6 @@ class BaseDesignComponent extends React.Component {
                 this.loadSelectedNodes(pnode.children[i], nodes, keyset);
             }
         }
-    }
-
-    getSelectNode(fieldName) {
-        let retval;
-
-        for (let i = 0; i < document.designData.selnodes.length; ++i) {
-            if (fieldName === document.designData.selnodes[i].__path__) {
-                retval = document.designData.selnodes[i];
-                break;
-            }
-        }
-
-        return retval;
     }
 
 
@@ -87,22 +73,8 @@ class BaseDesignComponent extends React.Component {
         return (document.designData.whereComparisons && document.designData.whereComparisons.length > 0);
     }
 
-    inputParametersRequired() {
-        let retval;
-
-        for (let i = 0; i < document.designData.whereComparisons.length; ++i) {
-            if (!document.designData.whereComparisons[i].customFilterInput
-                && !isUnaryOperator(document.designData.whereComparisons[i].comparisonOperator)
-                && !document.designData.whereComparisons[i].comparisonValue) {
-                retval = true;
-                break;
-            }
-        }
-
-        return retval;
-    }
-
-    isModalClick(e) { 
+    
+    isModalClick(e) {
         let retval = false;
         while (e) {
             if (e.id && (e.id === 'modalcontainer')) {
@@ -120,6 +92,7 @@ class BaseDesignComponent extends React.Component {
         removeWaitMessage();
         ReactDOM.render(<div className="waitMessage"><img alt="waiting" src="/images/spinner.gif"/><span>{msg}</span></div>, getWaitMessage());
     }
+    
 }
 
 export {BaseDesignComponent};

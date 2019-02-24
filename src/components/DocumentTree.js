@@ -43,12 +43,12 @@ class DocumentTree extends BaseDesignComponent {
             
             return <div className="treeContainer">
                 <Tree
-    onRightClick={this.onRightClick}
-    showLine
-    showIcon={true}
-    icon={this.getIcon}
-    defaultExpandAll={true}
-    treeData={treeData}/></div>;
+                    onRightClick={this.onRightClick}
+                    showLine
+                    showIcon={true}
+                    icon={this.getIcon}
+                    defaultExpandAll={true}
+                    treeData={treeData}/></div>;
 
         } else {
             return <div className="treeContainer"/>;

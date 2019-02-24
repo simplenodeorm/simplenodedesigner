@@ -9,8 +9,7 @@ class QueryPanel extends BaseDesignComponent {
     constructor(props) {
         super(props);
         this.state = {
-            newQueryResults: false,
-            redraw: false
+            newQueryResults: false
         };
     }
     
@@ -22,9 +21,7 @@ class QueryPanel extends BaseDesignComponent {
     }
 
     render() {
-        const {newQueryResults} = this.state;
         this.state.newQueryResults = false;
-        this.state.redraw = false;
         return <div className="tabSplitPaneContainer">
              <SplitPane 
                  split="horizontal" 

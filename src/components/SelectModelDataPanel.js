@@ -11,17 +11,13 @@ const leafimg = <img alt="column" src="/images/column.png"/>;
 const keycolumnimg = <img alt="key column" src="/images/keycolumn.png"/>;
 const modelimg = <img alt="model" src="/images/model.png"/>;
 
-var setDesignTabState;
 class SelectModelDataPanel extends BaseDesignComponent {
     constructor(props) {
         super(props);
-        setDesignTabState = this.props.setTabState;
         this.state = {
-            model: props.model,
-            redraw: false
+            model: props.model
         };
         
-        this.onSelect = this.onSelect.bind(this);
         this.onCheck = this.onCheck.bind(this);
     }
 
@@ -46,8 +42,6 @@ class SelectModelDataPanel extends BaseDesignComponent {
     }
 
     render() {
-        this.state.redraw = false;
-        
         if (document.designData.modelHierarchy) {
             let defaultExpandedKeys = ['t0'];
             if (document.designData.selectedObjectKeys) {
@@ -62,7 +56,6 @@ class SelectModelDataPanel extends BaseDesignComponent {
                   defaultExpandedKeys={defaultExpandedKeys}
                   showIcon={true}
                   icon={this.getIcon}
-                  onSelect={this.onSelect}
                   checkedKeys={document.designData.selectedObjectKeys}
                   onCheck={this.onCheck}
                   treeData={document.designData.modelHierarchy}/></div></div>;
@@ -74,22 +67,16 @@ class SelectModelDataPanel extends BaseDesignComponent {
     onCheck(checkedKeys) {
         document.designData.selectedObjectKeys = checkedKeys;
         if (checkedKeys.length > 0) {
-            setDesignTabState(false, false, false, true);
+            this.loadSelectedNodesIfRequired(true);
+            if (checkedKeys.length === 1) {
+                this.props.setTabState(false, false, false, true);
+            }
+            this.setState(this.state);
         } else {
-            setDesignTabState(false, true, true, true);
-        }
-        
-        if (document.designData.selnodes) {
-            document.designData.selnodes = '';
+            this.props.setTabState(false, true, true, true);
         }
     }
-    
-    onSelect(info) {
-    }
-    
-    onRightClick(info) {
-    }
-
+  
     getIcon(props) {
         if (props.isLeaf) {
             if (props.primaryKey) {

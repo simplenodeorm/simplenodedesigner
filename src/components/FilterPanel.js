@@ -11,10 +11,7 @@ class FilterPanel extends BaseDesignComponent {
         super(props);
         this.loadSelectedNodesIfRequired();
         this.state = {
-            selectedColumn: document.designData.selnodes[0].__path__,
-            filterAdded: false,
-            filterDeleted: false,
-            redraw: false
+            selectedColumn: document.designData.selnodes[0].__path__
         };
         
         this.onColumnChange = this.onColumnChange.bind(this);
@@ -30,9 +27,6 @@ class FilterPanel extends BaseDesignComponent {
                });};
         
         this.loadSelectedNodesIfRequired();
-        this.state.filterAdded = false;
-        this.state.filterDeleted = false;
-        this.state.redraw = false;
 
         if (document.designData.whereComparisons 
             && (document.designData.whereComparisons.length > 0)) {
@@ -49,7 +43,7 @@ class FilterPanel extends BaseDesignComponent {
     
     onDeleteLine(indx) {
         document.designData.whereComparisons.splice(indx, 1);
-        this.setState({filterDeleted: true});
+        this.setState(this.state);
 
         if (this.isWhereValid()) {
             this.props.setTabState(false, false, false, false);
@@ -77,7 +71,7 @@ class FilterPanel extends BaseDesignComponent {
             this.props.setTabState(false, false, false, false);
         } 
 
-        this.setState({filterAdded: true});
+        this.setState(this.state);
     }
     
     onColumnChange(sel) {

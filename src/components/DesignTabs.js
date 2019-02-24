@@ -222,7 +222,7 @@ class DesignTabs extends BaseDesignComponent {
     setDocumentLoaded() {
         for (let i = 0; i < tabs.length; ++i) {
             try {
-                tabs[i].setState({redraw: true});
+                tabs[i].setState(tabs[i].state);
             }
             
             catch (e) {}
