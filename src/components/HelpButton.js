@@ -7,7 +7,7 @@ class HelpButton extends React.Component {
     }
     
     render() {
-        return <span className="helpButton"><a href="/docs/designer.pdf" target="_blank"><img alt='help' src='/images/help.png'/></a></span>;              
+        return <span className="helpButton"><a href="/docs/qdesigner.pdf" target="_blank"><img alt='help' src='/images/help.png'/></a></span>;
     }
 }
 
