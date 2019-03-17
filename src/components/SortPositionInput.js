@@ -8,7 +8,7 @@ class SortPositionInput extends React.Component {
         super(props);
         this.onBlur = this.onBlur.bind(this);
         if (document.designData.currentDocument 
-            && document.designData.currentDocument.document.selectedColumns[this.props.index].sortPosition
+            && document.designData.currentDocument.selectedColumns[this.props.index].sortPosition
             && !document.designData.selnodes[this.props.index].__sortPosition) {
             document.designData.selnodes[this.props.index].__sortPosition = document.designData.currentDocument.document.selectedColumns[this.props.index].sortPosition;
         }
@@ -22,7 +22,10 @@ class SortPositionInput extends React.Component {
 
     onBlur(e) {
         document.designData.selnodes[this.props.index].__sortPosition = e.target.value;
-        document.designData.currentDocument.document.selectedColumns[this.props.index].sortPosition  = e.target.value;   
+        if (document.designData.currentDocument.document
+            && document.designData.currentDocument.document.selectedColumns) {
+            document.designData.currentDocument.document.selectedColumns[this.props.index].sortPosition = e.target.value;
+        }
     }
 }
 

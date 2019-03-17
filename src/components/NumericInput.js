@@ -7,7 +7,7 @@ class NumericInput extends React.Component {
     }
     
     render() {
-        return <input type='text' maxlength={this.props.maxLength} 
+        return <input type='text' maxLength={this.props.maxLength}
             onKeyDown={this.onKeyDown} onBlur={this.props.onBlur} 
             defaultValue={this.props.defaultValue}/>;
     }
@@ -15,7 +15,8 @@ class NumericInput extends React.Component {
     onKeyDown(e) {
         let charCode = (e.which) ? e.which : e.keyCode;
         
-        if (!this.props.allowCharacter(charCode, this.props.index)) {
+        if (!this.props.allowCharacter
+            || !this.props.allowCharacter(charCode, this.props.index)) {
             if ((charCode > 31) && (charCode < 48 || charCode > 57)) {
                 e.preventDefault();
             }

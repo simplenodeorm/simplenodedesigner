@@ -68,7 +68,7 @@ class SelectModelDataPanel extends BaseDesignComponent {
         document.designData.selectedObjectKeys = checkedKeys;
         if (checkedKeys.length > 0) {
             this.loadSelectedNodesIfRequired(true);
-            if (checkedKeys.length === 1) {
+            if (checkedKeys.length > 0) {
                 this.props.setTabState(false, false, false, true);
             }
             this.setState(this.state);
