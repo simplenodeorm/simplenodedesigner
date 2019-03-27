@@ -202,7 +202,7 @@ class DesignTabs extends BaseDesignComponent {
                 if (response.status === 200) {
                     const modelLoop = (data) => {
                         return data.map((item) => {
-                            return <button onClick={(e) => curcomp.onSetSidebarOpen(false, item, e)}>{item}</button>;
+                            return <button onClick={(e) => curcomp.onSetSidebarOpen(false, item.name, e)}>{'[' + item.poolAlias + '] ' + item.name}</button>;
                         });
                     };
                     document.designData.models = <div className="sidebarContainer">{modelLoop(response.data)}</div>;
