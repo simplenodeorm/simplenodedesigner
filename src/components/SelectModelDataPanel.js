@@ -5,7 +5,7 @@ import './defaultTree.css';
 import config from '../config/appconfig.json';
 import axios from 'axios';
 import {BaseDesignComponent} from './BaseDesignComponent';
-import {clearDocumentDesignData,removeWaitMessage} from './helpers';
+import {clearDocumentDesignData,removeWaitMessage,getOrmUrl} from './helpers';
 
 const leafimg = <img alt="column" src="/images/column.png"/>;
 const keycolumnimg = <img alt="key column" src="/images/keycolumn.png"/>;
@@ -99,7 +99,7 @@ class SelectModelDataPanel extends BaseDesignComponent {
                 headers: {'Authorization': orm.authString}
             };
 
-            axios.get(orm.url + '/design/modeltree/' + inputModel, config)
+            axios.get(getOrmUrl(orm.url) + '/design/modeltree/' + inputModel, config)
                 .then((response) => {
                     if (response.status === 200) {
                         clearDocumentDesignData();

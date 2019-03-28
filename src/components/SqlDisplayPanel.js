@@ -4,8 +4,7 @@ import axios from 'axios';
 import {BaseDesignComponent} from './BaseDesignComponent';
 import {SqlFormatter} from './SqlFormatter';
 import {ClipboardButton} from './ClipboardButton';
-import {removeWaitMessage} from './helpers';
-import {copyToClipboard} from './helpers';
+import {removeWaitMessage,getOrmUrl,copyToClipboard} from './helpers';
 
 class SqlDisplayPanel extends BaseDesignComponent {
     constructor(props) {
@@ -33,7 +32,7 @@ class SqlDisplayPanel extends BaseDesignComponent {
             headers: {'Authorization': orm.authString }
         };
 
-        axios.post(orm.url + '/design/generatesql', this.getQueryDocument(), config)
+        axios.post(getOrmUrl(orm.url) + '/design/generatesql', this.getQueryDocument(), config)
             .then((response) => {
                 if (response.status === 200) {
                     curcomp.setState({sql: response.data});

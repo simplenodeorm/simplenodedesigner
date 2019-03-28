@@ -39,5 +39,6 @@
         "usernamerequired": "Username is required",
         "authenticating": "Authenticating..."
     },
+    "demoMode": true,
     "defaultDesignAuthenticator": "DefaultAuthorizer"
 }

@@ -5,7 +5,7 @@ import '../app/App.css';
 import './defaultTree.css';
 import {BaseDesignComponent} from './BaseDesignComponent';
 import axios from 'axios';
-import {clearContextMenu,removeWaitMessage,getContextMenu} from './helpers';
+import {clearContextMenu,removeWaitMessage,getContextMenu,getOrmUrl} from './helpers';
 import {updateState} from './HomePage';
 import config from '../config/appconfig.json';
 const qdimage = <img alt="query document" src="/images/querydoc.png"/>;
@@ -104,7 +104,7 @@ class DocumentTree extends BaseDesignComponent {
             headers: {'Authorization': orm.authString}
         };
 
-        axios.get(orm.url + '/design/loaddocument/' + selectedDocument, config)
+        axios.get(getOrmUrl(orm.url) + '/design/loaddocument/' + selectedDocument, config)
             .then((response) => {
                 if (response.status === 200) {
                     curcomp.loadDocumentData(response.data)
@@ -128,7 +128,7 @@ class DocumentTree extends BaseDesignComponent {
                 headers: {'Authorization': orm.authString}
             };
 
-            axios.get(orm.url + '/design/deletedocument/' + selectedDocument, config)
+            axios.get(getOrmUrl(orm.url) + '/design/deletedocument/' + selectedDocument, config)
                 .then((response) => {
                     if (response.status === 200) {
                         curcomp.loadDocuments();
@@ -153,7 +153,7 @@ class DocumentTree extends BaseDesignComponent {
             headers: {'Authorization': orm.authString}
         };
 
-        axios.get(orm.url + '/design/document/groups', config)
+        axios.get(getOrmUrl(orm.url) + '/design/document/groups', config)
             .then((response) => {
                 if (response.status === 200) {
                     curcomp.setState({groups: response.data});
@@ -175,7 +175,7 @@ class DocumentTree extends BaseDesignComponent {
             headers: {'Authorization': orm.authString}
         };
 
-        axios.get(orm.url + '/design/documents', config)
+        axios.get(getOrmUrl(orm.url) + '/design/documents', config)
             .then((response) => {
                 if (response.status === 200) {
                     curcomp.setState({documents: response.data});
@@ -199,7 +199,7 @@ class DocumentTree extends BaseDesignComponent {
         };
 
         curcomp.setState({model: seldoc.document.rootModel});
-        axios.get(orm.url + '/design/modeltree/' + seldoc.document.rootModel, config)
+        axios.get(getOrmUrl(orm.url) + '/design/modeltree/' + seldoc.document.rootModel, config)
             .then((response) => {
                 if (response.status === 200) {
                     curcomp.setCurrentDocument(seldoc, response.data);

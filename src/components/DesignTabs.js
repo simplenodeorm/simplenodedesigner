@@ -13,7 +13,7 @@ import {FilterPanel} from './FilterPanel';
 import {QueryPanel} from './QueryPanel';
 import config from '../config/appconfig.json';
 import axios from 'axios';
-import {getModalContainer,removeWaitMessage} from './helpers';
+import {getModalContainer,removeWaitMessage,getOrmUrl} from './helpers';
 
 const tabs = [];
 class DesignTabs extends BaseDesignComponent {
@@ -133,7 +133,7 @@ class DesignTabs extends BaseDesignComponent {
         const config = {
             headers: {'Authorization': orm.authString }
         };
-        axios.post(orm.url + '/design/runquery', this.getQueryDocument(params), config)
+        axios.post(getOrmUrl(orm.url) + '/design/runquery', this.getQueryDocument(params), config)
             .then((response) => {
                 if (response.status === 200) {
                     document.designData.queryResults = response.data;
@@ -163,7 +163,7 @@ class DesignTabs extends BaseDesignComponent {
         const config = {
             headers: {'Authorization': orm.authString }
         };
-        axios.post(orm.url + '/design/savequery', this.getQueryDocument(params), config)
+        axios.post(getOrmUrl(orm.url) + '/design/savequery', this.getQueryDocument(params), config)
             .then((response) => {
                 if (response.status === 200) {
                     curcomp.props.setStatus('document saved', false);
@@ -197,7 +197,7 @@ class DesignTabs extends BaseDesignComponent {
             headers: {'Authorization': orm.authString}
         };
 
-        axios.get(orm.url + '/design/modelnames', config)
+        axios.get(getOrmUrl(orm.url) + '/design/modelnames', config)
             .then((response) => {
                 if (response.status === 200) {
                     const modelLoop = (data) => {

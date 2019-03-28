@@ -4,7 +4,7 @@ import {ModalDialog} from './ModalDialog';
 import Tree from 'rc-tree';
 import './defaultTree.css';
 import "../app/App.css";
-import {defaultSaveSettings} from './helpers';
+import {defaultSaveSettings,getOrmUrl} from './helpers';
 import axios from 'axios';
 
 const qfimage = <img alt="query folder" src="/images/queryfolder.png"/>;
@@ -157,7 +157,7 @@ class SaveDocumentPanel extends ModalDialog {
             headers: {'Authorization': orm.authString}
         };
 
-        axios.get(orm.url + '/design/authorizers', config)
+        axios.get(getOrmUrl(orm.url) + '/design/authorizers', config)
             .then((response) => {
                 if (response.status === 200) {
                     curcomp.setState({authorizers: response.data});
@@ -177,7 +177,7 @@ class SaveDocumentPanel extends ModalDialog {
             headers: {'Authorization': orm.authString}
         };
 
-        axios.get(orm.url + '/design/document/groups', config)
+        axios.get(getOrmUrl(orm.url) + '/design/document/groups', config)
             .then((response) => {
                 if (response.status === 200) {
                     curcomp.setState({groups: response.data});
