@@ -12,7 +12,7 @@ class ColumnLabel extends React.Component {
         return <span className="fieldLabel">{config.textmsg.columnlabel}
             <input className="customColumnInput" type='text' 
                 onBlur={this.onBlur} 
-                value={document.designData.selnodes[this.props.index].__columnLabel}/>
+                defaultValue={document.designData.selnodes[this.props.index].__columnLabel}/>
             </span>;
     }
     
