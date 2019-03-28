@@ -1,5 +1,6 @@
-Simple Node Designer is a React 16 query designer for the simplenodeorm. Simple Node Designer allows
-the user to create and save query documents in simplenodeorm which can then be run via REST calls.
+The Query Designer is a React web application that allows the user to create,
+save and run query documents in simplenodeorm. The created query documents can then
+be run and results returned via REST.
 
 Documentation: 
 http://simplenodeorm.org/wp-content/uploads/2019/03/qdesigner-full.pdf
