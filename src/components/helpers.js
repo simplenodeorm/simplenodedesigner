@@ -195,8 +195,8 @@ export function copyToClipboard(className) {
 }
 
 export function getOrmUrl(inurl) {
-    
     let retval = inurl;
+    /*
     let winurl = window.location.href;
 
     // in demo mode will assume everything is running in 1 docker server
@@ -215,8 +215,8 @@ export function getOrmUrl(inurl) {
             }
         }
     }
-    
-    return retval;
+    */
+   return retval;
 }
 
 function unmountComponent(comp) {
