@@ -2,6 +2,7 @@ import React from 'react';
 import {SaveButton} from './SaveButton';
 import {RunButton} from './RunButton';
 import {HelpButton} from './HelpButton';
+import config from '../config/appconfig.json';
 import "../app/App.css";
 
 class MenuButton extends React.Component {
@@ -26,7 +27,7 @@ class MenuButton extends React.Component {
                         </svg><span>{text}</span>
                     </a>
                     <RunButton disabled={this.props.saveDisabled} onRun={this.props.onRun}/>
-                    <SaveButton disabled={this.props.saveDisabled} onSave={this.props.onSave}/>
+                    <SaveButton disabled={config.demoMode || this.props.saveDisabled} onSave={this.props.onSave}/>
                     <HelpButton onHelp={this.props.onHelp}/>
             </div>;
     }

@@ -91,7 +91,7 @@ class DocumentTree extends BaseDesignComponent {
         if (info.node.props.isLeaf) {
             this.state.selectedDocument = info.node.props.eventKey;
             const cm = getContextMenu(info);
-            ReactDOM.render(<ul><li><button onClick={tree.editDocument}>{config.textmsg.loaddocument}</button></li><li><button onClick={tree.deleteDocument}>{config.textmsg.deletedocument}</button></li></ul>, cm);
+            ReactDOM.render(<ul><li><button onClick={tree.editDocument}>{config.textmsg.loaddocument}</button></li>{!config.demoMode && <li><button onClick={tree.deleteDocument}>{config.textmsg.deletedocument}</button></li>}</ul>, cm);
         } 
     }
     
