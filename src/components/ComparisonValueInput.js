@@ -3,6 +3,7 @@ import "../app/App.css";
 import {BaseDesignComponent} from './BaseDesignComponent';
 import {NumericInput} from './NumericInput';
 import DatePicker from 'react-datepicker';
+import {isWhereValid} from './helpers';
 import 'react-datepicker/dist/react-datepicker.css';
 
 class ComparisonValueInput extends BaseDesignComponent {
@@ -46,7 +47,7 @@ class ComparisonValueInput extends BaseDesignComponent {
         }
 
         if (this.props.setTabState) {
-            this.props.setTabState(false, false, false, !this.isWhereValid());
+            this.props.setTabState(false, false, false, !isWhereValid());
         }
     }
 }
