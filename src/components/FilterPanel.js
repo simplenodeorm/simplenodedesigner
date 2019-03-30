@@ -4,7 +4,7 @@ import {AddFilterColumn} from './AddFilterColumn';
 import {FilterLine} from './FilterLine';
 import {BaseDesignComponent} from './BaseDesignComponent';
 import {getFieldType} from './helpers';
-import {getUniqueKey} from './helpers';
+import {getUniqueKey,isRootColumnSelected,isWhereValid} from './helpers';
 
 class FilterPanel extends BaseDesignComponent {
     constructor(props) {
@@ -45,7 +45,7 @@ class FilterPanel extends BaseDesignComponent {
         document.designData.whereComparisons.splice(indx, 1);
         this.setState(this.state);
 
-        if (this.isWhereValid()) {
+        if (isWhereValid() && isRootColumnSelected()) {
             this.props.setTabState(false, false, false, false);
         } else {
             this.props.setTabState(false, false, false, true);
@@ -67,7 +67,7 @@ class FilterPanel extends BaseDesignComponent {
 
         document.designData.whereComparisons.push(whereComparison);
         
-        if (this.isWhereValid()) {
+        if (isWhereValid()) {
             this.props.setTabState(false, false, false, false);
         } 
 
@@ -78,6 +78,7 @@ class FilterPanel extends BaseDesignComponent {
         this.state.selectedColumn = sel.options[sel.selectedIndex].text;
         this.state.fieldType = getFieldType(document.designData.selnodes[sel.selectedIndex].type);
     }
+    
 }
 
 export {FilterPanel};

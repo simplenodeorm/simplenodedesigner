@@ -5,7 +5,11 @@ import './defaultTree.css';
 import config from '../config/appconfig.json';
 import axios from 'axios';
 import {BaseDesignComponent} from './BaseDesignComponent';
-import {clearDocumentDesignData,removeWaitMessage,getOrmUrl} from './helpers';
+import {clearDocumentDesignData,
+    removeWaitMessage,
+    getOrmUrl,
+    isWhereValid,
+    isRootColumnSelected} from './helpers';
 
 const leafimg = <img alt="column" src="/images/column.png"/>;
 const keycolumnimg = <img alt="key column" src="/images/keycolumn.png"/>;
@@ -48,7 +52,8 @@ class SelectModelDataPanel extends BaseDesignComponent {
                 defaultExpandedKeys = document.designData.selectedObjectKeys;
             }
             
-            return <div className="tabContainer"> <div className="treeContainer">
+            return <div className="tabContainer">
+                <div style={{height: "90%"}} className="treeContainer">
                 <Tree
                   onRightClick={this.onRightClick}
                   checkable
@@ -66,9 +71,11 @@ class SelectModelDataPanel extends BaseDesignComponent {
     
     onCheck(checkedKeys) {
         document.designData.selectedObjectKeys = checkedKeys;
-        if (checkedKeys.length > 0) {
+        if (document.designData.selectedObjectKeys.length > 0) {
             this.loadSelectedNodesIfRequired(true);
-            if (checkedKeys.length > 0) {
+            if (isWhereValid() && isRootColumnSelected()) {
+                this.props.setTabState(false, false, false, false);
+            } else {
                 this.props.setTabState(false, false, false, true);
             }
             this.setState(this.state);
@@ -98,7 +105,6 @@ class SelectModelDataPanel extends BaseDesignComponent {
             const config = {
                 headers: {'Authorization': orm.authString}
             };
-
             axios.get(getOrmUrl(orm.url) + '/design/modeltree/' + inputModel, config)
                 .then((response) => {
                     if (response.status === 200) {

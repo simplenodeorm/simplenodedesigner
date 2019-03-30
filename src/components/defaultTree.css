@@ -51,8 +51,8 @@
 .rc-tree li span.rc-tree-checkbox,
 .rc-tree li span.rc-tree-iconEle {
   line-height: 16px;
-  margin-right: 2px;
-  width: 16px;
+  margin-right: 1px;
+  width: 18px;
   height: 16px;
   display: inline-block;
   vertical-align: middle;
@@ -165,5 +165,6 @@
 }
 .rc-tree-icon__customize {
   margin-right: 2px;
+  width:18px;
   vertical-align: top;
 }

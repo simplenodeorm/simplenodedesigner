@@ -26,7 +26,6 @@ class DesignTabs extends BaseDesignComponent {
             tab2Disabled: true,
             tab3Disabled: true,
             tab4Disabled: true,
-            tabStateChanged: false,
             sidebarOpen: false,
             modelsLoaded: false,
             selectedModel: config.textmsg.modelselectdefault,
@@ -67,7 +66,7 @@ class DesignTabs extends BaseDesignComponent {
             
         let curModel = selectedModel;
         if (document.designData.currentDocument) {
-            curModel = document.designData.currentDocument.document.rootModel;
+            curModel = document.designData.currentDocument.rootModel;
             this.state.selectedModel = curModel;
         }
         
@@ -98,7 +97,7 @@ class DesignTabs extends BaseDesignComponent {
                     </TabList>
                     <TabPanel>
                         <SelectModelDataPanel ref={(tab) => {tabs[0] = tab}} 
-                            setTabState={this.setTabState} 
+                            setTabState={this.setTabState}
                             model={selectedModel} 
                             setStatus={this.props.setStatus}/>
                     </TabPanel>
@@ -182,7 +181,7 @@ class DesignTabs extends BaseDesignComponent {
     }
 
     setTabState(tab0, tab1, tab2, tab3) {
-        this.setState({tab0Disabled: tab0, tab1Disabled: tab1, tab2Disabled: tab2, tab3Disabled: tab3, tabStateChanged: true});
+        this.setState({tab0Disabled: tab0, tab1Disabled: tab1, tab2Disabled: tab2, tab3Disabled: tab3});
     }
 
     onDisplaySidebar() {

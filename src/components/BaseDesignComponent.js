@@ -69,11 +69,6 @@ class BaseDesignComponent extends React.Component {
         };
     }
 
-    isWhereValid() {
-        return (document.designData.whereComparisons && document.designData.whereComparisons.length > 0);
-    }
-
-    
     isModalClick(e) {
         let retval = false;
         while (e) {

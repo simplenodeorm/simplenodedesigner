@@ -219,6 +219,24 @@ export function getOrmUrl(inurl) {
    return retval;
 }
 
+export function isRootColumnSelected() {
+    let retval = false;
+    for (let i = 0; i < document.designData.selnodes.length; ++i) {
+        if (!document.designData.selnodes[i].__path__.includes('.')) {
+            retval = true;
+            break;
+        }
+    }
+    
+    return retval;
+}
+
+export function isWhereValid() {
+    return (document.designData.whereComparisons && document.designData.whereComparisons.length > 0);
+}
+
+
+
 function unmountComponent(comp) {
     if (comp) {
         try {
