@@ -38,34 +38,33 @@ export function clearDocumentDesignData() {
     
 export function getFieldType(dbType) {
     let retval;
-    let check = dbType.toLowerCase();
-    if (check.startsWith('number')) {
-        check = 'number';
-        
-    }
-    switch (check) {
-        case 'date':
-        case 'timestamp':
-            retval = 'date';
-            break;
-        case 'number':
-            if (dbType.includes(',')) {
-                retval = 'float';
-            } else {
-                retval = 'number';
-            }
-            break;
-        case 'float':
-        case 'double':
+    dbType = dbType.toUpperCase();
+
+    if (dbType.includes('VARCHAR')
+        || dbType.includes('TEXT')
+        || dbType.includes('CHAR')
+        || dbType.includes('CLOB')
+        || dbType.includes('ENUM')
+        || dbType.includes('SET')
+        || dbType.includes('GEOMETRY')
+        || dbType.includes('BLOB')) {
+        retval = "string";
+    } else if (dbType.includes('DATE')
+        || dbType.includes('TIME')) {
+        retval = 'date';
+    } else if (dbType.includes('NUMBER')
+        || dbType.includes('INT')
+        || dbType.includes('YEAR')
+        || dbType.includes('DECIMAL')) {
+        if (!dbType.includes('(') || dbType.endsWith(", 0)")) {
+            retval = 'int';
+        } else {
             retval = 'float';
-            break;
-        case 'integer':
-        case 'long':
-            retval = 'number';
-            break;
-        default:
-            retval = 'string';
-            break;
+        }
+    } else if (dbType.includes('FLOAT') ||  dbType.includes('DOUBLE'))     {
+        retval = 'float';
+    } else if (dbType.includes('BOOL')) {
+        retval = 'boolean';
     }
 
     return retval;
@@ -196,7 +195,6 @@ export function copyToClipboard(className) {
 
 export function getOrmUrl(inurl) {
     let retval = inurl;
-    /*
     let winurl = window.location.href;
 
     // in demo mode will assume everything is running in 1 docker server
@@ -215,8 +213,8 @@ export function getOrmUrl(inurl) {
             }
         }
     }
-    */
-   return retval;
+    
+    return retval;
 }
 
 export function isRootColumnSelected() {
