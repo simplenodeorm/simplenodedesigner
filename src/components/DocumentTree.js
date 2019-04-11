@@ -235,7 +235,7 @@ class DocumentTree extends BaseDesignComponent {
                 document.designData.selectedObjectKeys.push(selnode.key);
             }
         }
-    
+        document.designData.queryResults = '';
         removeWaitMessage();
         this.props.setCurrentDocument(doc.documentName);
     }
