@@ -242,3 +242,19 @@ function unmountComponent(comp) {
         } catch(e) {}
     }
 }
+
+export function isGroupByRequired() {
+    let retval = false;
+    if (document.designData && document.designData.selnodes) {
+        for (let i = 0; i < document.designData.selnodes.length; ++i) {
+            if (document.designData.selnodes[i].__selectedFunction) {
+                retval = true;
+                break;
+            }
+        }
+    }
+    
+    return retval;
+    
+}
+
