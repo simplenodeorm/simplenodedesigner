@@ -81,7 +81,8 @@ class DesignTabs extends BaseDesignComponent {
                     onHelp={this.onHelp}
                     onMenuClick={() => {  this.onSetSidebarOpen(true); }}/>
                 {sidebarOpen &&
-                <Sidebar 
+                <Sidebar
+                    styles={{ sidebar: { width: "200px" } }}
                     sidebar={document.designData.models}
                     open={sidebarOpen}
                     onSetOpen={this.onSetSidebarOpen}>
@@ -204,6 +205,12 @@ class DesignTabs extends BaseDesignComponent {
                             return <button onClick={(e) => curcomp.onSetSidebarOpen(false, item.name, e)}>{'[' + item.poolAlias + '] ' + item.name}</button>;
                         });
                     };
+                    response.data.sort(function(m1, m2) {
+                        let dname1 = (m1.poolAlias + '.' + m1.name);
+                        let dname2 = (m2.poolAlias + '.' + m2.name);
+                        return dname1 > dname2;
+                        
+                    });
                     document.designData.models = <div className="sidebarContainer">{modelLoop(response.data)}</div>;
                     curcomp.setState({sidebarOpen: true});
                 } else {
