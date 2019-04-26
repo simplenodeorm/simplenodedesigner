@@ -1,6 +1,6 @@
 {
   "name": "@simplenodeorm/simplenodedesigner",
-  "version": "1.0.15",
+  "version": "1.1.0",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/rbtucker/simplenodedesigner.git"
@@ -34,9 +34,8 @@
   "keywords": [
     "oracle",
     "mysql",
+    "postgresql",
     "adhoc",
-    "oracle orm",
-    "mysql orm",
     "query designer",
     "sql",
     "simplenodeorm"
