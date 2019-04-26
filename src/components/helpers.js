@@ -39,7 +39,7 @@ export function clearDocumentDesignData() {
 export function getFieldType(dbType) {
     let retval;
     dbType = dbType.toUpperCase();
-
+    
     if (dbType.includes('VARCHAR')
         || dbType.includes('TEXT')
         || dbType.includes('CHAR')
@@ -47,6 +47,7 @@ export function getFieldType(dbType) {
         || dbType.includes('ENUM')
         || dbType.includes('SET')
         || dbType.includes('GEOMETRY')
+        || dbType.includes('BYTEA')
         || dbType.includes('BLOB')) {
         retval = "string";
     } else if (dbType.includes('DATE')
@@ -54,6 +55,7 @@ export function getFieldType(dbType) {
         retval = 'date';
     } else if (dbType.includes('NUMBER')
         || dbType.includes('INT')
+        || dbType.includes('NUMERIC')
         || dbType.includes('YEAR')
         || dbType.includes('DECIMAL')) {
         if (!dbType.includes('(') || dbType.endsWith(", 0)")) {
@@ -65,6 +67,8 @@ export function getFieldType(dbType) {
         retval = 'float';
     } else if (dbType.includes('BOOL')) {
         retval = 'boolean';
+    }  else {
+        retval = 'string';
     }
 
     return retval;
