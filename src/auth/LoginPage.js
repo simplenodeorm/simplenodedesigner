@@ -11,7 +11,11 @@ import '../app/App.css';
 
 const loop = (data) => {
     return data.map((item) => {
-        return <option key="{item.name}">{item.name}</option>;
+        if (config.demoMode && (item.name === 'hr')) {
+            return <option key="{item.name}" selected>{item.name}</option>;
+        } else {
+            return <option key="{item.name}">{item.name}</option>;
+        }
     });
 };
 
@@ -20,7 +24,7 @@ const options = loop(orms);
 class LoginPage extends BaseDesignComponent {
     constructor(props) {
         super(props);
-
+    
         this.state = {
             username: '',
             password: '',
@@ -29,30 +33,24 @@ class LoginPage extends BaseDesignComponent {
             loading: false,
             error: ''
         };
-        
-        if (config.demoMode) {
-            this.state = {
-                username: 'testuser',
-                password: 'testpass',
-                orm: 'hr',
-                submitted: false,
-                loading: false,
-                error: ''
-            };
-        } else {
-            this.state = {
-                username: '',
-                password: '',
-                orm: '',
-                submitted: false,
-                loading: false,
-                error: ''
-            };
     
-        }
-
+    
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
+ 
+   }
+
+    componentDidMount() {
+        if (config.demoMode) {
+            this.handleChange({
+                target: {
+                    name: 'orm',
+                    value: 'hr'
+                }
+            });
+        } else {
+            this.username.focus();
+        }
     }
 
     handleChange(e) {
