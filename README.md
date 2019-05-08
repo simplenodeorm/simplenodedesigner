@@ -3,7 +3,7 @@ save and run query documents in simplenodeorm. The created query documents can t
 be run and results returned via REST.
 
 Source: 
-https://github.com/simplenodeorm/simplenodedesigner
+https://github.com/simplenodeorm/simplenodedesigner.git
 
 Website (demo and documentation):
 http://simplenodeorm.org
