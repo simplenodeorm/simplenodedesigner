@@ -627,7 +627,7 @@ input[type="checkbox"] {
 
 .helpButton {
     cursor: pointer;
-    padding-top: 10px;
+    padding-top: 3px;
     padding-left: 50px;
     border: none;
     background: none;
