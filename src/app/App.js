@@ -1,8 +1,8 @@
 import React from 'react';
-import { BrowserRouter as Router, Route,  } from 'react-router-dom';
-import { PrivateRoute } from '../auth/PrivateRoute';
-import { HomePage } from '../components/HomePage';
-import LoginPage from '../auth/LoginPage';
+import {BrowserRouter as Router, Route} from 'react-router-dom';
+import {PrivateRoute} from '../auth/PrivateRoute';
+import {HomePage} from '../components/HomePage';
+import {LoginPage} from '../auth/LoginPage';
 import './App.css';
 
 class App extends React.Component  {

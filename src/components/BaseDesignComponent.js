@@ -7,6 +7,10 @@ class BaseDesignComponent extends React.Component {
     constructor(props) {
         super(props);
     }
+    
+    componentDidCatch(error, info) {
+        alert(error);
+    }
 
     loadSelectedNodesIfRequired(force) {
         if (!document.designData.selnodes || force) {
