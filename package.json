@@ -12,6 +12,8 @@
     "axios": "^0.18.0",
     "base-64": "^0.1.0",
     "bit-bin": "^14.1.0",
+    "enzyme": "^3.10.0",
+    "jest-enzyme": "^7.0.2",
     "moment": "^2.23.0",
     "rc-tree": "^1.14.6",
     "react": "^16.6.3",
@@ -30,7 +32,9 @@
     "@babel/preset-react": "^7.0.0",
     "babel-jest": "^24.8.0",
     "jest": "^24.8.0",
-    "react-test-renderer": "^16.8.6"
+    "jest-enzyme": "^7.0.2",
+    "react-test-renderer": "^16.8.6",
+    "enzyme-adapter-react-16": "^1.14.0"
   },
   "bugs": {
     "url": "https://github.com/simplenodeorm/simplenodedesigner/issues"

@@ -1,8 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3973d6c5-e1ad-4f5e-bf6b-ba2816138a02" name="Default Changelist" comment="">
+    <list default="true" id="3973d6c5-e1ad-4f5e-bf6b-ba2816138a02" name="Default Changelist" comment="SIM-18 implement tests">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/__mocks__/fileMock.js" beforeDir="false" afterPath="$PROJECT_DIR$/__mocks__/fileMock.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jest.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/jest.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/App.test.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/App.test.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/auth/LoginPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/auth/LoginPage.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -20,19 +24,19 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/app/App.test.js">
+        <entry file="file://$PROJECT_DIR$/src/auth/LoginPage.test.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="165">
-              <caret line="11" column="3" selection-end-line="11" selection-end-column="3" />
+            <state relative-caret-position="135">
+              <caret line="33" column="53" selection-start-line="33" selection-start-column="53" selection-end-line="33" selection-end-column="53" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/auth/LoginPage.test.js">
+        <entry file="file://$PROJECT_DIR$/src/app/App.test.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="7" column="13" lean-forward="true" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+            <state relative-caret-position="165">
+              <caret line="11" column="3" lean-forward="true" selection-start-line="11" selection-start-column="3" selection-end-line="11" selection-end-column="3" />
             </state>
           </provider>
         </entry>
@@ -47,19 +51,19 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/auth/LoginPage.js">
+        <entry file="file://$PROJECT_DIR$/__mocks__/fileMock.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="7" selection-start-line="7" selection-end-line="7" />
+            <state relative-caret-position="15">
+              <caret line="1" selection-start-line="1" selection-end-line="1" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/app/App.js">
+        <entry file="file://$PROJECT_DIR$/src/auth/LoginPage.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-32">
-              <caret column="12" selection-start-column="12" selection-end-column="12" />
+            <state relative-caret-position="128">
+              <caret line="104" column="45" selection-start-line="104" selection-start-column="45" selection-end-line="104" selection-end-column="45" />
             </state>
           </provider>
         </entry>
@@ -165,17 +169,18 @@
         <option value="$PROJECT_DIR$/__mocks__/localStorage.js" />
         <option value="$PROJECT_DIR$/src/auth/PrivateRoute.test.js" />
         <option value="$PROJECT_DIR$/__mocks__/localStorageMock.js" />
-        <option value="$PROJECT_DIR$/src/app/App.test.js" />
         <option value="$PROJECT_DIR$/jest.config.js" />
+        <option value="$PROJECT_DIR$/src/app/App.test.js" />
         <option value="$PROJECT_DIR$/package.json" />
-        <option value="$PROJECT_DIR$/src/auth/LoginPage.test.js" />
         <option value="$PROJECT_DIR$/src/auth/LoginPage.js" />
+        <option value="$PROJECT_DIR$/src/auth/LoginPage.test.js" />
+        <option value="$PROJECT_DIR$/__mocks__/fileMock.js" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="150" />
-    <option name="y" value="25" />
+    <option name="x" value="74" />
+    <option name="y" value="53" />
     <option name="width" value="1155" />
     <option name="height" value="676" />
   </component>
@@ -187,7 +192,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -217,10 +221,17 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="auth" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="simplenodedesigner" type="b2602c69:ProjectViewProjectNode" />
+              <item name="simplenodedesigner" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="config" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -253,7 +264,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="npm.start">
+  <component name="RunManager" selected="Jest.All Tests">
     <configuration name="All Tests" type="JavaScriptTestRunnerJest" nameIsGenerated="true">
       <node-interpreter value="project" />
       <node-options value="" />
@@ -453,14 +464,10 @@
       <workItem from="1561515299518" duration="2906000" />
       <workItem from="1561592674588" duration="5974000" />
       <workItem from="1561599467147" duration="207000" />
-      <workItem from="1561600331929" duration="801000" />
-    </task>
-    <task id="LOCAL-00005" summary="clean up typo">
-      <created>1546294175247</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1546294175247</updated>
+      <workItem from="1561600331929" duration="938000" />
+      <workItem from="1561678622201" duration="31000" />
+      <workItem from="1561679140379" duration="5626000" />
+      <workItem from="1561685924499" duration="2678000" />
     </task>
     <task id="LOCAL-00006" summary="update css for popup menu">
       <created>1547164381702</created>
@@ -798,54 +805,62 @@
       <option name="project" value="LOCAL" />
       <updated>1561598717885</updated>
     </task>
-    <option name="localTasksCounter" value="54" />
+    <task id="LOCAL-00054" summary="SIM-18 implement tests">
+      <created>1561601286883</created>
+      <option name="number" value="00054" />
+      <option name="presentableId" value="LOCAL-00054" />
+      <option name="project" value="LOCAL" />
+      <updated>1561601286884</updated>
+    </task>
+    <option name="localTasksCounter" value="55" />
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="All_Tests - 2019.06.26 at 17h 48m 41s.xml">
+    <history-entry file="All_Tests - 2019.06.27 at 18h 10m 11s.xml">
       <configuration name="All Tests" configurationId="JavaScriptTestRunnerJest" />
     </history-entry>
-    <history-entry file="All_Tests - 2019.06.26 at 17h 49m 12s.xml">
+    <history-entry file="All_Tests - 2019.06.27 at 18h 13m 50s.xml">
       <configuration name="All Tests" configurationId="JavaScriptTestRunnerJest" />
     </history-entry>
-    <history-entry file="All_Tests - 2019.06.26 at 17h 49m 57s.xml">
+    <history-entry file="All_Tests - 2019.06.27 at 18h 15m 33s.xml">
       <configuration name="All Tests" configurationId="JavaScriptTestRunnerJest" />
     </history-entry>
-    <history-entry file="All_Tests - 2019.06.26 at 18h 02m 47s.xml">
+    <history-entry file="All_Tests - 2019.06.27 at 18h 40m 52s.xml">
       <configuration name="All Tests" configurationId="JavaScriptTestRunnerJest" />
     </history-entry>
-    <history-entry file="All_Tests - 2019.06.26 at 18h 05m 16s.xml">
+    <history-entry file="All_Tests - 2019.06.27 at 18h 51m 08s.xml">
       <configuration name="All Tests" configurationId="JavaScriptTestRunnerJest" />
     </history-entry>
-    <history-entry file="All_Tests - 2019.06.26 at 18h 09m 05s.xml">
+    <history-entry file="All_Tests - 2019.06.27 at 18h 56m 08s.xml">
       <configuration name="All Tests" configurationId="JavaScriptTestRunnerJest" />
     </history-entry>
-    <history-entry file="All_Tests - 2019.06.26 at 18h 09m 43s.xml">
+    <history-entry file="All_Tests - 2019.06.27 at 18h 58m 37s.xml">
       <configuration name="All Tests" configurationId="JavaScriptTestRunnerJest" />
     </history-entry>
-    <history-entry file="All_Tests - 2019.06.26 at 18h 10m 01s.xml">
+    <history-entry file="All_Tests - 2019.06.27 at 19h 00m 07s.xml">
       <configuration name="All Tests" configurationId="JavaScriptTestRunnerJest" />
     </history-entry>
-    <history-entry file="All_Tests - 2019.06.26 at 18h 54m 06s.xml">
+    <history-entry file="All_Tests - 2019.06.27 at 19h 03m 11s.xml">
       <configuration name="All Tests" configurationId="JavaScriptTestRunnerJest" />
     </history-entry>
-    <history-entry file="All_Tests - 2019.06.26 at 18h 59m 14s.xml">
+    <history-entry file="All_Tests - 2019.06.27 at 19h 22m 34s.xml">
       <configuration name="All Tests" configurationId="JavaScriptTestRunnerJest" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="164499000" />
+    <option name="totallyTimeSpent" value="172971000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="133" y="7" width="1155" height="676" extended-state="0" />
+    <frame x="74" y="53" width="1155" height="676" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.64791286" visible="true" weight="0.3442478" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.64791286" visible="true" weight="0.2442478" />
       <window_info id="Structure" order="1" sideWeight="0.3528302" side_tool="true" weight="0.25486726" />
       <window_info id="npm" order="2" sideWeight="0.3520871" side_tool="true" weight="0.2502172" />
       <window_info id="Favorites" order="3" sideWeight="0.1943662" side_tool="true" weight="0.35740072" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" sideWeight="0.49869677" weight="0.5753176" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.657689" visible="true" weight="0.48867926" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.657689" weight="0.48867926" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -855,7 +870,7 @@
       <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.34231102" side_tool="true" weight="0.3865699" />
       <window_info anchor="bottom" id="Terminal" order="10" />
       <window_info anchor="bottom" id="Inspection Results" order="11" weight="0.33517495" />
-      <window_info anchor="bottom" id="Messages" order="12" visible="true" weight="0.3264151" />
+      <window_info active="true" anchor="bottom" id="Messages" order="12" visible="true" weight="0.3264151" />
       <window_info anchor="bottom" id="TypeScript" order="13" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -1045,13 +1060,6 @@
     <entry file="file://$PROJECT_DIR$/src/components/SaveDocumentPanel.js">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/config/orms.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="30" selection-start-line="3" selection-start-column="30" selection-end-line="3" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/components/DocumentTree.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
@@ -1160,9 +1168,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/auth/PrivateRoute.test.js" />
-    <entry file="file://$PROJECT_DIR$/__mocks__/fileMock.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/__mocks__/styleMock.js">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -1177,20 +1182,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="114">
-          <caret line="32" column="36" selection-start-line="32" selection-start-column="36" selection-end-line="32" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/jest.config.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="1" selection-end-line="5" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/babel.config.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="45">
@@ -1198,10 +1189,52 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="540">
+          <caret line="36" column="40" selection-start-line="36" selection-start-column="40" selection-end-line="36" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/App.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="12" selection-start-column="12" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/jest.config.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" column="18" selection-start-line="1" selection-start-column="18" selection-end-line="1" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/app/App.test.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="165">
-          <caret line="11" column="3" selection-end-line="11" selection-end-column="3" />
+          <caret line="11" column="3" lean-forward="true" selection-start-line="11" selection-start-column="3" selection-end-line="11" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/config/orms.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="1" lean-forward="true" selection-end-line="7" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/auth/LoginPage.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="128">
+          <caret line="104" column="45" selection-start-line="104" selection-start-column="45" selection-end-line="104" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/auth/LoginPage.test.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="33" column="53" selection-start-line="33" selection-start-column="53" selection-end-line="33" selection-end-column="53" />
         </state>
       </provider>
     </entry>
@@ -1212,24 +1245,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/auth/LoginPage.test.js">
+    <entry file="file://$PROJECT_DIR$/__mocks__/fileMock.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="13" lean-forward="true" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/App.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-32">
-          <caret column="12" selection-start-column="12" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/auth/LoginPage.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" selection-start-line="7" selection-end-line="7" />
+        <state relative-caret-position="15">
+          <caret line="1" selection-start-line="1" selection-end-line="1" />
         </state>
       </provider>
     </entry>
