@@ -66,10 +66,12 @@ class HomePage extends React.Component {
     }
     
     setStatus(msg, iserr) {
-        if (iserr) {
-            statusBar.setState({error: msg, info: ''});
-        } else {
-            statusBar.setState({info: msg, error: ''});
+        if (statusBar) {
+            if (iserr) {
+                statusBar.setState({error: msg, info: ''});
+            } else {
+                statusBar.setState({info: msg, error: ''});
+            }
         }
     }
 }
