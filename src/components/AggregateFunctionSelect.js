@@ -41,7 +41,7 @@ class AggregateFunctionSelect extends BaseDesignComponent {
     }
     
     onChange(e) {
-        document.designData.selnodes[this.props.index].__selectedFunction = e.target[e.target.selectedIndex].value;
+        document.designData.selnodes[this.props.index].__selectedFunction = e.target.options[e.target.selectedIndex].value;
     }
 }
 
