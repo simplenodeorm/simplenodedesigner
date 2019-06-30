@@ -3,6 +3,9 @@ import ReactDOM from 'react-dom';
 import {LoginPage} from './LoginPage';
 import {shallow, configure } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
+import localStorage from '../../__mocks__/localStorageMock';
+
+window.localStorage = localStorage;
 
 configure({ adapter: new Adapter() });
 
@@ -21,25 +24,18 @@ it('initializes successfully', () => {
     ReactDOM.unmountComponentAtNode(div);
 });
 
-it('username check',()=>
+it('login check',()=>
 {
-    let wrapper = shallow(<LoginPage/>);
-    wrapper.find('input[type="text"]').simulate('blur', {target: {name: 'username', value: 'user'}});
-    expect(wrapper.state('username')).toEqual('user');
-});
-
-it('password check',()=>
-{
-    let wrapper = shallow(<LoginPage/>);
-    wrapper.find('input[type="text"]').simulate('blur', {target: {name: 'password', value: 'pass'}});
-    expect(wrapper.state('password')).toEqual('pass');
-});
-
-it('orm select check',()=>
-{
+    expect(localStorage.getItem('orm')).null;
     let wrapper = shallow(<LoginPage/>);
     wrapper.find('select').simulate('change', {target: { name: 'orm', value : 'hr'}});
     let res = wrapper.state('orm');
     expect(res).toBeDefined();
     expect(res.name).toEqual('hr');
+    wrapper.find('input[type="text"]').simulate('blur', {target: {name: 'password', value: 'pass'}});
+    expect(wrapper.state('password')).toEqual('pass');
+    wrapper.find('input[type="text"]').simulate('blur', {target: {name: 'username', value: 'user'}});
+    expect(wrapper.state('username')).toEqual('user');
+    wrapper.find('input[type="submit"]').simulate('click');
+    expect(localStorage.getItem('orm')).notNull;
 });
