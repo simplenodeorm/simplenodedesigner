@@ -26,7 +26,6 @@ it('initializes successfully', () => {
 
 it('login check',()=>
 {
-    expect(localStorage.getItem('orm')).null;
     let wrapper = shallow(<LoginPage/>);
     wrapper.find('select').simulate('change', {target: { name: 'orm', value : 'hr'}});
     let res = wrapper.state('orm');
@@ -36,6 +35,8 @@ it('login check',()=>
     expect(wrapper.state('password')).toEqual('pass');
     wrapper.find('input[type="text"]').simulate('blur', {target: {name: 'username', value: 'user'}});
     expect(wrapper.state('username')).toEqual('user');
-    wrapper.find('input[type="submit"]').simulate('click');
-    expect(localStorage.getItem('orm')).notNull;
+    wrapper.instance().login = jest.fn();
+    wrapper.update();
+    wrapper.find('form').simulate('submit', { preventDefault() {} });
+    expect(wrapper.instance().login).toHaveBeenCalled();
 });
