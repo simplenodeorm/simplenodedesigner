@@ -4,7 +4,3 @@ be run and results returned via REST.
 
 Source: 
 https://github.com/simplenodeorm/simplenodedesigner.git
-
-Website (demo and documentation):
-http://simplenodeorm.org
-
