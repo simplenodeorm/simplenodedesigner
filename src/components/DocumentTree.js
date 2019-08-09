@@ -103,7 +103,7 @@ class DocumentTree extends BaseDesignComponent {
             headers: {'Authorization': orm.authString}
         };
 
-        axios.get(getOrmUrl(orm.url) + '/design/loaddocument/' + selectedDocument, config)
+        axios.get(getOrmUrl(orm.url) + '/api/query/loaddocument/' + selectedDocument, config)
             .then((response) => {
                 if (response.status === 200) {
                     curcomp.loadDocumentData(response.data)
@@ -127,7 +127,7 @@ class DocumentTree extends BaseDesignComponent {
                 headers: {'Authorization': orm.authString}
             };
 
-            axios.get(getOrmUrl(orm.url) + '/design/deletedocument/' + selectedDocument, config)
+            axios.get(getOrmUrl(orm.url) + '/api/query/deletedocument/' + selectedDocument, config)
                 .then((response) => {
                     if (response.status === 200) {
                         curcomp.loadDocuments();
@@ -152,7 +152,7 @@ class DocumentTree extends BaseDesignComponent {
             headers: {'Authorization': orm.authString}
         };
 
-        axios.get(getOrmUrl(orm.url) + '/design/document/groups', config)
+        axios.get(getOrmUrl(orm.url) + '/api/query/document/groups', config)
             .then((response) => {
                 if (response.status === 200) {
                     curcomp.setState({groups: response.data});
@@ -174,7 +174,7 @@ class DocumentTree extends BaseDesignComponent {
             headers: {'Authorization': orm.authString}
         };
 
-        axios.get(getOrmUrl(orm.url) + '/design/documents', config)
+        axios.get(getOrmUrl(orm.url) + '/api/query/documents', config)
             .then((response) => {
                 if (response.status === 200) {
                     curcomp.setState({documents: response.data});
@@ -198,7 +198,7 @@ class DocumentTree extends BaseDesignComponent {
         };
 
         curcomp.setState({model: seldoc.document.rootModel});
-        axios.get(getOrmUrl(orm.url) + '/design/modeltree/' + seldoc.document.rootModel, config)
+        axios.get(getOrmUrl(orm.url) + '/api/query/modeltree/' + seldoc.document.rootModel, config)
             .then((response) => {
                 if (response.status === 200) {
                     curcomp.setCurrentDocument(seldoc, response.data);

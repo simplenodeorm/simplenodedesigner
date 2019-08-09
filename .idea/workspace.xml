@@ -3,6 +3,12 @@
   <component name="ChangeListManager">
     <list default="true" id="3973d6c5-e1ad-4f5e-bf6b-ba2816138a02" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/auth/LoginPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/auth/LoginPage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/DesignTabs.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/DesignTabs.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/DocumentTree.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/DocumentTree.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/SaveDocumentPanel.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/SaveDocumentPanel.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/SelectModelDataPanel.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/SelectModelDataPanel.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/SqlDisplayPanel.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/SqlDisplayPanel.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -12,45 +18,6 @@
   </component>
   <component name="FavoritesManager">
     <favorites_list name="simplenodedesigner" />
-  </component>
-  <component name="FindInProjectRecents">
-    <findStrings>
-      <find>saveDisabled</find>
-      <find>isWhereValid</find>
-      <find>isWhe</find>
-      <find>isW</find>
-      <find>documentTr</find>
-      <find>icon</find>
-      <find>selectedObjectKeys</find>
-      <find>setCurrentD</find>
-      <find>tab3Disabled</find>
-      <find>loadSelectedNodesIfRequired</find>
-      <find>editDocument</find>
-      <find>loadDocumentData</find>
-      <find>setTabState</find>
-      <find>tabStateChanged</find>
-      <find>this.isWhere</find>
-      <find>addColumn</find>
-      <find>onColumnChange</find>
-      <find>getFieldType</find>
-      <find>onRun</find>
-      <find>onResultFormatChange</find>
-      <find>newQueryResults</find>
-      <find>setCurrentDocument</find>
-      <find>isGroupBy</find>
-      <find>__func</find>
-      <find>__customColumnInput</find>
-      <find>MenuButt</find>
-      <find>document.designData.models</find>
-      <find>loadModels</find>
-      <find>loop</find>
-      <find>axios.get(</find>
-    </findStrings>
-    <dirStrings>
-      <dir>$PROJECT_DIR$</dir>
-      <dir>$PROJECT_DIR$/src/components</dir>
-      <dir>$PROJECT_DIR$/src</dir>
-    </dirStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -67,7 +34,7 @@
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../simplenodereport" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
@@ -254,13 +221,9 @@
       <workItem from="1556974277516" duration="103000" />
       <workItem from="1557239571811" duration="1862000" />
       <workItem from="1565229381537" duration="444000" />
-    </task>
-    <task id="LOCAL-00002" summary="cleaning up some compile warnings">
-      <created>1545875601773</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1545875601773</updated>
+      <workItem from="1565277418077" duration="58000" />
+      <workItem from="1565358175261" duration="19000" />
+      <workItem from="1565363700343" duration="814000" />
     </task>
     <task id="LOCAL-00003" summary="cleaning up some compile warnings">
       <created>1545877802503</created>
@@ -598,7 +561,14 @@
       <option name="project" value="LOCAL" />
       <updated>1556974361052</updated>
     </task>
-    <option name="localTasksCounter" value="51" />
+    <task id="LOCAL-00051" summary="update readme">
+      <created>1565277446218</created>
+      <option name="number" value="00051" />
+      <option name="presentableId" value="LOCAL-00051" />
+      <option name="project" value="LOCAL" />
+      <updated>1565277446218</updated>
+    </task>
+    <option name="localTasksCounter" value="52" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -609,14 +579,15 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="clesning up some compile warnings" />
     <MESSAGE value="cleaning up some compile warnings" />
     <MESSAGE value="clean up typo" />
     <MESSAGE value="update css for popup menu" />
@@ -641,6 +612,7 @@
     <MESSAGE value="clean up some demoMode settings" />
     <MESSAGE value="set focus to username on login" />
     <MESSAGE value="update git info" />
-    <option name="LAST_COMMIT_MESSAGE" value="update git info" />
+    <MESSAGE value="update readme" />
+    <option name="LAST_COMMIT_MESSAGE" value="update readme" />
   </component>
 </project>

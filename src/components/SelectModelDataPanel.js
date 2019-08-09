@@ -105,7 +105,7 @@ class SelectModelDataPanel extends BaseDesignComponent {
             const config = {
                 headers: {'Authorization': orm.authString}
             };
-            axios.get(getOrmUrl(orm.url) + '/design/modeltree/' + inputModel, config)
+            axios.get(getOrmUrl(orm.url) + '/api/query/modeltree/' + inputModel, config)
                 .then((response) => {
                     if (response.status === 200) {
                         clearDocumentDesignData();

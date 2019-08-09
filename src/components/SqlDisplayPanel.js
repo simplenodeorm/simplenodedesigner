@@ -32,7 +32,7 @@ class SqlDisplayPanel extends BaseDesignComponent {
             headers: {'Authorization': orm.authString }
         };
 
-        axios.post(getOrmUrl(orm.url) + '/design/generatesql', this.getQueryDocument(), config)
+        axios.post(getOrmUrl(orm.url) + '/api/query/generatesql', this.getQueryDocument(), config)
             .then((response) => {
                 if (response.status === 200) {
                     curcomp.setState({sql: response.data});

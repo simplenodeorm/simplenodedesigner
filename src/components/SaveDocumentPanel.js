@@ -172,7 +172,7 @@ class SaveDocumentPanel extends ModalDialog {
             headers: {'Authorization': orm.authString}
         };
         
-        axios.get(getOrmUrl(orm.url) + '/design/authorizers', config)
+        axios.get(getOrmUrl(orm.url) + '/api/query/authorizers', config)
             .then((response) => {
                 if (response.status === 200) {
                     curcomp.setState({authorizers: response.data});
@@ -192,7 +192,7 @@ class SaveDocumentPanel extends ModalDialog {
             headers: {'Authorization': orm.authString}
         };
         
-        axios.get(getOrmUrl(orm.url) + '/design/document/groups', config)
+        axios.get(getOrmUrl(orm.url) + '/api/query/document/groups', config)
             .then((response) => {
                 if (response.status === 200) {
                     curcomp.setState({groups: response.data});
