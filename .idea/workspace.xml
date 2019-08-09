@@ -3,12 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="3973d6c5-e1ad-4f5e-bf6b-ba2816138a02" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/auth/LoginPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/auth/LoginPage.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/DesignTabs.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/DesignTabs.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/DocumentTree.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/DocumentTree.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/SaveDocumentPanel.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/SaveDocumentPanel.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/SelectModelDataPanel.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/SelectModelDataPanel.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/SqlDisplayPanel.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/SqlDisplayPanel.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -223,14 +219,9 @@
       <workItem from="1565229381537" duration="444000" />
       <workItem from="1565277418077" duration="58000" />
       <workItem from="1565358175261" duration="19000" />
-      <workItem from="1565363700343" duration="814000" />
-    </task>
-    <task id="LOCAL-00003" summary="cleaning up some compile warnings">
-      <created>1545877802503</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1545877802503</updated>
+      <workItem from="1565363700343" duration="1105000" />
+      <workItem from="1565364866809" duration="271000" />
+      <workItem from="1565365807030" duration="1170000" />
     </task>
     <task id="LOCAL-00004" summary="cleaning up some compile warnings">
       <created>1545951375374</created>
@@ -568,7 +559,14 @@
       <option name="project" value="LOCAL" />
       <updated>1565277446218</updated>
     </task>
-    <option name="localTasksCounter" value="52" />
+    <task id="LOCAL-00052" summary="refactor server calls for better defined url path">
+      <created>1565364681518</created>
+      <option name="number" value="00052" />
+      <option name="presentableId" value="LOCAL-00052" />
+      <option name="project" value="LOCAL" />
+      <updated>1565364681519</updated>
+    </task>
+    <option name="localTasksCounter" value="53" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -588,8 +586,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="cleaning up some compile warnings" />
-    <MESSAGE value="clean up typo" />
     <MESSAGE value="update css for popup menu" />
     <MESSAGE value="clean up look and feel" />
     <MESSAGE value="clean up popup resources after close" />
@@ -613,6 +609,8 @@
     <MESSAGE value="set focus to username on login" />
     <MESSAGE value="update git info" />
     <MESSAGE value="update readme" />
-    <option name="LAST_COMMIT_MESSAGE" value="update readme" />
+    <MESSAGE value="refactor server access for more generic calls" />
+    <MESSAGE value="refactor server calls for better defined url path" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactor server calls for better defined url path" />
   </component>
 </project>

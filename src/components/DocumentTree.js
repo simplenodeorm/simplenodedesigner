@@ -103,7 +103,7 @@ class DocumentTree extends BaseDesignComponent {
             headers: {'Authorization': orm.authString}
         };
 
-        axios.get(getOrmUrl(orm.url) + '/api/query/loaddocument/' + selectedDocument, config)
+        axios.get(getOrmUrl(orm.url) + '/api/query/load/' + selectedDocument, config)
             .then((response) => {
                 if (response.status === 200) {
                     curcomp.loadDocumentData(response.data)
@@ -127,7 +127,7 @@ class DocumentTree extends BaseDesignComponent {
                 headers: {'Authorization': orm.authString}
             };
 
-            axios.get(getOrmUrl(orm.url) + '/api/query/deletedocument/' + selectedDocument, config)
+            axios.get(getOrmUrl(orm.url) + '/api/query/delete/' + selectedDocument, config)
                 .then((response) => {
                     if (response.status === 200) {
                         curcomp.loadDocuments();

@@ -163,7 +163,7 @@ class DesignTabs extends BaseDesignComponent {
         const config = {
             headers: {'Authorization': orm.authString }
         };
-        axios.post(getOrmUrl(orm.url) + '/api/query/savequery', this.getQueryDocument(params), config)
+        axios.post(getOrmUrl(orm.url) + '/api/query/save', this.getQueryDocument(params), config)
             .then((response) => {
                 if (response.status === 200) {
                     curcomp.props.setStatus('document saved', false);
