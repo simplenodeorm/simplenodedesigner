@@ -4,7 +4,7 @@ import {ModalDialog} from './ModalDialog';
 import Tree from 'rc-tree';
 import './defaultTree.css';
 import "../app/App.css";
-import {getOrmUrl,isGroupByRequired} from './helpers';
+import {isGroupByRequired} from './helpers';
 import axios from 'axios';
 
 const qfimage = <img alt="query folder" src="/images/queryfolder.png"/>;
@@ -167,12 +167,11 @@ class SaveDocumentPanel extends ModalDialog {
     
     loadAuthorizers() {
         const curcomp = this;
-        const orm = JSON.parse(localStorage.getItem('orm'));
-        const config = {
-            headers: {'Authorization': orm.authString}
+        const httpcfg = {
+            headers: {'Authorization': localStorage.getItem('auth')}
         };
         
-        axios.get(getOrmUrl(orm.url) + '/api/query/authorizers', config)
+        axios.get(config.apiServerUrl + '/api/query/authorizers', httpcfg)
             .then((response) => {
                 if (response.status === 200) {
                     curcomp.setState({authorizers: response.data});
@@ -187,12 +186,11 @@ class SaveDocumentPanel extends ModalDialog {
     
     loadDocumentGroups() {
         const curcomp = this;
-        const orm = JSON.parse(localStorage.getItem('orm'));
-        const config = {
-            headers: {'Authorization': orm.authString}
+        const httpcfg = {
+            headers: {'Authorization': localStorage.getItem('auth')}
         };
         
-        axios.get(getOrmUrl(orm.url) + '/api/query/document/groups', config)
+        axios.get(config.apiServerUrl + '/api/query/document/groups', httpcfg)
             .then((response) => {
                 if (response.status === 200) {
                     curcomp.setState({groups: response.data});

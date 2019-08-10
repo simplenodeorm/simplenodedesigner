@@ -1,10 +1,11 @@
 import React from 'react';
 import "../app/App.css";
 import axios from 'axios';
+import config from '../config/appconfig.json';
 import {BaseDesignComponent} from './BaseDesignComponent';
 import {SqlFormatter} from './SqlFormatter';
 import {ClipboardButton} from './ClipboardButton';
-import {removeWaitMessage,getOrmUrl,copyToClipboard} from './helpers';
+import {removeWaitMessage,copyToClipboard} from './helpers';
 
 class SqlDisplayPanel extends BaseDesignComponent {
     constructor(props) {
@@ -27,12 +28,11 @@ class SqlDisplayPanel extends BaseDesignComponent {
 
     generateSql() {
         const curcomp = this;
-        const orm = JSON.parse(localStorage.getItem('orm'));
-        const config = {
-            headers: {'Authorization': orm.authString }
+        const httpcfg = {
+            headers: {'Authorization': localStorage.getItem('auth') }
         };
 
-        axios.post(getOrmUrl(orm.url) + '/api/query/generatesql', this.getQueryDocument(), config)
+        axios.post(config.apiServerUrl + '/api/query/generatesql', this.getQueryDocument(), httpcfg)
             .then((response) => {
                 if (response.status === 200) {
                     curcomp.setState({sql: response.data});

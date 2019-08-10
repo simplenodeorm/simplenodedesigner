@@ -5,7 +5,7 @@ import '../app/App.css';
 import './defaultTree.css';
 import {BaseDesignComponent} from './BaseDesignComponent';
 import axios from 'axios';
-import {clearContextMenu,removeWaitMessage,getContextMenu,getOrmUrl} from './helpers';
+import {clearContextMenu,removeWaitMessage,getContextMenu} from './helpers';
 import config from '../config/appconfig.json';
 const qdimage = <img alt="query document" src="/images/querydoc.png"/>;
 const qfimage = <img alt="query folder" src="/images/queryfolder.png"/>;
@@ -98,12 +98,11 @@ class DocumentTree extends BaseDesignComponent {
         const curcomp = this;
         clearContextMenu();
         let {selectedDocument} = this.state;
-        const orm = JSON.parse(localStorage.getItem('orm'));
-        const config = {
-            headers: {'Authorization': orm.authString}
+        const httpcfg = {
+            headers: {'Authorization': localStorage.getItem('auth')}
         };
 
-        axios.get(getOrmUrl(orm.url) + '/api/query/load/' + selectedDocument, config)
+        axios.get(config.apiServerUrl + '/api/query/load/' + selectedDocument, httpcfg)
             .then((response) => {
                 if (response.status === 200) {
                     curcomp.loadDocumentData(response.data)
@@ -122,12 +121,11 @@ class DocumentTree extends BaseDesignComponent {
         let response = window.confirm('Delete document ' + selectedDocument.substring(pos+1).replace('_', ' ').replace('.json', '') + '?');
         if (response) {
             const curcomp = this;
-            const orm = JSON.parse(localStorage.getItem('orm'));
-            const config = {
-                headers: {'Authorization': orm.authString}
+            const httpcfg = {
+                headers: {'Authorization': localStorage.getItem('auth')}
             };
 
-            axios.get(getOrmUrl(orm.url) + '/api/query/delete/' + selectedDocument, config)
+            axios.get(config.apiServerUrl + '/api/query/delete/' + selectedDocument, httpcfg)
                 .then((response) => {
                     if (response.status === 200) {
                         curcomp.loadDocuments();
@@ -146,13 +144,12 @@ class DocumentTree extends BaseDesignComponent {
     }
     
     loadDocumentGroups() {
-        const curcomp = this;
-        const orm = JSON.parse(localStorage.getItem('orm'));
-        const config = {
-            headers: {'Authorization': orm.authString}
+       const curcomp = this;
+       const httpcfg = {
+            headers: {'Authorization': localStorage.getItem('auth')}
         };
 
-        axios.get(getOrmUrl(orm.url) + '/api/query/document/groups', config)
+        axios.get(config.apiServerUrl + '/api/query/document/groups', httpcfg)
             .then((response) => {
                 if (response.status === 200) {
                     curcomp.setState({groups: response.data});
@@ -169,12 +166,11 @@ class DocumentTree extends BaseDesignComponent {
 
     loadDocuments() {
         const curcomp = this;
-        const orm = JSON.parse(localStorage.getItem('orm'));
-        const config = {
-            headers: {'Authorization': orm.authString}
+        const httpcfg = {
+            headers: {'Authorization': localStorage.getItem('auth')}
         };
 
-        axios.get(getOrmUrl(orm.url) + '/api/query/documents', config)
+        axios.get(config.apiServerUrl + '/api/query/documents', httpcfg)
             .then((response) => {
                 if (response.status === 200) {
                     curcomp.setState({documents: response.data});
@@ -192,13 +188,12 @@ class DocumentTree extends BaseDesignComponent {
         this.showWaitMessage('Loading model hierarchy...');
         const curcomp = this;
         const seldoc = doc;
-        const orm = JSON.parse(localStorage.getItem('orm'));
-        const config = {
-            headers: {'Authorization': orm.authString}
+        const httpcfg = {
+            headers: {'Authorization': localStorage.getItem('auth')}
         };
 
         curcomp.setState({model: seldoc.document.rootModel});
-        axios.get(getOrmUrl(orm.url) + '/api/query/modeltree/' + seldoc.document.rootModel, config)
+        axios.get(config.apiServerUrl + '/api/query/modeltree/' + seldoc.document.rootModel, httpcfg)
             .then((response) => {
                 if (response.status === 200) {
                     curcomp.setCurrentDocument(seldoc, response.data);

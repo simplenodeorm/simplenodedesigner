@@ -7,7 +7,6 @@ import axios from 'axios';
 import {BaseDesignComponent} from './BaseDesignComponent';
 import {clearDocumentDesignData,
     removeWaitMessage,
-    getOrmUrl,
     isWhereValid,
     isRootColumnSelected} from './helpers';
 
@@ -100,12 +99,11 @@ class SelectModelDataPanel extends BaseDesignComponent {
         if (model && (model !== config.textmsg.modelselectdefault))  {
             this.showWaitMessage('Loading model hierarchy...');
             const curcomp = this;
-            const orm = JSON.parse(localStorage.getItem('orm'));
             const inputModel = model;
-            const config = {
-                headers: {'Authorization': orm.authString}
+            const httpcfg = {
+                headers: {'Authorization': localStorage.getItem('auth')}
             };
-            axios.get(getOrmUrl(orm.url) + '/api/query/modeltree/' + inputModel, config)
+            axios.get(config.apiServerUrl + '/api/query/modeltree/' + inputModel, httpcfg)
                 .then((response) => {
                     if (response.status === 200) {
                         clearDocumentDesignData();

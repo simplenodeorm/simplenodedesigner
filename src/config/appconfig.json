@@ -33,12 +33,12 @@
         "username": "Username:",
         "password": "Password:",
         "targetorm": "Target ORM:",
-        "designlogin": "Design Login",
+        "designlogin": "Login",
         "targetormrequired": "Target ORM is Required",
         "passwordrequired": "Password is required",
         "usernamerequired": "Username is required",
         "authenticating": "Authenticating..."
     },
-    "demoMode": false,
-    "defaultDesignAuthenticator": "DefaultAuthorizer"
+   "defaultDesignAuthenticator": "DefaultAuthorizer",
+    "apiServerUrl": "http://localhost:8888"
 }

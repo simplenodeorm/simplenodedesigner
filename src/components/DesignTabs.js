@@ -13,7 +13,7 @@ import {FilterPanel} from './FilterPanel';
 import {QueryPanel} from './QueryPanel';
 import config from '../config/appconfig.json';
 import axios from 'axios';
-import {getModalContainer,removeWaitMessage,getOrmUrl} from './helpers';
+import {getModalContainer,removeWaitMessage} from './helpers';
 
 const tabs = [];
 class DesignTabs extends BaseDesignComponent {
@@ -129,11 +129,10 @@ class DesignTabs extends BaseDesignComponent {
     loadParametersAndRun(params) {
         this.showWaitMessage('Running query...');
         const curcomp = this;
-        const orm = JSON.parse(localStorage.getItem('orm'));
-        const config = {
-            headers: {'Authorization': orm.authString }
+        const httpcfg = {
+            headers: {'Authorization': localStorage.getItem('auth') }
         };
-        axios.post(getOrmUrl(orm.url) + '/api/query/runquery', this.getQueryDocument(params), config)
+        axios.post(config.apiServerUrl + '/api/query/run', this.getQueryDocument(params), httpcfg)
             .then((response) => {
                 if (response.status === 200) {
                     document.designData.queryResults = response.data;
@@ -159,11 +158,10 @@ class DesignTabs extends BaseDesignComponent {
     saveDocument(params) {
         this.showWaitMessage('Saving document...');
         const curcomp = this;
-        const orm = JSON.parse(localStorage.getItem('orm'));
-        const config = {
-            headers: {'Authorization': orm.authString }
+        const httpcfg = {
+            headers: {'Authorization': localStorage.getItem('auth') }
         };
-        axios.post(getOrmUrl(orm.url) + '/api/query/save', this.getQueryDocument(params), config)
+        axios.post(config.apiServerUrl + '/api/query/save', this.getQueryDocument(params), httpcfg)
             .then((response) => {
                 if (response.status === 200) {
                     curcomp.props.setStatus('document saved', false);
@@ -192,12 +190,11 @@ class DesignTabs extends BaseDesignComponent {
     loadModels() {
         this.showWaitMessage('Loading models...');
         const curcomp = this;
-        const orm = JSON.parse(localStorage.getItem('orm'));
-        const config = {
-            headers: {'Authorization': orm.authString}
+        const httpcfg = {
+            headers: {'Authorization': localStorage.getItem('auth')}
         };
 
-        axios.get(getOrmUrl(orm.url) + '/api/query/modelnames', config)
+        axios.get(config.apiServerUrl + '/api/query/modelnames', httpcfg)
             .then((response) => {
                 if (response.status === 200) {
                     const modelLoop = (data) => {

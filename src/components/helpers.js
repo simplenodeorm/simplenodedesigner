@@ -1,6 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import config from '../config/appconfig.json';
 
 document.designData = {
     models: '',
@@ -197,30 +196,6 @@ export function copyToClipboard(className) {
     catch (err) {}
 }
 
-export function getOrmUrl(inurl) {
-    let retval = inurl;
-    let winurl = window.location.href;
-
-    // in demo mode will assume everything is running in 1 docker server
-    if (config.demoMode) {
-        let pos1 = winurl.indexOf('//');
-        if (pos1 > -1) {
-            let pos2 = winurl.indexOf('/', pos1+2);
-            
-            if (pos2 > pos1) {
-                let server = winurl.substring(pos1+2, pos2);
-                let pos2 = server.indexOf(':');
-                if (pos2 > 0) {
-                    server = server.substring(0, pos2);
-                }
-                retval = inurl.replace('localhost', server);
-            }
-        }
-    }
-    
-    return retval;
-}
-
 export function isRootColumnSelected() {
     let retval = false;
     for (let i = 0; i < document.designData.selnodes.length; ++i) {
@@ -260,5 +235,9 @@ export function isGroupByRequired() {
     
     return retval;
     
+}
+
+export function getApiServerInfo() {
+
 }
 
