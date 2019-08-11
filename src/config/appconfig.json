@@ -40,5 +40,6 @@
         "authenticating": "Authenticating..."
     },
    "defaultDesignAuthenticator": "DefaultAuthorizer",
-    "apiServerUrl": "http://localhost:8888"
+    "apiServerUrl": "https://localhost:8443",
+    "developmentMode": true
 }

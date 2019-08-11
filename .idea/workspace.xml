@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3973d6c5-e1ad-4f5e-bf6b-ba2816138a02" name="Default Changelist" comment="">
+    <list default="true" id="3973d6c5-e1ad-4f5e-bf6b-ba2816138a02" name="Default Changelist" comment="refactor server calls for better defined url path">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/auth/LoginPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/auth/LoginPage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/DocumentTree.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/DocumentTree.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/config/appconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/config/appconfig.json" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -236,14 +238,16 @@
       <workItem from="1565383183526" duration="604000" />
       <workItem from="1565391297560" duration="4953000" />
       <workItem from="1565401489368" duration="62000" />
-      <workItem from="1565402404855" duration="23000" />
-    </task>
-    <task id="LOCAL-00006" summary="update css for popup menu">
-      <created>1547164381702</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1547164381702</updated>
+      <workItem from="1565402404855" duration="36000" />
+      <workItem from="1565403235380" duration="677000" />
+      <workItem from="1565409747723" duration="712000" />
+      <workItem from="1565463134297" duration="73000" />
+      <workItem from="1565466647668" duration="86000" />
+      <workItem from="1565471234892" duration="5465000" />
+      <workItem from="1565476723344" duration="2556000" />
+      <workItem from="1565479457395" duration="608000" />
+      <workItem from="1565480369815" duration="777000" />
+      <workItem from="1565481251153" duration="5420000" />
     </task>
     <task id="LOCAL-00007" summary="update css for popup menu">
       <created>1547922482624</created>
@@ -581,7 +585,14 @@
       <option name="project" value="LOCAL" />
       <updated>1565396219862</updated>
     </task>
-    <option name="localTasksCounter" value="55" />
+    <task id="LOCAL-00055" summary="refactor server calls for better defined url path">
+      <created>1565402432107</created>
+      <option name="number" value="00055" />
+      <option name="presentableId" value="LOCAL-00055" />
+      <option name="project" value="LOCAL" />
+      <updated>1565402432107</updated>
+    </task>
+    <option name="localTasksCounter" value="56" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

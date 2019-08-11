@@ -5,6 +5,7 @@ import '../app/App.css';
 import './defaultTree.css';
 import {BaseDesignComponent} from './BaseDesignComponent';
 import axios from 'axios';
+import https from 'https';
 import {clearContextMenu,removeWaitMessage,getContextMenu} from './helpers';
 import config from '../config/appconfig.json';
 const qdimage = <img alt="query document" src="/images/querydoc.png"/>;
@@ -144,8 +145,8 @@ class DocumentTree extends BaseDesignComponent {
     }
     
     loadDocumentGroups() {
-       const curcomp = this;
-       const httpcfg = {
+        const curcomp = this;
+        const httpcfg = {
             headers: {'Authorization': localStorage.getItem('auth')}
         };
 

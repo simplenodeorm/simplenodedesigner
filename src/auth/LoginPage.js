@@ -1,11 +1,12 @@
 import React from 'react';
 import config from '../config/appconfig.json';
+import fs from 'fs';
 import base64 from 'base-64';
 import axios from 'axios';
+import https from 'https';
 import {BaseDesignComponent} from '../components/BaseDesignComponent';
 import {removeWaitMessage} from '../components/helpers';
 import { withRouter } from 'react-router';
-
 import '../app/App.css';
 
 class LoginPage extends BaseDesignComponent {
@@ -23,7 +24,7 @@ class LoginPage extends BaseDesignComponent {
     
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
-    }
+   }
 
     handleChange(e) {
         const {name, value} = e.target;
@@ -88,14 +89,14 @@ class LoginPage extends BaseDesignComponent {
         this.showWaitMessage(cfg.textmsg.authenticating);
         let curcomp = this;
         const authString = 'Basic ' + base64.encode(username + ':' + password);
+
         const httpcfg = {
             headers: {'Authorization': authString, 'Cache-Control': 'no-cache'}
         };
 
         localStorage.removeItem('auth');
 
-        const instance = axios.create({baseURL: config.apiServerUrl});
-        instance.get('/api/query/login', httpcfg)
+        axios.get(config.apiServerUrl + '/api/query/login', httpcfg)
                 .then((response) => {
                     if (response.status === 200) {
                         localStorage.setItem('auth', authString);
