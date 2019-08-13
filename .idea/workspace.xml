@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3973d6c5-e1ad-4f5e-bf6b-ba2816138a02" name="Default Changelist" comment="">
+    <list default="true" id="3973d6c5-e1ad-4f5e-bf6b-ba2816138a02" name="Default Changelist" comment="chnges to make look and feel changes simpler">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/App.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/config/appconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/config/appconfig.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -247,21 +247,11 @@
       <workItem from="1565479457395" duration="608000" />
       <workItem from="1565480369815" duration="777000" />
       <workItem from="1565481251153" duration="5759000" />
-      <workItem from="1565492756292" duration="469000" />
-    </task>
-    <task id="LOCAL-00008" summary="clean up look and feel">
-      <created>1548520453340</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1548520453340</updated>
-    </task>
-    <task id="LOCAL-00009" summary="clean up popup resources after close">
-      <created>1548948947886</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1548948947886</updated>
+      <workItem from="1565492756292" duration="806000" />
+      <workItem from="1565561942017" duration="988000" />
+      <workItem from="1565611981374" duration="46000" />
+      <workItem from="1565623982039" duration="696000" />
+      <workItem from="1565656920597" duration="169000" />
     </task>
     <task id="LOCAL-00010" summary="clean up popup resources after close">
       <created>1548960533377</created>
@@ -592,7 +582,21 @@
       <option name="project" value="LOCAL" />
       <updated>1565491422410</updated>
     </task>
-    <option name="localTasksCounter" value="57" />
+    <task id="LOCAL-00057" summary="chnges to make look and feel changes simpler">
+      <created>1565493383154</created>
+      <option name="number" value="00057" />
+      <option name="presentableId" value="LOCAL-00057" />
+      <option name="project" value="LOCAL" />
+      <updated>1565493383155</updated>
+    </task>
+    <task id="LOCAL-00058" summary="chnges to make look and feel changes simpler">
+      <created>1565493416858</created>
+      <option name="number" value="00058" />
+      <option name="presentableId" value="LOCAL-00058" />
+      <option name="project" value="LOCAL" />
+      <updated>1565493416859</updated>
+    </task>
+    <option name="localTasksCounter" value="59" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -612,7 +616,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="update css for popup menu" />
     <MESSAGE value="clean up look and feel" />
     <MESSAGE value="clean up popup resources after close" />
     <MESSAGE value="rework the modal popup windows cleanup" />
@@ -637,6 +640,7 @@
     <MESSAGE value="update readme" />
     <MESSAGE value="refactor server access for more generic calls" />
     <MESSAGE value="refactor server calls for better defined url path" />
-    <option name="LAST_COMMIT_MESSAGE" value="refactor server calls for better defined url path" />
+    <MESSAGE value="chnges to make look and feel changes simpler" />
+    <option name="LAST_COMMIT_MESSAGE" value="chnges to make look and feel changes simpler" />
   </component>
 </project>
