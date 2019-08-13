@@ -197,9 +197,22 @@ class DesignTabs extends BaseDesignComponent {
         axios.get(config.apiServerUrl + '/api/query/modelnames', httpcfg)
             .then((response) => {
                 if (response.status === 200) {
+                    let aset = new Set();
+                    for (let i = 0; i < response.data.length; ++i) {
+                        aset.add(response.data[i].poolAlias);
+
+                        if (aset.length > 1) {
+                            break;
+                        }
+                    }
                     const modelLoop = (data) => {
                         return data.map((item) => {
-                            return <button onClick={(e) => curcomp.onSetSidebarOpen(false, item.name, e)}>{'[' + item.poolAlias + '] ' + item.name}</button>;
+                            if (aset.length > 1) {
+                                return <button
+                                    onClick={(e) => curcomp.onSetSidebarOpen(false, item.name, e)}>{'[' + item.poolAlias + '] ' + item.name}</button>;
+                            } else {
+                                return <button onClick={(e) => curcomp.onSetSidebarOpen(false, item.name, e)}>{item.name}</button>;
+                            }
                         });
                     };
                     response.data.sort(function(m1, m2) {

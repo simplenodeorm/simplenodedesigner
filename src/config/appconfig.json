@@ -39,6 +39,5 @@
         "usernamerequired": "Username is required",
         "authenticating": "Authenticating..."
     },
-    "defaultDesignAuthenticator": "DefaultAuthorizer",
     "apiServerUrl": "https://localhost:8443"
 }

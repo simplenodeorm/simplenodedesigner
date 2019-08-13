@@ -124,9 +124,8 @@ class ParameterInputPanel extends ModalDialog {
             distinct: this.distinct,
             resultFormat: this.resultFormat, 
             validityCheckOnly: this.validityCheckOnly, 
-            parameters: this.params,
-            authenticator: config.defaultDesignAuthenticator
-        };
+            parameters: this.params
+         };
     }
 }
 

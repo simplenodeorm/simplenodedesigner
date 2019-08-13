@@ -12,20 +12,17 @@ class SaveDocumentPanel extends ModalDialog {
     constructor(props) {
         super(props);
         this.onSelect = this.onSelect.bind(this);
-        this.onAuthenticatorChange = this.onAuthenticatorChange.bind(this);
         this.onResultFormatChange = this.onResultFormatChange.bind(this);
         this.onDistinctChange = this.onDistinctChange.bind(this);
         this.onNameChange = this.onNameChange.bind(this);
         
         if (document.designData.currentDocument) {
             this.distinct = document.designData.currentDocument.distinct;
-            this.authenticator = document.designData.currentDocument.authenticator;
             this.documentName = document.designData.currentDocument.documentName.replace(/_/g, ' ');
             this.selectedGroup = document.designData.currentDocument.group;
         } else {
             this.distinct = false;
             this.resultFormat = 'object';
-            this.authenticator = 'DefaultAuthorizer';
             this.documentName = 'new document';
         }
         
@@ -48,17 +45,7 @@ class SaveDocumentPanel extends ModalDialog {
     }
     
     getContent() {
-        const {authorizers, groups} = this.state;
-        
-        if (!authorizers) {
-            this.loadAuthorizers();
-        }
-        
-        const authorizerLoop = (data) => {
-            return data.map((authorizer) => {
-                return <option value={authorizer}>{authorizer}</option>;
-            });
-        };
+        const {groups} = this.state;
         
         let formatSelect;
         if (this.groupByRequired) {
@@ -85,14 +72,6 @@ class SaveDocumentPanel extends ModalDialog {
                         <td className="inputLabel">{config.textmsg.resultformatlabel}</td>
                         <td>
                             {formatSelect}
-                        </td>
-                    </tr>
-                    <tr>
-                        <td className="inputLabel">{config.textmsg.authenticatorlabel}</td>
-                        <td>
-                            <select onChange={this.onAuthenticatorChange}>
-                                {authorizers && authorizerLoop(authorizers) }
-                            </select>
                         </td>
                     </tr>
                     <tr>
@@ -128,10 +107,6 @@ class SaveDocumentPanel extends ModalDialog {
         this.documentName = e.target.value;
     }
     
-    onAuthenticatorChange(e) {
-        this.authenticator = e.target.value;
-    }
-    
     onResultFormatChange(e) {
         this.resultFormat = e.target.value;
     }
@@ -145,7 +120,7 @@ class SaveDocumentPanel extends ModalDialog {
     }
     
     isComplete() {
-        return (this.documentName && this.selectedGroup && this.authenticator);
+        return (this.documentName && this.selectedGroup);
     }
     
     getError() {
@@ -159,8 +134,7 @@ class SaveDocumentPanel extends ModalDialog {
             documentName: this.documentName,
             group: this.selectedGroup,
             distinct: this.distinct,
-            resultFormat: this.resultFormat,
-            authenticator: this.authenticator
+            resultFormat: this.resultFormat
         };
     }
     
