@@ -256,14 +256,8 @@
       <workItem from="1565830004298" duration="59000" />
       <workItem from="1565830153696" duration="1815000" />
       <workItem from="1565832251990" duration="1084000" />
-      <workItem from="1565885696433" duration="215000" />
-    </task>
-    <task id="LOCAL-00012" summary="rework the modal popup windows cleanup">
-      <created>1549498878720</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
-      <option name="project" value="LOCAL" />
-      <updated>1549498878720</updated>
+      <workItem from="1565885696433" duration="278000" />
+      <workItem from="1565886187324" duration="12000" />
     </task>
     <task id="LOCAL-00013" summary="rework the modal popup windows cleanup">
       <created>1549505073421</created>
@@ -601,7 +595,14 @@
       <option name="project" value="LOCAL" />
       <updated>1565702869123</updated>
     </task>
-    <option name="localTasksCounter" value="61" />
+    <task id="LOCAL-00061" summary="update readme">
+      <created>1565885923341</created>
+      <option name="number" value="00061" />
+      <option name="presentableId" value="LOCAL-00061" />
+      <option name="project" value="LOCAL" />
+      <updated>1565885923341</updated>
+    </task>
+    <option name="localTasksCounter" value="62" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -644,8 +645,8 @@
     <MESSAGE value="refactor server access for more generic calls" />
     <MESSAGE value="refactor server calls for better defined url path" />
     <MESSAGE value="chnges to make look and feel changes simpler" />
-    <MESSAGE value="update readme" />
     <MESSAGE value="update docs" />
-    <option name="LAST_COMMIT_MESSAGE" value="update docs" />
+    <MESSAGE value="update readme" />
+    <option name="LAST_COMMIT_MESSAGE" value="update readme" />
   </component>
 </project>
