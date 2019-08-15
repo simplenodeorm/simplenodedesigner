@@ -1,15 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3973d6c5-e1ad-4f5e-bf6b-ba2816138a02" name="Default Changelist" comment="update docs">
+    <list default="true" id="3973d6c5-e1ad-4f5e-bf6b-ba2816138a02" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/docs/qdesigner-full.odt" beforeDir="false" afterPath="$PROJECT_DIR$/public/docs/qdesigner-full.odt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/docs/qdesigner-full.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/public/docs/qdesigner-full.pdf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/DesignTabs.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/DesignTabs.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/ParameterInputPanel.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ParameterInputPanel.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/SaveDocumentPanel.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/SaveDocumentPanel.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/config/appconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/config/appconfig.json" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -257,14 +252,11 @@
       <workItem from="1565611981374" duration="46000" />
       <workItem from="1565623982039" duration="696000" />
       <workItem from="1565656920597" duration="310000" />
-      <workItem from="1565701106585" duration="1750000" />
-    </task>
-    <task id="LOCAL-00011" summary="rework the modal popup windows cleanup">
-      <created>1549497166077</created>
-      <option name="number" value="00011" />
-      <option name="presentableId" value="LOCAL-00011" />
-      <option name="project" value="LOCAL" />
-      <updated>1549497166077</updated>
+      <workItem from="1565701106585" duration="1781000" />
+      <workItem from="1565830004298" duration="59000" />
+      <workItem from="1565830153696" duration="1815000" />
+      <workItem from="1565832251990" duration="1084000" />
+      <workItem from="1565885696433" duration="215000" />
     </task>
     <task id="LOCAL-00012" summary="rework the modal popup windows cleanup">
       <created>1549498878720</created>
@@ -602,7 +594,14 @@
       <option name="project" value="LOCAL" />
       <updated>1565657105386</updated>
     </task>
-    <option name="localTasksCounter" value="60" />
+    <task id="LOCAL-00060" summary="update docs">
+      <created>1565702869123</created>
+      <option name="number" value="00060" />
+      <option name="presentableId" value="LOCAL-00060" />
+      <option name="project" value="LOCAL" />
+      <updated>1565702869123</updated>
+    </task>
+    <option name="localTasksCounter" value="61" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
