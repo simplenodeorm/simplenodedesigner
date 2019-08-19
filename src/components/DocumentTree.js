@@ -5,7 +5,6 @@ import '../app/App.css';
 import './defaultTree.css';
 import {BaseDesignComponent} from './BaseDesignComponent';
 import axios from 'axios';
-import https from 'https';
 import {clearContextMenu,removeWaitMessage,getContextMenu} from './helpers';
 import config from '../config/appconfig.json';
 const qdimage = <img alt="query document" src="/images/querydoc.png"/>;
@@ -35,12 +34,8 @@ class DocumentTree extends BaseDesignComponent {
     }
 
     render() {
-        const {documents, groups} = this.state;
+        const {groups} = this.state;
         if (groups) {
-            let treeData = JSON.parse(JSON.stringify(groups));
-            
-            this.traverseDocumentGroups(treeData,  documents);
-            
             return <div className="treeContainer">
                 <Tree
                     onRightClick={this.onRightClick}
@@ -48,44 +43,14 @@ class DocumentTree extends BaseDesignComponent {
                     showIcon={true}
                     icon={this.getIcon}
                     defaultExpandAll={true}
-                    treeData={treeData}/></div>;
+                    treeData={groups}/></div>;
 
         } else {
             return <div className="treeContainer"/>;
         }
     }
     
-    traverseDocumentGroups(grp,  documents) {
-        if (!grp.isLeaf) {
-            let canRecurse = grp.children;
-            if (documents) {
-                let docs = documents[grp.key];
-                if (docs) {
-                    if (!grp.children) {
-                        grp.children = [];
-                        canRecurse = false;
-                    } 
 
-                    for (let j = 0; j < docs.length; ++j) {
-                        let leaf = {
-                            title: docs[j].replace(/_/g, ' ').replace('.json', ''),
-                            isLeaf: true,
-                            key: (grp.key + '.' + docs[j])
-                        };
-                        grp.children.push(leaf);
-
-                   }
-               }
-            }
-
-            if (canRecurse) {
-                for (let i = 0; i < grp.children.length; ++i) {
-                    this.traverseDocumentGroups(grp.children[i], documents);
-                }
-            }
-        }
-    }
-    
     onRightClick(info) {
         const tree = this;
         if (info.node.props.isLeaf) {
@@ -129,7 +94,7 @@ class DocumentTree extends BaseDesignComponent {
             axios.get(config.apiServerUrl + '/api/query/delete/' + selectedDocument, httpcfg)
                 .then((response) => {
                     if (response.status === 200) {
-                        curcomp.loadDocuments();
+                        curcomp.loadDocumentsGroups();
                         curcomp.props.setStatus('document deleted', false);
                     } else {
                         curcomp.props.setStatus(response.statusText, true);
@@ -154,7 +119,6 @@ class DocumentTree extends BaseDesignComponent {
             .then((response) => {
                 if (response.status === 200) {
                     curcomp.setState({groups: response.data});
-                    curcomp.loadDocuments();
                 } else {
                     curcomp.props.setStatus(response.statusText, true);
                 }
@@ -165,26 +129,6 @@ class DocumentTree extends BaseDesignComponent {
 
     }
 
-    loadDocuments() {
-        const curcomp = this;
-        const httpcfg = {
-            headers: {'Authorization': localStorage.getItem('auth')}
-        };
-
-        axios.get(config.apiServerUrl + '/api/query/documents', httpcfg)
-            .then((response) => {
-                if (response.status === 200) {
-                    curcomp.setState({documents: response.data});
-                } else {
-                    curcomp.props.setStatus(response.statusText, true);
-                }
-            })
-            .catch((err) => {
-                curcomp.props.setStatus(err.toString(), true);
-            });
-
-    }
-    
     loadDocumentData(doc) {
         this.showWaitMessage('Loading model hierarchy...');
         const curcomp = this;
