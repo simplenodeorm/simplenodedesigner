@@ -1,9 +1,7 @@
 import React from 'react';
 import config from '../config/appconfig.json';
-import fs from 'fs';
 import base64 from 'base-64';
 import axios from 'axios';
-import https from 'https';
 import {BaseDesignComponent} from '../components/BaseDesignComponent';
 import {removeWaitMessage} from '../components/helpers';
 import { withRouter } from 'react-router';

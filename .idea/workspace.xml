@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3973d6c5-e1ad-4f5e-bf6b-ba2816138a02" name="Default Changelist" comment="update readme">
+    <list default="true" id="3973d6c5-e1ad-4f5e-bf6b-ba2816138a02" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/auth/LoginPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/auth/LoginPage.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/DocumentTree.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/DocumentTree.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -267,14 +267,15 @@
       <workItem from="1566144605725" duration="39000" />
       <workItem from="1566152672366" duration="316000" />
       <workItem from="1566172687867" duration="2247000" />
-      <workItem from="1566175149704" duration="3368000" />
-    </task>
-    <task id="LOCAL-00014" summary="rework the modal popup windows cleanup">
-      <created>1550957778418</created>
-      <option name="number" value="00014" />
-      <option name="presentableId" value="LOCAL-00014" />
-      <option name="project" value="LOCAL" />
-      <updated>1550957778418</updated>
+      <workItem from="1566175149704" duration="3753000" />
+      <workItem from="1566260887000" duration="136000" />
+      <workItem from="1566354218847" duration="433000" />
+      <workItem from="1566355473489" duration="359000" />
+      <workItem from="1566356160764" duration="359000" />
+      <workItem from="1566356602257" duration="388000" />
+      <workItem from="1566425540315" duration="1076000" />
+      <workItem from="1566429498816" duration="69000" />
+      <workItem from="1566430475986" duration="1137000" />
     </task>
     <task id="LOCAL-00015" summary="rework the modal popup windows cleanup">
       <created>1550958104318</created>
@@ -612,7 +613,14 @@
       <option name="project" value="LOCAL" />
       <updated>1565886203716</updated>
     </task>
-    <option name="localTasksCounter" value="63" />
+    <task id="LOCAL-00063" summary="refactor to move document tree load to server side">
+      <created>1566178930936</created>
+      <option name="number" value="00063" />
+      <option name="presentableId" value="LOCAL-00063" />
+      <option name="project" value="LOCAL" />
+      <updated>1566178930936</updated>
+    </task>
+    <option name="localTasksCounter" value="64" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -632,7 +640,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="clean up popup resources after close" />
     <MESSAGE value="rework the modal popup windows cleanup" />
     <MESSAGE value="fix problems with adding/removing column selections from exsting query" />
     <MESSAGE value="clean up documentation" />
@@ -657,6 +664,7 @@
     <MESSAGE value="chnges to make look and feel changes simpler" />
     <MESSAGE value="update docs" />
     <MESSAGE value="update readme" />
-    <option name="LAST_COMMIT_MESSAGE" value="update readme" />
+    <MESSAGE value="refactor to move document tree load to server side" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactor to move document tree load to server side" />
   </component>
 </project>
