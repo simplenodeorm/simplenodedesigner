@@ -43,7 +43,7 @@ class HomePage extends React.Component {
     }
     
     reloadDocuments() {
-        documentTree.loadDocuments();
+        documentTree.loadDocumentGroups();
     }
 
     setCurrentDocument(docname) {
