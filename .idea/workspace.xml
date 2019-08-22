@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3973d6c5-e1ad-4f5e-bf6b-ba2816138a02" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/auth/LoginPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/auth/LoginPage.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/DocumentTree.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/DocumentTree.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -275,14 +273,7 @@
       <workItem from="1566356602257" duration="388000" />
       <workItem from="1566425540315" duration="1076000" />
       <workItem from="1566429498816" duration="69000" />
-      <workItem from="1566430475986" duration="1137000" />
-    </task>
-    <task id="LOCAL-00015" summary="rework the modal popup windows cleanup">
-      <created>1550958104318</created>
-      <option name="number" value="00015" />
-      <option name="presentableId" value="LOCAL-00015" />
-      <option name="project" value="LOCAL" />
-      <updated>1550958104318</updated>
+      <workItem from="1566430475986" duration="1240000" />
     </task>
     <task id="LOCAL-00016" summary="fix problems with adding/removing column selections from exsting query">
       <created>1551037332230</created>
@@ -620,7 +611,14 @@
       <option name="project" value="LOCAL" />
       <updated>1566178930936</updated>
     </task>
-    <option name="localTasksCounter" value="64" />
+    <task id="LOCAL-00064" summary="fix type in loadDocumentGroups() call">
+      <created>1566432743941</created>
+      <option name="number" value="00064" />
+      <option name="presentableId" value="LOCAL-00064" />
+      <option name="project" value="LOCAL" />
+      <updated>1566432743941</updated>
+    </task>
+    <option name="localTasksCounter" value="65" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -640,7 +638,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="rework the modal popup windows cleanup" />
     <MESSAGE value="fix problems with adding/removing column selections from exsting query" />
     <MESSAGE value="clean up documentation" />
     <MESSAGE value="fix some UI issues" />
@@ -665,6 +662,7 @@
     <MESSAGE value="update docs" />
     <MESSAGE value="update readme" />
     <MESSAGE value="refactor to move document tree load to server side" />
-    <option name="LAST_COMMIT_MESSAGE" value="refactor to move document tree load to server side" />
+    <MESSAGE value="fix type in loadDocumentGroups() call" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix type in loadDocumentGroups() call" />
   </component>
 </project>
