@@ -3,6 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="3973d6c5-e1ad-4f5e-bf6b-ba2816138a02" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/DocumentTree.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/DocumentTree.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/SelectModelDataPanel.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/SelectModelDataPanel.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -276,14 +278,12 @@
       <workItem from="1566430475986" duration="1305000" />
       <workItem from="1566436962849" duration="2862000" />
       <workItem from="1566443289234" duration="1159000" />
-      <workItem from="1566509965735" duration="1042000" />
-    </task>
-    <task id="LOCAL-00018" summary="clean up documentation">
-      <created>1552578233573</created>
-      <option name="number" value="00018" />
-      <option name="presentableId" value="LOCAL-00018" />
-      <option name="project" value="LOCAL" />
-      <updated>1552578233573</updated>
+      <workItem from="1566509965735" duration="1084000" />
+      <workItem from="1566514833452" duration="54000" />
+      <workItem from="1566520646192" duration="667000" />
+      <workItem from="1566521750163" duration="731000" />
+      <workItem from="1566522731927" duration="1413000" />
+      <workItem from="1566524664103" duration="1722000" />
     </task>
     <task id="LOCAL-00019" summary="clean up documentation">
       <created>1552584474637</created>
@@ -621,7 +621,14 @@
       <option name="project" value="LOCAL" />
       <updated>1566439858866</updated>
     </task>
-    <option name="localTasksCounter" value="67" />
+    <task id="LOCAL-00067" summary="fix type in loadDocumentGroups() call">
+      <created>1566511013188</created>
+      <option name="number" value="00067" />
+      <option name="presentableId" value="LOCAL-00067" />
+      <option name="project" value="LOCAL" />
+      <updated>1566511013188</updated>
+    </task>
+    <option name="localTasksCounter" value="68" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

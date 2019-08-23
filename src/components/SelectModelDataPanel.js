@@ -27,7 +27,6 @@ class SelectModelDataPanel extends BaseDesignComponent {
     componentDidMount() {
         const {model} = this.state;
         let curModel;
-        
         if (document.designData.currentDocument ) {
             curModel = document.designData.currentDocument.document.rootModel;
         } else if (document.designData.modelHierarchy) {
@@ -116,7 +115,7 @@ class SelectModelDataPanel extends BaseDesignComponent {
                     removeWaitMessage();
                 })
                 .catch((err) => {
-                   curcomp.props.setStatus('' + err, true);
+                    curcomp.props.setStatus('' + err, true);
                     removeWaitMessage();
                 });     
         }

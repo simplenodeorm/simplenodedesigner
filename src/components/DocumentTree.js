@@ -138,6 +138,7 @@ class DocumentTree extends BaseDesignComponent {
         };
 
         curcomp.setState({model: seldoc.document.rootModel});
+
         axios.get(config.apiServerUrl + '/api/query/modeltree/' + seldoc.document.rootModel, httpcfg)
             .then((response) => {
                 if (response.status === 200) {
