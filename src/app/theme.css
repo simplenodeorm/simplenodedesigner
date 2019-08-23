@@ -31,7 +31,7 @@
     --info-message-color: lightGreen;
     --input-background:linear-gradient(top, #d6d7d7, #dee0e0);
     --sidebar-hover-text-color: white;
-    --default-input-height: 22px;
+    --default-input-height: 24px;
     --status-bar-height: 18px;
     --wait-message-height: 30px;
 }

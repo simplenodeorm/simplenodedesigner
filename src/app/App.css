@@ -504,31 +504,31 @@ input[type="submit"] {
 .formatSelectionLine select {
     margin: 2px;
     width: 80px;
-    height: 18px;
+    height: var(--default-input-height);
 }
 
 .formatSelectionLine input {
     margin: 2px;
     width: 65px;
-    height: 18px;
+    height: var(--default-input-height);
 }
 
 .formatSelectionLine .customColumnInput {
     margin: 2px;
     width: 150px;
-    height: 18px;
+    height: var(--default-input-height);
 }
 
 .formatSelectionLine .dateInput {
     margin: 2px;
     width: 70px;
-    height: 18px;
+    height: var(--default-input-height);
 }
 
 .formatSelectionLine .customFilterInput {
     margin: 2px;
     width: 300px;
-    height: 18px;
+    height: var(--default-input-height);
 }
 
 input[type="checkbox"] {

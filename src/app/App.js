@@ -5,6 +5,8 @@ import { HomePage } from '../components/HomePage';
 import LoginPage from '../auth/LoginPage';
 import './App.css';
 
+const millisPerDay = 1000 * 60 * 60 * 24;
+
 class App extends React.Component  {
     constructor(props) {
         super(props);
@@ -15,7 +17,11 @@ class App extends React.Component  {
     }
 
     componentDidMount() {
-       window.addEventListener("beforeunload", this.onUnload)
+        let lastLogin = localStorage.getItem('lastLogin');
+        if (!lastLogin || ((new Date().getMilliseconds() - Number(lastLogin)) > millisPerDay)) {
+            localStorage.removeItem('auth')
+        }
+        window.addEventListener("beforeunload", this.onUnload)
     }
 
     componentWillUnmount() {
