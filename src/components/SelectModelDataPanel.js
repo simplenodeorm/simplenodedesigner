@@ -101,7 +101,7 @@ class SelectModelDataPanel extends BaseDesignComponent {
             const curcomp = this;
             const inputModel = model;
             const httpcfg = {
-                headers: {'Authorization': localStorage.getItem('auth')}
+                headers: {'Authorization': localStorage.getItem('auth'), 'my-session': localStorage.getItem('my-session')}
             };
             axios.get(getServerContext() + '/api/query/modeltree/' + inputModel, httpcfg)
                 .then((response) => {

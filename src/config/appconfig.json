@@ -37,7 +37,8 @@
         "targetormrequired": "Target ORM is Required",
         "passwordrequired": "Password is required",
         "usernamerequired": "Username is required",
-        "authenticating": "Authenticating..."
+        "authenticating": "Authenticating...",
+        "invalidlogin": "Invalid login credentials"
     },
     "apiServerUrl": "https://localhost:8443"
 }

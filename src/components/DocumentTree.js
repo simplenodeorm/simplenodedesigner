@@ -65,7 +65,7 @@ class DocumentTree extends BaseDesignComponent {
         clearContextMenu();
         let {selectedDocument} = this.state;
         const httpcfg = {
-            headers: {'Authorization': localStorage.getItem('auth')}
+            headers: {'Authorization': localStorage.getItem('auth'), 'my-session': localStorage.getItem('my-session')}
         };
 
         axios.get(getServerContext() +  '/api/query/load/' + selectedDocument, httpcfg)
@@ -88,7 +88,7 @@ class DocumentTree extends BaseDesignComponent {
         if (response) {
             const curcomp = this;
             const httpcfg = {
-                headers: {'Authorization': localStorage.getItem('auth')}
+                headers: {'Authorization': localStorage.getItem('auth'), 'my-session': localStorage.getItem('my-session')}
             };
 
             axios.get(getServerContext() +  '/api/query/delete/' + selectedDocument, httpcfg)
@@ -112,7 +112,7 @@ class DocumentTree extends BaseDesignComponent {
     loadDocumentGroups() {
         const curcomp = this;
         const httpcfg = {
-            headers: {'Authorization': localStorage.getItem('auth')}
+            headers: {'Authorization': localStorage.getItem('auth'), 'my-session': localStorage.getItem('my-session')}
         };
 
         axios.get(getServerContext() + '/api/query/document/groups', httpcfg)
@@ -134,11 +134,10 @@ class DocumentTree extends BaseDesignComponent {
         const curcomp = this;
         const seldoc = doc;
         const httpcfg = {
-            headers: {'Authorization': localStorage.getItem('auth')}
+            headers: {'Authorization': localStorage.getItem('auth'), 'my-session': localStorage.getItem('my-session')}
         };
 
         curcomp.setState({model: seldoc.document.rootModel});
-
         axios.get(getServerContext() +  '/api/query/modeltree/' + seldoc.document.rootModel, httpcfg)
             .then((response) => {
                 if (response.status === 200) {

@@ -28,7 +28,7 @@ class SqlDisplayPanel extends BaseDesignComponent {
     generateSql() {
         const curcomp = this;
         const httpcfg = {
-            headers: {'Authorization': localStorage.getItem('auth') }
+            headers: {'Authorization': localStorage.getItem('auth'), 'my-session': localStorage.getItem('my-session') }
         };
 
         axios.post(getServerContext() + '/api/query/generatesql', this.getQueryDocument(), httpcfg)
