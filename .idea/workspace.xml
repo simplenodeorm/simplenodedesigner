@@ -1,17 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3973d6c5-e1ad-4f5e-bf6b-ba2816138a02" name="Default Changelist" comment="update to support multitenant">
+    <list default="true" id="3973d6c5-e1ad-4f5e-bf6b-ba2816138a02" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/auth/LoginPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/auth/LoginPage.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/DesignTabs.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/DesignTabs.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/DocumentTree.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/DocumentTree.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/SaveDocumentPanel.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/SaveDocumentPanel.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/SelectModelDataPanel.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/SelectModelDataPanel.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/SqlDisplayPanel.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/SqlDisplayPanel.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/helpers.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/helpers.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -298,14 +289,7 @@
       <workItem from="1566639203595" duration="545000" />
       <workItem from="1566639829439" duration="19000" />
       <workItem from="1566640072365" duration="27000" />
-      <workItem from="1566683166811" duration="7885000" />
-    </task>
-    <task id="LOCAL-00021" summary="clean up documentation">
-      <created>1552653939970</created>
-      <option name="number" value="00021" />
-      <option name="presentableId" value="LOCAL-00021" />
-      <option name="project" value="LOCAL" />
-      <updated>1552653939970</updated>
+      <workItem from="1566683166811" duration="8498000" />
     </task>
     <task id="LOCAL-00022" summary="clean up documentation">
       <created>1552674114654</created>
@@ -643,7 +627,14 @@
       <option name="project" value="LOCAL" />
       <updated>1566599362229</updated>
     </task>
-    <option name="localTasksCounter" value="70" />
+    <task id="LOCAL-00070" summary="update to support multitenant">
+      <created>1566698125006</created>
+      <option name="number" value="00070" />
+      <option name="presentableId" value="LOCAL-00070" />
+      <option name="project" value="LOCAL" />
+      <updated>1566698125007</updated>
+    </task>
+    <option name="localTasksCounter" value="71" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
