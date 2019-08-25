@@ -13,7 +13,7 @@ import {FilterPanel} from './FilterPanel';
 import {QueryPanel} from './QueryPanel';
 import config from '../config/appconfig.json';
 import axios from 'axios';
-import {getModalContainer,removeWaitMessage} from './helpers';
+import {getModalContainer,removeWaitMessage,getServerContext} from './helpers';
 
 const tabs = [];
 class DesignTabs extends BaseDesignComponent {
@@ -132,7 +132,7 @@ class DesignTabs extends BaseDesignComponent {
         const httpcfg = {
             headers: {'Authorization': localStorage.getItem('auth') }
         };
-        axios.post(config.apiServerUrl + '/api/query/run', this.getQueryDocument(params), httpcfg)
+        axios.post(getServerContext() + '/api/query/run', this.getQueryDocument(params), httpcfg)
             .then((response) => {
                 if (response.status === 200) {
                     document.designData.queryResults = response.data;
@@ -161,7 +161,7 @@ class DesignTabs extends BaseDesignComponent {
         const httpcfg = {
             headers: {'Authorization': localStorage.getItem('auth') }
         };
-        axios.post(config.apiServerUrl + '/api/query/save', this.getQueryDocument(params), httpcfg)
+        axios.post(getServerContext() +  '/api/query/save', this.getQueryDocument(params), httpcfg)
             .then((response) => {
                 if (response.status === 200) {
                     curcomp.props.setStatus('document saved', false);
@@ -194,7 +194,7 @@ class DesignTabs extends BaseDesignComponent {
             headers: {'Authorization': localStorage.getItem('auth')}
         };
 
-        axios.get(config.apiServerUrl + '/api/query/modelnames', httpcfg)
+        axios.get(getServerContext() + '/api/query/modelnames', httpcfg)
             .then((response) => {
                 if (response.status === 200) {
                     let aset = new Set();

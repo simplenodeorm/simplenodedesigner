@@ -1,11 +1,10 @@
 import React from 'react';
 import "../app/App.css";
 import axios from 'axios';
-import config from '../config/appconfig.json';
 import {BaseDesignComponent} from './BaseDesignComponent';
 import {SqlFormatter} from './SqlFormatter';
 import {ClipboardButton} from './ClipboardButton';
-import {removeWaitMessage,copyToClipboard} from './helpers';
+import {removeWaitMessage,copyToClipboard,getServerContext} from './helpers';
 
 class SqlDisplayPanel extends BaseDesignComponent {
     constructor(props) {
@@ -32,7 +31,7 @@ class SqlDisplayPanel extends BaseDesignComponent {
             headers: {'Authorization': localStorage.getItem('auth') }
         };
 
-        axios.post(config.apiServerUrl + '/api/query/generatesql', this.getQueryDocument(), httpcfg)
+        axios.post(getServerContext() + '/api/query/generatesql', this.getQueryDocument(), httpcfg)
             .then((response) => {
                 if (response.status === 200) {
                     curcomp.setState({sql: response.data});

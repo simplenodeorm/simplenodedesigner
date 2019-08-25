@@ -5,7 +5,7 @@ import '../app/App.css';
 import './defaultTree.css';
 import {BaseDesignComponent} from './BaseDesignComponent';
 import axios from 'axios';
-import {clearContextMenu,removeWaitMessage,getContextMenu} from './helpers';
+import {clearContextMenu,removeWaitMessage,getContextMenu,getServerContext} from './helpers';
 import config from '../config/appconfig.json';
 const qdimage = <img alt="query document" src="/images/querydoc.png"/>;
 const qfimage = <img alt="query folder" src="/images/queryfolder.png"/>;
@@ -68,7 +68,7 @@ class DocumentTree extends BaseDesignComponent {
             headers: {'Authorization': localStorage.getItem('auth')}
         };
 
-        axios.get(config.apiServerUrl + '/api/query/load/' + selectedDocument, httpcfg)
+        axios.get(getServerContext() +  '/api/query/load/' + selectedDocument, httpcfg)
             .then((response) => {
                 if (response.status === 200) {
                     curcomp.loadDocumentData(response.data)
@@ -91,7 +91,7 @@ class DocumentTree extends BaseDesignComponent {
                 headers: {'Authorization': localStorage.getItem('auth')}
             };
 
-            axios.get(config.apiServerUrl + '/api/query/delete/' + selectedDocument, httpcfg)
+            axios.get(getServerContext() +  '/api/query/delete/' + selectedDocument, httpcfg)
                 .then((response) => {
                     if (response.status === 200) {
                         curcomp.props.setStatus('document deleted', false);
@@ -115,7 +115,7 @@ class DocumentTree extends BaseDesignComponent {
             headers: {'Authorization': localStorage.getItem('auth')}
         };
 
-        axios.get(config.apiServerUrl + '/api/query/document/groups', httpcfg)
+        axios.get(getServerContext() + '/api/query/document/groups', httpcfg)
             .then((response) => {
                 if (response.status === 200) {
                     curcomp.setState({groups: response.data});
@@ -139,7 +139,7 @@ class DocumentTree extends BaseDesignComponent {
 
         curcomp.setState({model: seldoc.document.rootModel});
 
-        axios.get(config.apiServerUrl + '/api/query/modeltree/' + seldoc.document.rootModel, httpcfg)
+        axios.get(getServerContext() +  '/api/query/modeltree/' + seldoc.document.rootModel, httpcfg)
             .then((response) => {
                 if (response.status === 200) {
                     curcomp.setCurrentDocument(seldoc, response.data);

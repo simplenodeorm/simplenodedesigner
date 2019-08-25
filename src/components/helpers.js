@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import config from '../config/appconfig.json';
 
 document.designData = {
     models: '',
@@ -237,7 +238,9 @@ export function isGroupByRequired() {
     
 }
 
-export function getApiServerInfo() {
-
+export function getServerContext() {
+    let search = window.location.search;
+    let params = new URLSearchParams(search);
+    return (config.apiServerUrl + '/' + params.get('context'))
 }
 

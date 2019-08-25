@@ -1,12 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3973d6c5-e1ad-4f5e-bf6b-ba2816138a02" name="Default Changelist" comment="">
+    <list default="true" id="3973d6c5-e1ad-4f5e-bf6b-ba2816138a02" name="Default Changelist" comment="update to support multitenant">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/App.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/theme.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/theme.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/auth/LoginPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/auth/LoginPage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/DesignTabs.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/DesignTabs.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/DocumentTree.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/DocumentTree.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/SaveDocumentPanel.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/SaveDocumentPanel.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/SelectModelDataPanel.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/SelectModelDataPanel.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/SqlDisplayPanel.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/SqlDisplayPanel.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/helpers.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/helpers.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -287,14 +292,13 @@
       <workItem from="1566522731927" duration="1413000" />
       <workItem from="1566524664103" duration="1877000" />
       <workItem from="1566527263346" duration="101000" />
-      <workItem from="1566595660550" duration="2012000" />
-    </task>
-    <task id="LOCAL-00020" summary="clean up documentation">
-      <created>1552591371031</created>
-      <option name="number" value="00020" />
-      <option name="presentableId" value="LOCAL-00020" />
-      <option name="project" value="LOCAL" />
-      <updated>1552591371031</updated>
+      <workItem from="1566595660550" duration="2152000" />
+      <workItem from="1566599868736" duration="424000" />
+      <workItem from="1566601233439" duration="1838000" />
+      <workItem from="1566639203595" duration="545000" />
+      <workItem from="1566639829439" duration="19000" />
+      <workItem from="1566640072365" duration="27000" />
+      <workItem from="1566683166811" duration="7885000" />
     </task>
     <task id="LOCAL-00021" summary="clean up documentation">
       <created>1552653939970</created>
@@ -632,7 +636,14 @@
       <option name="project" value="LOCAL" />
       <updated>1566527010203</updated>
     </task>
-    <option name="localTasksCounter" value="69" />
+    <task id="LOCAL-00069" summary="add timeout for login info">
+      <created>1566599362229</created>
+      <option name="number" value="00069" />
+      <option name="presentableId" value="LOCAL-00069" />
+      <option name="project" value="LOCAL" />
+      <updated>1566599362229</updated>
+    </task>
+    <option name="localTasksCounter" value="70" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -652,8 +663,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="fix problems with adding/removing column selections from exsting query" />
-    <MESSAGE value="clean up documentation" />
     <MESSAGE value="fix some UI issues" />
     <MESSAGE value="add support for multiple database usage" />
     <MESSAGE value="update documentation" />
@@ -677,6 +686,8 @@
     <MESSAGE value="update readme" />
     <MESSAGE value="refactor to move document tree load to server side" />
     <MESSAGE value="fix type in loadDocumentGroups() call" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix type in loadDocumentGroups() call" />
+    <MESSAGE value="add timeout for login info" />
+    <MESSAGE value="update to support multitenant" />
+    <option name="LAST_COMMIT_MESSAGE" value="update to support multitenant" />
   </component>
 </project>

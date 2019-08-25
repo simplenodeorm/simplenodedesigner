@@ -13,7 +13,6 @@ class App extends React.Component  {
     }
     
     onUnload(event) { 
-        localStorage.removeItem('orm');
     }
 
     componentDidMount() {
