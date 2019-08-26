@@ -2,8 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3973d6c5-e1ad-4f5e-bf6b-ba2816138a02" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/App.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -299,14 +300,9 @@
       <workItem from="1566775797589" duration="697000" />
       <workItem from="1566776953696" duration="116000" />
       <workItem from="1566777153007" duration="173000" />
-      <workItem from="1566777377920" duration="157000" />
-    </task>
-    <task id="LOCAL-00025" summary="add support for multiple database usage">
-      <created>1553716380366</created>
-      <option name="number" value="00025" />
-      <option name="presentableId" value="LOCAL-00025" />
-      <option name="project" value="LOCAL" />
-      <updated>1553716380366</updated>
+      <workItem from="1566777377920" duration="293000" />
+      <workItem from="1566777760549" duration="193000" />
+      <workItem from="1566837807445" duration="251000" />
     </task>
     <task id="LOCAL-00026" summary="update documentation">
       <created>1553741200122</created>
@@ -644,7 +640,14 @@
       <option name="project" value="LOCAL" />
       <updated>1566777390729</updated>
     </task>
-    <option name="localTasksCounter" value="74" />
+    <task id="LOCAL-00074" summary="update to support multitenant">
+      <created>1566777541487</created>
+      <option name="number" value="00074" />
+      <option name="presentableId" value="LOCAL-00074" />
+      <option name="project" value="LOCAL" />
+      <updated>1566777541487</updated>
+    </task>
+    <option name="localTasksCounter" value="75" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

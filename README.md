@@ -1,6 +1,9 @@
 The Query Designer is a React web application that allows the user to create,
 save and run query documents in simplenodeorm. The created query documents can then
-be run and results returned via REST.
+be run and results returned via REST. To use the query designer call the application with
+the desired simplenodeorm context:
+
+http://<querydesignerurl>/?context=example
 
 Source: 
 https://github.com/simplenodeorm/simplenodedesigner.git
