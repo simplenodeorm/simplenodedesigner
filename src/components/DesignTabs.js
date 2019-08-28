@@ -13,7 +13,7 @@ import {FilterPanel} from './FilterPanel';
 import {QueryPanel} from './QueryPanel';
 import config from '../config/appconfig.json';
 import axios from 'axios';
-import {getModalContainer,removeWaitMessage,getServerContext} from './helpers';
+import {getModalContainer,removeWaitMessage,getServerContext,getRequestHeaders} from './helpers';
 
 const tabs = [];
 class DesignTabs extends BaseDesignComponent {
@@ -130,7 +130,7 @@ class DesignTabs extends BaseDesignComponent {
         this.showWaitMessage('Running query...');
         const curcomp = this;
         const httpcfg = {
-            headers: {'Authorization': localStorage.getItem('auth'), 'my-session': localStorage.getItem('my-session') }
+            headers: getRequestHeaders()
         };
         axios.post(getServerContext() + '/api/query/run', this.getQueryDocument(params), httpcfg)
             .then((response) => {
@@ -159,7 +159,7 @@ class DesignTabs extends BaseDesignComponent {
         this.showWaitMessage('Saving document...');
         const curcomp = this;
         const httpcfg = {
-            headers: {'Authorization': localStorage.getItem('auth'), 'my-session': localStorage.getItem('my-session') }
+            headers: getRequestHeaders()
         };
         axios.post(getServerContext() +  '/api/query/save', this.getQueryDocument(params), httpcfg)
             .then((response) => {
@@ -191,7 +191,7 @@ class DesignTabs extends BaseDesignComponent {
         this.showWaitMessage('Loading models...');
         const curcomp = this;
         const httpcfg = {
-            headers: {'Authorization': localStorage.getItem('auth'), 'my-session': localStorage.getItem('my-session')}
+            headers: getRequestHeaders()
         };
 
         axios.get(getServerContext() + '/api/query/modelnames', httpcfg)

@@ -96,7 +96,8 @@ class LoginPage extends BaseDesignComponent {
         const mySession = uuid();
         const httpcfg = {
             headers: {'Authorization': authString, 'Cache-Control': 'no-cache', 'my-session': mySession}
-        };
+
+    };
 
         localStorage.removeItem(cfg.appname + '-auth');
         localStorage.removeItem(cfg.appname + '-my-session');
@@ -106,6 +107,7 @@ class LoginPage extends BaseDesignComponent {
                 .then((response) => {
                     if (response.status === 200) {
                         localStorage.setItem(cfg.appname + '-auth', authString);
+                        localStorage.setItem(cfg.appname + '-my-session', mySession);
                         localStorage.setItem(cfg.appname + '-lastLogin', new Date().getTime());
                         curcomp.props.history.push('/');
                         removeWaitMessage();

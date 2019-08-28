@@ -9,7 +9,7 @@ import {clearDocumentDesignData,
     removeWaitMessage,
     isWhereValid,
     isRootColumnSelected,
-    getServerContext} from './helpers';
+    getServerContext,getRequestHeaders} from './helpers';
 
 const leafimg = <img alt="column" src="/images/column.png"/>;
 const keycolumnimg = <img alt="key column" src="/images/keycolumn.png"/>;
@@ -101,7 +101,7 @@ class SelectModelDataPanel extends BaseDesignComponent {
             const curcomp = this;
             const inputModel = model;
             const httpcfg = {
-                headers: {'Authorization': localStorage.getItem('auth'), 'my-session': localStorage.getItem('my-session')}
+                headers: getRequestHeaders()
             };
             axios.get(getServerContext() + '/api/query/modeltree/' + inputModel, httpcfg)
                 .then((response) => {

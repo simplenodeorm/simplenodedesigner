@@ -4,7 +4,7 @@ import axios from 'axios';
 import {BaseDesignComponent} from './BaseDesignComponent';
 import {SqlFormatter} from './SqlFormatter';
 import {ClipboardButton} from './ClipboardButton';
-import {removeWaitMessage,copyToClipboard,getServerContext} from './helpers';
+import {removeWaitMessage,copyToClipboard,getServerContext,getRequestHeaders} from './helpers';
 
 class SqlDisplayPanel extends BaseDesignComponent {
     constructor(props) {
@@ -28,7 +28,7 @@ class SqlDisplayPanel extends BaseDesignComponent {
     generateSql() {
         const curcomp = this;
         const httpcfg = {
-            headers: {'Authorization': localStorage.getItem('auth'), 'my-session': localStorage.getItem('my-session') }
+            headers: getRequestHeaders()
         };
 
         axios.post(getServerContext() + '/api/query/generatesql', this.getQueryDocument(), httpcfg)

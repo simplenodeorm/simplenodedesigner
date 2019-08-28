@@ -4,7 +4,7 @@ import {ModalDialog} from './ModalDialog';
 import Tree from 'rc-tree';
 import './defaultTree.css';
 import "../app/App.css";
-import {isGroupByRequired,getServerContext} from './helpers';
+import {isGroupByRequired,getServerContext,getRequestHeaders} from './helpers';
 import axios from 'axios';
 
 const qfimage = <img alt="query folder" src="/images/queryfolder.png"/>;
@@ -142,7 +142,7 @@ class SaveDocumentPanel extends ModalDialog {
     loadAuthorizers() {
         const curcomp = this;
         const httpcfg = {
-            headers: {'Authorization': localStorage.getItem('auth'), 'my-session': localStorage.getItem('my-session')}
+            headers: getRequestHeaders()
         };
         
         axios.get(getServerContext() +  '/api/query/authorizers', httpcfg)
@@ -161,7 +161,7 @@ class SaveDocumentPanel extends ModalDialog {
     loadDocumentGroups() {
         const curcomp = this;
         const httpcfg = {
-            headers: {'Authorization': localStorage.getItem('auth'), 'my-session': localStorage.getItem('my-session')}
+            headers: getRequestHeaders()
         };
        axios.get(getServerContext() +  '/api/query/document/groups', httpcfg)
             .then((response) => {

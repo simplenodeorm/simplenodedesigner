@@ -5,7 +5,7 @@ import '../app/App.css';
 import './defaultTree.css';
 import {BaseDesignComponent} from './BaseDesignComponent';
 import axios from 'axios';
-import {clearContextMenu,removeWaitMessage,getContextMenu,getServerContext} from './helpers';
+import {clearContextMenu,removeWaitMessage,getContextMenu,getServerContext,getRequestHeaders} from './helpers';
 import config from '../config/appconfig.json';
 const qdimage = <img alt="query document" src="/images/querydoc.png"/>;
 const qfimage = <img alt="query folder" src="/images/queryfolder.png"/>;
@@ -65,7 +65,7 @@ class DocumentTree extends BaseDesignComponent {
         clearContextMenu();
         let {selectedDocument} = this.state;
         const httpcfg = {
-            headers: {'Authorization': localStorage.getItem('auth'), 'my-session': localStorage.getItem('my-session')}
+            headers: getRequestHeaders()
         };
 
         axios.get(getServerContext() +  '/api/query/load/' + selectedDocument, httpcfg)
@@ -88,7 +88,7 @@ class DocumentTree extends BaseDesignComponent {
         if (response) {
             const curcomp = this;
             const httpcfg = {
-                headers: {'Authorization': localStorage.getItem('auth'), 'my-session': localStorage.getItem('my-session')}
+                headers: getRequestHeaders()
             };
 
             axios.get(getServerContext() +  '/api/query/delete/' + selectedDocument, httpcfg)
@@ -112,7 +112,7 @@ class DocumentTree extends BaseDesignComponent {
     loadDocumentGroups() {
         const curcomp = this;
         const httpcfg = {
-            headers: {'Authorization': localStorage.getItem('auth'), 'my-session': localStorage.getItem('my-session')}
+            headers: getRequestHeaders()
         };
 
         axios.get(getServerContext() + '/api/query/document/groups', httpcfg)
@@ -134,7 +134,7 @@ class DocumentTree extends BaseDesignComponent {
         const curcomp = this;
         const seldoc = doc;
         const httpcfg = {
-            headers: {'Authorization': localStorage.getItem('auth'), 'my-session': localStorage.getItem('my-session')}
+            headers: getRequestHeaders()
         };
 
         curcomp.setState({model: seldoc.document.rootModel});
