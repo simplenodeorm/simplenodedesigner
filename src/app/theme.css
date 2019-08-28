@@ -1,5 +1,7 @@
 :root {
     --bar-color:#202020;
+    --title-color: silver;
+    --app-background-color: #1a5276 ;
     --default-bkcolor: white;
     --main-color:-moz-linear-gradient(top, slateGray, black), -webkit-linear-gradient(slateGray, black), linear-gradient(to bottom, slateGray, black);
     --main-color-high:#222;

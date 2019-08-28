@@ -40,5 +40,8 @@
         "authenticating": "Authenticating...",
         "invalidlogin": "Invalid login credentials"
     },
-    "apiServerUrl": "https://localhost:8443"
+    "apiServerUrl": "https://localhost:8443",
+    "appname": "querydesigner",
+    "logintimeoutminutes": 30
+
 }

@@ -1,10 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3973d6c5-e1ad-4f5e-bf6b-ba2816138a02" name="Default Changelist" comment="">
+    <list default="true" id="3973d6c5-e1ad-4f5e-bf6b-ba2816138a02" name="Default Changelist" comment="update look and feel">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/App.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/theme.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/theme.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/auth/LoginPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/auth/LoginPage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/config/appconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/config/appconfig.json" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -302,14 +306,23 @@
       <workItem from="1566777153007" duration="173000" />
       <workItem from="1566777377920" duration="293000" />
       <workItem from="1566777760549" duration="193000" />
-      <workItem from="1566837807445" duration="251000" />
-    </task>
-    <task id="LOCAL-00026" summary="update documentation">
-      <created>1553741200122</created>
-      <option name="number" value="00026" />
-      <option name="presentableId" value="LOCAL-00026" />
-      <option name="project" value="LOCAL" />
-      <updated>1553741200122</updated>
+      <workItem from="1566837807445" duration="383000" />
+      <workItem from="1566847174326" duration="5209000" />
+      <workItem from="1566859015966" duration="36000" />
+      <workItem from="1566860055065" duration="21000" />
+      <workItem from="1566860377533" duration="14000" />
+      <workItem from="1566860824092" duration="4000" />
+      <workItem from="1566863870363" duration="19000" />
+      <workItem from="1566868168673" duration="637000" />
+      <workItem from="1566875282148" duration="1143000" />
+      <workItem from="1566924167704" duration="33000" />
+      <workItem from="1566940200868" duration="161000" />
+      <workItem from="1566942922243" duration="1345000" />
+      <workItem from="1566944557433" duration="660000" />
+      <workItem from="1566945380170" duration="487000" />
+      <workItem from="1566949304773" duration="750000" />
+      <workItem from="1566960451834" duration="46000" />
+      <workItem from="1566995487259" duration="2244000" />
     </task>
     <task id="LOCAL-00027" summary="fix page going blank after returning from run query results tab">
       <created>1553783153081</created>
@@ -647,7 +660,14 @@
       <option name="project" value="LOCAL" />
       <updated>1566777541487</updated>
     </task>
-    <option name="localTasksCounter" value="75" />
+    <task id="LOCAL-00075" summary="update to support multitenant">
+      <created>1566838064727</created>
+      <option name="number" value="00075" />
+      <option name="presentableId" value="LOCAL-00075" />
+      <option name="project" value="LOCAL" />
+      <updated>1566838064727</updated>
+    </task>
+    <option name="localTasksCounter" value="76" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -667,7 +687,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="fix some UI issues" />
     <MESSAGE value="add support for multiple database usage" />
     <MESSAGE value="update documentation" />
     <MESSAGE value="fix page going blank after returning from run query results tab" />
@@ -692,6 +711,7 @@
     <MESSAGE value="fix type in loadDocumentGroups() call" />
     <MESSAGE value="add timeout for login info" />
     <MESSAGE value="update to support multitenant" />
-    <option name="LAST_COMMIT_MESSAGE" value="update to support multitenant" />
+    <MESSAGE value="update look and feel" />
+    <option name="LAST_COMMIT_MESSAGE" value="update look and feel" />
   </component>
 </project>
