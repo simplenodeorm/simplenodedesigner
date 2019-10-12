@@ -1,18 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3973d6c5-e1ad-4f5e-bf6b-ba2816138a02" name="Default Changelist" comment="update look and feel">
+    <list default="true" id="3973d6c5-e1ad-4f5e-bf6b-ba2816138a02" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/auth/LoginPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/auth/LoginPage.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/auth/PrivateRoute.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/auth/PrivateRoute.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/DesignTabs.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/DesignTabs.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/DocumentTree.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/DocumentTree.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/SaveDocumentPanel.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/SaveDocumentPanel.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/SelectModelDataPanel.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/SelectModelDataPanel.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/SqlDisplayPanel.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/SqlDisplayPanel.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/helpers.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/helpers.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -328,14 +319,38 @@
       <workItem from="1566960451834" duration="46000" />
       <workItem from="1566995487259" duration="5354000" />
       <workItem from="1567001262311" duration="333000" />
-      <workItem from="1567001742515" duration="20000" />
-    </task>
-    <task id="LOCAL-00028" summary="update documentation, add some flags for demo mode operation">
-      <created>1553798286276</created>
-      <option name="number" value="00028" />
-      <option name="presentableId" value="LOCAL-00028" />
-      <option name="project" value="LOCAL" />
-      <updated>1553798286276</updated>
+      <workItem from="1567001742515" duration="331000" />
+      <workItem from="1567002136049" duration="628000" />
+      <workItem from="1567004841693" duration="866000" />
+      <workItem from="1567013680746" duration="13000" />
+      <workItem from="1567030373018" duration="717000" />
+      <workItem from="1567034111814" duration="2581000" />
+      <workItem from="1567042732146" duration="24000" />
+      <workItem from="1567134869121" duration="640000" />
+      <workItem from="1567137089244" duration="43000" />
+      <workItem from="1567169069401" duration="34000" />
+      <workItem from="1567301260891" duration="37000" />
+      <workItem from="1567305223140" duration="19000" />
+      <workItem from="1567473821206" duration="502000" />
+      <workItem from="1567479801088" duration="437000" />
+      <workItem from="1567531690200" duration="65000" />
+      <workItem from="1567536865751" duration="39000" />
+      <workItem from="1567616311127" duration="526000" />
+      <workItem from="1567786039291" duration="50000" />
+      <workItem from="1567800114493" duration="37000" />
+      <workItem from="1567868512975" duration="177000" />
+      <workItem from="1567869954593" duration="90000" />
+      <workItem from="1567973275497" duration="624000" />
+      <workItem from="1568571713158" duration="29000" />
+      <workItem from="1568575243530" duration="2363000" />
+      <workItem from="1568580693490" duration="250000" />
+      <workItem from="1568764013752" duration="35000" />
+      <workItem from="1568764133222" duration="10000" />
+      <workItem from="1568828524883" duration="198000" />
+      <workItem from="1570799349643" duration="191000" />
+      <workItem from="1570806164467" duration="933000" />
+      <workItem from="1570820221302" duration="1764000" />
+      <workItem from="1570843476909" duration="2438000" />
     </task>
     <task id="LOCAL-00029" summary="update documentation, add some flags for demo mode operation">
       <created>1553824295998</created>
@@ -673,7 +688,14 @@
       <option name="project" value="LOCAL" />
       <updated>1566997757175</updated>
     </task>
-    <option name="localTasksCounter" value="77" />
+    <task id="LOCAL-00077" summary="update look and feel and session logic">
+      <created>1567001824921</created>
+      <option name="number" value="00077" />
+      <option name="presentableId" value="LOCAL-00077" />
+      <option name="project" value="LOCAL" />
+      <updated>1567001824921</updated>
+    </task>
+    <option name="localTasksCounter" value="78" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -693,7 +715,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="add support for multiple database usage" />
     <MESSAGE value="update documentation" />
     <MESSAGE value="fix page going blank after returning from run query results tab" />
     <MESSAGE value="update documentation, add some flags for demo mode operation" />
@@ -718,6 +739,7 @@
     <MESSAGE value="add timeout for login info" />
     <MESSAGE value="update to support multitenant" />
     <MESSAGE value="update look and feel" />
-    <option name="LAST_COMMIT_MESSAGE" value="update look and feel" />
+    <MESSAGE value="update look and feel and session logic" />
+    <option name="LAST_COMMIT_MESSAGE" value="update look and feel and session logic" />
   </component>
 </project>

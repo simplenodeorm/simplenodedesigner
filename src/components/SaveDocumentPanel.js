@@ -15,6 +15,7 @@ class SaveDocumentPanel extends ModalDialog {
         this.onResultFormatChange = this.onResultFormatChange.bind(this);
         this.onDistinctChange = this.onDistinctChange.bind(this);
         this.onNameChange = this.onNameChange.bind(this);
+        this.removeLeafItems = this.removeLeafItems.bind(this);
         
         if (document.designData.currentDocument) {
             this.distinct = document.designData.currentDocument.distinct;
@@ -40,7 +41,7 @@ class SaveDocumentPanel extends ModalDialog {
         this.loadDocumentGroups();
     }
     
-    getIcon() {
+    getIcon(props) {
         return qfimage;
     }
     
@@ -138,26 +139,6 @@ class SaveDocumentPanel extends ModalDialog {
         };
     }
     
-    
-    loadAuthorizers() {
-        const curcomp = this;
-        const httpcfg = {
-            headers: getRequestHeaders()
-        };
-        
-        axios.get(getServerContext() +  '/api/query/authorizers', httpcfg)
-            .then((response) => {
-                if (response.status === 200) {
-                    curcomp.setState({authorizers: response.data});
-                } else {
-                    curcomp.setState({error: response.statusText});
-                }
-            })
-            .catch((err) => {
-                curcomp.setState({error: err.toString()});
-            });
-    }
-    
     loadDocumentGroups() {
         const curcomp = this;
         const httpcfg = {
@@ -166,18 +147,34 @@ class SaveDocumentPanel extends ModalDialog {
        axios.get(getServerContext() +  '/api/query/document/groups', httpcfg)
             .then((response) => {
                 if (response.status === 200) {
+                    this.removeLeafItems(response.data);
                     curcomp.setState({groups: response.data});
                 } else {
                     curcomp.props.setStatus(response.statusText, true);
                 }
             })
             .catch((err) => {
+                alert(err);
                 curcomp.setStatus(err.toString(), true);
             });
         
     }
-    
-    
+
+    removeLeafItems(curnode) {
+        if (curnode.children) {
+            let children = [];
+            for (let i = 0; i < curnode.children.length; ++i) {
+                if (!curnode.children[i].isLeaf) {
+                    children.push(curnode.children[i]);
+                }
+            }
+
+            curnode.children = children;
+            for (let i = 0; i < curnode.children.length; ++i) {
+                this.removeLeafItems(curnode.children[i]);
+            }
+        }
+    }
 }
 
 export {SaveDocumentPanel};
