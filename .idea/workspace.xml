@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="3973d6c5-e1ad-4f5e-bf6b-ba2816138a02" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/SaveDocumentPanel.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/SaveDocumentPanel.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -350,21 +351,9 @@
       <workItem from="1570799349643" duration="191000" />
       <workItem from="1570806164467" duration="933000" />
       <workItem from="1570820221302" duration="1764000" />
-      <workItem from="1570843476909" duration="2438000" />
-    </task>
-    <task id="LOCAL-00029" summary="update documentation, add some flags for demo mode operation">
-      <created>1553824295998</created>
-      <option name="number" value="00029" />
-      <option name="presentableId" value="LOCAL-00029" />
-      <option name="project" value="LOCAL" />
-      <updated>1553824295998</updated>
-    </task>
-    <task id="LOCAL-00030" summary="update documentation, add some flags for demo mode operation">
-      <created>1553830634887</created>
-      <option name="number" value="00030" />
-      <option name="presentableId" value="LOCAL-00030" />
-      <option name="project" value="LOCAL" />
-      <updated>1553830634887</updated>
+      <workItem from="1570843476909" duration="2740000" />
+      <workItem from="1570887796280" duration="941000" />
+      <workItem from="1570889030858" duration="430000" />
     </task>
     <task id="LOCAL-00031" summary="update README">
       <created>1553877606942</created>
@@ -695,7 +684,21 @@
       <option name="project" value="LOCAL" />
       <updated>1567001824921</updated>
     </task>
-    <option name="localTasksCounter" value="78" />
+    <task id="LOCAL-00078" summary="fix save tree display">
+      <created>1570845991407</created>
+      <option name="number" value="00078" />
+      <option name="presentableId" value="LOCAL-00078" />
+      <option name="project" value="LOCAL" />
+      <updated>1570845991407</updated>
+    </task>
+    <task id="LOCAL-00079" summary="fix save tree display">
+      <created>1570846020402</created>
+      <option name="number" value="00079" />
+      <option name="presentableId" value="LOCAL-00079" />
+      <option name="project" value="LOCAL" />
+      <updated>1570846020402</updated>
+    </task>
+    <option name="localTasksCounter" value="80" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -715,7 +718,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="update documentation" />
     <MESSAGE value="fix page going blank after returning from run query results tab" />
     <MESSAGE value="update documentation, add some flags for demo mode operation" />
     <MESSAGE value="update README" />
@@ -740,6 +742,7 @@
     <MESSAGE value="update to support multitenant" />
     <MESSAGE value="update look and feel" />
     <MESSAGE value="update look and feel and session logic" />
-    <option name="LAST_COMMIT_MESSAGE" value="update look and feel and session logic" />
+    <MESSAGE value="fix save tree display" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix save tree display" />
   </component>
 </project>

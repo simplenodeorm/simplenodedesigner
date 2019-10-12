@@ -15,8 +15,7 @@ class SaveDocumentPanel extends ModalDialog {
         this.onResultFormatChange = this.onResultFormatChange.bind(this);
         this.onDistinctChange = this.onDistinctChange.bind(this);
         this.onNameChange = this.onNameChange.bind(this);
-        this.removeLeafItems = this.removeLeafItems.bind(this);
-        
+
         if (document.designData.currentDocument) {
             this.distinct = document.designData.currentDocument.distinct;
             this.documentName = document.designData.currentDocument.documentName.replace(/_/g, ' ');
@@ -144,10 +143,9 @@ class SaveDocumentPanel extends ModalDialog {
         const httpcfg = {
             headers: getRequestHeaders()
         };
-       axios.get(getServerContext() +  '/api/query/document/groups', httpcfg)
+       axios.get(getServerContext() +  '/api/query/document/groupsonly', httpcfg)
             .then((response) => {
                 if (response.status === 200) {
-                    this.removeLeafItems(response.data);
                     curcomp.setState({groups: response.data});
                 } else {
                     curcomp.props.setStatus(response.statusText, true);
@@ -160,21 +158,6 @@ class SaveDocumentPanel extends ModalDialog {
         
     }
 
-    removeLeafItems(curnode) {
-        if (curnode.children) {
-            let children = [];
-            for (let i = 0; i < curnode.children.length; ++i) {
-                if (!curnode.children[i].isLeaf) {
-                    children.push(curnode.children[i]);
-                }
-            }
-
-            curnode.children = children;
-            for (let i = 0; i < curnode.children.length; ++i) {
-                this.removeLeafItems(curnode.children[i]);
-            }
-        }
-    }
 }
 
 export {SaveDocumentPanel};
