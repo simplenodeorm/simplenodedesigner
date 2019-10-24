@@ -1,8 +1,11 @@
+/*
+ * Copyright (c) 2019 simplenodeorm.org
+ */
+
 import React from 'react';
 import "../app/App.css";
 import {BaseDesignComponent} from './BaseDesignComponent';
 import {ClipboardButton} from './ClipboardButton';
-import {clearSelectedText} from './helpers';
 import {copyToClipboard} from './helpers';
 
 class QueryResultsPanel extends BaseDesignComponent {

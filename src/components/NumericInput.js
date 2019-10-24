@@ -1,3 +1,7 @@
+/*
+ * Copyright (c) 2019 simplenodeorm.org
+ */
+
 import React from 'react';
 
 class NumericInput extends React.Component {
