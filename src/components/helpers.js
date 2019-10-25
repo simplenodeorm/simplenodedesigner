@@ -257,8 +257,13 @@ export function getServerContext() {
 }
 
 export function getRequestHeaders() {
-    return {
-        'Authorization': localStorage.getItem(config.appname + '-auth'),
-        'my-session': localStorage.getItem(config.appname + '-my-session')
-    };
+    let session = sessionStorage.getItem("snosession");
+
+    if (session) {
+        return {
+            'X-snosession': sessionStorage.getItem("snosession")
+        };
+    } else {
+        return {};
+    }
 }
