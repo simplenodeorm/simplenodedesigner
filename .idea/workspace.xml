@@ -1,15 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3973d6c5-e1ad-4f5e-bf6b-ba2816138a02" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/auth/DesignerLogin.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/auth/LoginPage.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/auth/PrivateRoute.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/config/appconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/config/appconfig.json" afterDir="false" />
-    </list>
+    <list default="true" id="3973d6c5-e1ad-4f5e-bf6b-ba2816138a02" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -368,14 +360,7 @@
       <workItem from="1571937964751" duration="1299000" />
       <workItem from="1571942199951" duration="20000" />
       <workItem from="1571943195581" duration="869000" />
-      <workItem from="1572008327362" duration="2316000" />
-    </task>
-    <task id="LOCAL-00033" summary="fix reference to old this.isWhereValid function - now in helpers">
-      <created>1553969121660</created>
-      <option name="number" value="00033" />
-      <option name="presentableId" value="LOCAL-00033" />
-      <option name="project" value="LOCAL" />
-      <updated>1553969121660</updated>
+      <workItem from="1572008327362" duration="2402000" />
     </task>
     <task id="LOCAL-00034" summary="SIM-1 fix mysql date handling">
       <created>1554160970172</created>
@@ -713,7 +698,14 @@
       <option name="project" value="LOCAL" />
       <updated>1571930367561</updated>
     </task>
-    <option name="localTasksCounter" value="82" />
+    <task id="LOCAL-00082" summary="pull in simplenodeclientbase lib for login">
+      <created>1572011002561</created>
+      <option name="number" value="00082" />
+      <option name="presentableId" value="LOCAL-00082" />
+      <option name="project" value="LOCAL" />
+      <updated>1572011002561</updated>
+    </task>
+    <option name="localTasksCounter" value="83" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -733,7 +725,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="update documentation, add some flags for demo mode operation" />
     <MESSAGE value="update README" />
     <MESSAGE value="fix column selection tree clearing when changing column selections after document load" />
     <MESSAGE value="fix reference to old this.isWhereValid function - now in helpers" />
@@ -758,6 +749,7 @@
     <MESSAGE value="update look and feel and session logic" />
     <MESSAGE value="fix save tree display" />
     <MESSAGE value="add copyright" />
-    <option name="LAST_COMMIT_MESSAGE" value="add copyright" />
+    <MESSAGE value="pull in simplenodeclientbase lib for login" />
+    <option name="LAST_COMMIT_MESSAGE" value="pull in simplenodeclientbase lib for login" />
   </component>
 </project>
