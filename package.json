@@ -1,6 +1,6 @@
 {
   "name": "@simplenodeorm/simplenodedesigner",
-  "version": "1.1.28",
+  "version": "1.1.29",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/simplenodeorm/simplenodedesigner.git"
@@ -9,22 +9,23 @@
   "author": "Rob Tucker <rbtucker16@gmail.com>",
   "license": "ISC",
   "dependencies": {
+    "@simplenodeorm/simplenodeclientbase": "0.1.240",
     "axios": "^0.18.0",
     "base-64": "^0.1.0",
-    "uuid": "^3.3.3",
-    "bit-bin": "^14.1.0",
-    "history": "^4.9.0",
+    "bit-bin": "^14.4.2",
+    "history": "^4.10.1",
     "moment": "^2.23.0",
     "rc-tree": "^1.14.6",
-    "react": "^16.6.3",
+    "react": "^16.11.0",
     "react-datepicker": "^1.7.0",
-    "react-dom": "^16.5.0",
+    "react-dom": "^16.11.0",
     "react-router": "^4.3.1",
     "react-router-dom": "^4.3.1",
     "react-scripts": "1.1.5",
     "react-sidebar": "^3.0.2",
     "react-split-pane": "^0.1.84",
-    "react-tabs": "^2.3.0"
+    "react-tabs": "^2.3.0",
+    "uuid": "^3.3.3"
   },
   "bugs": {
     "url": "https://github.com/simplenodeorm/simplenodedesigner/issues"

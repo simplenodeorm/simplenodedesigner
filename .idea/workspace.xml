@@ -1,56 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3973d6c5-e1ad-4f5e-bf6b-ba2816138a02" name="Default Changelist" comment="add copyright">
+    <list default="true" id="3973d6c5-e1ad-4f5e-bf6b-ba2816138a02" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/auth/DesignerLogin.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/App.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/theme.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/theme.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/auth/LoginPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/auth/LoginPage.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/auth/PrivateRoute.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/auth/PrivateRoute.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/AddFilterColumn.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AddFilterColumn.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/AggregateFunctionSelect.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AggregateFunctionSelect.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/AppToolbar.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AppToolbar.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/AscDescCheckbox.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AscDescCheckbox.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/BaseDesignComponent.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/BaseDesignComponent.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/ClipboardButton.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ClipboardButton.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/CloseParenthesis.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/CloseParenthesis.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/ColumnLabel.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ColumnLabel.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/ColumnSettingsLine.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ColumnSettingsLine.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/ColumnSettingsPanel.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ColumnSettingsPanel.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/ComparisonOperatorSelect.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ComparisonOperatorSelect.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/ComparisonValueInput.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ComparisonValueInput.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/CustomColumnInput.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/CustomColumnInput.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/CustomFilterInput.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/CustomFilterInput.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/DesignTabs.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/DesignTabs.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/DocumentTree.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/DocumentTree.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/FilterLine.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/FilterLine.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/FilterPanel.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/FilterPanel.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/HelpButton.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/HelpButton.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/HomePage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/HomePage.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/LogicalOperatorSelect.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/LogicalOperatorSelect.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/MenuButton.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/MenuButton.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/ModalDialog.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ModalDialog.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/MoveButton.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/MoveButton.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/NumericInput.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/NumericInput.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/OpenParenthesis.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/OpenParenthesis.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/ParameterInputPanel.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ParameterInputPanel.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/QueryPanel.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/QueryPanel.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/QueryResultsPanel.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/QueryResultsPanel.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/RunButton.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/RunButton.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/SaveButton.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/SaveButton.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/SaveDocumentPanel.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/SaveDocumentPanel.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/SelectModelDataPanel.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/SelectModelDataPanel.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/SortPositionInput.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/SortPositionInput.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/SqlDisplayPanel.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/SqlDisplayPanel.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/SqlFormatter.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/SqlFormatter.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/StatusBar.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/StatusBar.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/defaultTree.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/defaultTree.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/helpers.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/helpers.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/registerServiceWorker.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/registerServiceWorker.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/auth/LoginPage.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/auth/PrivateRoute.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/config/appconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/config/appconfig.json" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -406,14 +364,11 @@
       <workItem from="1571014137165" duration="16000" />
       <workItem from="1571181924121" duration="15000" />
       <workItem from="1571678094789" duration="34000" />
-      <workItem from="1571930189032" duration="160000" />
-    </task>
-    <task id="LOCAL-00032" summary="fix column selection tree clearing when changing column selections after document load">
-      <created>1553918081543</created>
-      <option name="number" value="00032" />
-      <option name="presentableId" value="LOCAL-00032" />
-      <option name="project" value="LOCAL" />
-      <updated>1553918081543</updated>
+      <workItem from="1571930189032" duration="220000" />
+      <workItem from="1571937964751" duration="1299000" />
+      <workItem from="1571942199951" duration="20000" />
+      <workItem from="1571943195581" duration="869000" />
+      <workItem from="1572008327362" duration="2316000" />
     </task>
     <task id="LOCAL-00033" summary="fix reference to old this.isWhereValid function - now in helpers">
       <created>1553969121660</created>
@@ -751,7 +706,14 @@
       <option name="project" value="LOCAL" />
       <updated>1570889499333</updated>
     </task>
-    <option name="localTasksCounter" value="81" />
+    <task id="LOCAL-00081" summary="add copyright">
+      <created>1571930367561</created>
+      <option name="number" value="00081" />
+      <option name="presentableId" value="LOCAL-00081" />
+      <option name="project" value="LOCAL" />
+      <updated>1571930367561</updated>
+    </task>
+    <option name="localTasksCounter" value="82" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
