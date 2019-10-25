@@ -366,14 +366,8 @@
       <workItem from="1571943195581" duration="869000" />
       <workItem from="1572008327362" duration="2402000" />
       <workItem from="1572011213898" duration="56000" />
-      <workItem from="1572011948319" duration="27000" />
-    </task>
-    <task id="LOCAL-00035" summary="SIM-1 fix mysql date handling">
-      <created>1554161065234</created>
-      <option name="number" value="00035" />
-      <option name="presentableId" value="LOCAL-00035" />
-      <option name="project" value="LOCAL" />
-      <updated>1554161065234</updated>
+      <workItem from="1572011948319" duration="71000" />
+      <workItem from="1572012164024" duration="20000" />
     </task>
     <task id="LOCAL-00036" summary="SIM-6 clear previous query results when loading a new document">
       <created>1554950035005</created>
@@ -711,7 +705,14 @@
       <option name="project" value="LOCAL" />
       <updated>1572011233151</updated>
     </task>
-    <option name="localTasksCounter" value="84" />
+    <task id="LOCAL-00084" summary="pull in simplenodeclientbase lib for login">
+      <created>1572011982697</created>
+      <option name="number" value="00084" />
+      <option name="presentableId" value="LOCAL-00084" />
+      <option name="project" value="LOCAL" />
+      <updated>1572011982697</updated>
+    </task>
+    <option name="localTasksCounter" value="85" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

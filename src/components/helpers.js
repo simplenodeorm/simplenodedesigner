@@ -243,13 +243,13 @@ export function isGroupByRequired() {
 }
 
 export function getServerContext() {
-    let retval = localStorage.getItem('context');
+    let retval = localStorage.getItem('__context');
     let search = window.location.search;
     let params = new URLSearchParams(search);
     let context = params.get('context');
 
     if ((!retval && context) || (retval && context && (context !== retval))) {
-        localStorage.setItem('context', context);
+        localStorage.setItem('__context', context);
         retval = context;
     }
 
