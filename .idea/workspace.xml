@@ -3,6 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="3973d6c5-e1ad-4f5e-bf6b-ba2816138a02" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/App.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/theme.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/theme.css" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -378,13 +381,9 @@
       <workItem from="1572138482968" duration="4640000" />
       <workItem from="1572143357672" duration="12000" />
       <workItem from="1572143447461" duration="383000" />
-    </task>
-    <task id="LOCAL-00039" summary="SIM-8 force query that reqires group by to have result format of result set">
-      <created>1555115339384</created>
-      <option name="number" value="00039" />
-      <option name="presentableId" value="LOCAL-00039" />
-      <option name="project" value="LOCAL" />
-      <updated>1555115339384</updated>
+      <workItem from="1572144029902" duration="544000" />
+      <workItem from="1572145049254" duration="152000" />
+      <workItem from="1572209094155" duration="760000" />
     </task>
     <task id="LOCAL-00040" summary="make changes to handle customSelect input correctly">
       <created>1555876719644</created>
@@ -722,7 +721,14 @@
       <option name="project" value="LOCAL" />
       <updated>1572143223077</updated>
     </task>
-    <option name="localTasksCounter" value="88" />
+    <task id="LOCAL-00088" summary="pull in simplenodeclientbase lib for DocumentTree">
+      <created>1572144051479</created>
+      <option name="number" value="00088" />
+      <option name="presentableId" value="LOCAL-00088" />
+      <option name="project" value="LOCAL" />
+      <updated>1572144051479</updated>
+    </task>
+    <option name="localTasksCounter" value="89" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
