@@ -1,12 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3973d6c5-e1ad-4f5e-bf6b-ba2816138a02" name="Default Changelist" comment="pull in simplenodeclientbase lib for login">
+    <list default="true" id="3973d6c5-e1ad-4f5e-bf6b-ba2816138a02" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/App.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/DocumentTree.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/QueryDocumentTree.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/HomePage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/HomePage.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -379,14 +375,9 @@
       <workItem from="1572097380011" duration="115000" />
       <workItem from="1572101778988" duration="142000" />
       <workItem from="1572136251257" duration="1614000" />
-      <workItem from="1572138482968" duration="4440000" />
-    </task>
-    <task id="LOCAL-00038" summary="SIM-8 force query that reqires group by to have result format of result set">
-      <created>1555115217193</created>
-      <option name="number" value="00038" />
-      <option name="presentableId" value="LOCAL-00038" />
-      <option name="project" value="LOCAL" />
-      <updated>1555115217193</updated>
+      <workItem from="1572138482968" duration="4640000" />
+      <workItem from="1572143357672" duration="12000" />
+      <workItem from="1572143447461" duration="383000" />
     </task>
     <task id="LOCAL-00039" summary="SIM-8 force query that reqires group by to have result format of result set">
       <created>1555115339384</created>
@@ -724,7 +715,14 @@
       <option name="project" value="LOCAL" />
       <updated>1572101794886</updated>
     </task>
-    <option name="localTasksCounter" value="87" />
+    <task id="LOCAL-00087" summary="pull in simplenodeclientbase lib for DocumentTree">
+      <created>1572143223077</created>
+      <option name="number" value="00087" />
+      <option name="presentableId" value="LOCAL-00087" />
+      <option name="project" value="LOCAL" />
+      <updated>1572143223077</updated>
+    </task>
+    <option name="localTasksCounter" value="88" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -744,7 +742,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="update README" />
     <MESSAGE value="fix column selection tree clearing when changing column selections after document load" />
     <MESSAGE value="fix reference to old this.isWhereValid function - now in helpers" />
     <MESSAGE value="SIM-1 fix mysql date handling" />
@@ -769,6 +766,7 @@
     <MESSAGE value="fix save tree display" />
     <MESSAGE value="add copyright" />
     <MESSAGE value="pull in simplenodeclientbase lib for login" />
-    <option name="LAST_COMMIT_MESSAGE" value="pull in simplenodeclientbase lib for login" />
+    <MESSAGE value="pull in simplenodeclientbase lib for DocumentTree" />
+    <option name="LAST_COMMIT_MESSAGE" value="pull in simplenodeclientbase lib for DocumentTree" />
   </component>
 </project>
