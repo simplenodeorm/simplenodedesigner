@@ -4,6 +4,9 @@
     <list default="true" id="3973d6c5-e1ad-4f5e-bf6b-ba2816138a02" name="Default Changelist" comment="pull in simplenodeclientbase lib for login">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/App.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/DocumentTree.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/QueryDocumentTree.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/HomePage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/HomePage.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -374,14 +377,9 @@
       <workItem from="1572056914540" duration="668000" />
       <workItem from="1572097158576" duration="66000" />
       <workItem from="1572097380011" duration="115000" />
-      <workItem from="1572101778988" duration="10000" />
-    </task>
-    <task id="LOCAL-00037" summary="SIM-6 clear previous query results when loading a new document">
-      <created>1554952654992</created>
-      <option name="number" value="00037" />
-      <option name="presentableId" value="LOCAL-00037" />
-      <option name="project" value="LOCAL" />
-      <updated>1554952654993</updated>
+      <workItem from="1572101778988" duration="142000" />
+      <workItem from="1572136251257" duration="1614000" />
+      <workItem from="1572138482968" duration="4440000" />
     </task>
     <task id="LOCAL-00038" summary="SIM-8 force query that reqires group by to have result format of result set">
       <created>1555115217193</created>
@@ -719,7 +717,14 @@
       <option name="project" value="LOCAL" />
       <updated>1572012196125</updated>
     </task>
-    <option name="localTasksCounter" value="86" />
+    <task id="LOCAL-00086" summary="pull in simplenodeclientbase lib for login">
+      <created>1572101794885</created>
+      <option name="number" value="00086" />
+      <option name="presentableId" value="LOCAL-00086" />
+      <option name="project" value="LOCAL" />
+      <updated>1572101794886</updated>
+    </task>
+    <option name="localTasksCounter" value="87" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
