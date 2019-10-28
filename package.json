@@ -9,7 +9,7 @@
   "author": "Rob Tucker <rbtucker16@gmail.com>",
   "license": "ISC",
   "dependencies": {
-    "@simplenodeorm/simplenodeclientbase": "0.1.246",
+    "@simplenodeorm/simplenodeclientbase": "0.1.255",
     "axios": "^0.18.0",
     "base-64": "^0.1.0",
     "bit-bin": "^14.4.3",

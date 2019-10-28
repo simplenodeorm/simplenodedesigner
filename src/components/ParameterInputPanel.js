@@ -5,7 +5,7 @@
 import React from 'react';
 import "../app/App.css";
 import config from '../config/appconfig.json';
-import {ComparisonValueInput} from './ComparisonValueInput';
+import {ComparisonValueInput} from './ComparisonValueInput.js';
 import {ModalDialog} from './ModalDialog';
 import {isUnaryOperator} from './helpers';
 
@@ -29,14 +29,14 @@ class ParameterInputPanel extends ModalDialog {
         const initParams = (this.params.length === 0);
         const inputLoop = (data) => {
             let ipos = 0;
-            return data.map((p, i) => {
+            return data.map((p) => {
                 if (!p.comparisonValue && !isUnaryOperator(p.comparisonOperator) && !p.customFilterInput) {
                     if (initParams) {
                         this.params.push('');
                     }
                     let pos = p.fieldName.lastIndexOf('.');
                     this.comparisonOperators.push(p.comparisonOperator);
-                    return <tr><td title={p.fieldName} className="inputLabel">{p.fieldName.substring(pos+1) + ':'}</td><td>
+                    return <tr><td title={p.fieldName} className="inputLabel">{p.fieldName.substring(pos+1) + ' ' + p.comparisonOperator}</td><td>
                         <ComparisonValueInput 
                             setValue={this.setValue} 
                             getValue={this.getValue}

@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3973d6c5-e1ad-4f5e-bf6b-ba2816138a02" name="Default Changelist" comment="">
+    <list default="true" id="3973d6c5-e1ad-4f5e-bf6b-ba2816138a02" name="Default Changelist" comment="remove DatePicker and use input type=&quot;date&quot;">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/App.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/theme.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/theme.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ComparisonValueInput.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ComparisonValueInput.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/FilterLine.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/FilterLine.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ParameterInputPanel.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ParameterInputPanel.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -383,14 +385,11 @@
       <workItem from="1572143447461" duration="383000" />
       <workItem from="1572144029902" duration="544000" />
       <workItem from="1572145049254" duration="152000" />
-      <workItem from="1572209094155" duration="760000" />
-    </task>
-    <task id="LOCAL-00040" summary="make changes to handle customSelect input correctly">
-      <created>1555876719644</created>
-      <option name="number" value="00040" />
-      <option name="presentableId" value="LOCAL-00040" />
-      <option name="project" value="LOCAL" />
-      <updated>1555876719644</updated>
+      <workItem from="1572209094155" duration="831000" />
+      <workItem from="1572214104763" duration="1500000" />
+      <workItem from="1572226320044" duration="46000" />
+      <workItem from="1572282495997" duration="4522000" />
+      <workItem from="1572287085908" duration="2627000" />
     </task>
     <task id="LOCAL-00041" summary="SIM-2 implement postgrsql support">
       <created>1556291220379</created>
@@ -728,7 +727,14 @@
       <option name="project" value="LOCAL" />
       <updated>1572144051479</updated>
     </task>
-    <option name="localTasksCounter" value="89" />
+    <task id="LOCAL-00089" summary="pull in simplenodeclientbase lib for DocumentTree">
+      <created>1572209868803</created>
+      <option name="number" value="00089" />
+      <option name="presentableId" value="LOCAL-00089" />
+      <option name="project" value="LOCAL" />
+      <updated>1572209868803</updated>
+    </task>
+    <option name="localTasksCounter" value="90" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -748,7 +754,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="fix column selection tree clearing when changing column selections after document load" />
     <MESSAGE value="fix reference to old this.isWhereValid function - now in helpers" />
     <MESSAGE value="SIM-1 fix mysql date handling" />
     <MESSAGE value="SIM-6 clear previous query results when loading a new document" />
@@ -773,6 +778,7 @@
     <MESSAGE value="add copyright" />
     <MESSAGE value="pull in simplenodeclientbase lib for login" />
     <MESSAGE value="pull in simplenodeclientbase lib for DocumentTree" />
-    <option name="LAST_COMMIT_MESSAGE" value="pull in simplenodeclientbase lib for DocumentTree" />
+    <MESSAGE value="remove DatePicker and use input type=&quot;date&quot;" />
+    <option name="LAST_COMMIT_MESSAGE" value="remove DatePicker and use input type=&quot;date&quot;" />
   </component>
 </project>

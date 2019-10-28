@@ -9,7 +9,7 @@ import {LogicalOperatorSelect} from './LogicalOperatorSelect';
 import {OpenParenthesis} from './OpenParenthesis';
 import {CloseParenthesis} from './CloseParenthesis';
 import {ComparisonOperatorSelect} from './ComparisonOperatorSelect';
-import {ComparisonValueInput} from './ComparisonValueInput';
+import {ComparisonValueInput} from './ComparisonValueInput.js';
 import {CustomFilterInput} from './CustomFilterInput';
 
 class FilterLine extends React.Component {

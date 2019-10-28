@@ -6,9 +6,7 @@ import React from 'react';
 import "../app/App.css";
 import {BaseDesignComponent} from './BaseDesignComponent';
 import {NumericInput} from './NumericInput';
-import DatePicker from 'react-datepicker';
 import {isWhereValid} from './helpers';
-import 'react-datepicker/dist/react-datepicker.css';
 
 class ComparisonValueInput extends BaseDesignComponent {
     constructor(props) {
@@ -20,15 +18,12 @@ class ComparisonValueInput extends BaseDesignComponent {
         const val = this.props.getValue(this.props.index);
         switch(this.props.fieldType) {
             case 'date':
-                return <DatePicker 
-                    withPortal={this.props.usePortal}
-                    className="dateInput"
-                    dateFormat="MM/DD/YYYY"
-                    selected={val} 
-                    onChange={this.onBlur} />;
+                return <input style={{marginLeft: "10px"}} className="dateInput" type={"date"} defaultValue={val} onBlur={this.onBlur}/>;
             case 'number':
             case 'float':
-                return <NumericInput 
+            case 'int':
+            case 'bigint':
+                return <NumericInput
                     maxLength='8' 
                     onBlur={this.onBlur}
                     index={this.props.index}
@@ -45,7 +40,7 @@ class ComparisonValueInput extends BaseDesignComponent {
 
     onBlur(val) {
         if (this.props.fieldType === 'date') {
-            this.props.setValue(this.props.index, val);
+            this.props.setValue(this.props.index, new Date(val.target.value));
         } else {
             this.props.setValue(this.props.index, val.target.value);
         }

@@ -471,7 +471,14 @@ input[type="submit"] {
 
 .formatSelectionLine .dateInput {
     margin: 2px;
-    width: 70px;
+    padding-left: 5px;
+    width: 120px;
+}
+
+.dateInput {
+    margin: 2px;
+    padding-left: 5px;
+    width: 120px;
     height: var(--default-input-height);
 }
 
