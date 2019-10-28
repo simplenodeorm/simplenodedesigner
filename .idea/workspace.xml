@@ -1,13 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3973d6c5-e1ad-4f5e-bf6b-ba2816138a02" name="Default Changelist" comment="remove DatePicker and use input type=&quot;date&quot;">
+    <list default="true" id="3973d6c5-e1ad-4f5e-bf6b-ba2816138a02" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/App.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/ComparisonValueInput.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ComparisonValueInput.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/FilterLine.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/FilterLine.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/ParameterInputPanel.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ParameterInputPanel.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -389,14 +385,8 @@
       <workItem from="1572214104763" duration="1500000" />
       <workItem from="1572226320044" duration="46000" />
       <workItem from="1572282495997" duration="4522000" />
-      <workItem from="1572287085908" duration="2627000" />
-    </task>
-    <task id="LOCAL-00041" summary="SIM-2 implement postgrsql support">
-      <created>1556291220379</created>
-      <option name="number" value="00041" />
-      <option name="presentableId" value="LOCAL-00041" />
-      <option name="project" value="LOCAL" />
-      <updated>1556291220379</updated>
+      <workItem from="1572287085908" duration="2674000" />
+      <workItem from="1572289792085" duration="9000" />
     </task>
     <task id="LOCAL-00042" summary="SIM-2 implement postgrsql support">
       <created>1556293752441</created>
@@ -734,7 +724,14 @@
       <option name="project" value="LOCAL" />
       <updated>1572209868803</updated>
     </task>
-    <option name="localTasksCounter" value="90" />
+    <task id="LOCAL-00090" summary="remove DatePicker and use input type=&quot;date&quot;">
+      <created>1572289723669</created>
+      <option name="number" value="00090" />
+      <option name="presentableId" value="LOCAL-00090" />
+      <option name="project" value="LOCAL" />
+      <updated>1572289723669</updated>
+    </task>
+    <option name="localTasksCounter" value="91" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
