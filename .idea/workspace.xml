@@ -386,14 +386,11 @@
       <workItem from="1572226320044" duration="46000" />
       <workItem from="1572282495997" duration="4522000" />
       <workItem from="1572287085908" duration="2674000" />
-      <workItem from="1572289792085" duration="9000" />
-    </task>
-    <task id="LOCAL-00042" summary="SIM-2 implement postgrsql support">
-      <created>1556293752441</created>
-      <option name="number" value="00042" />
-      <option name="presentableId" value="LOCAL-00042" />
-      <option name="project" value="LOCAL" />
-      <updated>1556293752441</updated>
+      <workItem from="1572289792085" duration="65000" />
+      <workItem from="1572290883107" duration="18000" />
+      <workItem from="1572291649266" duration="625000" />
+      <workItem from="1572301175076" duration="1397000" />
+      <workItem from="1572312096218" duration="2831000" />
     </task>
     <task id="LOCAL-00043" summary="SIM-2 implement postgrsql support">
       <created>1556294161965</created>
@@ -731,7 +728,14 @@
       <option name="project" value="LOCAL" />
       <updated>1572289723669</updated>
     </task>
-    <option name="localTasksCounter" value="91" />
+    <task id="LOCAL-00091" summary="remove DatePicker and use input type=&quot;date&quot;">
+      <created>1572289806603</created>
+      <option name="number" value="00091" />
+      <option name="presentableId" value="LOCAL-00091" />
+      <option name="project" value="LOCAL" />
+      <updated>1572289806603</updated>
+    </task>
+    <option name="localTasksCounter" value="92" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
