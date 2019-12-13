@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3973d6c5-e1ad-4f5e-bf6b-ba2816138a02" name="Default Changelist" comment="update simplenodeclientbase lib">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="3973d6c5-e1ad-4f5e-bf6b-ba2816138a02" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -398,13 +398,7 @@
       <workItem from="1572665310403" duration="15000" />
       <workItem from="1576206184855" duration="109000" />
       <workItem from="1576209753288" duration="6000" />
-    </task>
-    <task id="LOCAL-00045" summary="clean up some demoMode settings">
-      <created>1556324253295</created>
-      <option name="number" value="00045" />
-      <option name="presentableId" value="LOCAL-00045" />
-      <option name="project" value="LOCAL" />
-      <updated>1556324253295</updated>
+      <workItem from="1576277975286" duration="151000" />
     </task>
     <task id="LOCAL-00046" summary="clean up some demoMode settings">
       <created>1556382397877</created>
@@ -742,7 +736,14 @@
       <option name="project" value="LOCAL" />
       <updated>1572372429404</updated>
     </task>
-    <option name="localTasksCounter" value="94" />
+    <task id="LOCAL-00094" summary="change package.json homepage">
+      <created>1576278014116</created>
+      <option name="number" value="00094" />
+      <option name="presentableId" value="LOCAL-00094" />
+      <option name="project" value="LOCAL" />
+      <updated>1576278014118</updated>
+    </task>
+    <option name="localTasksCounter" value="95" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -762,7 +763,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="SIM-1 fix mysql date handling" />
     <MESSAGE value="SIM-6 clear previous query results when loading a new document" />
     <MESSAGE value="SIM-8 force query that reqires group by to have result format of result set" />
     <MESSAGE value="make changes to handle customSelect input correctly" />
@@ -787,6 +787,7 @@
     <MESSAGE value="pull in simplenodeclientbase lib for DocumentTree" />
     <MESSAGE value="remove DatePicker and use input type=&quot;date&quot;" />
     <MESSAGE value="update simplenodeclientbase lib" />
-    <option name="LAST_COMMIT_MESSAGE" value="update simplenodeclientbase lib" />
+    <MESSAGE value="change package.json homepage" />
+    <option name="LAST_COMMIT_MESSAGE" value="change package.json homepage" />
   </component>
 </project>
