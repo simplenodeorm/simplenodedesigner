@@ -1,11 +1,11 @@
 {
   "name": "@simplenodeorm/simplenodedesigner",
-  "version": "1.1.38",
+  "version": "1.1.39",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/simplenodeorm/simplenodedesigner.git"
   },
-  "homepage": "querydesign",
+  "homepage": ".",
   "author": "Rob Tucker <rbtucker16@gmail.com>",
   "license": "ISC",
   "dependencies": {

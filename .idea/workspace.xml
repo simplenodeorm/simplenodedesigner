@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3973d6c5-e1ad-4f5e-bf6b-ba2816138a02" name="Default Changelist" comment="">
+    <list default="true" id="3973d6c5-e1ad-4f5e-bf6b-ba2816138a02" name="Default Changelist" comment="update simplenodeclientbase lib">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -391,14 +390,14 @@
       <workItem from="1572291649266" duration="625000" />
       <workItem from="1572301175076" duration="1397000" />
       <workItem from="1572312096218" duration="3021000" />
-      <workItem from="1572372313964" duration="33000" />
-    </task>
-    <task id="LOCAL-00044" summary="clean up some demoMode settings">
-      <created>1556323973390</created>
-      <option name="number" value="00044" />
-      <option name="presentableId" value="LOCAL-00044" />
-      <option name="project" value="LOCAL" />
-      <updated>1556323973390</updated>
+      <workItem from="1572372313964" duration="132000" />
+      <workItem from="1572441129133" duration="29000" />
+      <workItem from="1572574177135" duration="1349000" />
+      <workItem from="1572658383453" duration="807000" />
+      <workItem from="1572663811535" duration="972000" />
+      <workItem from="1572665310403" duration="15000" />
+      <workItem from="1576206184855" duration="109000" />
+      <workItem from="1576209753288" duration="6000" />
     </task>
     <task id="LOCAL-00045" summary="clean up some demoMode settings">
       <created>1556324253295</created>
@@ -736,7 +735,14 @@
       <option name="project" value="LOCAL" />
       <updated>1572315355141</updated>
     </task>
-    <option name="localTasksCounter" value="93" />
+    <task id="LOCAL-00093" summary="update simplenodeclientbase lib">
+      <created>1572372429404</created>
+      <option name="number" value="00093" />
+      <option name="presentableId" value="LOCAL-00093" />
+      <option name="project" value="LOCAL" />
+      <updated>1572372429404</updated>
+    </task>
+    <option name="localTasksCounter" value="94" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -756,7 +762,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="fix reference to old this.isWhereValid function - now in helpers" />
     <MESSAGE value="SIM-1 fix mysql date handling" />
     <MESSAGE value="SIM-6 clear previous query results when loading a new document" />
     <MESSAGE value="SIM-8 force query that reqires group by to have result format of result set" />
@@ -781,6 +786,7 @@
     <MESSAGE value="pull in simplenodeclientbase lib for login" />
     <MESSAGE value="pull in simplenodeclientbase lib for DocumentTree" />
     <MESSAGE value="remove DatePicker and use input type=&quot;date&quot;" />
-    <option name="LAST_COMMIT_MESSAGE" value="remove DatePicker and use input type=&quot;date&quot;" />
+    <MESSAGE value="update simplenodeclientbase lib" />
+    <option name="LAST_COMMIT_MESSAGE" value="update simplenodeclientbase lib" />
   </component>
 </project>
