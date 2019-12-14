@@ -211,20 +211,10 @@ class DesignTabs extends BaseDesignComponent {
                     }
                     const modelLoop = (data) => {
                         return data.map((item) => {
-                            if (aset.length > 1) {
-                                return <button
-                                    onClick={(e) => curcomp.onSetSidebarOpen(false, item.name, e)}>{'[' + item.poolAlias + '] ' + item.name}</button>;
-                            } else {
-                                return <button onClick={(e) => curcomp.onSetSidebarOpen(false, item.name, e)}>{item.name}</button>;
-                            }
+                            return <button onClick={(e) => curcomp.onSetSidebarOpen(false, item, e)}>{item}</button>;
                         });
                     };
-                    response.data.sort(function(m1, m2) {
-                        let dname1 = (m1.poolAlias + '.' + m1.name);
-                        let dname2 = (m2.poolAlias + '.' + m2.name);
-                        return dname1 > dname2;
-                        
-                    });
+                    response.data.sort();
                     document.designData.models = <div className="sidebarContainer">{modelLoop(response.data)}</div>;
                     curcomp.setState({sidebarOpen: true});
                 } else {

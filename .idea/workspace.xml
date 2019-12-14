@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3973d6c5-e1ad-4f5e-bf6b-ba2816138a02" name="Default Changelist" comment="">
+    <list default="true" id="3973d6c5-e1ad-4f5e-bf6b-ba2816138a02" name="Default Changelist" comment="fix model list load due to changes in simplenodeorm model results">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/DesignTabs.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/DesignTabs.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -398,14 +400,10 @@
       <workItem from="1572665310403" duration="15000" />
       <workItem from="1576206184855" duration="109000" />
       <workItem from="1576209753288" duration="6000" />
-      <workItem from="1576277975286" duration="151000" />
-    </task>
-    <task id="LOCAL-00046" summary="clean up some demoMode settings">
-      <created>1556382397877</created>
-      <option name="number" value="00046" />
-      <option name="presentableId" value="LOCAL-00046" />
-      <option name="project" value="LOCAL" />
-      <updated>1556382397877</updated>
+      <workItem from="1576277975286" duration="224000" />
+      <workItem from="1576323784614" duration="15000" />
+      <workItem from="1576340466655" duration="468000" />
+      <workItem from="1576359143907" duration="283000" />
     </task>
     <task id="LOCAL-00047" summary="clean up some demoMode settings">
       <created>1556752079709</created>
@@ -743,7 +741,14 @@
       <option name="project" value="LOCAL" />
       <updated>1576278014118</updated>
     </task>
-    <option name="localTasksCounter" value="95" />
+    <task id="LOCAL-00095" summary="change package.json homepage">
+      <created>1576278139871</created>
+      <option name="number" value="00095" />
+      <option name="presentableId" value="LOCAL-00095" />
+      <option name="project" value="LOCAL" />
+      <updated>1576278139871</updated>
+    </task>
+    <option name="localTasksCounter" value="96" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -763,7 +768,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="SIM-6 clear previous query results when loading a new document" />
     <MESSAGE value="SIM-8 force query that reqires group by to have result format of result set" />
     <MESSAGE value="make changes to handle customSelect input correctly" />
     <MESSAGE value="SIM-2 implement postgrsql support" />
@@ -788,6 +792,7 @@
     <MESSAGE value="remove DatePicker and use input type=&quot;date&quot;" />
     <MESSAGE value="update simplenodeclientbase lib" />
     <MESSAGE value="change package.json homepage" />
-    <option name="LAST_COMMIT_MESSAGE" value="change package.json homepage" />
+    <MESSAGE value="fix model list load due to changes in simplenodeorm model results" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix model list load due to changes in simplenodeorm model results" />
   </component>
 </project>
